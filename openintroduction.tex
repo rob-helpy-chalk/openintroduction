@@ -1,0 +1,156 @@
+\documentclass[openany, twoside]{book}
+
+%glossary and indexing stuff
+\usepackage[toc, nopostdot, numberedsection]{glossaries}
+\usepackage{datatool}
+%\newglossary*{catstatements}{Chapter \ref{chap:catstatements} Key Terms}
+%\newglossary*{catsyllogisms}{Key Terms}
+\renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+\makeglossaries
+
+\usepackage{textcomp}
+\usepackage{anyfontsize}	
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{changepage}
+\usepackage{syntonly}
+\usepackage{enumitem}
+\usepackage{turnstile}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{fixltx2e}	
+\usepackage{wasysym}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{fancyref}
+\usepackage{etoolbox}
+%\usepackage{amsthm} for some reason, this conflicts with the fitch.sty part of openlogic.sty. 
+
+%%% Bibstuff
+\usepackage{natbib}
+\usepackage[nottoc,numbib]{tocbibind}
+
+%%%  graphics packages %%%
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds,matrix,arrows,decorations,positioning,arrows.new}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+%%%    Table and figure packages %%%
+\usepackage[singlelinecheck=false, skip=0pt]{caption} %left aligns captions for tables, moves them closer to table. 
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage[framemethod=1]{mdframed} 
+\usepackage{wrapfig} %I used this to put a frame around tables.
+\tabulinesep=.75ex
+\usepackage{colortbl}
+\floatstyle{plain} 
+\restylefloat{figure}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{openintroduction}
+\usepackage{rotating}
+	
+	
+	
+	
+\pdfinfo{
+  /Title (An Open Introduction to Logic)
+  /Author (J. Robert Loftis, Cathal Woods, and P.D. Magnus)
+  /Subject (An open access introductory textbook in logic and critical thinking)
+  )
+}
+
+\begin{document}
+\raggedright
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}	
+
+\frontmatter
+\pagestyle{plain} %Says there are no running heads, only page numbers centered at the bottom. 
+\include{tex/01-cover}
+\include{tex/02-frontmatter}	
+{
+\setlength{\parskip}{0em}
+\cftpagenumbersoff{part}
+%\cftpagenumbersoff{chapter}
+
+\renewcommand{\cftpartpresnum}{\sf\Large\partname\ }
+\tableofcontents
+}
+
+\include{tex/03-aboutthisbook}
+\include{tex/04-acknowledgements}
+
+
+
+\mainmatter
+\setlength{\parindent}{1em}
+\pagestyle{headings} % puts the running heads back.
+%\label{full_version} %Include this label to make cross references work right when typesetting full text
+
+\part{Basic Concepts} \label{part:basic_concepts}
+\include{tex/ch01-whatislogic}	
+\include{tex/ch02-basicevaluation}
+
+\part{Formal Logic} \label{part:formal_logic}
+\include{tex/ch03-whatisformallogic}
+%\part{Categorical Logic}\label{part:cat_logic}
+\include{tex/ch04-categoricalstatements}
+\include{tex/ch05-categoricalsyllogisms}
+%\part{Sentential Logic}\label{part:sent_logic}
+\include{tex/ch06-sentential}	
+\include{tex/ch07-truthtables}
+\include{tex/ch08-proofsinsl}
+%\part{Quantificational Logic} \label{part:quant_logic}
+\include{tex/ch09-predicate}
+\include{tex/ch10-semanticsforql}
+\include{tex/ch11-proofsinql}
+
+
+\part{Critical Thinking} \label{part:CT}	
+\include{tex/ch12-whatiscriticalthinking}
+\include{tex/ch13-substitutes}
+\include{tex/ch14-incompletearguments}
+\include{tex/ch15-emotions}
+\include{tex/ch16-generalizations}
+\include{tex/ch17-analogy}
+\include{tex/ch18-sources}
+\include{tex/ch19-maps}
+\include{tex/ch20-practicalarguments}
+
+\part{Inductive and Scientific Reasoning}  \label{part:inductive_scientific}
+\include{tex/ch21-whatareinductionandscientificreasoning}
+\include{tex/ch22-inductioninscience}
+\include{tex/ch23-mills-methods}
+\include{tex/ch24-causation-explanation}
+\include{tex/ch25-Analogy-in-Science}
+\include{tex/ch26-experimental-methods}
+\include{tex/ch27-Association-Diagrams-Cross-Tabulations}
+\include{tex/ch28-Explanation-Building}
+\include{tex/ch29-Problems-In-Induction}
+
+\appendix
+\include{tex/z-app-notation}
+%\include{app-solutions}
+
+\begin{flushleft}
+\bibliography{tex/z-openlogic}{}
+\bibliographystyle{Chicago}
+\end{flushleft}
+
+\setglossarysection{chapter}
+\printglossaries
+
+%\include{tex/zz-quickreference}
+\include{tex/zzz-backmatter}	
+
+
+
+
+
+
+
+\end{document}

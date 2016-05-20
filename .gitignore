@@ -47,3 +47,14 @@ Temporary Items
 .apdisk
 *.aux
 *.log
+*.bbl
+*.blg
+*.glg
+*.glo
+*.glsdefs
+*.gls
+*.ist
+*.pdf
+*.gz
+openintroduction.toc
+openlogic.xdy
