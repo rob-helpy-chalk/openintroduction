@@ -389,6 +389,23 @@ userdefinedwidth=\textwidth}
 \renewcommand{\sectionmark}[1]{}
 
 
+% The line below should suppress the page numbers on the splash pages that separate the major parts of the book. 
+
+\renewcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%   % Original »plain« replaced by »emptyx
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart}
 
 %    ****************************************
 %    *             TRUTH TABLES             *

@@ -1971,7 +1971,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \noindent\problempart Derive the following 
 \begin{enumerate}[label=(\arabic*)]
 
-\item $K\eand L \sststile{}{} K\eiff L$
+\item $\{K\eand L\} \sststile{}{} K\eiff L$
 %originally Chapter 6, part B, number 1
 
 %
@@ -2032,27 +2032,24 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 %\have{13}{X \eiff Y} \by{\eiff I}{4-7, 8-12} 
 %\end{proof}
 
-\item $\{K\} \sststile{}{} S \eif (T \eif S)$
 
-%4)  $\{K \sststile{}{} S \eif (T \eif S)$
-%
-%\begin{proof}
-%\hypo{1}{K} \by{Want: $S \eif (T \eif S)$}{}
-%	\open
-%	\hypo{2}{S} \by{Want: $T \eif S$}{}
-%		\open
-%		\hypo{3}{T}\by{	Want: $S$}{}
-%		\have{4.}{S} \by{R}{2}
-%		\close
-%	\have{5.}{T \eif S} \by{\eif I}{3-4}
-%	\close
-%\have{6.}{S \eif (T \eif S)} \by{\eif I}{2-5}
-%\end{proof}
+\item $\{(A \eif B) \sststile{}{} (A \eif \enot B) \eif \enot A\}$
 
-%Appears in: Hurley 10, p. 401
-%used in your text, replace ASAP.
-
-
+\answer{
+\begin{proof}
+ \hypo{}{A \eif B} \by{Want: (A \eif \enot B) \eif \enot A}{}
+\open
+\hypo{}{A \eif \enot B} \by{Want: \enot A}{}
+\open
+\hypo{}{A} \by{Want: A contradiction}{}
+\have{}{B} \by{\eif E}{1, 3}
+\have{}{\enot B} \by{\eif E}{2, 3}
+\close
+\have{}{\enot A} \by{\enot I}{3-5}
+\close
+\have{}{(A \eif \enot B) \eif \enot A} \by{\eif I}{2-6}
+\end{proof}
+}
 
 \item $\{\enot W \eand \enot E, Q \eiff D\} \sststile{}{} (W \eor Q) \eiff (E \eor D)$
 
@@ -2082,7 +2079,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \noindent\problempart Derive the following 
 \begin{enumerate}[label=(\arabic*)]
 
-\item $A\eif (B\eif C) \sststile{}{} (A\eand B)\eif C$
+\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
 %originally Chapter 6, part B, number 2
 %
 %2)  $A\eif (B\eif C)$ $\therefore$ $(A\eand B)\eif C$
@@ -2098,20 +2095,31 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 %\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
 %\end{proof}
 
-\item $\{M \eif  (K \eif L), (L \eor N) \eif J \} \sststile{}{} M \eif (K \eif J)$
+\item $\{B \eif \enot E, A \eif \enot D, D \eor (E \eor R), (R \eand A) \eif C\} \sststile{}{} A \eif (B \eif C)$ 
 
-%	1.	M → (K → L)
-%2.	(L v N) → J 			Want: M → (K → J)
-%3.		M				Want: K → J
-%4.			K			Want J
-%5.			K → L		→E, 1, 3
-%6.			L			→E, 4, 5
-%7.			L v N		v I, 6
-%8.			J			→E, 2, 7
-%9.		K → J			→I, 4–8
-%10.	M → (K → J)		→I, 3–9
+\answer{
+\begin{proof}
+\hypo{}{B \eif \enot E}
+\hypo{}{A \eif \enot D}
+\hypo{}{D \eor (E \eor R)}
+\hypo{}{(R \eand A) \eif C}	\by{Want: A \eif (B \eif C)}{} 
+\open
+\hypo{}{A}	\by{Want: B \eif C}{}
+\open
+\hypo{}{B}	\by{Want: C}{}
+\have{}{\enot E} \by{	\eif E 1, 6}{}
+\have{}{\enot D} \by{\eif E 2, 5}{}
+\have{}{E \eor R} \by{\eor E 3, 7}{}
+\have{}{R} \by{\eor E 7, 9}{}
+\have{}{R \eand} \by{\eand I 5, 10}{}
+\have{}{C	} \by{\eif E 4, 11}{}
+\close
+\have{}{B \eif C} \by{\eif I 6-12}{}
+\close
+\have{}{A \eif (B \eif C)} \by{\eif I 5-13}{}
+\end{proof}
+}
 
-%taken from Hurley, replace ASAP
 
 
 \item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$
