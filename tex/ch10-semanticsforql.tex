@@ -3,7 +3,10 @@
 \markright{Chap \ref{chap:semantics_for_ql}: Semantics for QL}
 \setlength{\parindent}{1em}
 
-%%%%%%%%%%%%%%%%%%%% 6.1 Creating Models in QL  %%%%%%%%%%%%%%
+
+% *****************************
+% *		Creating Models in QL      *
+% ****************************
 
 \section{Creating models in Quantified Logic}
 
@@ -210,30 +213,35 @@ Write out the model that corresponds to the interpretation given.
 \end{ekey}
 
 
+% *****************************
+% *		Working with Models.       *
+% ****************************
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section 6.2 Working with Models. %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Working with Models}
 \label{sec.UsingModels}
 
-We can use models in some of the ways we used truth tables to evaluate sentences and arguments. We cannot construct a finite number of models to show conclusively that a sentence is a tautology or a contradiction. As we shall see, this is because there are infinitely many ways to model a sentence, and no single way to talk about all of them, the way we talked about all the lines in a truth table. We can, however, construct two models to show conclusively that a sentence is neither a tautology nor a contradiction, and is instead contingent. Similarly, we cannot construct models to prove two sentences equivalent, but we can use them to show that two sentences are not equivalent. We cannot use models to show that a set of sentences is inconsistent, but we can use models to show that a set of sentences is consistent. Finally, we cannot construct a finite number of models to show that an argument is valid, but we can use one to show that an argument is invalid. 
+Working with models is in some ways like working with truth tables and in some ways not. With truth tables, we could conclusively show that a sentence was a tautology or a contradiction, because the truth table would always have a finite number of lines. We cannot, however, use models to show that a sentence is a tautology or a contradiction, because there are infinitely many ways to model a sentence, and and no single way to talk about all of them, the way we talked about all the lines in a truth table. One thing we can do is show conclusively that a sentence is neither a tautology nor a contradiction, and is instead contingent. A contingent sentence will have at least one model where it is false and one model where it is true.
 
-We will use the double turnstile symbol for QL much as we did for SL. ``$\script{A}\sdtstile{}{} \script{B}$''' means that ``\script{A} entails \script{B}'': When \script{A} and \script{B} are two sentences of QL, $\script{A}\sdtstile{}{} {B}$ means that there is no model in which \script{A} is true and \script{B} is false. $\sdtstile{}{} \script{A}$ means that \script{A} is true in every model. $\script{A} \ndststile{}{} \hspace{.5em} \sdtstile{}{} \script{B}$ means \script{A} and \script{B} are semantically equivalent. 
+As we shall see, this pattern plays itself out with the other logical properties we have covered. Because there are infinitely many ways to model a sentence, we cannot construct models to prove two sentences equivalent, but we can use them to show that two sentences are not equivalent. We cannot use models to show that a set of sentences is inconsistent, but we can use models to show that a set of sentences is consistent. Finally, we cannot construct a finite number of models to show that an argument is valid, but we can use one to show that an argument is invalid. 
 
-This allows us to give definitions for various concepts in QL. Because we are using the same symbol, these definitions will look similar to the definitions in SL. Remember, however, that the definitions in QL are in terms of \emph{models} rather than in terms of truth value assignments.
+We will use the double turnstile symbol for QL much as we did for SL. ``$\script{A}\sdtstile{}{} \script{B}$''' means that an argument from \script{A} to \script{B} is semantically valid.  $\sdtstile{}{} \script{A}$ means that \script{A} is a semantic tautology. $\script{A} \ndststile{}{} \hspace{.5em} \sdtstile{}{} \script{B}$ means \script{A} and \script{B} are semantically equivalent. 
+
+In \fullref{semantic_definitions_in_SL} we stipulated semantic definitions for various logical concepts in SL that matched our truth table method for determining these concepts. So a sentence was said to be a tautology in SL if the column under its main connective contained only Ts. This was an alternative to saying the the truth table method was an imprecise way of getting at the ordinary language versions of these concepts. We will do something similar for the semantic definitions of logical notions in QL. 
 
 \begin{enumerate}
-\item A \define{tautology in QL} is a sentence \script{A} that is true in every model; i.e.,  $\sdtstile{}{} \script{A}$.
+\item A \define{semantic tautology in QL} is a sentence \script{A} that is true in every model; i.e.,  $\sdtstile{}{} \script{A}$.
 
-\item A \define{contradiction in QL} is a sentence \script{A} that is false in every model; i.e., $\sdtstile{}{} \enot\script{A}$.
+\item A \define{semantic contradiction in QL} is a sentence \script{A} that is false in every model; i.e., $\sdtstile{}{} \enot\script{A}$.
 
-\item A sentence is \define{contingent in QL} if and only if it is neither a tautology nor a contradiction.
+\item A sentence is \define{semantically contingent in QL} if and only if it is neither a tautology nor a contradiction.
 
-\item Two sentences \script{A} and \script{B} are \define{logically equivalent in QL} if and only if both $\script{A}\sdtstile{}{}\script{B}$ and $\script{B}\sdtstile{}{}\script{A}$.
+\item Two sentences \script{A} and \script{B} are \define{semantically equivalent in QL} if and only if they have the same truth value in every model.
 
-\item The set $\{\script{A}_1,\script{A}_2,\script{A}_3,\cdots\}$ is \define{consistent in QL} if and only if there is at least one model in which all of the sentences are true. The set is \define{inconsistent in QL} if and if only there is no such model.
+\item The set $\{\script{A}_1,\script{A}_2,\script{A}_3,\cdots\}$ is \define{semantically consistent in QL} if and only if there is at least one model in which all of the sentences are true. The set is \define{semantically inconsistent in QL} if and if only there is no such model.
 
-\item An argument `` $\script{P}_1, \script{P}_2, \cdots$, \therefore\ \script{C} '' is \define{valid in QL} if and only if there is no model in which all of the premises are true and the conclusion is false; i.e., $\{\script{P}_1,\script{P}_2,\cdots\}\sdtstile{}{}\script{C}$. It is \define{invalid in QL} otherwise.
+\item An argument `` $\script{P}_1, \script{P}_2, \cdots$, \therefore\ \script{C} '' is \define{semantically valid in QL} if and only if there is no model in which all of the premises are true and the conclusion is false; i.e., $\{\script{P}_1,\script{P}_2,\cdots\}\sdtstile{}{}\script{C}$. It is \define{semantically invalid in QL} otherwise.
 \end{enumerate}
 
 
@@ -296,7 +304,7 @@ Notice, though, that we cannot show that two sentences \emph{are} logically equi
 
 \subsection{Models to show consistency}
 
-Suppose I wanted to show that the set of sentences $\{\exists x Fx, \exists x \enot Fx, \forall x Gx\}$ is consistent. For this to the case, we need at least one model were all three sentences are true. In thise case that means having one object in our UD that is $F$ and one that is not $F$, and we need both of them to be $G$. This would do the trick.
+Suppose I wanted to show that the set of sentences $\{\exists x Fx, \exists x \enot Fx, \forall x Gx\}$ is consistent. For this to be the case, we need at least one model where all three sentences are true. In this case that means having one object in our UD that is $F$ and one that is not $F$, and we need both of them to be $G$. This would do the trick.
 
 \begin{partialmodel}
 	UD				 & \{$\alpha$, $\beta$\}\\

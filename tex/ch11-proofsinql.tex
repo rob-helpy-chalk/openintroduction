@@ -149,7 +149,7 @@ When translating from English to QL, we noted that $\enot\exists x\enot\script{A
 \begin{proof}
 	\hypo{Aa}{\forall x Ax} \by{want $\enot\exists x\enot Ax$}{}
 	\open
-		\hypo{Ena}{\exists\enot Ax}\by{for reductio}{}
+		\hypo{Ena}{\exists x \enot Ax}\by{for reductio}{}
 		\open
 			\hypo{nc}{\enot Ac}\by{for $\exists$E}{}
 			\open
@@ -162,7 +162,7 @@ When translating from English to QL, we noted that $\enot\exists x\enot\script{A
 		\have{Aa3}{\forall x Ax}\by{R}{Aa}
 		\have{nAa3}{\enot\forall x Ax}\Ee{nc-nAa}
 	\close
-	\have{nEna}{\enot\exists\enot Ax}\ni{Ena-nAa3}
+	\have{nEna}{\enot\exists x \enot Ax}\ni{Ena-nAa3}
 \end{proof}
 
 In order to show that the two sentences are genuinely equivalent, we need a second proof that assumes $\enot\exists x\enot\script{A}$ and derives $\forall x\script{A}$. We leave that proof as an exercise for the reader.

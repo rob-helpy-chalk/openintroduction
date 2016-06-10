@@ -1,0 +1,82 @@
+\BOOKMARK [0][-]{chapter*.1}{About this Book}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Acknowledgments}{}% 2
+\BOOKMARK [-1][-]{part.1}{I Basic Concepts}{}% 3
+\BOOKMARK [0][-]{chapter.1}{What Is Logic?}{part.1}% 4
+\BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Statement, Argument, Premise, Conclusion}{chapter.1}% 6
+\BOOKMARK [1][-]{section*.3}{Practice Exercises}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Arguments and Nonarguments}{chapter.1}% 8
+\BOOKMARK [1][-]{section*.7}{Practice Exercises}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.4}{Arguments and Explanations}{chapter.1}% 10
+\BOOKMARK [1][-]{section*.8}{Practice Exercises}{chapter.1}% 11
+\BOOKMARK [0][-]{chapter.2}{The Basics of Evaluating Argument}{part.1}% 12
+\BOOKMARK [1][-]{section.2.1}{Two Ways an Argument Can Go Wrong}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{Valid, Sound}{chapter.2}% 14
+\BOOKMARK [1][-]{section*.10}{Practice Exercises}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Strong, Cogent, Deductive, Inductive}{chapter.2}% 16
+\BOOKMARK [1][-]{section*.11}{Practice Exercises}{chapter.2}% 17
+\BOOKMARK [-1][-]{part.2}{II Formal Logic}{}% 18
+\BOOKMARK [0][-]{chapter.3}{What is Formal Logic?}{part.2}% 19
+\BOOKMARK [1][-]{section.3.1}{Constructing Formal Languages}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.2}{More Logical Notions for Formal Logic}{chapter.3}% 21
+\BOOKMARK [1][-]{section*.17}{Practice Exercises}{chapter.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Sentential Logic}{part.2}% 23
+\BOOKMARK [1][-]{section.4.1}{Sentence Letters}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Sentential Connectives}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Other Symbolization}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Recursive Syntax for SL}{chapter.4}% 27
+\BOOKMARK [1][-]{section*.25}{Practice Exercises}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Truth Tables}{part.2}% 29
+\BOOKMARK [1][-]{section.5.1}{Basic Concepts}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.2}{Complete Truth Tables}{chapter.5}% 31
+\BOOKMARK [1][-]{section*.27}{Practice Exercises}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Using Truth Tables}{chapter.5}% 33
+\BOOKMARK [1][-]{section*.32}{Practice Exercises}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.4}{Partial Truth Tables}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.5}{Expressive Completeness}{chapter.5}% 36
+\BOOKMARK [1][-]{section*.33}{Practice Exercises}{chapter.5}% 37
+\BOOKMARK [0][-]{chapter.6}{Proofs in Sentential Logic}{part.2}% 38
+\BOOKMARK [1][-]{section.6.1}{Substitution Instances and Proofs}{chapter.6}% 39
+\BOOKMARK [1][-]{section*.35}{Practice Exercises}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{Basic Rules for Sentential Logic}{chapter.6}% 41
+\BOOKMARK [1][-]{section*.41}{Practice Exercises}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.3}{Conditional Proof}{chapter.6}% 43
+\BOOKMARK [1][-]{section*.44}{Practice Exercises}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.4}{Indirect Proof}{chapter.6}% 45
+\BOOKMARK [1][-]{section*.45}{Practice Exercises}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.5}{Tautologies and Equivalences}{chapter.6}% 47
+\BOOKMARK [1][-]{section*.46}{Practice Exercises}{chapter.6}% 48
+\BOOKMARK [1][-]{section.6.6}{Derived Rules}{chapter.6}% 49
+\BOOKMARK [1][-]{section*.47}{Practice Exercises}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.7}{Rules of Replacement}{chapter.6}% 51
+\BOOKMARK [1][-]{section*.48}{Practice Exercises}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.8}{Proof Strategy}{chapter.6}% 53
+\BOOKMARK [1][-]{section*.49}{Practice Exercises}{chapter.6}% 54
+\BOOKMARK [1][-]{section.6.9}{Soundness and completeness}{chapter.6}% 55
+\BOOKMARK [1][-]{section*.50}{Practice Exercises}{chapter.6}% 56
+\BOOKMARK [0][-]{chapter.7}{Quantified Logic}{part.2}% 57
+\BOOKMARK [1][-]{section.7.1}{From Sentences to Predicates}{chapter.7}% 58
+\BOOKMARK [1][-]{section.7.2}{Building Blocks of Quantified Logic}{chapter.7}% 59
+\BOOKMARK [1][-]{section*.54}{Practice Exercises}{chapter.7}% 60
+\BOOKMARK [1][-]{section.7.3}{Quantifiers}{chapter.7}% 61
+\BOOKMARK [1][-]{section.7.4}{Translating to Quantified Logic}{chapter.7}% 62
+\BOOKMARK [1][-]{section*.59}{Practice Exercises}{chapter.7}% 63
+\BOOKMARK [1][-]{section.7.5}{Recursive Syntax for QL}{chapter.7}% 64
+\BOOKMARK [1][-]{section*.65}{Practice Exercises}{chapter.7}% 65
+\BOOKMARK [1][-]{section.7.6}{Tricky Translations}{chapter.7}% 66
+\BOOKMARK [1][-]{section*.70}{Practice Exercises}{chapter.7}% 67
+\BOOKMARK [1][-]{section.7.7}{Identity}{chapter.7}% 68
+\BOOKMARK [1][-]{section*.73}{Practice Exercises}{chapter.7}% 69
+\BOOKMARK [0][-]{chapter.8}{Semantics for Quantified Logic}{part.2}% 70
+\BOOKMARK [1][-]{section.8.1}{Creating models in Quantified Logic}{chapter.8}% 71
+\BOOKMARK [1][-]{section*.77}{Practice Exercises}{chapter.8}% 72
+\BOOKMARK [1][-]{section.8.2}{Working with Models}{chapter.8}% 73
+\BOOKMARK [1][-]{section*.82}{Practice Exercises}{chapter.8}% 74
+\BOOKMARK [0][-]{chapter.9}{Proofs in Quantified Logic}{part.2}% 75
+\BOOKMARK [1][-]{section.9.1}{Rules for Quantifiers}{chapter.9}% 76
+\BOOKMARK [1][-]{section*.88}{Practice Exercises}{chapter.9}% 77
+\BOOKMARK [1][-]{section.9.2}{Rules for Identity}{chapter.9}% 78
+\BOOKMARK [1][-]{section*.89}{Practice Exercises}{chapter.9}% 79
+\BOOKMARK [0][-]{appendix.A}{Other Symbolic Notation}{part.2}% 80
+\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.2}% 81
+\BOOKMARK [0][-]{appendix.C}{Glossary}{part.2}% 82

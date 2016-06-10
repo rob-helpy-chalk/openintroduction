@@ -2213,7 +2213,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 % *******************************************
 
 \section{Indirect Proof}
-
+\label{sec:indirect_proof}
 
 %signposting paragraph added
 
@@ -2679,6 +2679,7 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 
 %%%%%%%%%%%%%%%%%%%%%%%   Part D: Derive the following using indirect derivation %%%%%
 \noindent\problempart Derive the following using indirect derivation. You may also have to use conditional derivation.
+\label{derivation_set_with_const_d}
 \begin{enumerate}[label=(\arabic*)]
 
 \item $\{P \eif Q, P \eif \enot Q\} \sststile{}{} \enot P$
@@ -3178,7 +3179,7 @@ Prove each of the following tautologies
 
 %rob: new opening paragraph, more ambitions for this section.
 
-Now that we have our five rules for introduction and our five rules for elimination, plus the rule of reiteration, our system is complete. If an argument is valid, and you can symbolize that argument in SL, you can \emph{prove} that the argument is valid using a derivation. (We will say a bit more about this in section 4.7.) Now that our system is complete, we can really begin to play around with it and explore the exciting  logical world it creates.
+Now that we have our five rules for introduction and our five rules for elimination, plus the rule of reiteration, our system is complete. If an argument is valid, and you can symbolize that argument in SL, you can \emph{prove} that the argument is valid using a derivation. (We will say a bit more about this in section \ref{sec:rules_of_rep}.) Now that our system is complete, we can really begin to play around with it and explore the exciting  logical world it creates.
 
 There's an exciting logical world created by these eleven rules? Yes, yes there is. You can begin to see this by noticing that there are a lot of other interesting rules that we could have used for our introduction and elimination rules, but didn't. In many textbooks, the system of natural deduction has a disjunction elimination rule that works like this:
 
@@ -3189,11 +3190,11 @@ There's an exciting logical world created by these eleven rules? Yes, yes there 
 	\have[\ ]{c}{\script{C}} \by{${\eor}\ast$}{ab,ac,bc}
 \end{proof}
 
-You might think our system is incomplete because it lacks this alternative rule of disjunction elimination. Yet this is not the case. If you can do a proof with this rule, you can do a proof with the basic rules of the natural deduction system. You actually proved this rule as problem (9) of part B in the last section's homework. Furthermore, once you have a proof of this rule, you can use it inside other proofs whenever you think you would need a rule like $\eor \ast$. Simply use the proof you gave in the last homework as a sort of recipe for generating a new series of steps to get you to a line saying $\script{C} \eor \script{D}$
+You might think our system is incomplete because it lacks this alternative rule of disjunction elimination. Yet this is not the case. If you can do a proof with this rule, you can do a proof with the basic rules of the natural deduction system. You actually proved this rule in problem \ref{itm:const_d} of part \ref{derivation_set_with_const_d} in the exercises for section \ref{sec:indirect_proof}. Furthermore, once you have a proof of this rule, you can use it inside other proofs whenever you think you would need a rule like $\eor \ast$. Simply use the proof you gave in the last homework as a sort of recipe for generating a new series of steps to get you to a line saying $\script{C} \eor \script{D}$
 
 But adding lines to a proof using this recipe all the time would be a pain in the neck. What's worse, there are dozens of interesting possible rules out there, which we could have used for our introduction and elimination rules, and which we now find ourselves replacing with recipes like the one above. 
 
-Fortunately our basic set of introduction and elimination rules was meant to be expanded on. That's part of the game we are playing here. The first system of deduction created in the Western tradition was the system of geometry created by Euclid (c 300 BCE). Euclid's \emph{Elements}  began with 10 basic laws, along with definitions of terms like ``point,'' ``line,'' and ``plane.'' He then went on to prove hundreds of different theorems about geometry, and each time he proved a theorem he could use that theorem to help him prove later theorems. 
+Fortunately our basic set of introduction and elimination rules, plus reiteration, was meant to be expanded on. That's part of the game we are playing here. The first system of deduction created in the Western tradition was the system of geometry created by Euclid (c 300 BCE). Euclid's \emph{Elements}  began with 10 basic laws, along with definitions of terms like ``point,'' ``line,'' and ``plane.'' He then went on to prove hundreds of different theorems about geometry, and each time he proved a theorem he could use that theorem to help him prove later theorems. 
 
 We can do the same thing in our system of natural deduction. What we need is a rule that will allow us to make up new rules. The new rules we add to the system will be called \define{derived rules}. Our ten rules for adding and eliminating connectives are then the \define{axioms} of SL. Now here is our rule for adding rules. 
 
@@ -3371,8 +3372,6 @@ Provide proofs using both axioms and derived rules to show each of the following
 %\end{proof}
 
 
-\item \{$ (P \eif Q) \eif Q $\}$ \sststile{}{} $ $(E \eif P) \eif P$
-
 \end{enumerate}
 
 \noindent\problempart
@@ -3394,6 +3393,7 @@ Provide proofs using both axioms and derived rules to show each of the following
 % *				Rules of Replacement			   *	
 % *******************************************
 \section{Rules of Replacement}
+\label{sec:rules_of_rep}
 \setlength{\parindent}{1em}
 
 
@@ -3418,14 +3418,14 @@ You will be asked to prove these in the homework. In the meantime, let's see an 
 \begin{proof}
 	\hypo{1}{(M \eor P) \eif (P \eand M)}
 	\have{2}{(P \eor M) \eif (P \eand M)}\by{Comm\eand}{1}
-	\have{n}{(P \eor M) \eif (M \eand P)}\by{Comm\eand}{2}
+	\have{n}{(P \eor M) \eif (M \eand P)}\by{Comm\eor}{2}
 \end{proof}
 
 Formally, we can put our rule for deploying rules of replacement like this
 
 {\narrower \narrower
  
-\bf Inserting rules of replacement: \rm Given a theorem T of the form $\script{A} \nsststile{}{} \hspace{.5em} \sststile{}{} \script B$ and a line in a derivation \script{C} which contains in it a sentence \script{D}, where \script{D} is a substitution instance of either \script{A} or \script{B}, replace \script{D} with the equivalent substitution instance of the other side of theorem T. 
+\noindent\bf Inserting rules of replacement: \rm Given a theorem T of the form $\script{A} \nsststile{}{} \hspace{.5em} \sststile{}{} \script B$ and a line in a derivation \script{C} which contains in it a sentence \script{D}, where \script{D} is a substitution instance of either \script{A} or \script{B}, replace \script{D} with the equivalent substitution instance of the other side of theorem T. 
 \setlength{\parindent}{1em}
 
 \par}
@@ -3471,7 +3471,7 @@ $ \mathbf T_{\arabic{theorem}}$: \rm $(\script{A}\eor\script{B}) \nsststile{}{} 
 
 \par}
 
-$ T_{14}$ and $T_{15}$ are collectively known as the rule of Material Implication (MI). You will prove them in the homework. 
+$ T_{14}$ and $T_{15}$ are collectively known as the rule of Material Conditional (MC). You will prove them in the homework. 
 
  
 $ \mathbf T_{\arabic{theorem}}$ \bf (Biconditional Exportation, ex): \rm $\script{A}\eiff \script{B} \nsststile{}{} \hspace{.5em} \sststile{}{} (\script{A} \eif \script{B})\eand(\script{B}\eif \script{\script{A}})$ 
@@ -3532,7 +3532,7 @@ As always, we could prove this argument using only the basic rules. With rules o
 
 \practiceproblems
 \noindent\problempart
-Prove $T_{8}$ through $T_{10}$. You may use $T_{1}$ through $T_6$ in your proofs.
+Prove $T_{8}$ through $T_{10}$. You may use $T_{1}$ through $T_7$ in your proofs.
 
 \noindent\problempart
 Prove $T_{11}$ through $T_{17}$. You may use $T_{1}$ through $T_{12}$ in your proofs.
@@ -3600,9 +3600,9 @@ Show the following theorems are valid. Feel free to use $T_{1}$ through $T_{17}$
 %I merged sections 6.7, 6.8, and 6.9 and restricted the material to SL to create this section. 
 \section{Soundness and completeness}
 \label{sec:soundness_and_completeness}
-In section 4.6, we saw that we could use derivations to test for the some same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a statement is a tautology or a pair of statements are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \script{A} was a tautology with a truth table, we wrote $\sdtstile{}{}\script{A}$, and if we could prove it using a derivation, we wrote $\sststile{}{}\script{A}.$ 
+In section 4.6, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a statement is a tautology or a pair of statements are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \script{A} was a tautology with a truth table, we wrote $\sdtstile{}{}\script{A}$, and if we could prove it using a derivation, we wrote $\sststile{}{}\script{A}.$ 
 
-You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \script{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately an then proving them equivalent. That is, we imagine that we actually have two notions of validity, $valid_{\models}$ and  $valid_{\vdash}$ and then show that the two concepts always work the same way. 
+You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \script{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, $valid_{\models}$ and  $valid_{\vdash}$ and then show that the two concepts always work the same way. 
 
 \newglossaryentry{syntactic contradiction in SL}
 {
@@ -3689,11 +3689,11 @@ Even though we don't have a recursive definition of a proof in SL, we can sketch
 
 You can use truth tables to prove to yourself that each of these one-line proofs in this base class is $valid_{\models}$. For instance the proof $\{\script{A}, \script{B}\} \sststile{}{} \script{A} \eand \script{B}$ corresponds to a truth table that shows $\{\script{A}, \script{B}\} \sdtstile{}{} \script{A} \eand \script{B}$ This establishes the first part of our recursive proof. 
 
-The next step is to show that adding lines to any proof will never change a $valid_{\models}$ proof into an $invalid_{\models}$ one. We would need to this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\script{A}_{1} \ldots{} \script{A}_{n} \sststile{}{} \script {B}$ adding a line where we use \eand{I} to infer $\script{C} \eand \script{D}$, where $\script{C} \eand \script{D}$ can be legitimately inferred from $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\script{C} \eand \script{D}$ from these premises, then $\script{C} \eand \script{D}$ must be already available in the proof. They are either members of  $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$ or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \script{C} and \script{D} are true. According to the characteristic truth table for \eand, this means that \script{C}\eand\script{D} is also true on that line. Therefore, \script{C}\eand\script{D} validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+The next step is to show that adding lines to any proof will never change a $valid_{\models}$ proof into an $invalid_{\models}$ one. We would need to this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\script{A}_{1} \ldots{} \script{A}_{n} \sststile{}{} \script {B}$ adding a line where we use \eand{I} to infer $\script{C} \eand \script{D}$, where $\script{C} \eand \script{D}$ can be legitimately inferred from $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\script{C} \eand \script{D}$ from these premises, then $\script{C} and \script{D}$ must be already available in the proof. They are either members of  $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$ or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \script{C} and \script{D} are true. According to the characteristic truth table for \eand, this means that \script{C}\eand\script{D} is also true on that line. Therefore, \script{C}\eand\script{D} validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
 
 In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 11 other basic rules. This tedious exercise falls beyond the scope of this book.
 
-So we have shown that $\script{A} \sststile{}{} \script{B}$ implies $\script{A} \sdtstile{}{}\script{B}.$ What about the other direction, that is why think that \emph{every} that can be shown valid using truth tables can also be proven using a derivation. 
+So we have shown that $\script{A} \sststile{}{} \script{B}$ implies $\script{A} \sdtstile{}{}\script{B}.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
 
 \newglossaryentry{completeness}
 {
@@ -3701,7 +3701,7 @@ name=completeness,
 description={A property held by logical systems if and only if $\sdtstile{}{}$ implies $\sststile{}{}$}
 }
 
-This is the problem of completeness. A proof system has the property of  \textsc{\gls{completeness}} \label{def:completeness} if and only if there is a proof of every valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for SL is both sound and complete. This is not the case for all proof systems and all formal languages. Because it is true of SL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
+This is the problem of completeness. A proof system has the property of  \textsc{\gls{completeness}} \label{def:completeness} if and only if there is a derivation of every semantically valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for SL is both sound and complete. This is not the case for all proof systems and all formal languages. Because it is true of SL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
 
 Now that we know that the truth table method is interchangeable with the method of derivation, you can chose which method you want to use for any given problem. Students often prefer to use truth tables, because a person can produce them purely mechanically, and that seems `easier'. However, we have already seen that truth tables become impossibly large after just a few sentence letters. On the other hand, there are a couple situations where using derivations simply isn't possible. We syntactically defined a contingent sentence as a sentence that couldn't be proven to be a tautology or a contradiction. There is no practical way to prove this kind of negative statement. We will never know if there isn't some proof out there that a statement is a contradiction and we just haven't found it yet. We have nothing to do in this situation but resort to truth tables. Similarly, we can use derivations to prove two sentences equivalent, but what if we want to prove that they are \emph{not} equivalent? We have no way of proving that we will never find the relevant proof. So we have to fall back on truth tables again.
 
