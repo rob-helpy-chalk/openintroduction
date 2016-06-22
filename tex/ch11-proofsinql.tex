@@ -159,8 +159,8 @@ When translating from English to QL, we noted that $\enot\exists x\enot\script{A
 			\close
 			\have{nAa}{\enot\forall x Ax}\ni{Aa2-nc2}
 		\close
-		\have{Aa3}{\forall x Ax}\by{R}{Aa}
 		\have{nAa3}{\enot\forall x Ax}\Ee{nc-nAa}
+		\have{Aa3}{\forall x Ax}\by{R}{Aa}
 	\close
 	\have{nEna}{\enot\exists x \enot Ax}\ni{Ena-nAa3}
 \end{proof}
@@ -170,8 +170,8 @@ In order to show that the two sentences are genuinely equivalent, we need a seco
 It will often be useful to translate between quantifiers by adding or subtracting negations in this way, so we add two derived rules for this purpose. These rules are called quantifier negation (QN):
 \begin{center}
 \begin{tabular}{rl}
-$\enot\forall\script{x}\script{A} \Longleftrightarrow \exists\script{x}\enot\script{A}$\\
-$\enot\exists\script{x}\script{A} \Longleftrightarrow \forall\script{x}\enot\script{A}$
+$\enot\forall\script{x}\script{A} \nsststile{}{} \hspace{.5em} \sststile{}{} \exists\script{x}\enot\script{A}$\\
+$\enot\exists\script{x}\script{A} \nsststile{}{}  \hspace{.5em} \sststile{}{} \forall\script{x}\enot\script{A}$
 & QN
 \end{tabular}
 \end{center}

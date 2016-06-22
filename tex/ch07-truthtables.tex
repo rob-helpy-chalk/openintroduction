@@ -4,7 +4,11 @@
 
 % The long comment below is material from the old semantics chapter that I am gradually folding in to this chapter.
 
-This chapter introduces a way of evaluating sentences and arguments of SL called the truth table method. As we shall see, the truth table method is \emph{semantic} because it involves one aspect of the meaning of sentences, whether those sentences are true or false. As we saw on page \pageref{def:semantics}, semantics is the study of aspects of language related to meaning, including truth and falsity. Although it can be laborious, the truth table method is a purely mechanical procedure that requires no intuition or special insight. When we cover QL in the complete version of this text, \label{ver_var}\nix{get to Chapter \ref{chap:semantics_for_ql},} we will provide a parallel semantic method for QL; however, this method will not be purely mechanical.
+This chapter introduces a way of evaluating sentences and arguments of SL called the truth table method. As we shall see, the truth table method is \emph{semantic} because it involves one aspect of the meaning of sentences, whether those sentences are true or false. As we saw on page \pageref{def:semantics}, semantics is the study of aspects of language related to meaning, including truth and falsity. Although it can be laborious, the truth table method is a purely mechanical procedure that requires no intuition or special insight. \iflabelexists{part:quant_logic}{When we get to Chapter \ref{chap:semantics_for_ql},we will provide a parallel semantic method for QL; however, this method will not be purely mechanical.}{}
+
+
+
+, \label{ver_var}\nix{} 
 
 % *********************************************
 % *   Basic Concepts								*
@@ -19,7 +23,7 @@ name=logical symbol,
 description={A symbol that has its meaning fixed by the formal language.}
 }
 
-A formal language is built from two kinds of elements: logical symbols and nonlogical symbols. \textsc{\Gls{logical symbol}} \label{def:logical_symbol} have their meaning fixed by the formal language. In SL, the logical symbols are the sentential connectives and the parentheses. When writing a symbolization key, you are not allowed to change the meaning of the logical symbols. You cannot say, for instance, that the $\enot$ symbol will mean ``not'' in one argument and ``perhaps'' in another. The $\enot$ symbol always means logical negation. It is used to translate the English language word ``not'', but it is a symbol of a formal language and is defined by its truth conditions.
+A formal language is built from two kinds of elements: logical symbols and nonlogical symbols. \textsc{\Glspl{logical symbol}} \label{def:logical_symbol} have their meaning fixed by the formal language. In SL, the logical symbols are the sentential connectives and the parentheses. When writing a symbolization key, you are not allowed to change the meaning of the logical symbols. You cannot say, for instance, that the $\enot$ symbol will mean ``not'' in one argument and ``perhaps'' in another. The $\enot$ symbol always means logical negation. It is used to translate the English language word ``not'', but it is a symbol of a formal language and is defined by its truth conditions.
 
 \newglossaryentry{nonlogical symbol}
 {
@@ -28,7 +32,7 @@ description={A symbol that is not logical, that is, that does not have its meani
 }
 
 The \textsc{\glspl{nonlogical symbol}} \label{def:nonlogical_symbol}
- are defined simply as all the symbols that aren't logical. The nonlogical symbols in SL are the sentence letters. When we translate an argument from English to SL, for example, the sentence letter $M$ does not have its meaning fixed in advance; instead, we provide a symbolization key that says how $M$ should be interpreted in that argument. In translating from English to a formal language, we provided symbolization keys which were interpretations of all the nonlogical symbols we used in the translation. 
+ are defined simply as all the symbols that aren't logical. The nonlogical symbols in SL are the sentence letters. When we translate an argument from English to SL, for example, the sentence letter $M$ does not have its meaning fixed in advance; instead, we provide a symbolization key that says how $M$ should be interpreted in that argument. When translating from English to a formal language, we provided symbolization keys which were interpretations of all the nonlogical symbols we used in the translation. 
 
 \newglossaryentry{interpretation}
 {
