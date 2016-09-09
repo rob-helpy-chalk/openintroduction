@@ -2820,6 +2820,7 @@ So suppose we have a syllogism with two particular premises. If we want to avoid
 % ********************************************
 
 \section{Validity and the Counterexample Method} 
+\label{sec:counterexample}
 
 Except for a brief discussion of logically structured English in section \ref{sec:form_mood_figure}, so far, we have only been evaluating arguments that use variables for the subject, middle, and predicate terms. Now, we will be looking in detail at issues that come up when we try to evaluate categorical arguments that come up in ordinary English. In this section we will consider how your knowledge of the real world terms discussed in an argument can distract you from evaluating the form of the argument itself. In this section we will consider difficulties in putting ordinary language arguments into logically structured English, so they can be analyzed using the techniques we have learned. 
 
@@ -4528,7 +4529,7 @@ AEO-IV (conditionally valid)
 % *******************************************
 
 \section{Enthymemes}
-
+\label{sec:enthymemes}
 \newglossaryentry{enthymeme}
 {
 name=enthymeme,
@@ -6894,16 +6895,22 @@ Conditionally valid. If you had a premise that told you to write an x in the $D$
 \sortitem {Minor term}{}
 \sortitem {Syllogism mood}{}
 \sortitem {Standard form for an Aristotelian syllogism}{}
+\sortitem {Translation key}{}
 \sortitem {Unconditional validity}{}
+\sortitem{Critical term}{}
 \sortitem {Fallacy of exclusive premises}{}
 \sortitem {Fallacy of illicit process}{}
 \sortitem {Fallacy of particular premises}{}
 \sortitem {Fallacy of the undistributed middle}{}
 \sortitem {Negative-affirmative fallacy}{}
-\sortitem {Counterexample method}{}
-\sortitem {Translation key}{}
-\sortitem{Enthymeme}{}
-\sortitem{Sorites categorical arguments}{}
-\sortitem{Standard form for a sorites categorical argument}{}
-\sortitem{Critical term}{}
+\iflabelexists{def:counter_example_method}{\sortitem {Counterexample method}{}}{}  
+
+\iflabelexists{def:enthymeme}{\sortitem{Enthymeme}{}}{}
+
+
+\iflabelexists{def:sorites_categorical_arguments}{\sortitem{Sorites categorical arguments}{}}{}
+
+
+\iflabelexists{def:standard_form_for_a_sorites_categorical_argument}{\sortitem{Standard form for a sorites categorical argument}{}}{}
+
 \end{sortedlist}
