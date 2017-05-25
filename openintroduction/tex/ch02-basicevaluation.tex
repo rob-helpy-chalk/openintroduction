@@ -1,0 +1,1054 @@
+\chapter{The Basics of Evaluating Argument}
+\markright{Ch. \ref{chap:basicevaluation}: The Basics of Evaluating Argument}
+\label{chap:basicevaluation}
+\setlength{\parindent}{1em}
+
+% **************************************************** 	
+% *			Two ways that arguments can go wrong			*
+% ****************************************************
+
+
+\section{Two Ways an Argument Can Go Wrong}
+\label{sec:two_ways}
+
+Arguments are supposed to lead us to the truth, but they don't always succeed. There are two ways they can fail in their mission. First, they can simply start out wrong, using false premises. Consider the following argument. 
+
+\begin{earg*}
+\item It is raining heavily.
+\item If you do not take an umbrella, you will get soaked.
+\itemc You should take an umbrella.
+\end{earg*}
+
+If premise (1) is false---if it is sunny outside---then the argument gives you no reason to carry an umbrella.The argument has failed its job. Premise (2) could also be false: Even if it is raining outside, you might not need an umbrella. You might wear a rain poncho or keep to covered walkways and still avoid getting soaked. Again, the argument fails because a premise is false.
+
+Even if an argument has all true premises, there is still a second way it can fail. Suppose for a moment that both the premises in the argument above are true. You do not own a rain poncho. You need to go places where there are no covered walkways. Now does the argument show you that you should take an umbrella? Not necessarily. Perhaps you enjoy walking in the rain, and you would like to get soaked. In that case, even though the premises were true, the conclusion would be false. The premises, although true, do not \emph{support} the conclusion. Back on page \pageref{def:Inference} we defined an inference, and said  it was like argument glue: it holds the premises and conclusion together. When an argument goes wrong because the premises do not support the conclusion, we say there is something wrong with the inference. %When there is something wrong with the inference, that means there is something wrong with the \emph{logical form} of the argument: Premises of the kind given do not necessarily lead to a conclusion of the kind given. We will be interested primarily in the logical form of arguments. We will learn to identify bad inferences by identifying bad logical forms. 
+
+Consider another example: 
+
+\begin{earg*}
+\item You are reading this book.
+\item This is a logic book.
+\itemc[.3] You are a logic student.
+\end{earg*}
+
+This is not a terrible argument. Most people who read this book are logic students. Yet, it is possible for someone besides a logic student to read this book. If your roommate picked up the book and thumbed through it, they would not immediately become a logic student. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion. Its inference is less than perfect.
+
+Again, for any argument, there are two ways that it could fail. First, one or more of the premises might be false.  Second, the premises might fail to support the conclusion. Even if the premises were true, the form of the argument might be weak, meaning the inference is bad.
+
+
+%  ********************************************************
+% *				Valid, Sound									* 
+% ********************************************************
+
+\section{Valid, Sound}
+
+\newglossaryentry{valid}
+{
+name=valid,
+description={A property of arguments where it is impossible for the premises to be true and the conclusion false.}
+}
+
+In logic, we are mostly concerned with evaluating the quality of inferences, not the truth of the premises. The truth of various premises will be a matter of whatever specific topic we are arguing about, and, as we have said, logic is content neutral.
+
+The strongest inference possible would be one where the premises, if true, would somehow force the conclusion to be true. This kind of inference is called valid. There are a number of different ways to make this idea of the premises forcing the truth of the conclusion more precise. Here are a few:
+ 
+An argument is valid if and only if\ldots 
+\begin{enumerate}[label=(\alph*)]
+\item it is impossible to consistently both (i) accept the premises and (ii) reject the conclusion
+
+\item \label{itm:our_def} it is impossible for the premises to be true and the conclusion false
+
+\item \label{itm:necessary} the premises, if true, would necessarily make the conclusion true.
+
+\item \label{itm:imagination} the conclusion is true in every imaginable scenario in which the premises are true
+
+\item \label{itm:story} it is impossible to write a consistent story (even fictional) in which the premises are true and the conclusion is false
+
+\end{enumerate} 
+ 
+In the glossary, we formally adopt item \ref{itm:our_def} as the definition for this textbook: an argument is \textsc{\gls{valid}} \label{def:valid} if and only if it is impossible for the premises to be true and the conclusion false.  However, nothing will really ride on the differences between the definitions in the list above, and we can look at all of them in order to give us a sense of what logicians mean when they use the term ``valid''.  
+ 
+The important thing to see is that all the definitions in the list above try to get at what \textit{would} happen if the premises were true. None of them assert that the premises actually \textit{are} true. This is why definitions \ref{itm:imagination} and \ref{itm:story} talk about what would happen if you somehow \textit{pretend} the premises are true, for instance by telling a story. The argument is valid if, when you pretend the premises are true, you also have to pretend the conclusion is true. Consider the argument in Figure \ref{fig:Gaga_valid}
+
+
+\begin{figure}
+\begin{mdframed}[style=mytablebox]
+\begin{earg*}
+\item Lady Gaga is from Mars. 
+\itemc[.4] Lady Gaga is from the fourth planet from our sun.
+\end{earg*}
+\end{mdframed}
+\caption{A \textbf{valid} argument.} \label{fig:Gaga_valid}
+\end{figure}
+
+The American pop star Lady Gaga is not from Mars. (She's from New York City.) Nevertheless, if you imagine she's from Mars, you simply have to imagine that she is from the fourth planet from our sun, because mars simply is the fourth planet form our sun. Therefore this argument is valid. 
+
+This way of understanding validity is based on what you can imagine, but not everyone is convinced that the imagination is a reliable tool in logic. That is why definitions like \ref{itm:necessary} and \ref{itm:our_def} talk about what is necessary or impossible. If the premises are true, the conclusion necessarily must be true. Alternately, it is impossible for the premises to be true and the conclusion false. The idea here is that instead of talking about the imagination, we will just talk about what can or cannot happen at the same time. The fundamental notion of validity remains the same, however: the truth of the premises would simply guarantee the truth of conclusion. 
+
+So, assessing validity means wondering about whether the conclusion would be true \textit{if} the premises were true. This means that valid arguments can have false conclusions. This is important to keep in mind because people naturally tend to think that any argument must be good if they agree with the conclusion. And the more passionately people believe in the conclusion, the more likely we are to think that any argument for it must be brilliant. Conversely, if the conclusion is something we don't believe in, we naturally tend to think the argument is poor. And the more we don't like the conclusion, the less likely we are to like the argument. 
+
+\newglossaryentry{fallacy}
+{
+name=fallacy,
+plural=fallacies,
+description={A common mistake in reasoning. Fallacies are generally conceived of as mistake forms of inference and are generally explained by arguments represented in canonical form. See also \emph{cognitive bias}.}
+}
+
+\newglossaryentry{myside fallacy}
+{
+name=myside fallacy,
+description={The common mistake of evaluating an argument based merely on whether one agrees or disagrees with the conclusion.}
+}
+
+
+But this is not the way to evaluate inferences at all. The quality of the inference is entirely independent of the truth of the conclusion. You can have great arguments for false conclusions and horrible arguments for true conclusions. Confusing the truth of the conclusion with the quality of of the inference is a mistake in logic we can call the myside fallacy. A \textsc{\gls{fallacy}} \label{def:fallacy} is any common mistake in reasoning \iflabelexists{Chap:what_is_ct}{More detail on the nature of fallacies is given in Chapter \ref{Chap:what_is_ct}, on page \label{fallacy_detail}}{} The \textsc{\gls{myside fallacy}} \label{def:myside_fallacy} is specifically the common mistake of evaluating an argument based merely on whether one agrees or disagrees with the conclusion. You can also think of this as the fallacy of mistaking the conclusion for the argument.
+
+An argument is valid if it is impossible for the premises to be true and the conclusion false. This means that you can have valid arguments with false conclusions, they just have to also have false premises. Consider the example in Figure \ref{fig:valid_oranges}
+
+
+\begin{figure}[t]
+\begin{mdframed}[style=mytablebox]
+\begin{earg*}
+\item Oranges are either fruits or musical instruments.
+\item Oranges are not fruits.
+\itemc Oranges are musical instruments.
+\end{earg*}
+\end{mdframed}
+\caption{A \textbf{valid} argument} \label{fig:valid_oranges}
+\end{figure}
+
+\label{valid_arg_false_premises}
+
+The conclusion of this argument is ridiculous. Nevertheless, it follows validly from the premises. This is a valid argument. \emph{If} both premises were true, \emph{then} the conclusion would necessarily be true.
+
+This shows that a valid argument does not need to have true premises or a true conclusion. Conversely, having true premises and a true conclusion is not enough to make an argument valid. Consider the example in Figure \ref{fig:invalid_paris}
+
+
+\begin{figure}[b]
+\begin{mdframed}[style=mytablebox]
+\begin{earg*}
+\item London is in England.
+\item Beijing is in China.
+\itemc[.3] Paris is in France.
+\end{earg*}
+\end{mdframed}
+\caption{An \textbf{invalid} argument.} \label{fig:invalid_paris}
+\end{figure}
+\label{invalid_true_premises_and_conclusion}
+
+
+\newglossaryentry{invalid}
+{
+name=invalid,
+description={A property of arguments that holds when the premises do not force the truth of the conclusion. The opposite of valid.}
+}
+ 
+
+The premises and conclusion of this argument are, as a matter of fact, all true. This is a terrible argument, however, because the premises have nothing to do with the conclusion. Imagine what would happen if Paris declared independence from the rest of France. Then the conclusion would be false, even though the premises would both still be true. Thus, it is \emph{logically possible} for the premises of this argument to be true and the conclusion false. The argument is not valid.  If an argument is not valid, it is called \textsc{\gls{invalid}}. \label{def:invalid} As we shall see, this term is a little misleading, because less than perfect arguments can be very useful. But before we do that, we need to look more at the concept of validity.
+
+In general, then, the \textit{actual }truth or falsity of the premises, if known, do not tell you whether or not an inference is valid. There is one exception: when the premises are true and the conclusion is false, the inference cannot be valid, because valid reasoning can only yield a true conclusion when beginning from true premises. 
+ 
+Figure \ref{fig:invalid_animals} has another invalid argument:
+
+\begin{figure}
+\begin{mdframed}[style=mytablehalfbox]
+\begin{earg*}
+\item All dogs are mammals
+\item All dogs are animals
+\itemc All animals are mammals.
+\end{earg*}
+\end{mdframed}
+\caption{An \textbf{invalid} argument.} \label{fig:invalid_animals}
+\end{figure}
+
+In this case, we can see that the argument is invalid by looking at the truth of the premises and conclusion. We know the premises are true. We know that the conclusion is false. This is the one circumstance that a valid argument is supposed to make impossible. 
+
+Some invalid arguments are hard to detect because they resemble valid arguments. Consider the one in Figure \ref{fig:invalid_stimulus}
+
+\begin{figure}[b]
+\begin{mdframed}[style=mytablebox]
+\begin{earg*}
+\item An economic stimulus package will allow the U.S. to avoid a depression. 
+\item There is no economic stimulus package
+\itemc[.3] The U.S. will go into a depression. 
+\end{earg*}
+\end{mdframed}
+\caption{An \textbf{invalid} argument} \label{fig:invalid_stimulus}
+\end{figure}
+
+
+This reasoning is not valid since the premises do not \textit{definitively} support the conclusion. To see this, assume that the premises are true and then ask, "Is it possible that the conclusion could be false in such a situation?". There is no inconsistency in taking the premises to be true without taking the conclusion to be true. The first premise says that the stimulus package will allow the U.S. to avoid a depression, but it does not say that a stimulus package is the \textit{only }way to avoid a depression. Thus, the mere fact that there is no stimulus package does not necessarily mean that a depression will occur. 
+
+Here is another, trickier, example. I will give it first in ordinary language. 
+
+\begin{quotation} \noindent\textit{A pundit is speaking on a cable news show} If the U.S. economy were in recession and inflation were running at more than 4\%, then the value of the U.S. dollar would be falling against other major currencies. But this is not happening --- the dollar continues to be strong. So, the U.S. is not in recession. \end{quotation}
+
+The conclusion is "The U.S. economy is not in recession." If we put the argument in canonical form, it looks like figure \ref{fig:invalid_recession}
+
+\begin{figure}
+\begin{mdframed}[style=mytablebox]
+\begin{earg*}
+\item If the U.S. were in a recession with more than 4\% inflation, then the dollar would be falling
+\item The dollar is not falling
+\itemc[.3] The U.S. is not in a recession. 
+\end{earg*}
+\end{mdframed}
+\caption{An \textbf{invalid} argument} \label{fig:invalid_recession}
+\end{figure}
+
+The conclusion does not follow necessarily from the premises. It does follow necessarily from the premises that (i) the U.S. economy is not in recession or (ii) inflation is running at more than 4\%, but they do not guarantee (i) in particular, which is the conclusion. For all the premises say, it is possible that the U.S. economy is in recession but inflation is less than 4\%. So, the inference does not \textit{necessarily} establish that the U.S. is not in recession. A parallel inference would be "Jack needs eggs and milk to make an omelet. He can't make an omelet. So, he doesn't have eggs.". 
+
+\newglossaryentry{sound}
+{
+name=sound,
+description={A property of arguments that holds if the argument is valid and has all true premises.}
+}
+
+If an argument is not only valid, but also has true premises, we call it \textsc{\gls{sound}}. \label{def:sound} ``Sound'' is the highest compliment you can pay an argument. If logic is the study of virtue in argument, sound arguments are the most virtuous. We said in Section \ref{sec:two_ways} that there were two ways an argument could go wrong, either by having false premises or weak inferences. Sound arguments have true premises and undeniable inferences. If someone gives a sound argument in a conversation, you have to believe the conclusion, or else you are irrational.  
+
+The argument on the left in Figure \ref{fig:valid_sound} is valid, but not sound. The argument on the right is both valid and sound.
+
+\begin{figure}[b]
+\begin{mdframed}[style=mytablebox]
+\begin{longtabu}{X[l,c]X[l,c]}
+\vspace{-16pt}
+\begin{earg*}
+\item Socrates is a person.
+\item All people are carrots.
+\itemc[.5] Therefore, Socrates is a carrot.
+\end{earg*}
+&
+\vspace{-16pt}
+\begin{earg*}
+\item Socrates is a person.
+\item All people are mortal.
+\itemc[.5] Therefore, Socrates is mortal.
+\end{earg*}
+\\
+\textbf{Valid, but not sound}&
+\textbf{Valid and sound}
+\end{longtabu}
+\end{mdframed}
+\caption{These two arguments are valid, but only the one on the right is sound} \label{fig:valid_sound}
+\end{figure}
+
+Both arguments have the exact same form. They say that a thing belongs to a general category and everything in that category has a certain property, so the thing has that property. Because the form is the same, it is the same valid inference each time. The difference in the arguments is not the validity of the inference, but the truth of the second premise. People are not carrots, therefore the argument on the left is not sound. People are mortal, so the argument on the right is sound. 
+
+Often it is easy to tell the difference between validity and soundness if you are using completely silly examples. Things become more complicated with false premises that you might be tempted to believe, as in the argument in Figure \ref{fig:valid_unsound}.
+
+\begin{figure}
+\begin{mdframed}[style=mytablehalfbox]
+\begin{earg*}
+\item Every Irishman drinks Guinness
+\item Smith is an Irishman
+\itemc Smith drinks Guinness.
+\end{earg*}
+\end{mdframed}
+\caption{An argument that is \textbf{valid} but not \textit{sound}} \label{fig:valid_unsound}
+\end{figure}
+
+
+You might have a general sense that the argument in Figure \ref{fig:valid_unsound} is bad---you shouldn't assume that someone drinks Guinness just because they are Irish. But the argument is completely valid (at least when it is expressed this way.) The inference here is the same as it was in the previous two arguments. The problem is the first premise. Not all Irishmen drink Guinness, but if they did, and Smith was an Irishman, he would drink Guinness. 
+
+The important thing to remember is that validity is not about the actual truth or falsity of the statements in the argument. Instead, it is about the way the premises and conclusion are put together. It is really about the \emph{form} of the argument. A valid argument has perfect logical form. The premises and conclusion have been put together so that the truth of the premises is incompatible with the falsity of the conclusion. 
+
+A general trick for determining whether an argument is valid is to try to come up with just one way in which the premises could be true but the conclusion false. If you can think of one (just one! anything at all! but no violating the laws of physics!), the reasoning is \textit {invalid.}    
+ 
+
+% Practice Problems %%%%%%%%%%%%%%%
+
+\practiceproblems
+
+\noindent\problempart  Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+
+\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
+\textbf{Example}: & \textit{Monica is looking for her coworker} Jack is in his office. Jack's office is on the second floor. So, Jack is on the second floor. \\
+\textbf{Answer}: & \vspace{-16pt}
+\begin{earg*}
+\item Jack is in his office. 
+\item Jack's office is on the second floor.
+\itemc Jack is on the second floor.
+\end{earg*}
+Valid
+\\
+\end{longtabu}
+
+\begin{exercises}
+\item All dinosaurs are people, and all people are fruit. Therefore all dinosaurs are fruit. 
+
+\answer{
+\begin{earg*}
+\item All dinosaurs are people
+\item All people are fruit. 
+\itemc[.4] All dinosaurs are fruit. 
+\end{earg*}
+
+\underline{Valid}}
+%% F, F, conclusion last
+
+\item All dogs are mammals. Therefore, Fido is a mammal, because Fido is a dog.  
+
+\answer{
+\begin{earg*}
+\item All dogs are mammals
+\item Fido is a dog.   
+\itemc[.4] Fido is a mammal, 
+\end{earg*}
+
+\underline{Valid}}
+%%Made up, conclusion middle
+
+\item Abe Lincoln must have been from France, because he was either from France or from Luxemborg, and we know was not from Luxemborg. 
+\answer{
+
+\begin{earg*}
+\item Abe Lincoln was either from France or from Luxemborg
+\item Abe Lincoln was not from Luxemborg. 
+\itemc[.4] Abe Lincoln was from France. 
+\end{earg*}
+
+\underline{Valid}}
+%%F, F, conclusion first
+
+\item Love is blind. God is love. Ray Charles is blind. Therefore, Ray Charles is God
+\answer{
+\begin{earg*}
+\item  Love is blind.
+\item  God is love. 
+\item  Ray Charles is blind. 
+\itemc[.4]  Ray Charles is God
+\end{earg*}
+\underline{Invalid}
+Inductive fallacy--equivocation, }%conclusion last
+
+\item If the world were to end today, then I would not need to get up tomorrow morning. I will need to get up tomorrow morning. Therefore, the world will not end today.
+
+\answer{
+\begin{earg*}
+\item If the world were to end today, then I would not need to get up tomorrow morning.
+\item I will need to get up tomorrow morning.
+\itemc[.4]  The world will not end today.
+\end{earg*}
+\underline{Valid}}
+%%Made up
+
+\item All people are mortal. Socrates is mortal. Therefore all people are Socrates. 
+\answer{
+\begin{earg*}
+\item  All people are mortal.
+\item Socrates is mortal. 
+\itemc[.4]  All people are Socrates. 
+\end{earg*}
+\underline{Invalid}}
+%%Formal fallacy
+
+
+\item \textit{A forest ranger is surveying the park} I can tell that bears have been down by the river, because there are tracks in the mud. Tracks like these are made by bears in almost every case. 
+
+\answer{
+\begin{earg*}
+\item  There are tracks in the mud.
+\item Tracks like these are made by bears in almost every case. 
+\itemc[.4]  Bears have been down by the river
+\end{earg*}
+\underline{Invalid}}
+%%Inductive, conclusion first 
+
+\item If the triceratops were a dinosaur, it would be extinct. Therefore, the triceratops is extinct, because the triceratops was a dinosaur. 
+\answer{
+\begin{earg*}
+\item  If the triceratops were a dinosaur, it would be extinct.
+\item The triceratops is extinct 
+\itemc[.4] The triceratops was a dinosaur. 
+\end{earg*}
+
+\underline{Valid}}
+%%T, T, conclusion middle
+
+\item If George Washington was assassinated, he is dead. George Washington is dead. Therefore George Washington was assassinated.
+\answer{
+\begin{earg*}
+\item  If George Washington was assassinated, he is dead.
+\item George Washington is dead.
+\itemc[.4] George Washington was assassinated.
+\end{earg*}
+\underline{Invalid}}
+%% Formal fallacy
+%
+\item Jack prefers Pepsi to Coke. After all, about 52\% of people prefer Pepsi to Coke, and Jack is a person. 
+
+\answer{
+\begin{earg*}
+\item  About 52\% of people prefer Pepsi to Coke
+\item Jack is a person. 
+\itemc[.4] Jack prefers Pepsi to Coke.
+\end{earg*}
+
+\underline{invalid}}
+%%Inductive, conclusion first 
+\end{exercises}
+
+\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+\answer{Answers by Ben Sheredos}
+\begin{exercises}
+\item Cindy Lou Who lives in Whoville. You can tell because Cindy Lou Who is a Who, and all Whos live in Whoville.  
+
+\answer{ 
+	\begin{earg*} 
+		\item Cindy Lou Who is a Who.
+		\item All Whos live in Whoville.
+		\itemc Cindy Lou Who lives in Whoville.
+	\end{earg*}
+Valid}
+%Made up, conclusion first
+
+\item If Frog and Toad like each other, they are friends. Frog and Toad like each other. Therefore, Frog and Toad are friends. 
+\answer{
+	\begin{earg*} 
+		\item If Frog and Toad like each other, they are friends.
+		\item Frog and Toad like each other.
+		\itemc Frog and Toad are friends.
+	\end{earg*}
+Valid}
+%Made up
+
+\item If Cindy Lou Who is no more than two, then she is not five years old. Cindy Lou Who is not five. Therefore Cindy Lou Who is two or more.
+\answer{
+	\begin{earg*} 
+		\item If Cindy Lou Who is no more than two, then she is not five years old.
+		\item Cindy Lou Who is not five.
+		\itemc Cindy Lou Who is two or more.
+	\end{earg*}
+Invalid. This starts out as a formal fallacy, affirming the consequent. Then it goes even further wrong by swapping "no more than two" for "two or more."}
+% Formal fallacy
+
+\item \textit{Jack's suspicious house mate is in the kitchen} Jack has moved my leftover slice of pizza. Jack must have moved it, because Jack is the only person who has been in the house, and the pizza is no longer in the fridge.
+\answer{ 
+	\begin{earg*} 
+		\item Jack is the only person who has been in the house, and the pizza is no longer in the fridge,
+		\itemc Jack has moved my leftover slice of pizza.
+	\end{earg*}
+Alternatively:
+	\begin{earg*} 
+	\item Jack is the only person who has been in the house.
+	\item The pizza is no longer in the fridge.
+	\itemc Jack has moved my leftover slice of pizza.
+	\end{earg*}
+Invalid. Maybe pets or robots can open the fridge? Or possibly, Jack opened the fridge, but did so with his cell phone is his hand and right at that moment received a funny video from a friend and left the fridge door open while he watched it, allowing the dog to steal the pizza. Not likely, admittedly, but if it could happen, the argument is \underline{not valid}.}
+% Inductive, conclusion first
+ 
+\item Jack is Smith's work colleague. So, Jack and Smith are friends.
+\answer{ 
+	\begin{earg*} 
+		\item Jack is Smith's work colleague.
+		\itemc Jack and Smith are friends.
+	\end{earg*}
+Invalid. Not all coworkers are friends.}
+
+%Inductive 
+
+\item Abe Lincoln was either born in Illinois or he was once president. Therefore Abe Lincoln was born in Illinois, because he was never president. 
+\answer{ 
+	\begin{earg*} 
+		\item Lincoln was either born in Illinois or he was once president.
+		\item Lincoln was never president.
+		\itemc Lincoln was born in Illinois.
+	\end{earg*}
+Valid. Probably every statement here is false, but what matters is that IF the premises were true, the conclusion would have to be true.}
+%F, T, conclusion middle
+
+\item Politicians get a generous allowance for transportation costs. Enda Kenny is a politician. Therefore Kenny gets a generous transportation allowance.
+\answer{ 
+	\begin{earg*} 
+		\item Politicians get a generous allowance for transportation costs.
+		\item Enda Kenny is a politician.
+		\itemc Kenny gets a generous transportation allowance.
+	\end{earg*}
+Valid. If the plural "politicians" is understood to mean "all politicians" rather than "most", the inference is valid. If you wrote "invalid" and explained that you thought "politicians" only meant "most politicians," that would be OK, as long as you made it clear. English is ambiguous like that.}
+
+% Valid. If the plural "politicians" is understood to mean "all politicians" rather than "most", the inference is valid.
+%might as well be made up
+
+\item Jones is taller than Bill, because Smith is taller than Jones and Bill is shorter than Smith. 
+\answer{
+	\begin{earg*} 
+		\item Smith is taller than Jones.
+		\item Bill is shorter than Smith.
+		\itemc Jones is taller than Bill.
+	\end{earg*}
+Invalid. Jones and Bill could be the same height.}
+
+%Formal fallacy, conclusion first
+
+\item If grass is green, then I am the pope. Grass is green. So, I am the pope.
+\answer{
+	\begin{earg*} 
+		\item If grass is green, then I am the pope.
+		\item Grass is green.
+		\itemc I am the pope.
+	\end{earg*}
+Valid. IF premises are true, conclusion has to be.}
+
+%F, F
+
+\item Smith is paid more than Jack. They are both paid weekly. So, Smith has more money than Jack.
+\answer{
+	\begin{earg*} 
+		\item Smith is paid more than Jack.
+		\item Both Smith and Jones are paid weekly.
+		\itemc Smith has more money than Jack.
+	\end{earg*}
+Invalid. There are sources of wealth other than what one is paid.}% Weak
+\end{exercises}
+
+\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+
+\begin{exercises}
+\item Jack is close to the pond. The pond is close to the playground. So, Jack is close to the playground.
+\answer{
+\begin{earg*}
+\item  Jack is close to the pond. 
+\item The pond is close to the playground. 
+\itemc[.4] Jack is close to the playground.
+\end{earg*}
+\underline{Invalid}}
+%% General fallacy
+
+\item \textit{Jack is at work: }I have up to half an hour to get to the bank, because work ends at 5:00 and the bank closes at 5:30. 
+\answer{
+\begin{earg*}
+\item  Work ends at 5:00
+\item The bank closes at 5:30. 
+\itemc[.4] I have up to half an hour to get to the bank
+\end{earg*}
+
+\underline{Valid}}
+%% Made up, conclusion first.
+
+\item Jack and Gill ate at Guadalajara restaurant earlier and both of them feel nauseated now. So, something they ate there is making them sick.
+\answer{
+\begin{earg*}
+\item  Jack and Gill ate at Guadalajara restaurant earlier
+\item  Jack and Gill feel nauseated now. 
+\itemc[.4] Something they ate there is making them sick.
+\end{earg*}
+
+\underline{ Invalid}}
+%% Inductive
+
+\item Zhaoquing must be west of Huizhou, because Zhaoquing is west of Guangzhou, which is west of Huizhou. 
+\answer{
+\begin{earg*}
+\item   Zhaoquing is west of Guangzhou
+\item  Guangzhou is west of Huizhou.  
+\itemc[.4] Zhaoquing is west of Huizhou
+\end{earg*}
+\underline{Valid}}
+%%T, T (?), conclusion first
+%
+\item \textit{Henry can't find his glasses. }I remember I had them when I came in from the car. So, they are in the house somewhere.
+\answer{
+\begin{earg*}
+\item   Henry had his glasses when he came in from the car
+\itemc[.4]  His glasses are in the house somewhere.
+\end{earg*} 
+\underline{Invalid}}
+% False dilemma
+%% General fallacy
+
+\item I was talking about tall John---the one who is over 6'4''---but Jack was talking about short John, who is at most 5'2''. So, we were talking about two different Johns.
+\answer{
+\begin{earg*}
+\item I was talking about tall John  
+\item   Jack was talking about short John
+\itemc[.4]  We were talking about two different Johns.
+\end{earg*}\underline{Valid}}
+%% Made up
+
+\item Tomorrow's trip to Ensenada will take about 10 hours, because the last time I drove there from here it took 10 hours. 
+\answer{
+\begin{earg*}
+\item   The last time I drove to Ensenada from here it took 10 hours. 
+\itemc[.4]  Tomorrow's trip to Ensenada will take about 10 hours
+\end{earg*}\underline{Invalid}}
+%%Induction, conclusion first.
+
+\end{exercises}
+
+\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+\answer{Answers by Ben Sheredos}
+\begin{exercises}
+\item \textit{Monica is surveying the crowd that showed up for her talk} There must be at least 150 people here. That's how many people the auditorium holds, and every seat is full and people are beginning to sit on the stairs at the side. 
+\answer{
+	\begin{earg*} 
+		\item The auditorium holds 150 people.
+		\item Every seat in the auditorium is full and people are beginning to sit on the stairs at the side.
+		\itemc There are at least 150 people here.
+	\end{earg*}
+Valid}
+% Made up, conclusion first
+
+\item The fire bell in the building is ringing. There is sometimes a fire in the building when the alarm goes off. So, there is a fire.
+\answer{
+	\begin{earg*} 
+		\item The fire bell in the building is ringing.
+		\item There is sometimes a fire in the building when the alarm goes off.
+		\itemc There is a fire (in the building).
+	\end{earg*}
+Invalid. "Sometimes" isn't "always," so the conclusion is not necessarily true.}
+% Inductive
+
+\item I cannot drive on the motorways yet, because I just passed my driving test and anyone who passes can drive on the roads but not on the motorway for six months.  
+\answer{
+	\begin{earg*} 
+		\item I just passed my driving test.
+		\item Anyone who passes can drive on the roads but not on the motorway for 6 months.
+		\itemc I cannot drive on the motorways yet.
+	\end{earg*}
+Valid; it's implied pretty strongly that "just passing" means "passed within the past 6 months." There is room for equivocation here, but it looks pretty solid.}
+
+% Made up
+
+\item Yesterday's the temperature reached 91 degrees Fahrenheit. Today it is 94. So, today is warmer than yesterday.
+\answer{
+	\begin{earg*} 
+		\item Yesterday the temp. reached 91F.
+		\item Today the tepm. is 94F.
+		\itemc Today is warmer than yesterday.
+	\end{earg*}
+Valid, unless the speaker inexplicably changes to a Celsius scale or something, but more likely the idea is that they just told you what scale they were using, and so they don't repeat it.}
+% Made up
+
+\item  My car is functioning well at the moment. So, all of the parts in my car are functioning well.
+\answer{
+	\begin{earg*} 
+		\item My car is functioning well at the moment.
+		\itemc All the parts of my car are functioning well.
+	\end{earg*}
+Probably invalid -- probably a fallacy of "Composition and Division." Suppose the speaker added, as P2: ''I mean, the antenna fell off, so I can't listen to Jazz 98.3, but I'll fix that later'' We wouldn't jump on them and say ''\textit{A-HA!} so your car \textit{isn't} functioning well!''}
+
+\item It has been sunny every day for the last five days. So, it will be sunny today.
+
+\answer{
+	\begin{earg*} 
+		\item It has been sunny every day for the past 5 days.
+		\itemc It will be sunny today.
+	\end{earg*}
+Not valid in the logical sense defined here. Five days in a row is no guarantee that the sixth day will be the same.}
+
+% Inductive
+
+\item Jack is in front of Gill. So, Gill is behind Jack.
+\answer{
+	\begin{earg*} 
+		\item Jack is front of Gill.
+		\itemc Gill is behind Jack.
+	\end{earg*}
+Valid}
+
+% made up
+
+\item \textit{Gill is returning home}: The door to my house is still locked. So, my possessions are still inside.
+\answer{
+	\begin{earg*} 
+		\item The door to my house is still locked.
+		\itemc My possessions are still inside.
+	\end{earg*}
+Invalid. Oh simple, naive Gil. A pro would definitely pick the lock, rob you blind, and lock the door on the way out so as not to arouse suspicions. By now your possessions have been pawned, and the thief is halfway to Vegas.}
+
+%Inductive.
+
+\end{exercises}
+
+
+
+
+% *******************************************
+% *			Strong, Cogent, Deductive, Inductive	    *	
+% *******************************************
+
+
+\section{Strong, Cogent, Deductive, Inductive}
+
+We have just seen that sound arguments are the very best arguments. Unfortunately, sound arguments are really hard to come by, and when you do find them, they often only prove things that were already quite obvious, like that Socrates (a dead man) is mortal. Fortunately, arguments can still be worthwhile, even if they are not sound. Consider this one:
+
+\begin{earg*}
+\item In January 1997, it rained in San Diego.
+\item In January 1998, it rained in San Diego.
+\item In January 1999, it rained in San Diego.
+\itemc[.6] It rains every January in San Diego.
+\end{earg*}
+
+
+This argument is not valid, because the conclusion could be false even though the premises are true. It is possible, although unlikely, that it will fail to rain next January in San Diego. Moreover, we know that the weather can be fickle. No amount of evidence should convince us that it rains there \emph{every} January. Who is to say that some year will not be a freakish year in which there is no rain in January in San Diego? Even a single counterexample is enough to make the conclusion of the argument false.
+
+\newglossaryentry{strong}
+{
+name=strong,
+description={A property of arguments which holds when the premises, if true, mean the conclusion must be likely to be true.}
+}
+
+
+\newglossaryentry{cogent}
+{
+name=cogent,
+description={A property of arguments that holds when the argument is strong and the premises are true.}
+}
+
+
+
+\newglossaryentry{weak}
+{
+name=weak,
+description={A property of arguments that are neither valid nor strong. In a weak argument, the premises would not even make the conclusion likely, even if they were true.}
+}
+
+
+
+Still, this argument is pretty good. Certainly, the argument could be made stronger by adding additional premises: In January 2000, it rained in San Diego. In January 2001$\ldots$ and so on. Regardless of how many premises we add, however, the argument will still not be deductively valid. Instead of being valid, this argument is strong. An argument is \textsc{\gls{strong}} \label{def:strong} if the premises would make the conclusion more likely, were they true. In a strong argument, the premises don't guarantee the truth of the conclusion, but they do make it a good bet. If an argument is strong, and it has true premises, we say that it is \textsc{\gls{cogent}} \label{def:cogent} Cogency is the equivalent of soundness in strong arguments. If an inference is neither valid, nor strong, we say it is \textsc{\gls{weak}}. \label{def:weak}In a weak argument, the premises would not even make the conclusion likely, even if they were true.
+
+You may have noticed that the word ``likely'' is a little vague. How likely do the premises have to make the conclusion before we can count the argument as strong? The answer is a very unsatisfying ``it depends.'' It depends on what is at stake in the decision to believe the conclusion. What happens if you are wrong? What happens if you are right? The phrase ``make the conclusion a good bet'' is really quite apt. Whether something is a good bet depends a lot on how much money is at stake and how much you are willing to lose. Sometimes people feel comfortable taking a bet that has a 50\% chance of doubling their money, sometimes they don't. 
+
+The vagueness of the word ``likely'' brings out an interesting feature of strong arguments: some strong arguments are stronger than others. The argument about rain in San Diego, above, has three premises referring to three previous Januaries. The argument is pretty strong, but it can become stronger if we go back farther into the past, and find more years where it rains in January. The more evidence we have, the better a bet the conclusion is. Validity is not like this. Validity is a black-or-white matter. You either have it, and you're perfect, or you don't, and you're nothing. There is no point in adding premises to an argument that is already valid. 
+
+\newglossaryentry{deductive}
+{
+name=deductive,
+description={A style of arguing where one attempts to use valid arguments.}
+}
+
+\newglossaryentry{inductive}
+{
+name=inductive,
+description={A style of arguing where one attempts to use strong arguments.}
+}
+
+Arguments that are valid, or at least try to be, are called \textsc{\gls{deductive}} \label{def:deductive}, and people who attempt to argue using valid arguments are said to be arguing \textit{deductively.} The notion of validity we are using here is, in fact, sometimes called \textit{deductive validity}. Deductive argument is difficult, because, as we said, in the real world sound arguments are hard to come by, and people don't always recognize them as sound when they find them. Arguments that purport to merely be strong rather than valid are called \textsc{\gls{inductive}}. \label{def:inductive} The most common kind of inductive argument includes arguments like the one above about rain in San Diego, which generalize from many cases to a conclusion about all cases.
+
+Deduction is possible in only a few contexts. You need to have clear, fixed meanings for all of your terms and rules that are universal and have no exceptions.   One can find situations like this if you are dealing with things like legal codes, mathematical systems or logical puzzles. One can also create, as it were, a context where deduction is possible by imagining a universal, exceptionless rule, even if you know that no such rule exists in reality. In the example above about rain in San Diego, we can change the argument from inductive to deductive by adding a universal, exceptionless premise like ``It always rains in January in San Diego.'' This premise is unlikely to be true, but it can make the inference valid. (For more about trade offs between the validity of the inference and the truth of the premise, see the chapter on incomplete arguments in the complete version of this text. \label{ver_var} \nix{Chapter \ref{chap:incomplete_arguments}}
+
+Here is an example in which the context is an artificial code --- the tax code: 
+
+\begin{quotation} \noindent\textit{From a the legal code posted on a government website} A tax credit for energy-efficient home improvement is available at 30\% of the cost, up to \$1,500 total, in 2009 \& 2010, ONLY for existing homes, NOT new construction, that are your "principal residence" for Windows and Doors (including sliding glass doors, garage doors,~storm doors and storm windows), Insulation, Roofs (Metal and Asphalt), HVAC: Central Air Conditioners, Air Source Heat Pumps, Furnaces and Boilers, Water Heaters: Gas, Oil, \& Propane Water Heaters, Electric Heat Pump Water Heaters, Biomass Stoves. \end{quotation}
+
+This rule describes the conditions under which a person can or cannot take a certain tax credit. Such a rule can be used to reach a valid conclusion that the tax credit can or cannot be taken.
+
+As another example of an inference in an artificial situation with limited and clearly defined options, consider a Sudoku puzzle. The rules of Sudoku are that each cell contains a single number from 1 to 9, and each row, each column and each 9-cell square contain one occurrence of each number from 1 to 9. Consider the following partially completed board:
+
+\begin{center}
+\noindent \includegraphics*[width=2.45in, height=2.45in, keepaspectratio=false]{img/sudoku}
+\end{center}
+
+The following inference shows that, in the first column, a 9 must be entered below the 7:
+
+\begin{quotation} The 9 in the first column must go in one of the open cells in the column. It cannot go in the third cell in the column, because there is already a 9 in that 9-cell square. It cannot go in the eighth or ninth cell because each of these rows already contains a 9, and a row cannot contain two occurrences of the same number. Therefore, since there must be a 9 somewhere in this column, it must be entered in the seventh cell, below the 7.\end{quotation}
+
+The reasoning in this inference is valid: if the premises are true, then the conclusion must be true. Logic puzzles of all sorts operate by artificially restricting the available options in various ways. This then means that each conclusion arrived at (assuming the reasoning is correct) is necessarily true. 
+
+One can also create a context where deduction is possible by imagining a rule that holds without exception. This can be done with respect to any subject matter at all. Speakers often exaggerate the connecting premise in order to ensure that the justificatory or explanatory power of the inference is as strong as possible. Consider Smith's words in the following passage: 
+
+
+\begin{adjustwidth}{2em}{0em}
+\begin{longtabu}{p{.1\linewidth}p{.8\linewidth}}
+\textbf{Smith:} & I'm going to have some excellent pizza this evening. \\
+\textbf{Jones:} & I'm glad to hear it. How do you know?\\
+\textbf{Smith:} & I'm going to Adriatico's. They always make a great pizza. \\
+\end{longtabu}
+\end{adjustwidth}
+\vspace{-1cm}
+
+Here, Smith justifies his belief that the pizza will be excellent --- it comes from Adriatico's, where the pizza, he claims, is \textit{always }great: in the past, present and future. 
+
+As stated by Smith, the inference that the pizza will be great this evening is valid. However, making the inference valid in this way often means making the general premise false: it's not likely that the pizza is great \textit{every single }time; Smith is overstating the case for emphasis. Note that Smith does not need to use a universal proposition in order to convince Jones that the pizza will \textit{very likely} be good. The inference to the conclusion would be strong (though not valid) if he had said that the pizza is "almost always" great, or that the pizza has been great on all of the many occasions he has been at that restaurant in the past. The strength of the inference would fall to some extent---it would not be guaranteed to be great this evening---but a slightly weaker inference seems appropriate, given that sometimes things go contrary to expectation. 
+
+Sometimes the laws of nature make constructing contexts for valid arguments more reasonable. Now consider the following passage, which involves a scientific law:
+
+\begin{quotation}\noindent Jack is about to let go of Jim's leash. The operation of gravity makes all unsupported objects near the Earth's surface fall toward the center of the Earth. Nothing stands in the way. Therefore, Jim's leash will fall. \end{quotation}
+
+(Or, as Spock said in a Star Trek episode, "If I let go of a hammer on a planet that has a positive gravity, I need not see it fall to know that it has in fact fallen.") The inference above is represented in canonical form as follows:
+
+\begin{adjustwidth}{2em}{2em}
+\begin{earg*}
+\item  Jack is about to let go of Jim's leash. 
+\item  The operation of gravity makes all unsupported objects near the Earth's surface fall toward the center of the Earth. 
+\item  Nothing stands in the way of the leash falling. 
+\itemc  Jim's leash will fall toward the center of the Earth.
+\end{earg*}
+\end{adjustwidth}
+
+As stated, this argument is valid. That is, if you pretend that they are true or accept them "for the sake of argument", you would \textit{necessarily }also accept the conclusion. Or, to put it another way, there is no way in which you could hold the premises to be true and the conclusion false.
+
+Although this argument is valid, it involves idealizing assumptions similar to the ones we saw in the pizza example. P$_2$ states a physical law which is about as well confirmed as any statement about the world around us you care to name. However, physical laws make assumptions about the situations they apply to---they typically neglect things like wind resistance. In this case, the idealizing assumption is just that nothing stands in the way of the leash falling. This can be checked just by looking, but this check can go wrong. Perhaps there is an invisible pillar underneath Jack's hand? Perhaps a huge gust of wind will come? These events are much less likely than Adriatico's making a lousy pizza, but they are still possible. 
+
+Thus we see that using scientific laws to create a context where deductive validity is possible is a much safer bet than simply asserting whatever exceptionless rule pops into your head. However, it still involves improving the quality of the inference by introducing premises that are less likely to be true. 
+
+So deduction is possible in artificial contexts like logical puzzles and legal codes. It is also possible in cases where we make idealizing assumptions or imagine exceptionless rules. The rest of the time we are dealing with induction. When we do induction, we try for strong inferences, where the premises, assuming they are true, would make the truth of the conclusion very likely, though not necessary. Consider the two arguments in Figure \ref{fig:strong_weak}
+
+
+\begin{figure}
+\begin{mdframed}[style=mytablebox]
+\begin{tabu}{X[1,c]X[1,c]}
+\begin{earg*}
+\item  92\% of Republicans from Texas voted for Bush in 2000. 
+\item  Jack is a Republican from Texas. 
+\itemc  Jack voted for Bush. 
+\end{earg*}
+&
+\begin{earg*}
+\item  Just over half of drivers are female. 
+\item  There's a person driving the car that just cut me off. 
+\itemc  The person driving the car that just cut me off is female.
+\end{earg*}
+\\
+A \textbf{strong} argument &
+A \textbf{weak} argument
+\end{tabu}
+\end{mdframed}
+\caption{Neither argument is valid, but one is strong and one is weak} \label{fig:strong_weak}
+\end{figure}
+
+
+Note that the premises in neither inference \textit{guarantee }the truth of the conclusion. For all the premises in the first one say, Jack could be one of the 8\% of Republicans from Texas who did not vote for Bush; perhaps, for example, Jack soured on Bush, but not on Republicans in general, when Bush served as governor. Likewise for the second; the driver could be one of the 49\%. 
+
+So, neither inference is valid. But there is a big difference between how much support the premises, if true, would give to the conclusion in the first and how much they would in the second. The premises in the first, assuming they are true, would provide very strong reasons to accept the conclusion. This, however, is not the case with the second: if the premises in it were true then they would give only weak reasons for believing the conclusion. thus, the first is strong while the second is weak.
+
+As we said earlier, there there are only two options with respect to validity---valid or not valid. On the other hand, strength comes in degrees, and sometimes arguments will have percentages that will enable you to exactly quantify their strength, as in the two examples in Figure \ref{fig:strong_weak}. 
+
+However, even where the degree of support is made explicit by a percentage there is no firm way to say at what degree of support an inference can be classified as strong and below which it is weak. In other words, it is difficult to say whether or not a conclusion is \textit{very likely} to be true. For example, In the inference about whether Jack, a Texas Republican, voted for Bush. If 92\% of Texas Republicans voted for Bush, the conclusion, if the premises are granted, would very probably be true. But what if the number were 85\%? Or 75\%? Or 65\%? Would the conclusion very likely be true? Similarly, the second inference involves a percentage greater than 50\%, but this does not seem sufficient. At what point, however, would it be sufficient? 
+
+In order to answer this question, go back to basics and ask yourself: "If I accept the truth of the premises, would I then have sufficient reason to believe the conclusion?". If you would not feel safe in adopting the conclusion as a belief as a result of the inference, then you think it is weak, that is, you do not think the premises give sufficient support to the conclusion. 
+
+Note that the same inference might be weak in one context but strong in another, because the degree of support needed changes. For example, if you merely have a deposit to make, you might accept that the bank is open on Saturday based on your memory of having gone to the bank on Saturday at some time in the past. If, on the other hand, you have a vital mortgage payment to make, you might not consider your memory sufficient justification. Instead, you will want to call up the bank and increase your level of confidence in the belief that it will be open on Saturday.
+
+Most inferences (if successful) are strong rather than valid. This is because they deal with situations which are in some way open-ended or where our knowledge is not precise. In the example of Jack voting for Bush, we know only that 92\% of Republicans voted for Bush, and so there is no definitive connection between being a Texas Republican and voting for Bush. Further, we have only statistical information to go on. This statistical information was based on polling or surveying a sample of Texas voters and so is itself subject to error (as is discussed in the chapter on induction in the complete version of this text.\label{ver_var} \nix{Chapter \ref{chap:induction} on induction).} A more precise version of the premise might be "92\% $\pm$ 3\% of Texas Republicans voted for Bush.".
+
+At the risk of redundancy, let's consider a variety of examples of valid, strong and weak inferences, presented in standard form. 
+
+\begin{earg*}
+\item  David Duchovny weighs more than 200 pounds. 
+\itemc  David Duchovny weighs more than 150 pounds.
+\end{earg*}
+
+The inference here is valid. It is valid because of the number system (here applied to weight): 200 is more than 150. It might be false, as a matter of fact, that David Duchovny weighs more than 200 pounds, and false, as a matter of fact, that David Duchovny weighs more than 150 pounds. But if you \textit{suppose }or \textit{grant }or \textit{imagine }that David Duchovny weighs more than 200 pounds, it would then \textit{have }to be true that David Duchovny weighs more than 150 pounds. Next:
+
+\begin{earg*}
+\item  Armistice Day is November 11th, each year. 
+\item  Halloween is October 31st, each year.
+\itemc  Armistice Day is later than Halloween, each year. 
+\end{earg*}
+
+This inference is valid. It is valid because of order of the months in the Gregorian calendar and the placement of the New Year in this system. Next:
+
+\begin{earg*}
+\item  All people are mortal. 
+\item  Professor Pappas is a person. 
+\itemc  Professor Pappas is mortal. 
+\end{earg*}
+
+As written, this inference is valid. If you accept for the sake of argument that all men are mortal (as the first premise says) and likewise that Professor Pappas is a man (as the second premise says), then you would have to accept also that Professor Pappas is mortal (as the conclusion says). You could not consistently both (i) affirm that all men are mortal and that Professor Pappas is a man and (ii) deny that Professor Pappas is mortal. If a person accepted these premises but denied the conclusion, that person would be making a mistake in logic.
+
+This inference's validity is due to the fact that the first premise uses the word "all". You might, however, wonder whether or not this premise is true, given that we believe it to be true only on our experience of men \textit{in the past}. This might be a case of over-stating a premise, which we mentioned earlier. Next:
+
+\begin{earg*}
+\item  In 1933, it rained in Columbus, Ohio on 175 days.
+\item  In 1934, it rained in Columbus, Ohio on 177 days.
+\item  In 1935, it rained in Columbus, Ohio on 171 days.
+\itemc  In 1936, it rained in Columbus, Ohio on at least 150 days.
+\end{earg*}
+
+This inference is strong. The premises establish a record of days of rainfall that is well above 150. It is possible, however, that 1936 was exceptionally dry, and this possibility means that the inference does not achieve validity. Next:
+
+\begin{earg*}
+\item  The Bible says that homosexuality is an abomination.
+\itemc  Homosexuality is an abomination.
+\end{earg*}
+
+This inference is an appeal to a source. Appeals to sources are discussed in the sections on arguments from authority in the complete version of this text. \label{ver_var} \nix{Section \ref{sec:sources} of Part \ref{part:CT_and_informal_logic}} of this book. In brief, you should think about whether the source is reliable, is biased, and whether the claim is consistent with what other authorities on the subject say. You should apply all these criteria to this argument for yourself. You should ask what issues, if any, the Bible is reliable on. If you believe humans had any role in writing the Bible, you can ask about what biases and agendas they might have had. And you can think about what other sources---religious texts or moral experts---say on this issue. You can certainly find many who disagree. Given the controversial nature of this issue, we will not give our evaluation. We will only encourage you to think it through systematically.
+
+
+\begin{earg*}
+\item  Some professional philosophers published books in 2007.
+\item  Some books published in 2007 sold more than 100,000 copies. 
+\itemc  Some professional philosophers published books in 2007 that sold more than 100,000 copies. 
+\end{earg*}
+
+This reasoning is weak. Both premises use the word "some" which doesn't tell you a lot about many professional philosophers published books and how many books sold more than 100,000 copies in 2007. This means that you cannot be confident that even one professional philosopher sold more than 100,000 copies. Next:
+
+\begin{earg*}
+\item  Lots of Russians prefer vodka to bourbon. 
+\itemc  George Bush was the President of the United States in 2006.
+\end{earg*}
+
+No one (in her right mind) would make an inference like this. It is presented here as an example only: it is clearly weak. It's hard to see how the premise justifies the conclusion to any extent at all.  
+      
+To sum up this section, we have seen that there are two styles of reasoning, deductive and inductive. The former tries to use valid arguments, while the latter contents itself to give arguments that are merely strong. The section of this book on formal logic will deal entirely with deductive reasoning. Historically, most of formal logic has been devoted to the study of deductive arguments, although many great systems have been developed for the formal treatment of inductive logic. On the other hand, the sections of this book on informal logic and critical thinking will focus mostly on inductive logic, because these arguments are more readily available in the real world. 
+
+
+
+\practiceproblems
+
+\noindent\problempart For each inference, (i) say whether it is valid, strong, or weak and (ii) explain your answer.
+
+\begin{longtabu}{p{.1\linewidth}p{.8\linewidth}}
+\textbf{Example}: & The patient has a red rash covering the extremities and head, but not the torso. The only cause of such a rash is a deficiency in vitamin K. So, the patient must have a vitamin K deficiency. \\
+\textbf{Answer}: & \noindent (i) Valid. \newline
+\noindent (ii) The word "only" means it must be vitamin K deficiency.
+\\
+\end{longtabu}
+
+\begin{exercises}
+
+\item On 2003-06-19 in Norfolk, VA, a violent storm blew through and the power went out over much of the city. So, the storm caused the power to go out.
+\answer{\underline{Strong} \\Storms often cause power outages, but other things can cause them, too. In general, causal inferences are part of inductive reasoning, and are therefore at best strong. }
+
+\item  All men are things with purple hair, and all things with purple hair have nine legs. Therefore, all men have nine legs.
+
+\answer{\underline{Valid.}\\ You can see this by substituting in different things for ``purple hair'' and ``has nine legs.'' For instance, you could use ``mammals'' and ``has hair.'' There is no way to do this that will make the premises true and the conclusion false. So the argument is valid. }
+
+
+\item  Elvis Presley was known as The King. Elvis had 18 songs reach \#1 in the Billboard charts. So, The King had 18 \#1 hits.
+
+\answer{ \underline{Valid} \\This is an example of substituting different names for the same thing to create a valid argument. }
+
+\item Most philosophers are right-handed. Terence Irwin is a philosopher. So, he is right-handed.
+
+\answer{\underline{Strong} (?)\\
+
+The conclusion isn't necessarily true, so the inference is not valid. Is it strong or weak? If you read "most" as "very many" or something like that, it would be strong; if you read "most" as "a majority" (in the sense of 'somewhere between 51\% and 99\%' ), it would probably be weak. Advertisers sometimes use the vagueness of "most" to get you to feel that lots of people are buying a certain product or service, when in fact only a small majority is. }
+
+\item  Jack has purple hair, and purple toe nails. Hence, he has toe nails.
+
+\answer{\underline{Valid}}
+
+\item  The Ohio State football team beat the Miami football team on 2003-01-03 for the college national championship. So, the Ohio State football team was the best team in college football in the 2002-2003 season.
+
+\answer{\underline{Strong} (?) \\
+
+What are the chances that the non-best team would win the championship? If you think that a non-best time wins somewhat frequently, this inference would be weak. If, on the other hand, you think winning the championship is  a good way to judge the best team, you think the inference is strong.}
+
+\item Willie Mosconi made almost all of the pool shots he took from 1940-1945. He took a bunch of shots in 1941. So, he made almost every shot he took in 1941.
+
+\answer{\underline{Strong}   \\
+"Almost all" is fairly vague. So we are not sure how many missed shots we are talking about in the five year period. If there were all clustered in 1941, it is possible that the success rate for 1941 would no longer qualify as "almost all," but this is unlikely. }
+
+
+\item Some philosophers are people who are right-handed. Therefore, some people who are right-handed are philosophers.
+
+\answer{\underline{Valid.} \\ The conclusion can't be false if the premise is true.}
+
+\item U.S. President Obama firmly believed that Iran is planning a nuclear attack against Israel. We can conclude that Iran is planning a nuclear attack on Israel.
+
+\answer{\underline{Weak}  \\
+
+Even if you think Obama's judgment is generally reliable here, a nuclear attack on Israel is an incredibly unlikely event. After all, this land is holy to Muslims, too. Extraordinary claims require extraordinary evidence, and I don't think any one's person's judgment is enough to go on here. }
+
+\item Since the Spanish American War occurred before the American Civil War, and since the American Civil War occurred after the Korean War, it follows that the Spanish American War occurred before the Korean War.
+
+\answer{\underline{Weak.}\\ If A is before B and C is before B, we know nothing about the relationship between B and C. A and C could be at the same time or either one before the other.}
+
+\item There are exactly 10 humans in Carnegie Hall right now. Every human in Carnegie Hall right now has exactly ten legs. And, of course, no human in Carnegie Hall shares any legs with another human. Thus, there are at least 100 legs in Carnegie Hall right now.
+
+\answer{\underline{Valid}}
+
+\item Amy Bishop is an evolutionary biologist (who shot a number of her colleagues to death in 2010). Evolutionary biology is incompatible with [Christian] scriptural teaching. Scriptural teaching is the only grounding for morality. Thus, evolutionary biologists are immoral.
+
+\answer{\underline{Weak}\\
+
+Many beliefs are incompatible with scriptural teaching on some point or other, but it's not clear that the people who hold those beliefs are immoral, unless morality is defined as following every single scriptural edict.}
+
+\item Corrupt people do harm to those around them, and no one intentionally wants to be done harm. Therefore, I [Socrates] did not corrupt my associates intentionally.
+
+\answer{\underline{Valid} \\ The argument works if you think the premises are true always and everywhere. They seem like natural enough statements to make, but are they really perfectly and unequivocally true?}
+
+\item Taxation means paying some of your earned income to the government. Some of this income is distributed to others. Paying so that someone else can benefit is slavery. Therefore, taxation is slavery.
+
+\answer{\underline{Valid.}\\ Chain argument. However, the definition of slavery here is contentious, to say the least.}
+
+%\item Attempts have been made recently to carry bombs or bomb-making materials onto planes in the underwear and in other personal areas. These types of procedure provide a large measure of security against such attempts. Thus, flyers are required to submit to either a full-body scan or a thorough pat-down.
+%
+%%{\color{red}This problem shouldn't have been here, because it is really an explanation and not an argument.}
+\end{exercises}
+
+
+\noindent\problempart For each inference, (i) say whether it is valid, strong, or weak and (ii) explain your answer.
+\answer{Answers by Ben Sheredos}
+\begin{exercises} 
+\item The sun has come up in the east every day in the past. So, the sun will come up in the east tomorrow.
+
+\answer{Invalid, but strong. That's a huge number of cases to generalize from, so the conclusion is very likely to be true, even if it is not \textit{certain}}
+
+\item Jack's dog Jim will die before the age of 73 (in human years). After all, you are familiar with lots of dogs, and lots of different kinds of dogs, and any dog that is now dead died before the age of 73 (in human years).
+
+\answer{Invalid, but strong. That's a huge number of cases to generalize from, so the conclusion is very likely to be true. Don't get confused because you yourself are \textit{absolutely certain} that no dog will live to 73 in human years. The question is how well \textit{this argument} supports that claim.}
+
+\item Any time the public receives a tax rebate, consumer spending increases, and the economy is stimulated. Since the public just received a tax rebate, consumer spending will increase.
+
+\answer{Valid. One could continue on to infer that the economy will be stimulated. The key is that the premise is that \textit{every time} there is a tax rebate, spending increases. This might be false, but \textit{if} it is true, the conclusion follows.}
+
+\item  90\% of the marbles in the box are blue. So, about 90\% of the 20 I pick at random will be blue.
+
+\answer{Invalid, and pretty weak. This is a common error in statistical reasoning. The 20 marbles you pick out are not connected in any way, so if you pick out a non-blue marble, that doesn't increase the odds of you picking out a blue one next time. You might happen to pick nothing but marbles from the 10\% of marbles that are not blue.}
+
+\item  According to the world-renowned physicist Stephen Hawking, quarks are one of the fundamental particles of matter. So, quarks are one of the fundamental particles of matter.
+
+\answer{This is a simple appeal to authority, which is a fallacy. The argument is weak. It might be supplemented to be made stronger (''Hawking is \textit{the world's foremost authority} on this topic, and he has put forth a convincing argument that quarks are a fundamental particle''). But as it is stated here, it's garbage. }
+
+\item Sean Penn, Susan Sarandon and Tim Robbins are actors, and Democrats. So, most actors are Democrats.
+
+\answer{Invalid and weak. This is a very hasty generalization.}
+
+
+\item  The President's approval rating has now fallen to 53\%, employment is at a 10 year high, and he is in charge of two foreign wars. He would not win another term in two years' time, if he were to run.
+
+\answer{Weak. There are some suppressed premises here, concerning how voters are likely to respond to the claims presumed in the premises. Only by filling them in could the argument be made strong.}
+
+
+\item If Bill Gates owns a lot of gold then Bill Gates is rich, and Bill Gates doesn't own a lot of gold. So, Bill Gates isn't rich.
+
+\answer{Weak, since (\textit{a}) owning gold is not necessary for being rich, and (\textit{b}) Bill Gates is demonstrably rich even though (suppose) he owns little gold.}
+
+\item All birds have wings, and all vertebrates have wings. So, all birds are vertebrates.
+
+\answer{ Weaksauce, even if the premises are true. Compare: ''All students in PHIL 10 are enrolled at UCSD, and all students in PHIL 163 are enrolled at UCSD. So all students in Phil 10 are in PHIL 163.'' Clearly wrongheaded.}
+
+\item U.S. President Obama gave a speech in Berlin shortly after his inauguration. Berlin, of course, is where Hitler gave many speeches. Thus, Obama intends to establish a socialist system in the U.S.
+
+\answer{ Obviously Weak. Doing something as general as ``giving a speech'' in a place where Hitler gave a speech does not make one relevantly like Hitler to draw this conclusion.}
+
+\item Einstein said that he believed in a god only in the sense of a pantheistic god equivalent with nature. Thus, there is no god in the Judeo-Christian sense.
+
+\answer{Weak. Appeal to authority. The argument concludes that something is true just because one person believed it; why trust Einstein on this? No support is provided. What, are we just supposed to be impressed because it was Einstein?}
+
+\item The United States Congress has more members than there are days in the year. Thus, at least two members of the United States Congress celebrate their birthdays on the same day of the year.
+
+\answer{Valid. There are 365 days in a year. In any group of 366 people, at least 2 people have to share birthdays. (And don't try weaseling in that leap-year nonsense.)}
+
+\item The base at Guantanamo ought to be closed. The continued incarceration of prisoners without any move to try or release them provides terrorist organizations with an effective recruiting tool, perhaps leading to attacks against Americans overseas.
+
+\answer{Pretty strong? The first sentence is the conclusion, and reasons are provided for thinking it is true. Maybe there are countervailing reasons that tell against...? Informal reasoning is tricky.}
+
+\item Smith and Jones surveyed teenagers (13-19 years old) at a local mall and found that 94\% of this group owned a mobile phone. Therefore, they concluded, about 94\% of all teenagers own mobile phone.
+
+\answer{Weak. Why suppose an un-specified number of teenagers in one place are representative of that entire group of people, worldwide?}
+
+\item Janice Brooks is an unfit mother. Her Facebook and Twitter records show that in the hour prior to the youngest son's accident she had sent 50 messages --- any parent who spends this much time on social media when they have kids is not giving them proper attention. 
+
+\answer{Weak. Does Janice Brooks even live with her youngest son? Was there any reason she should've known his accident was impending? What, are people with children never allowed to have a day chatting with friends?}
+
+\end{exercises}
+
+\section*{Key Terms}
+\begin{sortedlist}
+\sortitem{Valid}{} 	
+\sortitem{Invalid}{} 	
+\sortitem{Sound}{} 
+\sortitem{Strong}{} 
+\sortitem{Cogent}{} 
+\sortitem{Deductive}{} 
+\sortitem{Inductive}{} 
+\sortitem{Fallacy of mistaking the conclusion for the argument}{}
+\sortitem{Fallacy}{}
+\sortitem{Weak}{}
+\end{sortedlist}
+
+

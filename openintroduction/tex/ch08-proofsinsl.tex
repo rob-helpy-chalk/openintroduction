@@ -1,0 +1,3792 @@
+\chapter{Proofs in Sentential Logic}
+\label{chap:proofsinSL}
+\markright{Chap. \ref{chap:proofsinSL}: Proofs in SL}
+\setlength{\parindent}{1em}
+
+\newcounter{theorem}
+\setcounter{theorem}{1}
+
+%rob: This chapter is based on the original Chapter 6. I took all the material on proof in SL and moved it earlier in the book so the students would have a chance to start doing derivations earlier. I have also expanded the opening material that wasn't in a Chapter section into its own Chapter section explaining the basic idea of a proof. 
+
+% *******************************************
+% *		Substitution Instances and Proofs			   *	
+% *******************************************
+
+\section{Substitution Instances and Proofs}
+
+% rob: Changed opening to add big picture stuff. What we did last chapter, what we will do this chapter. The ability to use deduction as an important mental skill
+
+In the last chapter, we introduced the truth table method, which allowed us to check to see if various logical properties were present, such as whether a statement is a tautology or whether an argument is valid. The method in that chapter was semantic, because it relied on the meaning of symbols, specifically, whether they were interpreted as true or false. The nice thing about that method was that it was completely mechanical. If you just followed the rules like a robot, you would eventually get the right answer. You didn't need any special insight and there were no tough decisions to make. The downside to this method was that the tables quickly became way too long. It just isn't practical to make a 32 line table every time you have to deal with five different sentence letters. 
+
+In this chapter, we are going to introduce a new method for checking for validity and other logical properties. This time our method is going to be purely syntactic. We won't be at all concerned with what our symbols mean. We are just going to look at the way they are arranged. Our method here will be called a system of natural deduction. When you use a system of natural deduction, you won't do it mechanically. You will need to understand the logical structure of the argument and employ your insight. This is actually one of the reasons people like systems of natural deduction. They let us represent the logical structure of arguments in a way we can understand. Learning to represent and manipulate arguments this way is a core mental skill, used in fields like mathematics and computer programming. 
+
+Consider two arguments in SL:
+\begin{quotation}
+\begin{tabu}{X[1,p,m]X[1,p,m]}
+\textbf{Argument A} & \textbf{Argument B} \\
+\begin{earg*}
+\item $P \eor Q$
+\item  $\enot P$
+\itemc[.2] Q
+\end{earg*}
+&
+
+\begin{earg*}
+\item $P \eif Q$
+\item $P$
+\itemc[.2] Q
+\end{earg*}
+
+\end{tabu}
+\end{quotation}
+
+These are both valid arguments. Go ahead and prove that for yourself by constructing the four-line truth tables. These particular valid arguments are examples of important kinds of arguments that are given special names. Argument A is an example of a kind of argument traditionally called \emph{disjunctive syllogism}. In the system of proof we will develop later in the chapter, it will be given a newer name, \emph{disjunction elimination} (\eor-E). Given a disjunction and the negation of one of the disjuncts, the other disjunct follows as a valid consequence. Argument B makes use of a different valid form: Given a conditional and its antecedent, the consequent follows as a valid consequence. This is traditionally called \emph{modus ponens}. In our system it will be called \emph{conditional elimination} (\eif-E). 
+
+Both of the arguments above remain valid even if we substitute different sentence letters. You don't even need to run the truth tables again to see that these arguments are valid: 
+\begin{quotation}
+\begin{tabu}{X[1,p,m]X[1,p,m]}
+\textbf{Argument A*} & \textbf{Argument B*} \\
+\begin{earg*}
+\item $A \eor B$
+\item $\enot A$
+\itemc[.2] B
+\end{earg*}
+
+&
+
+\begin{earg*}
+\item $A \eif B$
+\item $A$
+\itemc[.2] B
+\end{earg*}
+\end{tabu}
+\end{quotation}
+
+Replacing $P$ with $A$ and $Q$ with $B$ changes nothing (so long as we are sure to replace \emph{every} $P$ with an $A$ and every $Q$ with a $B$). What's more interesting is that we can replace the individual sentence letters in Argument A and Argument B with longer sentences in SL and the arguments will still be valid, as long as we do the substitutions consistently. Here are two more perfectly valid instances of disjunction and conditional elimination. 
+\begin{quotation}
+\begin{tabu}{X[1,p,m]X[1,p,m]}
+\textbf{Argument A**} & \textbf{Argument B**} \\
+\begin{earg*}
+\item  $(C \eand D) \eor (E \eor F)$
+\item  $\enot (C \eand D)$
+\itemc[.2] $E \eor F$
+\end{earg*}
+
+&
+
+\begin{earg*}
+\item $(G \eif H) \eif (I \eor J)$
+\item $(G \eif H)$
+\itemc[.2] $I \eor J$
+\end{earg*}
+\end{tabu}
+\end{quotation}
+Again, you can check these using truth tables, although the 16 line truth tables begin to get tiresome. All of these arguments are what we call \emph{substitution instances} of the same two logical forms. We call them that because you get them by replacing the sentence letters with other sentences, either sentence letters or longer sentences in SL. A substitution instance cannot change the sentential connectives of a sentence, however. The sentential connectives are what make the \emph{logical form} of the sentence. We can write these logical forms using fancy script letters.
+
+\begin{quotation}
+\begin{tabu}{X[1,p,m]X[1,p,m]}
+\textbf{Disjunction Elimination} \newline (Disjunctive Syllogism) &
+\textbf{Conditional Elimination} \newline (Modus Ponens) \\
+
+
+\begin{earg*}
+\item $\script{A} \eor \script{B}$
+\item $\enot \script{A}$
+\itemc[.2] \script{B}
+\end{earg*}
+
+&
+
+\begin{earg*}
+\item  $\script{A} \eif \script{B}$
+\item  $\script{A}$
+\itemc[.2] \script{B}
+\end{earg*}
+\end{tabu}
+\end{quotation}
+
+As we explained in Chapter \ref{chap:SL}, the fancy script letters are \emph{metavariables}.  They are a part of our metalanguage and can refer to single sentence letters like $P$ or longer sentences like $A \eiff (B \eand (C \eor D))$. 
+
+Formally, we can define a \define{sentence form} as a sentence in SL that contains one or more metavariables in place of sentence letters. A \define{substitution instance} of that sentence form is then a sentence created by consistently substituting sentences for one or more of the metavariables in the sentence form. Here ``consistently substituting'' means replacing all instances of the metavariable with the same sentence. You cannot replace instances of the same metavariable with different sentences, or leave a metavariable as it is, if you have replaced other metavariables of that same type. An \define{argument form} is an argument that includes one or more sentence forms, and a \define{substitution instance} of the argument form is the argument obtained by consistently replacing the sentence forms in the argument form with their substitution instances.
+
+Once we start identifying valid argument forms like this, we have a new way of showing that longer arguments are valid. Truth tables are fun, but doing the 1028 line truth table for an argument with 10 sentence letters would be tedious. Worse, we would never be sure we hadn't made a little mistake in all those Ts and Fs. Part of the problem is that we have no way of knowing  \emph{why} the argument is valid. The table gives you very little insight into how the premises work together. 
+
+The aim of a \emph{proof system} is to show that particular arguments are valid in a way that allows us to understand the reasoning involved in the argument. Instead of representing all the premises and the conclusion in one table, we break the argument up into steps. Each step is a basic argument form of the sort we saw above, like disjunctive syllogism or modus ponens. Suppose we are given the premises $\enot L \eif (J \eor L)$ and $\enot L$ and wanted to show $J$. We can break this up into two smaller arguments, each of which is a substitution inference of a form we know is correct.
+
+\begin{quotation}
+\begin{tabu}{X[1,p,m]X[1,p,m]}
+\textbf{Argument 1} & \textbf{Argument 2} \\
+\begin{earg*}
+\item $\enot L \eif (J \eor L)$
+\item $\enot L$
+\itemc[.2] $J \eor L$
+\end{earg*}
+
+&
+
+\begin{earg*}
+\item $J \eor L$
+\item $\enot L$
+\itemc[.2] $J$
+\end{earg*}
+\end{tabu}
+\end{quotation}
+
+The first argument is a substitution instance of modus ponens and the second is a substitution instance of disjunctive syllogism, so we know they are both valid. Notice also that the conclusion of the first argument is the first premise of the second, and the second premise is the same in both arguments. Together, these arguments are enough to get us from $\enot L \eif (J \eor L)$ and $\enot L$ to $J$.
+
+These two arguments take up a lot of space, though. To complete our proof system, we need a system for showing clearly how simple steps can combine to get us from premises to conclusions. The system we will use in this book was devised by the American logician Frederic Brenton Fitch (1908--1987). We begin by writing our premises on numbered lines with a bar on the left and a little bar underneath to represent the end of the premises. Then we write ``Want'' on the side followed by the conclusion we are trying to reach. If we wanted to write out arguments 1 and 2 above, we would begin like this.
+
+\begin{proof}
+	\hypo{1}{\enot L \eif (J \eor\ L)}
+	\hypo{2}{\enot L} \by{Want: $J$}{}			
+\end{proof}
+
+We then add the steps leading to the conclusion below the horizontal line, each time explaining off to the right why we are allowed to write the new line. This explanation consists of citing a rule and the prior lines the rule is applied to. In the example we have been working with we would begin like this
+
+\begin{proof}
+	\hypo{1}{\enot L \eif (J \eor L)}
+	\hypo{2}{\enot L} \by{Want: $J$}{}
+	\have{3}{J \eor L} \ce{1, 2}
+\end{proof}
+
+and then go like this
+
+\begin{proof}
+	\hypo{1}{\enot L \eif (J \eor L)}
+	\hypo{2}{\enot L} \by{Want: $J$}{}
+	\have{3}{J \eor L} \ce {1, 2}
+	\have{4}{J} \oe{2, 3}
+\end{proof}
+
+The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J \eor L)$ and $\enot L$. We will also call proofs like this \emph{derivations}. Formally, a \define{proof} is a sequence of sentences. The first sentences of the sequence are assumptions; these are the premises of the argument. Every sentence later in the sequence follows from earlier sentences by one of the rules of proof. The final sentence of the sequence is the conclusion of the argument.
+
+\iflabelexists{chap:proofsinQL}{In the remainder of this chapter, we will develop a system for proving sentences in SL. Later, in Chapter \ref{chap:proofsinQL}, this will be expanded to cover Quantified Logic (QL). First, though, you should practice identifying substitution instances of sentences and longer rules.}{} 
+
+%I added exercises for identifying substitution inferences, because many students need practice with this really basic form of pattern recognition. 
+
+%%%%%  PRACTICE PROBLEMS %%%%%%%%%%%%%
+
+\practiceproblems
+\noindent\problempart For each problem, a sentence form is given in metavariables. Identify which of the sentences after it are legitimate substitution instances of that form. 
+
+\begin{exercises}
+\begin{longtabu}{X[1,p,m]X[1,p,m]} 
+
+\item $\script{A} \eand \script{B}$: 
+	\begin{enumerate}[label=\alph*.]
+	\item $P \eor Q$
+	\item $(A \eif B) \eand C$
+	\item \begin{flushleft}$[(A \eand B) \eif (B \eand A)] \linebreak \eand (\enot A \eand \enot B)$\end{flushleft}
+	\item $[((A \eand B) \eand C) \eand D] \eand F$  
+	\item $(A \eand B) \eif C$
+	\end{enumerate}
+
+%	\begin{enumerate}[label=\alph*.]
+%	\item $P \eor Q$
+%	\item \framebox{$(A \eif B) \eand C$}
+%	\item \framebox{\begin{flushleft}$[(A \eand B) \eif (B \eand A)] \eand (\enot A \eand \enot B)$\end{flushleft}}
+%	\item \framebox{$[((A \eand B) \eand C) \eand D] \eand F$}  
+%	\item $(A \eand B) \eif C$
+%	\end{enumerate}
+
+&
+
+\item $\enot(\script{P} \eand \script{Q})$
+	\begin{enumerate}[label=\alph*.]
+	\item $\enot(A \eand B)$
+	\item $\enot(A \eand A)$
+	\item $\enot A \eand B$
+	\item \begin{flushleft}$\enot((\enot A \eand B) \eand (B \eand \enot A))$\end{flushleft}
+	\item $\enot(A \eif B)$
+	\end{enumerate}
+
+%2) $\enot(\script{P} \eand \script{Q})$
+%\begin{enumerate}[label=\alph*., topsep=0pt, parsep=0pt, itemsep=3pt]
+%	\item \framebox{$\enot(A \eand B)$}
+%	\item \framebox{$\enot(A \eand A)$}
+%	\item $\enot A \eand B$
+%	\item \framebox{$\enot((\enot A \eand B) \eand (B \eand \enot A))$}
+%	\item $\enot(A \eif B)$
+%	\end{enumerate}
+
+\\
+
+\item $\enot \script{A}$
+	\begin{enumerate}[label=\alph*.]
+	\item $\enot A \eif B$
+	\item $\enot (A \eif B)$
+	\item $\enot[(G \eif (H \eor I)) \eif G]$
+	\item $\enot G \eand (\enot B \eand \enot H)$
+	\item $\enot(G \eand (B \eand H))$
+	\end{enumerate}
+%(3) $\enot \script{A}$
+%	\begin{enumerate}[label=\alph*.]
+%	\item $\enot A \eif B$
+%	\item \framebox{$\enot (A \eif B)$}
+%	\item \framebox{$\enot[(G \eif (H \eor I)) \eif G]$}
+%	\item $\enot G \eand (\enot B \eand \enot H)$
+%	\item \framebox{$\enot(G \eand (B \eand H))$}
+%	\end{enumerate}
+%\vspace{1em}
+&
+
+\item $\enot \script{A} \eif  \script{B}$
+	\begin{enumerate}[label=\alph*.]
+	\item $\enot A \eand B$
+	\item $\enot B \eif A$
+	\item $\enot(X \eand Y) \eif (Z \eor B)$
+	\item $\enot(A \eif B)$
+	\item $A \eif \enot B$
+	\end{enumerate}
+
+%(4) $\enot \script{A} \eif  \script{B}$
+%	\begin{enumerate}[label=\alph*.]
+%	\item $\enot A \eand B$
+%	\item \framebox{$\enot B \eif A$}
+%	\item \framebox{$\enot(X \eand Y) \eif (Z \eor B)$}
+%	\item $\enot(A \eif B)$
+%	\item $A \eif \enot B$
+%	\end{enumerate}
+
+\\
+
+\item $\enot \script{A} \eiff \enot \script{Z}$
+	\begin{enumerate}[label=\alph*.]
+	\item $\enot (P \eiff Q)$
+	\item $\enot(P \eiff Q) \eiff \enot (Q \eiff P)$
+	\item $\enot H \eif \enot G$
+	\item $\enot (A \eand B) \eiff C$
+	\item \begin{flushleft} $\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ \end{flushleft}
+	\end{enumerate}
+%(5) $\enot \script{A} \eiff \enot \script{Z}$
+%	\begin{enumerate}[label=\alph*.]
+%	\item $\enot (P \eiff Q)$
+%	\item \framebox{$\enot(P \eiff Q) \eiff \enot (Q \eiff P)$}
+%	\item $\enot H \eif \enot G$
+%	\item $\enot (A \eand B) \eiff C$
+%	\item \framebox{$\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ }
+%	\end{enumerate}
+
+
+&
+
+\item $(\script{A} \eand \script{B}) \eor \script{C}$
+	\begin{enumerate}[label=\alph*.]
+	\item $(P \eor Q) \eand R$
+	\item $(\enot M \eand \enot D) \eor C$
+	\item $(D \eand R) \eand (I \eor D)$
+	\item $[(D \eif O) \eor A] \eand D$
+	\item $[(A \eand B) \eand C] \eor (D \eor A)$
+	\end{enumerate}
+%\factoidbox{B, E}
+
+%6) $(\script{A} \eand \script{B}) \eor \script{C}$
+%	\begin{enumerate}[label=\alph*.]
+%	\item $(P \eor Q) \eand R$
+%	\item \framebox{$(\enot M \eand \enot D) \eor C$}
+%	\item $(D \eand R) \eand (I \eor D)$
+%	\item $[(D \eif O) \eor A] \eand D$
+%	\item \framebox{$[(A \eand B) \eand C] \eor (D \eor A)$}
+%	\end{enumerate}
+
+
+\\
+
+\item $(\script{A} \eand \script{B}) \eor \script{A}$							
+	\begin{flushleft}
+	\begin{enumerate}[label=\alph*.]
+	\item$((C \eif D) \eand E) \eor A$
+	\item$(A \eand A) \eor A$
+	\item$((C \eif D) \eand E) \eor (C \eif D)$
+	\item$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$
+	\item$(P \eor Q) \eand P$
+	\end{enumerate}
+	\end{flushleft}
+%
+%(7) $(\script{A} \eand \script{B}) \eor \script{A}$							
+%	\begin{flushleft}
+%	\begin{enumerate}[label=\alph*.]
+%	\item$((C \eif D) \eand E) \eor A$
+%	\item \framebox{$(A \eand A) \eor A$}
+%	\item \framebox{$((C \eif D) \eand E) \eor (C \eif D)$}
+%	\item \framebox{$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$}
+%	\item$(P \eor Q) \eand P$
+%	\end{enumerate}
+%	\end{flushleft}
+
+&
+\item $\script{P} \eif (\script{P} \eif \script{Q})$
+	\begin{flushleft}
+	\begin{enumerate}[label=\alph*.]
+	\item $A \eif (B \eif C)$
+	\item $(A \eand B) \eif [(A \eand B) \eif C]$
+	\item $(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$
+	\item $M \eif [M \eif (D \eand (C \eand M))]$
+	\item $(S \eor O) \eif [(O \eor S) \eif A]$
+	\end{enumerate}
+	\end{flushleft}
+%\factoidbox{B, C and D}
+
+%8) $\script{P} \eif (\script{P} \eif \script{Q})$
+%	\begin{enumerate}[label=\alph*.]
+%	\item $A \eif (B \eif C)$
+%	\item \framebox{$(A \eand B) \eif [(A \eand B) \eif C]$}
+%	\item \framebox{$(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$}
+%	\item \framebox{$M \eif [M \eif (D \eand (C \eand M)]$}
+%	\item $(S \eor O) \eif [(O \eor S) \eif A]$
+%	\end{enumerate}
+
+
+
+\\
+\item $\enot \script{A} \eor (\script{B} \eand \enot \script{B})$
+	\begin{flushleft}
+	\begin{enumerate}[label=\alph*.]
+	\item $\enot P \eor (Q \eand \enot P)$
+	\item $\enot A \eor (A \eand \enot A)$
+	\item $(P \eif Q) \eor [(P \eif Q) \eand \enot R]$
+	\item $\enot E \eand (F \eand \enot F)$
+	\item $\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$
+	\end{enumerate}
+	\end{flushleft}
+%(9) $\enot \script{A} \eor (\script{B} \eand \enot \script{B})$
+%	\begin{flushleft}
+%	\begin{enumerate}[label=\alph*.]
+%	\item $\enot P \eor (Q \eand \enot P)$
+%	\item \framebox{$\enot A \eor (A \eand \enot A)$}
+%	\item $(P \eif Q) \eor [(P \eif Q) \eand \enot R]$
+%	\item $\enot E \eand (F \eand \enot F)$
+%	\item \framebox{$\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$}
+%	\end{enumerate}
+%	\end{flushleft}
+
+&
+
+
+\item	$(\script{P} \eor \script{Q}) \eif \enot(\script{P} \eand \script{Q})$
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+	\item	$A \eif \enot B$
+	\item	$(A \eor B) \eif \enot(A \eand B)$
+	\item	$(A \eor A) \eif \enot(A \eand A)$
+	\item	$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot[(A \eand B) \eand (D \eif E)]$
+	\item	$(A \eand B) \eif \enot(A \eor B)$
+	\end{enumerate}
+\end{flushleft} 
+
+%10)	$(\script{P} \eor \script{Q}) \eif \enot(\script{P} \eand \script{Q})$
+%\begin{flushleft} 	
+%\begin{enumerate}[label=\alph*.]
+%	\item	$A \eif \enot B$
+%	\item	\framebox{$(A \eor B) \eif \enot(A \eand B)$}
+%	\item	\framebox{$(A \eor A) \eif \enot(A \eand A)$}
+%	\item	\framebox{$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot(A \eand B) \eand (D \eif E)]$}
+%	\item	$(A \eand B) \eif \enot(A \eor B)$
+%	\end{enumerate}
+%\end{flushleft} 
+\end{longtabu}
+\end{exercises}
+\noindent\problempart For each problem, a sentence form is given in sentence variables. Identify which of the sentences after it are legitimate substitution instances of that form. 
+
+\begin{exercises}
+\begin{longtabu}{p{2.5in}p{2.5in}}
+
+\item $ \script{P} \eand \script{P} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$A \eand B$
+\item 	$D \eor D$
+\item 	$Z \eand Z$
+\item 	$(Z \eor B) \eand (Z \eand B)$
+\item 	$(Z \eor B) \eand (Z \eor B)$
+\end{enumerate}
+\end{flushleft}
+%\begin{flushleft} 	
+%\begin{enumerate}[label=\alph*.]
+%\item 	$A \eand B$
+%\item 	$D \eor D$
+%\item 	\framebox{$Z \eand Z$}
+%\item 	$(Z \eor B) \eand (Z \eand B)$
+%\item 	\framebox{$(Z \eor B) \eand (Z \eor B)$}
+%\end{enumerate}
+%\end{flushleft}
+&
+\item $ \script{O} \eand (\script{N} \eand \script{N}) $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$A \eand (B \eand C)$
+\item 	$A \eand (A \eand B)$
+\item 	$(A \eand B) \eand B$
+\item 	$A \eand (B \eand B)$
+\item 	$(C\eif D) \eand (Q \eand Q)$
+\end{enumerate}
+\end{flushleft}
+%\begin{flushleft} 	
+%\begin{enumerate}[label=\alph*.]
+%\item 	$A \eand (B \eand C)$
+%\item 	$A \eand (A \eand B)$
+%\item 	$(A \eand B) \eand B$
+%\item 	\framebox{$A \eand (B \eand B)$}
+%\item 	\framebox{$(C\eif D) \eand (Q \eand Q)$}
+%\end{enumerate}
+%\end{flushleft}
+\\ 
+\item $ \script{H} \eif \script{Z} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$E \eif E$
+\item 	$G \eif H$
+\item 	$G \eif (I \eif K)$
+\item 	$[(I \eif K) \eif G] \eif A$
+\item 	$G \eand (I \eif K)$
+\end{enumerate}
+\end{flushleft}
+%\begin{flushleft} 	
+%\begin{enumerate}[label=\alph*.]
+%\item 	\framebox{$E \eif E$}
+%\item 	\framebox{$G \eif H$}
+%\item 	\framebox{$G \eif (I \eif K)$}
+%\item 	\framebox{$[(I \eif K) \eif G] \eif A$}
+%\item 	$G \eand (I \eif K)$
+%\end{enumerate}
+%\end{flushleft}
+&
+\item $ \enot \script{H} \eand \script{C} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$H \eand C$
+\item 	$\enot (H \eand C)$
+\item 	$\enot Q \eand R$
+\item 	$R \eand \enot Q$
+\item 	$\enot (X \eiff Y) \eand (Y \eif Z)$
+\end{enumerate}
+\end{flushleft}
+%\begin{flushleft} 	
+%\begin{enumerate}[label=\alph*.]
+%\item 	$H \eand C$
+%\item 	$\enot (H \eand C)$
+%\item 	\framebox{$\enot Q \eand R}$
+%\item 	$R \eand \enot Q$
+%\item 	\framebox{$\enot (X \eiff Y) \eand (Y \eif Z)$}
+%\end{enumerate}
+%\end{flushleft}
+\\
+\item $ \enot (\script{G} \eiff \script{M}) $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$\enot (K \eiff K) $
+\item 	$\enot K \eiff K$
+\item 	$\enot ((I \eiff K) \eiff (S \eand S)) $
+\item 	$\enot (H \eif (I \eor J)$
+\item 	$\enot ((H \eor F)  \eiff (Z \eif D) ) $
+\end{enumerate}
+\end{flushleft}
+&
+\item $ (\script{I} \eif \script{W}) \eor \script{W} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$(D \eor E) \eif E$
+\item 	$(D \eif E) \eor E$
+\item 	$ D \eif (E \eor E)	$
+\item 	$ ((W \eand L) \eif L) \eor W$
+\item 	$((W \eand L) \eif J) \eor J$
+\end{enumerate}
+\end{flushleft}
+
+\\
+
+\item $ \script{M} \eor (\script{A} \eor \script{A}) $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$ A \eor (A \eor A) 			$
+\item 	$ (A \eor A) \eor A			$
+\item 	$ C \eor (C \eor D)			$
+\item 	$ (R \eif K) \eor ((D \eand G) \eor (D \eand G)) 			$
+\item 	$ (P \eand P)  \eor ((\enot H \eand C) \eor (\enot H \eand C)) 			$
+\end{enumerate}
+\end{flushleft}
+&
+\item $ \script{A} \eif \enot (\script{G} \eand \script{G}) $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$B \eiff \enot (G \eand G) 			$
+\item 	$O \eif \enot (R \eand D) 			$
+\item 	$(H \eif Z) \eif (\enot D	\eand D)		$
+\item 	$ (O \eand (N \eand N))  \eif \enot (F \eand F)			$
+\item 	$\enot D \eand \enot( (J \eif J) \eand (O \eiff O) $ 
+\end{enumerate}
+\end{flushleft}
+\\
+\item $ \enot ((\script{K} \eif \script{K}) \eor \script{K}) \eand \script{G} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$\enot (D \eif D) (\eor D \eand L)	 			$
+\item 	$ \enot (D \eif (D \eor (D \eand L))				$
+\item 	$ \enot ((D \eif D) \eor D) \eand L			$
+\item 	$((\enot K \eif \enot K) \eor K) \eand L 			$
+\item 	$ \enot ((D \eif D) \eor D) \eand ((D \eif D) \eor D)			$
+\end{enumerate}
+\end{flushleft}
+&
+\item $ (\script{B} \eiff (\script{N} \eiff \script{N})) \eor \script{N} $ 
+\begin{flushleft} 	
+\begin{enumerate}[label=\alph*.]
+\item 	$(B \eiff (N \eiff (N \eand N))) \eor N  			$ %nope
+\item 	$((E \eand T) \eiff (V \eiff V )) \eor V  			$  %yup
+\item 	$ (B \eiff (N \eand N)) \eor B			$  %nope
+\item 	$A \eiff (N \eiff (N \eor N)))			$ %nope
+\item 	$((X \eiff N) \eiff N) \eor N			$ %nope
+\end{enumerate}
+\end{flushleft}
+\end{longtabu}
+\end{exercises}
+
+\noindent\problempart Use the following symbolization key in the gray bubble to create substitution instances of the sentences below.
+
+\begin{mdframed}[style=mytablebox] 
+\begin{longtabu}{X[.5]X[.5]X[1]X[1]X[1]} 
+$\script{A}: B$ 	& 	$\script{B}: \enot C$  	& $\script{C}: A \eif B$ &
+$\script{D}:\enot (B \eand C)$  & $\script{E}: D \eiff E$
+\end{longtabu}
+\end{mdframed}
+
+\begin{exercises}
+\begin{longtabu}{X[1,l,m]X[1,p,m]} 
+\item $\enot( \script{A} \eiff \script{B})$ 
+% $\enot(B \eiff  \enot{C})
+&
+
+\item $(\script{B} \eif \script{C}) \eand \script{D}$ 
+%$(\enot{C} \eif (A \eif B)) \eand \enot(B \eand C)$
+\\
+\item $\script{D} \eif (\script{B} \eand \enot \script{B}) $ 
+%$\enot(B \eand C) \eif (\enot{C} \eand \enot \enot{C}) $
+&
+\item $\enot \enot (\script{C} \eor \script{E})$ 
+%$\enot \enot ((A \eif B) \eor (D \eiff E))$
+\\
+\item $\enot \script{C} \eiff (\enot \enot \script{D} \eand \script{E})$ 
+%$\enot (A \eif B) \eiff (\enot \enot \enot(B \eand C) \eand (D \eiff E))$
+
+\end{longtabu}
+\end{exercises}
+
+
+
+\noindent\problempart Use the following symbolization key in the gray bubble to create substitution instances of the sentences below.
+
+\begin{mdframed}[style=mytablebox] 
+\begin{longtabu}{X[1]X[1]X[1]X[.5]X[.5]} 
+$\script{A}: I \eor (I \eiff V)  $ 
+&	$\script{B}: C \eiff V$ 
+&	$\script{C}: L \eif X$  
+&	$\script{D}: V$  
+&	$\script{E}: U$ 
+\end{longtabu}
+\end{mdframed}
+
+\begin{exercises}
+\begin{longtabu}{X[1,l,m]X[1,p,m]} 
+\item $\enot \script{A} \eif \enot \script B$ 
+&
+\item $\enot(\script{B} \eand \script{D})$ 
+\\
+\item $(\script{A} \eif \script{A}) \eor (\script{C} \eif \script{A})$ 
+&
+\item $[(\script{A} \eif \script{B}) \eif \script{A}] \eif \script{A}$ 
+\\
+\item $\script{A} \eand (\script{B} \eand (\script{C} \eand (\script{D} \eand \script{E})))$
+&\\
+\end{longtabu}
+\end{exercises}
+
+%%%%%%%%%%%%%%%%%% Part E
+
+
+\noindent\problempart \label{sec4.1partC} Decide whether the following are examples of $\eif$E (modus ponens).
+
+\begin{exercises}
+\begin{longtabu}{X[1,p,m]X[1,p,m]X[1,p,m]} 
+
+\item \begin{earg*}
+\item $A \eif B$ 
+\item $B \eif C$ 
+\itemc[.3] $A \eif C$
+\end{earg*}
+%\framebox{Not MP}
+	
+&
+
+\item \begin{earg*}	
+\item$P \eand Q$ 
+\item 	$P$ 
+\itemc[.3] 	 $Q$
+\end{earg*}
+
+%	\> \framebox{Not MP}\\
+	
+&
+\item \begin{earg*}	
+\item $P \eif Q$ 
+\itemc[.3] 	$Q$
+\end{earg*}
+%	\framebox{Not MP}\\
+
+\\
+\item \begin{earg*}	
+\item $D \eif E$ 
+\item 	$E$ 
+\itemc[.3] 	$D$
+\end{earg*}
+	%\framebox{Not MP}\\
+
+&
+
+\item \begin{earg*}
+\item $(P \eand Q) \eif (Q \eand V)$
+\item 	$P \eand Q$
+\itemc[.3] 	 $Q \eand V$
+\end{earg*}
+%framebox{MP}\\
+\end{longtabu}
+\end{exercises}
+	
+
+\noindent\problempart \label{sec4.1partC} Decide whether the following are examples of $\eif$E (modus ponens).
+
+\begin{exercises}
+\begin{longtabu}{X[1]X[1]} 
+\item \begin{earg*}
+\item	$C \eif D$  
+\itemc[.3] 	 $C$
+\end{earg*}
+%\frame{Not MP}\\
+	
+&
+
+\item \begin{earg*}
+\item $(C \eand L) \eif (E \eor C)$ 
+\item $C \eand L$ 
+\itemc[.3] 	  $E \eor C$
+\end{earg*}
+%\framebox{MP}
+	
+\\
+\item \begin{earg*}
+\item  $\enot A \eif B$ 
+\item $\enot B$ 
+\itemc[.3] 	 $B$
+\end{earg*}
+	%\framebox{Not MP}\\
+&
+
+\item \begin{earg*}
+\item	$X \eif \enot Y$ 
+\item  	$\enot Y$ 
+\itemc[.3] 	 $\therefore$\ $X$
+\end{earg*}
+%\framebox{Not MP}\\
+\\
+\item \begin{earg*}
+\item $G \eif H$ 
+\item  $\enot H$ 
+\itemc[.3] 	  $\enot G$
+\end{earg*}
+%\framebox{Not MP}\\
+
+\end{longtabu}
+\end{exercises}
+
+
+%%%% part G
+
+\noindent\problempart Decide whether the following are examples of disjunctive syllogism. 
+
+\begin{exercises}
+\begin{longtabu}{X[1]X[1]} 
+\item \begin{earg*}
+\item $(A \eif B) \eor (X \eif Y)$  
+\item $\enot A$  
+\itemc[.3]  $X \eif Y$
+\end{earg*}
+
+%\framebox{Not DS}\\
+
+&	
+
+\item \begin{earg*}
+\item $[(S \eor T) \eor U] \eor V$  
+\item $\enot[(S \eor T) \eor U]$  
+\itemc[.3] $V$
+\end{earg*}
+%\framebox{DS}\\	
+
+\\
+\item \begin{earg*}
+\item $P \eor Q$  
+\item $P$  
+\itemc[.3] \enot $Q$
+\end{earg*}
+%\framebox{Not DS}\\
+
+&
+\item \begin{earg*}
+\item $\enot (A \eor B)$  
+\item $\enot A$  
+\itemc[.3] $B$
+\end{earg*}
+%\framebox{Not DS}\\
+\\
+
+\item \begin{earg*}
+\item $(P \eor Q) \eor R$  
+\itemc[.3]  $R$
+%\framebox{Not DS}\\
+\end{earg*}
+
+\end{longtabu}
+\end{exercises}
+
+\noindent\problempart Decide whether the following are examples of disjunctive syllogism.
+
+\begin{exercises}
+\begin{longtabu}{X[1]X[1]} 
+\item \begin{earg*} 
+\item $(C \eand D) \eor E$  
+\item $(C \eand D)$  
+\itemc[.3] $E$
+\end{earg*}
+%\framebox{Not DS}\\
+&
+
+\item \begin{earg*} 
+\item $(P \eor Q) \eif R$  
+\item $\enot(P \eor Q)$  
+\itemc[.3] $R$
+\end{earg*}
+%\framebox{Not DS}\\
+\\
+
+\item \begin{earg*} 
+\item  $X \eor (Y \eif Z)$  
+\item $\enot X$  
+\itemc[.3] $Y \eif Z$
+\end{earg*}
+%\framebox{DS}\\
+
+&
+\item \begin{earg*} 
+\item $(P \eor Q) \eor R$  
+\item  $\enot P$  
+\itemc[.3] $Q$
+\end{earg*}
+%\framebox{Not DS}\\
+
+\\
+\item \begin{earg*} 
+\item $A \eor (B \eor C)$  
+\item $\enot A$   
+\itemc[.3]  $B \eor C$	
+\end{earg*}
+%\framebox{DS}\\
+\end{longtabu}
+\end{exercises}
+
+
+
+
+% *******************************************
+% *				Basic Rules for Sentential Logic	   *	
+% *******************************************
+
+\section{Basic Rules for Sentential Logic}
+\setlength{\parindent}{1em}
+%rob: I removed indirect and conditional proof from this section, so that they would have practice just doing direct proofs before they moved on to the fancy stuff. 
+
+In designing a proof system, we could just start with disjunctive syllogism and modus ponens. Whenever we discovered a valid argument that could not be proved with rules we already had, we could introduce new rules. Proceeding in this way, we would have an unsystematic grab bag of rules. We might accidentally add some strange rules, and we would surely end up with more rules than we need.
+
+Instead, we will develop what is called a \define{system of natural deduction}. In a natural deduction system, there will be two rules for each logical operator: an introduction, and an elimination rule. The introduction rule will allow us to prove a sentence that has the operator you are ``introducing'' as its main connective. The elimination rule will allow us to prove something given a sentence that has the operator we are ``eliminating'' as the main logical operator.
+
+In addition to the rules for each logical operator, we will also have a reiteration rule. If you already have shown something in the course of a proof, the reiteration rule allows you to repeat it on a new line. We can define the \define{rule of reiteration} like this
+
+Reiteration (R)
+\begin{proof}
+	\have[m]{a}{\script{A}}
+	\have[n]{b}{\script{A}} \by{R}{a}
+\end{proof}
+
+This diagram shows how you can add lines to a proof using the rule of reiteration. As before, the script letters represent sentences of any length. The upper line shows the sentence that comes earlier in the proof, and the bottom line shows the new sentence you are allowed to write and how you justify it. The reiteration rule above is justified by one line, the line that you are reiterating. So the ``R $m$'' on line 2 of the proof means that the line is justified by the reiteration rule (R) applied to line $m$. The letters $m$ and $n$ are variables, not real line numbers. In a real proof, they might be lines 5 and 7, or lines 1 and 2, or whatever. When we define the rule, however, we use variables to underscore the point that the rule may be applied to any line that is already in the proof. 
+
+Obviously, the reiteration rule will not allow us to show anything \emph{new}. For that, we will need more rules. The remainder of this section will give six basic introduction and elimination rules. This will be enough to do some basic proofs in SL. Sections 4.3 through 4.5 will explain introduction rules involved in fancier kinds of derivation called conditional proof and indirect proof. The remaining sections of this chapter will develop our system of natural deduction further and give you tips for playing in it.
+
+All of the rules introduced in this chapter are summarized starting on p.\pageref{ProofRules}.
+
+\subsection{Conjunction}
+
+Think for a moment: What would you need to show in order to prove $E \eand F$?
+
+Of course, you could show $E \eand F$ by proving $E$ and separately proving $F$. This holds even if the two conjuncts are not atomic sentences. If you can prove $[(A \eor J) \eif V]$ and  $[(V \eif L) \eiff (F \eor N)]$, then you have effectively proved $[(A \eor J) \eif V] \eand [(V \eif L) \eiff (F \eor N)].$
+So this will be our conjunction introduction rule, which we abbreviate {\eand}I:
+
+\begin{multicols}{2}
+
+\begin{proof}
+	\have[m]{a}{\script{A}}
+	\have[n]{b}{\script{B}}
+	\have[\ ]{c}{\script{A}\eand\script{B}} \ai{a, b}
+\end{proof}
+
+\begin{proof}
+	\have[m]{a}{\script{A}}
+	\have[n]{b}{\script{B}}
+	\have[\ ]{c}{\script{B}\eand\script{A}} \ai{a, b}
+\end{proof}
+
+\end{multicols}
+
+A line of proof must be justified by some rule, and here we have ``{\eand}I $m$, $n$.'' This means: Conjunction introduction applied to line $m$ and line $n$. Again, these are variables, not real line numbers; $m$ is some line and $n$ is some other line. If you have $K$ on line 8 and $L$ on line 15, you can prove $(K\eand L)$ at some later point in the proof with the justification ``{\eand}I 8, 15.'' 
+
+We have written two versions of the rule to indicate that you can write the conjuncts in any order. Even though $K$ occurs before $L$ in the proof, you can derive $(L \eand K)$ from them using the right-hand version {\eand}I. You do not need to mark this in any special way in the proof.
+
+Now, consider the elimination rule for conjunction. What are you entitled to conclude from a sentence like $E \eand F$? Surely, you are entitled to conclude $E$; if $E \eand F$ were true, then $E$ would be true. Similarly, you are entitled to conclude $F$. This will be our conjunction elimination rule, which we abbreviate {\eand}E:
+
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\script{A}\eand\script{B}}
+	\have[\ ]{a}{\script{A}} \ae{ab}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\script{A}\eand\script{B}}
+	\have[\ ]{a}{\script{B}} \ae{ab}
+\end{proof}
+\end{multicols}
+
+When you have a conjunction on some line of a proof, you can use {\eand}E to derive either of the conjuncts. Again, we have written two versions of the rule to indicate that it can be applied to either side of the conjunction. The {\eand}E rule requires only one sentence, so we write one line number as the justification for applying it. For example, both of these moves are acceptable in derivations. 
+
+\begin{multicols}{2}
+\begin{proof}
+\have[4]{4}{A \eand (B \eor C)}
+\have[5]{5}{A} \ae{4}
+\end{proof}
+
+\begin{proof}
+\have[10]{10}{A \eand (B \eor C)}
+\have[\ldots]{...}{\ldots}
+\have[15]{15}{(B \eor C)} \by {\eand E}{10}
+\end{proof}
+\end{multicols}
+Some textbooks will only let you use \eand E on one side of a conjunction. They then make you \emph{prove} that it works for the other side. We won't do this, because it is a pain in the neck. 
+
+Even with just these two rules, we can provide some proofs. Consider this argument.
+\begin{earg}
+\item[] $[(A\eor B)\eif(C\eor D)] \eand [(E \eor F) \eif (G\eor H)]$
+\item[$\therefore$] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
+\end{earg}
+The main logical operator in both the premise and conclusion is a conjunction. Since the conjunction is symmetric, the argument is obviously valid. In order to provide a proof, we begin by writing down the premise. After the premises, we draw a horizontal line---everything below this line must be justified by a rule of proof. So the beginning of the proof looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+\end{proof}
+
+From the premise, we can get each of the conjuncts by {\eand}E. The proof now looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+\end{proof}
+
+The rule {\eand}I requires that we have each of the conjuncts available somewhere in the proof. They can be separated from one another, and they can appear in any order. So by applying the {\eand}I rule to lines 3 and 2, we arrive at the desired conclusion. The finished proof looks like this:
+
+\begin{proof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
+\end{proof}
+
+This proof is trivial, but it shows how we can use rules of proof together to demonstrate the validity of an argument form. Also: Using a truth table to show that this argument is valid would have required a staggering 256 lines, since there are eight sentence letters in the argument.
+
+%When we defined a wff, we did not allow for conjunctions with more than two conjuncts. If we had done so, then we could define a more general version of the rules of proof for conjunction.
+
+
+\subsection{Disjunction}
+If $M$ were true, then $M \eor N$ would also be true. So the disjunction introduction rule ({\eor}I) allows us to derive a disjunction if we have one of the two disjuncts:
+
+\begin{multicols}{2}
+
+\begin{proof}
+	\have[m]{a}{\script{A}}
+	\have[\ ]{ab}{\script{A}\eor\script{B}}\oi{a}
+\end{proof}
+
+\begin{proof}
+	\have[m]{a}{\script{A}}
+	\have[\ ]{ab}{\script{B}\eor\script{A}}\oi{a}
+\end{proof}
+
+\end{multicols}
+
+Like the rule of conjunction elimination, this rule can be applied two ways. Also notice that \script{B} can be \emph{any} sentence whatsoever. So the following is a legitimate proof:
+
+\begin{proof}
+	\hypo{m}{M}
+	\have{mmm}{M \eor ([(A\eiff B) \eif (C \eand D)] \eiff [E \eand F])}\oi{m}
+\end{proof}
+
+This might seem odd. How can we prove a sentence that includes $A$, $B$, and the rest, from the simple sentence $M$---which has nothing to do with the other letters? The secret here is to remember that all the new letters are on just one side of a disjunction, and nothing on that side of the disjunction has to be true. As long as $M$ is true, we can add whatever we want after a disjunction and the whole thing will continue to be true. 
+
+Now consider the disjunction elimination rule. What can you conclude from $M \eor N$? You cannot conclude $M$. It might be $M$'s truth that makes $M \eor N$ true, as in the example above, but it might not. From $M \eor N$ alone, you cannot conclude anything about either $M$ or $N$ specifically. If you also knew that $N$ was false, however, then you would be able to conclude $M$.
+
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\script{A}\eor\script{B}}
+	\have[n]{nb}{\enot\script{B}}
+	\have[\ ]{a}{\script{A}} \oe{ab,nb}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\script{A}\eor\script{B}}
+	\have[n]{na}{\enot\script{A}}
+	\have[\ ]{b}{\script{B}} \oe{ab,nb}
+\end{proof}
+\end{multicols}
+
+We've seen this rule before: it is just disjunctive syllogism. Now that we are using a system of natural deduction, we are going to make it our rule for disjunction elimination ({\eor}E). Once again, the rule works on both sides of the sentential connective. 
+
+\subsection{Conditionals and biconditionals}
+
+The rule for conditional introduction is complicated because it requires a whole new kind of proof, called conditional proof. We will deal with this in the next section. For now, we will only use the rule of conditional elimination.
+
+Nothing follows from $M\eif N$ alone, but if we have both $M \eif N$ and $M$, then we can conclude $N$. This is another rule we've seen before: modus ponens. It now enters our system of natural deduction as the conditional elimination rule ({\eif}E).
+
+\begin{proof}
+	\have[m]{ab}{\script{A}\eif\script{B}}
+	\have[n]{a}{\script{A}}
+	\have[\ ]{b}{\script{B}} \ce{ab,a}
+\end{proof}
+
+Biconditional elimination ({\eiff}E) will be a double-barreled version of conditional elimination. If you have the left-hand subsentence of the biconditional, you can derive the right-hand subsentence. If you have the right-hand subsentence, you can derive the left-hand subsentence. This is the rule:
+
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\script{A}\eiff\script{B}}
+	\have[n]{a}{\script{A}}
+	\have[\ ]{b}{\script{B}} \be{ab,a}
+\end{proof}
+
+\begin{proof}
+	\have[m]{ab}{\script{A}\eiff\script{B}}
+	\have[n]{a}{\script{B}}
+	\have[\ ]{b}{\script{A}} \be{ab,a}
+\end{proof}
+\end{multicols}
+
+\subsection{Invalid argument forms}
+
+%rob: I added this brief subsection to make clear what was going to happen in the first problem part, and to re-emphasize the idea of invalid arguments
+
+In section 4.1, in the last two problem parts  (p. \pageref{sec4.1partC}), we saw that sometimes an argument looks like a legitimate substitution instance of a valid argument form, but really isn't.  For instance, the problem set C asked you to identify instances of modus ponens. Below I'm giving you two of the answers.
+ 
+\begin{multicols}{2}
+(5) Modus ponens
+	\begin{earg}
+	\item[1.] $(C \eand L) \eif (E \eor C)$
+	\item[2.] $C \eand L$
+	\item[] \textcolor{white}{.}\sout{\hspace{.5\linewidth}} \textcolor{white}{.} 
+	\item[$\therefore$] $E \eor C$
+	\end{earg}
+(7) \emph{Not} modus ponens.
+	\begin{earg} 
+	\item[1.] $D \eif E$
+	\item[2.] $E$
+\item[] \textcolor{white}{.}\sout{\hspace{.2\linewidth}} \textcolor{white}{.} 
+	\item[$\therefore$] $D$
+	\end{earg}
+\end{multicols}
+The argument on the left is an example of a valid argument, because it is an instance of modus ponens, while the argument on the right is an example of an invalid argument, because it is not an example of modus ponens. (We originally defined the terms valid and invalid on p. \pageref{def:valid}). Arguments like the one on the right, which try to trick you into thinking that they are instances of valid arguments, are called \define{deductive fallacies}. The argument on the right is specifically called the fallacy of \define{affirming the consequent}. In the system of natural deduction we are using in this textbook, modus ponens has been renamed ``conditional elimination,'' but it still works the same way. So you will need to be on the lookout for deductive fallacies like affirming the consequent as you construct proofs. 
+
+\subsection{Notation}
+
+The rules we have learned in this chapter give us enough to start doing some basic derivations in SL. This will allow us to prove things syntactically which would have been too cumbersome to prove using the semantic method of truth tables. We now need to introduce a few more symbols to be clear about what methods of proof we are using. 
+
+In Chapter 1, we used the three dots $\therefore$ to indicate generally that one thing followed from another. In chapter 3 we introduced the double turnstile, $\sdtstile{}{}$, to indicate that one statement could be proven some others using truth tables. Now we are going to use a single turnstile, $\sststile{}{}$, to indicate that we can derive a statement from a bunch of premises, using the system of natural deduction we have begun to introduce in this section. Thus we will write $\{\script{A}, \script{B}, \script{C}\} \sststile{}{} \script{D}$, to indicate that there is a derivation going from the premises \script{A}, \script{B}, and \script{C} to the conclusion \script{D}. Note that these are metavariables, so I could be talking about any sentences in SL.
+
+The single turnstile will work the same way the double turnstile did. So, in addition to the uses of the single turnstile above we can write  $\sststile{}{} \script{A}$ to indicate that \script{A} can be proven a tautology using syntactic methods. We can write $\script{A}\nsststile{}{} \hspace{.5em}  \sststile{}{}\script{B}$ to say that \script{A} and \script{B} can be proven logically equivalent using these derivations. You will learn how to do these later things at the end of the chapter. In the meantime, we need to practice our basic rules of derivation.
+
+%%%%%%%%%% PRACTICE PROBLEMS %%%%%%
+\practiceproblems
+\noindent\problempart Some of the following arguments are legitimate instances of our six basic inference rules. The others are either invalid arguments or valid arguments that are still illegitimate because they would take multiple steps using our basic inference rules. For those that are legitimate, mark the rule that they are instances of. Mark those that are not ``Not a single inference.'' 
+
+\begin{exercises}
+\begin{longtabu}{X[1]X[1]} 
+
+\item %1
+	\begin{earg*}
+	\item $R \eor S$ 
+\itemc[.3] $S$
+	\end{earg*}
+%\factoidbox{Invalid Argument}
+
+&
+
+\item %2
+	\begin{earg*}
+	\item $(A \eif B) \eor (B \eif A)$
+	\item $A \eif B$
+\itemc[.3] $B \eif A$
+	\end{earg*}
+
+%	\factoidbox{Invalid Argument}
+
+\\
+
+\item %3
+	\begin{earg*}
+	\item $P \eand (Q \eor R)$
+\itemc[.3] $R$
+	\end{earg*}
+%\factoidbox{Invalid Argument}
+
+&
+\item %4
+	\begin{earg*}
+	\item $P \eand (Q \eand R)$
+\itemc[.3] $P$
+	\end{earg*}
+%		\factoidbox{\eand-Elimination}
+
+\\
+\item %5
+	\begin{earg*}
+	\item  $A$
+\itemc[.3] $P \eand (Q \eif A)$
+	\end{earg*}
+%	\factoidbox{Invalid Argument}
+
+&	
+	
+\item %6
+	\begin{earg*}
+	\item  $A$
+	\item  $B \eand C$
+\itemc[.3] $(A \eand B) \eand C$
+	\end{earg*}
+%	\factoidbox{\begin{flushleft}Illegitimate Argument. You need the associativity of \eand to infer this.\end{flushleft}}
+\\
+\item %7
+	\begin{earg*}
+	\item $(X \eand Y) \eiff (Z \eand W)$
+	\item $Z \eand W$
+\itemc[.3] $X \eand Y$
+	\end{earg*}
+%	\factoidbox{\eiff-Elimination}
+&
+\item %8
+	\begin{earg*}
+	\item $((L \eif M) \eif N) \eif O$
+	\item $L$
+\itemc[.3] $M$
+	\end{earg*}
+%	\factoidbox{Invalid Argument}
+
+\end{longtabu}
+\end{exercises}
+
+
+\noindent\problempart Some of the following arguments are legitimate instances of our six basic inference rules. The others are either invalid arguments or valid arguments that are still illegitimate because they would take multiple steps using our basic inference rules. For those that are legitimate, mark the rule that they are instances of. Mark those that are not ``Not a single inference.''
+
+\begin{exercises} \vspace{-.5cm}
+\begin{longtabu}{X[1]X[1]} 
+
+\item %1
+	\begin{earg*}
+	\item  $A \eand B$
+ 
+	\itemc[.3]$A$ 	
+	\end{earg*}
+%\factoidbox{\eand-Elimination}
+&
+
+\item %2
+	\begin{earg*}
+	\item $A \eif (B \eand (C \eor D))$
+	\item $A$
+ 
+	\itemc[.3]$B \eand (C \eor D)$
+	\end{earg*}
+%\factoidbox{\eif-Elimination}
+\\
+
+\item %3
+	\begin{earg*}
+	\item $P \eand (Q \eand R)$
+ 
+	\itemc[.3]$R$
+	\end{earg*}
+%	\factoidbox{\begin{flushleft}Illegitmate Argument. You need two uses of \eand-elim. to do this\end{flushleft}}
+&
+
+\item %4
+	\begin{earg*}
+	\item  $P$
+ 
+	\itemc[.3] $P \eor [A \eand (B \eiff C)]$
+	\end{earg*}
+%	\factoidbox{\eor-Introduction}
+\\
+
+\item %5
+	\begin{earg*}
+	\item  $M$
+	\item  $D \eand C$
+ 
+	\itemc[.3] $M \eand (D \eand C)$
+	\end{earg*}
+%	\factoidbox{\eand-Introduction}
+&
+
+\item %6
+	\begin{earg*}
+	\item $(X \eand Y) \eif (Z \eand W)$
+	\item $Z \eand W$
+ 
+	\itemc[.3]$X \eand Y$
+	\end{earg*}
+%	\factoidbox{Invalid Argument}
+\\
+
+\item %7
+	\begin{earg*}
+	\item $(X \eand Y) \eif (Z \eand W)$
+	\item $\enot (X \eand Y)$
+ 
+	\itemc[.3]$\enot(Z \eand W)$
+	\end{earg*}
+%	\factoidbox{Invalid Argument}
+&
+
+\item %8
+	\begin{earg*}
+	\item $((L \eif M) \eif N) \eif O$
+	\item $(L \eif M) \eif N$
+ 
+	\itemc[.3]$O$
+	\end{earg*}
+%	\factoidbox{\eif-Elimination}
+
+\end{longtabu}
+\end{exercises}
+
+\vspace{-8pt}
+
+\noindent\problempart \label{pr.justifySLproof} Fill in the missing pieces in the following proofs. Some are missing the justification column on the right. Some are missing the left column that contains the actual steps, and some are missing lines from both columns.
+%rob: problem one was in the original problem section at the end of Chapter 6. 
+
+\begin{exercises}
+\vspace{-.5cm}
+\begin{longtabu}{X[1.4]X[1]} 
+
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+\begin{proof}
+	\hypo{1}{W \eif \enot B}
+	\hypo{2}{A \eand W}
+	\hypo{2b}{B \eor (J \eand K)} \by{Want: $K$}{}
+	\have{3}{W}{}
+	\have{4}{\enot B} {}
+	\have{5}{J \eand K} {}
+	\have{6}{K}{}
+	\end{proof}
+
+%(1) 
+%	\begin{proof}
+%	\hypo{1}{W \eif \enot B}
+%	\hypo{2}{A \eand W}
+%	\hypo{2b}{B \eor (J \eand K)} \by{Want: $K$}{}
+%	\have{3}{W}{} \by{\eand E,}{2}
+%	\have{4}{\enot B} {} \by{\eif E,} {1,4}
+%	\have{5}{J \eand K} {}\by{\eor E}{3,5}
+%	\have{6}{K}{}\by{\eand E}{6}
+%	\end{proof}
+
+&
+
+\item \textcolor{white}{.} 
+\vspace{-16pt}
+
+	\begin{proof}
+	\hypo{1}{W \eand B}
+	\hypo{2}{E \eand Z} \by{Want: $W \eand Z$}{}
+	\have{3}{} \by{\eand E}{1}
+	\have{4}{} \by{\eand E}{2}
+	\have{5}{W \eand Z} \by{}{}
+	\end{proof}
+
+%(2)
+%	\begin{proof}
+%	\hypo{1}{W \eand B}
+%	\hypo{2}{E \eand Z} \by{Want: W \eand Z}{}
+%	\have{3}{W} \by{\eand E}{1}
+%	\have{4}{Z} \by{\eand E}{2}
+%	\have{5}{W \eand Z} \by{\eand I}{3, 4}
+%	\end{proof}
+
+\\
+
+\item \textcolor{white}{.} 
+\vspace{-16pt}
+	\begin{proof}
+	\hypo{1}{(A \eand B) \eand C} \by{Want: $A \eand (B \eand C)$}{}
+	\have{2}{A \eand B} 
+	\have{3}{C} 	
+	\have{4}{A} 
+	\have{5}{B} 
+	\have{6}{B \eand C} 
+	\have{7}{A \eand (B \eand C)} 	
+	\end{proof}
+%\vspace{.25cm}
+
+%(3)
+%	\begin{proof}
+%	\hypo{1}{(A \eand B) \eand C} \by{Want: A \eand (B \eand C)}{}
+%	\have{2}{A \eand B} \ae{1}
+%	\have{3}{C} \ae{1}	
+%	\have{4}{A} \ae{2}
+%	\have{5}{B} \ae{2}
+%	\have{6}{B \eand C} \ai{3,5}
+%	\have{7}{A \eand (B \eand C)} \ai{4,6}	
+%	\end{proof}
+
+&
+
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+\begin{proof}
+	\hypo{1}{(\enot A \eand B) \eif C}
+	\hypo{2}{\enot A}
+	\hypo{3}{A \eor B} \by{Want: $C$}{}
+	\have{4}{\nix{B}} \by{\eor E}{2, 3}
+	\have{5}{\nix{\enot A \eand B}} \by{\eand I}{2, 4}
+	\have{6}{\nix{C}} \by{\eif E}{1, 5}
+	\end{proof} 
+
+\\
+\vspace{-1cm}
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+	\begin{proof}
+	\hypo{1}{\enot A \eand (\enot B \eand C)}
+	\hypo{2}{C \eif (D \eand (B \eor E))}
+	\hypo{3}{(E \eand \enot A) \eif F}	\by{Want: $D \eand F$}{}
+	\have{4}{\nix{\enot A}} \by{\eand E}{1}
+	\have{5}{\enot B \eand C} \nix{\by{\eand E}{1}}
+	\have{6}{\nix{\enot B}} \by{\eand E}{5}
+	\have{7}{C} \nix{\by{\eand E}{5}}
+	\have{8}{\nix{D \eand (B \eor E)}} \by{\eif E}{2, 7}
+	\have{9}{D} \nix{\by{\eand E}{8}}
+	\have{10}{\nix{B \eor E}} \by{\eand E}{8}
+	\have{11}{E} \nix{\by{\eor  E}{6, 10}}
+	\have[12]{12}{\nix{E \eand \enot A}} \by{\eand I}{4, 11}
+	\have[13]{13}{F} \nix{\by{\eif E}{3, 12}}
+	\have[14]{14}{\nix{D \eand F}} \by{\eand I}{9, 13}
+	\end{proof}
+
+\end{longtabu}
+\end{exercises}
+
+\noindent\problempart \label{pr.justifySLproof} Fill in the missing pieces in the following proofs. Some are missing the justification column on the right. Some are missing the left column that contains the actual steps, and some are missing lines from both columns.
+
+\begin{exercises}
+\begin{longtabu}{X[1]X[1]} 
+
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+	\begin{proof}
+	\hypo{1}{A \eand \enot B}
+	\hypo{2}{A \eif \enot C}
+	\hypo{3}{B \eor (C \eor D)}	 \by{Want: $D$}{}
+	\have{4}{} \by{\eand E}{1}
+	\have{5}{} \by{\eand E}{1}
+	\have{6}{} \by{\eif E}{2, 4}
+	\have{7}{} \by{\eor E}{3, 5}
+	\have{8}{} \by{\eor E}{6,7}
+	\end{proof}
+&
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+	\begin{proof}
+	\hypo{1}{W \eor V}
+	\hypo{2}{I \eand (\enot Z \eif \enot W)}
+	\hypo{3}{I \eif \enot Z} \by{Want: $I \eand V$}{}
+	\have{4}{} \ae{2}
+	\have{5}{} \ae{2}
+	\have{6}{\enot Z} \by{}{}
+	\have{7}{} \by{\eif E}{5, 6}
+	\have{8}{V} \by{}{}
+	\have{9}{} \ai{4,8}
+	\end{proof}
+\\
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+		
+\begin{proof}
+\hypo{1}{\enot P \eand S) \eiff S}
+\hypo{2}{S \eand (P \eor Q)} \by{Want: Q}{}
+\have{3}{S} \nix{\by{\eand E}{2}}
+\have{4}{P \eor Q} \nix{\by{\eand E}{2}}
+\have{5}{\enot P \eand S} \nix{\by{\eiff E}{1, 3}}
+\have{6}{\enot P} \nix{\by{\eand E}{5}}
+\have{7}{Q} \nix{\by{\eor E}{4, 6}}
+\end{proof}
+
+&
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+\begin{proof}
+\hypo{1}{C \eif (A \eif B)}
+\hypo{2}{D \eor C}
+\hypo{3}{\enot D} \by{Want: A \eif B}{}
+\have{4}{\nix{C}} \by{\eor E}{2, 3}
+\have{5}{\nix{A \eif B}} \by{\eif E}{1, 4}
+\end{proof}
+\\
+
+\item \textcolor{white}{.}  
+\vspace{-16pt}
+
+	\begin{proof}
+	\hypo{1}{X \eand (Y \eand Z)} \by{Want: $(X \eor A) \eand [(Y \eor B) \eand (Z \eand C)]$} {}
+	\have{2}{} \ae{1}
+	\have{3}{} \ae{1}
+	\have{4}{} \ae{3}
+	\have{5}{} \ae{3}
+	\have{6}{} \oi{2}
+	\have{7}{} \oi{4}
+	\have{8}{} \oi{5}
+	\have{9}{} \by{\eand I}{7,8}
+	\have{10}{} \ai{6,9}
+	\end{proof}
+
+\end{longtabu}
+\end{exercises}
+
+%%%%%PART E
+
+\noindent\problempart Derive the following.
+
+\begin{enumerate}[label=(\arabic*)]
+\item \{$A \eif B, A\} \sststile{}{} A \eand B$
+
+%	\begin{proof}
+%	\hypo{1}{A \eif B}
+%	\hypo{2}{A} \by{Want: A \eand B}{}
+%	\have{3}{B} \by{\eif E}{1,2}
+%	\have{4}{A \eand B} \ai{2,3}
+%	\end{proof}
+
+\item \{$A \eiff D, C, [(A \eiff D) \eand C] \eif (C \eiff B)\} \sststile{}{} B$
+
+%\begin{proof}
+%\hypo{1}{A \eiff D}
+%\hypo{2}{C}
+%\hypo{3}{((A \eiff D) \eand C) \eif (C \eiff B)} \by{Want: B}{} 
+%\have{4}{(A \eiff D) \eand C} \by{\eand I}{1, 2}
+%\have{5}{C \eiff B} \by{\eif E}{3, 4}
+%\have{6}{B} \by{\eiff E}{2, 5}
+%\end{proof}
+
+
+\item \{$A \eiff B, B \eiff C, C \eif D, A\} \sststile{}{} D$
+
+%	\begin{proof}
+%	\hypo{1}{A \eiff B}
+%	\hypo{2}{B \eiff C}
+%	\hypo{3}{C \eiff D} 
+%	\hypo{4}{A}	\by{Want: D}{}
+%	\have{5}{B} \be{1, 4}
+%	\have{6}{C} \be{2, 5}
+%	\have{7}{D} \be{3, 6}
+%	\end{proof}
+
+\item $\{(A \eif \enot B) \eand A, B \eor C\} \sststile{}{} C$
+
+%\begin{proof}
+%\hypo{1}{(A \eif \enot B) \eand A}
+%\hypo{2}{B \eor C} \by{Want: C}{}
+%\have{3}{A \eif \enot B} \by{\eand E}{1}
+%\have{4}{A}\by{\eand E}{1}
+%\have{5}{\enot B} \by{\eif E}{3, 4}
+%\have{6}{C} \by{\eor E}{2, 5}
+%\end{proof} 
+
+
+\item $\{(A \eif B) \eor (C \eif (D \eand E)), \enot (A \eif B), C\} \sststile{}{} D$
+%
+%	\begin{proof}
+%	\hypo{1}{(A \eif B) \eor (C \eif (D \eand E))} 
+%	\hypo{2}{\enot (A \eif B)}
+%	\hypo{3}{C} \by{Want: D}{}
+%	\have{4}{C \eif (D \eand E)} \oe{1, 3}
+%	\have{5}{D \eand E} \ce{3, 4}
+%	\end{proof}
+
+
+\item $\{C \eor (B \eand  A),  \enot C\} \sststile{}{} A \eor A$		%requires \eorI
+%\begin{proof}
+%\hypo{1}{C \eor (B \eand A)}
+%\hypo{2}{\enot C} \by{Want: A \eor A}{}
+%\have{3}{B \eand A} \oe{1, 2}
+%\have{4}{A} \ae{3}
+%\have{5}{A \eor A} \oe{4}
+%\end{proof}
+
+\item $\{A \eor B, \enot A, \enot B\} \sststile{}{} C$				%\eorIE trick
+
+%	\begin{proof}
+%	\hypo{1}{A \eor B}
+%	\hypo{2}{\enot A}
+%	\hypo{3}{\enot B} \by{Want: C}{}
+%	\have{4}{B} \oe{1, 2}
+%	\have{5}{B \eor C} \oi{4}
+%	\have{6}{C} \oe{3, 5}
+%	\end{proof}
+\end{enumerate}
+
+%%%%PART F
+
+\noindent\problempart Derive the following.
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\{A \eand B, B \eif C\} \sststile{}{} A \eand (B \eand C) $ %1
+
+%\begin{proof}
+%\hypo{1}{A \eand B}
+%\hypo{2}{B \eif C}	\by{Want: A \eand (B \eand C)}{}
+%\have{3}{A} \ae{1}
+%\have{4}{B} \ae{1}
+%\have{5}{C} \ce{2, 4}
+%\have{6}{B \eand C} \ai{4, 5}
+%\have{7}{A \eand (B \eand C)} \ai{3, 6}
+%\end{proof}
+
+\item $\{(P \eor R) \eand (S \eor R), \enot R \eand Q\} \sststile{}{} P \eand (Q \eor R)$		%2
+\item $\{(X \eand Y) \eif Z, X \eand W, W \eif Y\} \sststile{}{} Z$ 	%3
+
+%\begin{proof}
+%\hypo{1}{(X \eand Y) \eif Z}
+%\hypo{2}{X \eand W}
+%\hypo{3}{W \eif Y} \by{Want: Z}{}
+%\have{4}{X} \ae{2}
+%\have{5}{W} \ae{2}
+%\have{6}{Y} \ce{3, 5}
+%\have{7}{X \eand Y} \ai{4, 6}
+%\have{8}{Z} \ce{1, 7}
+%\end{proof}
+
+\item $\{A \eor  (B \eor  G), A \eor  (B \eor  H), \enot A \eand \enot B\} \sststile{}{} G \eand H $		%4
+
+\item $\{P \eand (Q \eand \enot R), R \eor T\} \sststile{}{} T \eor S$ 		%requires \eorI
+\item $\{((A \eif D) \eor B) \eor C, \enot C, \enot B, A\} \sststile{}{} D$
+\item $\{A \eor \enot\enot B, \enot B \eor \enot C, C \eor A, \enot A\} \sststile{}{}D		$			%\eorIE trick
+\end{enumerate}
+
+%%%%%%%% PART G
+\noindent\problempart Derive the following.
+\begin{enumerate}[label=(\arabic*)]
+
+\item $H \eand A \sststile{}{} A \eand H	$
+
+%\begin{proof}
+%\hypo{1}{H \eand A} \by{Want: A \eand H}{}
+%\have{2}{H} \by{\eand E}{1}
+%\have{3}{A} \by{\eand E}{1}
+%\have{4}{A \eand H} \by{\eand I}{2, 3}
+%\end{proof}
+
+\item $\{{P \eor Q, D \eif E, \enot P \eand D} \} \sststile{}{} E \eand Q$
+
+%
+%\begin{proof}
+%\hypo{1}{P \eor Q}
+%\hypo{2}{D \eif E}
+%\hypo{3}{~P \eand D}  \by{Want: E \eand Q}{}
+%\have{4}{~P} \by{\eand E}{3}
+%\have{5}{D} \by{\eand E 3}{}
+%\have{6}{Q} \by{\eor E}{1, 4}
+%\have{7}{E	} \by{\eif E}{2, 5}
+%\have{8}{E \eand Q} \by{\eand E}{6, 7}
+%\end{proof}
+
+\item $\{\enot A \eif (A \eor \enot C), \enot A, \enot C \eiff D \} \sststile{}{} D$
+
+%\begin{proof}
+%\hypo{1}{~A \eif (A \eor ~C)}
+%\hypo{2}{~A}
+%\hypo{3}{~C \eiff D} \by{Want: D}{}
+%\have{4}{A \eor ~C} \by{\eif E}{1, 2}
+%\have{5}{~C} \by{\eor E} {2, 4}
+%\have{6}{D} \by{\eiff E}{3, 5}
+%\end{proof}
+
+\item $\{\enot A \eand C, A \eor B, (B \eand C) \eif (D \eand E) \} \sststile{}{} D$
+%\begin{proof}
+%\hypo{1}{~A \eand C}
+%\hypo{2}{A \eor B}
+%\hypo{3}{(B \eand C) \eif (D \eand E)} \by{Want: D}{}
+%\have{4}{~A} \by{\eand E}{1}
+%\have{5}{C} \by{\eand E}{1}
+%\have{6}{B} \by{\eor E}{2, 4}
+%\have{7}{B \eand C} \by{\eand E}{5, 6}
+%\have{8}{D \eand E} \by{\eif E}{3, 7}
+%\have{9}{D}\by{\eand E}{8}
+%\end{proof}
+
+\item $\{A \eif (B \eif (C \eif D)), A \eand (B \eand C) \} \sststile{}{} D$
+%\begin{proof}
+%\hypo{1}{A \eif (B \eif (C \eif D))}
+%\hypo{2}{A \eand (B \eand C)} \by{Want: D}{}
+%\have{3}{A} \by{\eand E}{2}
+%\have{4}{B \eand C} \by{\eand E}{2}
+%\have{5}{B} \by{\eand E}{4}
+%\have{6}{C} \by{\eand E}{4}
+%\have{7}{B \eif (C \eif D)} \by{\eif E}{1, 3}
+%\have{8}{C \eif D} \by{\eif E}{5, 7}
+%\have{9}{D} \by{\eif E}{6, 8}
+%\end{proof}
+
+\item $\{E \eor F, F \eor G, \enot F\} \sststile{}{} E \eand G$
+
+
+%\begin{proof}
+%\hypo{1}{E \eor F}
+%\hypo{2}{F\eor G}
+%\hypo{3}{\enot F} \by{Want: $E \eand G$}{}
+%\have{4}{E} \by{\eor E}{1, 3}
+%\have{5}{G} \by{\eor E}{2, 3}
+%\have{6}{E \eand G} \by{\eand I}{4, 5}
+
+\item $\{X \eand (Z \eor Y), \enot Z, Y \eif \enot X\} \sststile{}{} A$  %\eorIE trick
+
+%\begin{proof}
+%\hypo{1}{X \eand (Z \eor Y)}
+%\hypo{2}{\enot Z}
+%\hypo{3}{Y \eif \enot X} \by{Want: $A$}{}
+%\have{4}{X} \by{\eand E}{1}
+%\have{5}{Z \eor Y} \by{\eand E}{1}
+%\have{6}{Y} \by{\eor E}{2, 5}
+%\have{7}{\enot X} \by{\eif E}{3, 6}
+%\have{8}{X \eor A} \by{\eor I}{4}
+%\have{9}{A} \by{\eor E}{7, 8}
+%\end{proof}
+
+
+\end{enumerate}
+
+%%%%%%PART H
+
+
+\noindent\problempart Derive the following.
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\{P \eiff (Q \eiff R)$,$ P$,$ P \eif R\} \sststile{}{} Q$
+
+\item $\{A \eif (B \eif C), A, B\} \sststile{}{}C$
+\item $\{(X \eor A) \eif \enot Y, Y \eor (Z \eand Q), X\} \sststile{}{}Z	$
+\item $\{A \eand (B \eand C), A \eand D, B \eand E\} \sststile{}{}D \eand (E \eand C)		$
+\item $\{A \eand (B \eor \enot C), \enot B \eand (C \eor E), E \eif D \} \sststile{}{} D$
+
+%1.             A & (B ˅ ~C)
+%2.             ~B & (C ˅ E)
+%3.             E → D                                    Want: D
+%4.             A                                                             &-E 1      
+%5.             B ˅ ~C                                   &-E 1
+%6.             ~B                                                           &-E 2
+%7.             C ˅ E                                      &-E 2
+%8              ~C                                                            ˅E 5, 6
+%9.             E                                                               ˅E 7, 8
+%10.           D                                                             →E 3,10
+
+\item $\{A \eif B, B \eif C, C \eif A, B, \enot A\} \sststile{}{}D	$  %\eorIE trick
+\item $\{\enot A \eand B, A \eor P, A \eor Q, B \eif R \} \sststile{}{} P \eand (Q\eand R)$
+
+
+\end{enumerate}
+
+\noindent\problempart
+Translate the following arguments into SL and then show that they are valid. Be sure to write out your dictionary. 
+\begin{enumerate}[label=(\arabic*)]
+\item If Professor Plum did it, he did it with the rope in the kitchen. Either Professor Plum or Miss Scarlett did it, and it wasn't Miss Scarlett. Therefore the murder was in the kitchen.  
+%rob: note to self: problem 1 taken from test 4 SP08.
+
+%A: Professor Plum did it\\
+%B: The murder was committed in the kitchen \\
+%C: The murder was committed with the rope\\
+%D: Miss Scarlett did it
+%\end{multicols}
+%
+%\begin{proof}
+%\hypo{1}{A \eif (B \eand C)}
+%\hypo{2}{(A \eor D) \eand \enot D} \by{Want: B}{}
+%\have{3}{A \eor D} \ae{2}
+%\have{4}{\enot D} \ae{2}
+%\have{5}{A} \oe{3, 4}
+%\have{6}{B \eand C} \ce{1, 5}
+%\have{7}{B} \ae{6}
+%\end{proof}
+
+\item If you are going to replace the bathtub, you might as well redo the whole bathroom. If you redo the whole bathroom, you will have to replace all the plumbing on the north side of the house. You will spend a lot of money on this project if and only if you replace the plumbing on the north side of the house. You are definitely going to replace the bathtub. Therefore you will spend a lot of money on this project. 
+
+%A: You are going to replace the bathtub \\
+%B: You redo the whole bathroom.  \\
+%C: You replace all the plumbing on the north side of the house. \\
+%D: You will spend a lot of money on this project  \\ 
+%
+%
+%\begin{proof}
+%\hypo{1}{A \eif B}
+%\hypo{2}{B \eif C}
+%\hypo{3}{C \eiff D}
+%\hypo{4}{A} \by{Want: D}{}
+%\have{5}{B} \by{\eif E}{1, 4}
+%\have{6}{C} \by{\eif E}{2, 5}
+%\have{7}{D}  \by{\eiff E}{3, 6}
+%\end{proof}
+
+
+\end{enumerate}
+
+\noindent\problempart
+Translate the following arguments into SL and then show that they are valid. Be sure to write out your dictionary. 
+\begin{enumerate}[label=(\arabic*)]
+
+\item Either Caroline is happy, or Joey is happy, but not both. If Joey teases Caroline, she is not happy. Joey is teasing Caroline. Therefore, Joey is happy.
+
+%A: Caroline is happy. \hspace{.25in}
+%B: Joey is happy.\hspace{.25in}
+%C: Joey teases Caroline. \\
+%
+%\begin{proof}
+%\hypo{1}{(A \eor B) \eand \enot(A \eand B)}
+%\hypo{2}{C \eif \enot A}
+%\hypo{3}{C} \by{Want: B}{}
+%\have{4}{A \eor B} \ae{1}
+%\have{5}{\enot A} \ce{2, 3}
+%\have{6}{B} \oe{4,5}
+%\end{proof}
+
+\item Either grass is green or one of two other things: the sky is blue or snow is white. If my lawn is brown, the sky is gray, and if the sky is gray, it is not blue. If my lawn is brown, then grass is not green, and on top of that my lawn is brown. Therefore snow is white.
+%rob: note to self: replace this with a better problem sometime.
+
+\end{enumerate}
+
+% *******************************************
+% *			Conditional Proof					   *	
+% *******************************************
+\section{Conditional Proof}
+\setlength{\parindent}{1em}
+%I separated this out from the first section. 
+
+So far we have introduced introduction and elimination rules for the conjunction and disjunction, and elimination rules for the conditional and biconditional, but we have no introduction rules for conditionals and biconditionals, and no rules at all for negations. That's because these other rules require fancy kinds of derivations that involve putting proofs inside proofs. In this section, we will look at one of these kinds of proof, called conditional proof.
+
+%rob: added a transition paragraph.
+
+\subsection{Conditional introduction}
+Consider this argument:
+\begin{earg}
+\item[1.] $R \eor F$
+\item[] \textcolor{white}{.}\sout{\hspace{.2\linewidth}} \textcolor{white}{.}
+\item[$\therefore$] $\enot R \eif F$
+\end{earg}
+The argument is valid. You can use the truth table to check it. Unfortunately, we don't have a way to prove it in our syntactic system of derivation. To help us see what our rule for conditional introduction should be, we can try to figure out what new rule would let us prove this obviously true argument.
+
+Let's start the proof in the usual way, like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F} \by{Want: \enot R \eif F}{}
+\end{proof}
+
+If we had $\enot R$ as a further premise, we could derive $F$ by the {\eor}E rule. But sadly, we do not have $\enot R$ as a premise, and we can't derive it directly from the premise we do have---so we cannot simply prove $F$. What we will do instead is start a \emph{subproof}, a proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in an assumption for the subproof. This can be anything we want. Here, it will be helpful to assume $\enot R$. Our proof now looks like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}\by{Want: \enot R \eif F}{}
+	\open
+		\hypo{nr}{\enot R}\by{Assumption for CD, Want: F}{}
+	\close
+\end{proof}
+
+It is important to notice that we are not claiming to have proved $\enot R$. We do not need to write in any justification for the assumption line of a subproof. You can think of the subproof as posing the question: What could we show \emph{if} $\enot R$ were true? For one thing, we can derive $F$. To make this completely clear, I have annotated line 2 ``Assumption for CD,'' to indicate that this is an additional assumption we are making because we are using conditional derivation (CD). I have also added ``Want: F'' because that is what we will want to show during the subderivation. In the future I won't always include all this information in the annotation. But for now we will use it to be completely clear on what we will be doing.
+
+So now let's go ahead and show F in the subderivation. 
+
+\begin{proof}
+	\hypo{rf}{R \eor F}\by{Want: \enot R \eif F}{}
+	\open
+		\hypo{nr}{\enot R}\by{Assumption for CD, Want: F}{}
+		\have{f}{F}\oe{rf, nr}
+	\close
+\end{proof}
+
+This has shown that \emph{if} we had $\enot R$ as a premise, \emph{then} we could prove $F$. In effect, we have proven $\enot R \eif F$. So the conditional introduction rule ({\eif}I) will allow us to close the subproof and derive $\enot R \eif F$ in the main proof. Our final proof looks like this:
+
+\begin{proof}
+	\hypo{rf}{R \eor F}\by{Want: \enot R \eif F}{}
+	\open
+		\hypo{nr}{\enot R}\by{Assumption for CD, Want: F}{}
+		\have{f}{F}\oe{rf, nr}
+	\close
+	\have{nrf}{\enot R \eif F}\ci{nr-f}
+\end{proof}
+
+Notice that the justification for applying the {\eif}I rule is the entire subproof. Usually that will be more than just two lines.
+
+%rob, I added a paragraph explaining the precise rules that govern subproofs and folded some later material into that paragraph
+
+Now that we have that example, let's lay out more precisely the rules for subproofs and then give the formal schemes for the rule of conditional and biconditional introduction. 
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item[\define{Rule 1}] You can start a subproof on any line, except the last one, and introduce any assumptions with that subproof.
+\item[\define{Rule 2}] All subproofs must be closed by the time the proof is over.
+\item[\define{Rule 3}] Subproofs may closed at any time. Once closed, they can be used to justify \eif I, \eiff I, \enot E, and \enot I.
+\item[\define{Rule 4}] Nested subproofs must be closed before the outer subproof is closed.
+\item[\define{Rule 5}] Once the subproof is closed, lines in the subproof cannot be used in later justifications.
+\end{enumerate}
+
+Rule 1 gives you great power. You can assume anything you want, at any time. But with great power, comes great responsibility, and rules 2--5 explain what your responsibilities are. Making an assumption creates the burden of starting a subproof, and subproofs must end before the proof is done. (That's why we can't start a subproof on the last line.) Closing a subproof is called \emph{discharging} the assumptions of that subproof. So we can summarize your responsibilities this way: You cannot complete a proof until you have discharged all of the assumptions introduced in subproofs. Once the assumptions are discharged, you can use the whole subproof as a justification, but not the individual lines. So you need to know going into the subproof what you are going to use it for once you get out. As in so many parts of life, you need an exit strategy.  
+
+With those rules for subproofs in mind, the {\eif}I rule looks like this:
+
+\begin{proof}
+	\open
+		\hypo[m]{a}{\script{A}} \by{want \script{B}}{}
+		\have[n]{b}{\script{B}}
+	\close
+	\have[\ ]{ab}{\script{A}\eif\script{B}}\ci{a-b}
+\end{proof}
+
+You still might think this gives us too much power. In logic, the ultimate sign you have too much power is that given any premise \script{A} you can prove any conclusion \script{B}. Fortunately, our rules for subproofs don't let us do this. Imagine a proof that looks like this:
+
+\begin{proof}
+	\hypo{a}{\script{A}}
+	\open
+		\hypo{b1}{\script{B}}
+\end{proof}
+
+It may seem as if a proof like this will let you reach any conclusion \script{B} from any premise \script{A}. But this is not the case. By rule 2, in order to complete a proof, you must close all of the subproofs, and we haven't done that. A subproof is only closed when the vertical line for that subproof ends. To put it another way, you  can't end a proof and still have two vertical lines going. 
+
+You still might think this system gives you too much power. Maybe we can try closing the subproof and writing \script{B} in the main proof, like this 
+
+\begin{proof}
+	\hypo{a}{\script{A}}
+	\open
+		\hypo{b1}{\script{B}}
+		\have{b2}{\script{B}} \by{R}{b1}
+	\close
+	\have{b}{\script B} \by{R}{b2}
+\end{proof}
+
+But this is wrong, too. By rule 5, once you close a subproof, you cannot refer back to individual lines inside it.
+
+Of course, it is legitimate to do this:
+
+\begin{proof}
+	\hypo{a}{\script{A}}
+	\open
+		\hypo{b1}{\script{B}}
+		\have{b2}{\script{B}} \by{R}{b1}
+	\close
+	\have{bb}{\script{B}\eif\script{B}} \ci{b1-b2}
+\end{proof}
+
+This should not seem so strange, though. Since \script{B}\eif\script{B} is a tautology, no particular premises should be required to validly derive it. (Indeed, as we will see, a tautology follows from any premises.)
+
+When we introduce a subproof, we typically write what we want to derive in the right column, just like we did in the first example in this section. This is just so that we do not forget why we started the subproof if it goes on for five or ten lines. There is no ``want'' rule. It is a note to ourselves and not formally part of the proof.
+
+Having an exit strategy when you launch a subproof is crucial. Even if you discharge an assumption properly, you might wind up with a final line that doesn't do you any good. In order to derive a conditional by {\eif}I, for instance, you must assume the antecedent of the conditional in a subproof. The last line of the subproof must be the consequent of the conditional, and the whole conditional is the first line after the end of the subproof. Pick your assumptions so that you wind up with a conditional that you actually need. It is always permissible to close a subproof and discharge its assumptions, but it will not be helpful to do so until you get what you want.
+
+%This is also moved from the conditional section
+
+Now that we have the rule for conditional introduction, consider this argument:
+\label{proofHS}
+\begin{earg}
+\item[1.] $P \eif Q$
+\item[2.] $Q \eif R$
+\item[] \textcolor{white}{.}\sout{\hspace{.1\linewidth}} \textcolor{white}{.}
+\item[$\therefore$] $P \eif R$
+\end{earg}
+We begin the proof by writing the two premises as assumptions. Since the main logical operator in the conclusion is a conditional, we can expect to use the {\eif}I rule. For that, we need a subproof---so we write in the antecedent of the conditional as an assumption of a subproof:
+
+\begin{proof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P}
+	\close
+\end{proof}
+
+We made $P$ available by assuming it in a subproof, allowing us to use {\eif}E on the first premise. This gives us $Q$, which allows us to use {\eif}E on the second premise. Having derived  $R$, we close the subproof. By assuming $P$ we were able to prove $R$, so we apply the {\eif}I rule and finish the proof.
+
+\label{HSproof}
+\begin{proof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P}\by{want $R$}{}
+		\have{q}{Q}\ce{pq,p}
+		\have{r}{R}\ce{qr,q}
+	\close
+	\have{pr}{P \eif R}\ci{p-r}
+\end{proof}
+
+
+\subsection{Biconditional introduction}
+
+Just as the rule for biconditional elimination was a double-headed version of conditional elimination, our rule for biconditional introduction is a double-headed version of conditional introduction. In order to derive $W \eiff X$, for instance, you must be able to prove $X$ by assuming $W$ \emph{and} prove $W$ by assuming $X$. The biconditional introduction rule ({\eiff}I) requires two subproofs. The subproofs can come in any order, and the second subproof does not need to come immediately after the first---but schematically, the rule works like this:
+
+\begin{proof}
+	\open
+		\hypo[m]{a1}{\script{A}} \by{want \script{B}}{}
+		\have[n]{b1}{\script{B}}
+	\close
+	\open
+		\hypo[p]{b2}{\script{B}} \by{want \script{A}}{}
+		\have[q]{a2}{\script{A}}
+	\close
+	\have[\ ]{ab}{\script{A}\eiff\script{B}}\bi{a1-b1,b2-a2}
+\end{proof}
+
+We will call any proof that uses subproofs and either \eif I or \eiff I \define{conditional proof}. By contrast, the first kind of proof you learned, where you only use the six basic rules, will be called \define{direct proof}. In section 4.3 we will learn the third and final  kind of proof \emph{indirect proof}. But for now you should practice conditional proof. 
+
+%%%%%%Practice Problems %%%%%%%%%%%%%%%
+\practiceproblems
+\noindent\problempart Fill in the blanks in the following proofs. Be sure to include the ``Want'' line for each subproof. 
+
+\begin{exercises}
+\item  \textcolor{white}{.} % $\{\enot P \eif (Q \eor R), P \eor \enot Q\} \sststile{}{} \enot P \eif R$
+\vspace{-16pt}
+\begin{proof}
+\hypo{1}{\enot P \eif (Q \eor R)}
+\hypo{2}{P \eor \enot Q}  \by{Want: \enot P \eif R}{}
+\open
+\hypo{3}{\enot P} \by{Want: }{}
+\have{4}{Q \eor R} 
+\have{5}{} \oe{2, 3}
+\have{6}{R} 
+\close
+\have{7}{\enot P \eif R} 
+\end{proof}
+
+%\begin{proof}
+%\hypo{1}{\enot P \eif (Q \eor R)}
+%\hypo{2}{P \eor \enot Q}  \by{Want: \enot P \eif R}{}
+%\open
+%\hypo{3}{\enot P} \by{Want: R}{}
+%\have{4}{Q \eor R} \ce{1, 3}
+%\have{5}{\enot Q} \oe{2, 3}
+%\have{6}{R} \oe{4,5}
+%\close
+%\have{7}{\enot P \eif R} \ci{3-6}
+%\end{proof}
+
+\item  \textcolor{white}{.} \\ % $\{\enot P \eif (Q \eor R), P \eor \enot Q\} \sststile{}{} \enot P \eif R$
+\vspace{-16pt}
+\begin{proof}
+\hypo{1}{A \eor B}
+\hypo{2}{B \eif (B \eif \enot A)} \by{Want: \enot A \eiff B}{}
+	\open
+	\hypo{3}{\enot A} \by{Want: \nix{B}}{}
+	\have{4}{\nix{B}} \by{\eor E}{1, 3}
+	\close
+	\open
+	\hypo{5}{B} \by{Want: \nix{\enot A}}{}
+	\have{6}{B \eif \enot A} \nix{\by{\eif E}{2, 3}}
+	\have{7}{\nix{\enot A}} \by{\eif E}{5, 6}
+	\close
+\have{8}{\enot A \eiff B} \nix{\by{\eiff I}{3-4, 5-7}}
+\end{proof}
+\end{exercises}
+
+ 
+\noindent\problempart Fill in the blanks in the following proofs. Be sure to include the ``Want'' line for each subproof. 
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item \textcolor{white}{.} \\ % $\{\enot P \eif (Q \eor R), P \eor \enot Q\} \sststile{}{} \enot P \eif R$
+\vspace{-30pt}
+\begin{proof}
+\hypo{1}{B \eif \enot D}
+\hypo{2}{A \eif (D \eor C)}  \by{Want: $A \eif (B \eif C)$}{}
+\open
+\hypo{3}{A} \by{ }{}
+\open 
+\hypo{4}{} \by{Want: C}{}
+\have{5}{} \ce{2, 3}
+\have{6}{} \ce{1, 4}
+\have{7}{} \oe{5, 6}
+\close
+\have{8}{} \ci{4-7}
+\close
+\have{9}{} \ci{3-8}
+\end{proof}
+
+%\item $B \eif \enot D, A \eif (D \eor C) $\therefore$ A \eif (B \eif C)$
+%\begin{proof}
+%\hypo{1}{B \eif \enot D}
+%\hypo{2}{A \eif (D \eor C)}  \by{Want: A \eif (B \eif C)}{}
+%\open
+%\hypo{3}{A} \by{Want: B \eif C}{}
+%\open 
+%\hypo{4}{B} \by{Want: C}{}
+%\have{5}{D \eor C} \ce{2, 3}
+%\have{6}{\enot D} \ce{1, 4}
+%\have{7}{C} \oe{5, 6}
+%\close
+%\have{8}{B \eif C} \ci{4-7}
+%\close
+%\have{9}{A \eif (B \eif C)} \ce{3-8}
+%\end{proof}
+
+
+\item \textcolor{white}{.} \\ 
+\vspace{-16pt}
+
+\begin{proof}
+\hypo{1}{(G \eor H) \eif (S \eand T)}
+\hypo{2}{(T \eor U) \eif (C \eand D)}	\by{Want: $G \eif C$}{}
+	\open
+	\hypo{3}{\nix{G}} \by{Want: C}{}
+	\have{4}{G \eor H} \nix{\by{\eor I}{3}}
+	\have{5}{\nix{S \eor T}} \by{\eif E}{1, 4}
+	\have{6}{T} \nix{\by{\eand E}{5}}
+	\have{7}{\nix{T \eor U}} \by{\eor I}{6}
+	\have{8}{C \eand D} \nix{\by{\eif E}{2, 7}}
+	\have{9}{\nix{C}}	\by{\eand E}{8}
+	\close
+\have{10}{\nix{G \eif C}} \by{\eif I}{3-9}
+\end{proof}
+\end{enumerate}
+
+\noindent\problempart Derive the following 
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\{K\eand L\} \sststile{}{} K\eiff L$
+%originally Chapter 6, part B, number 1
+
+%
+%\begin{proof}
+%\hypo{1}{K \eand L} \by{want: K \eiff L}{}
+%\open
+%\hypo{2}{K} \by{Want: L}{}
+%\have{3}{L} \ae{1}
+%\close
+%\open
+%\hypo{4}{L} \by{Want: K}{}
+%\have{5}{K} \ae{1}
+%\close
+%\have{6}{K \eiff L} \by{\eiff E}{4--5, 6--7}
+
+
+\item $\{A\eiff B, B\eiff C\} \sststile{}{} A\eiff C$
+%originally Chapter 6, part C, number 4
+%
+%\begin{proof}
+%\hypo{1}{A \eiff B}
+%\hypo{2}{B \eiff C} \by{Want: A \eiff C}{}
+%\open
+%\hypo{3}{A} \by{Want: C}{}
+%\have{4}{B} \by{\eiff E}{1, 3}
+%\have{5}{C} \by{\eiff E}{2, 4}
+%\close
+%\open
+%\hypo{6}{C} \by{Want: A}{}
+%\have{7}{B} \by{\eiff E}{2, 6}
+%\have{8}{A} \by{\eiff E}{1, 7}
+%\close
+%\have{9}{A \eiff C} \by{\eiff I}{3--5, 6--8}
+%\end{proof}
+
+
+\item $\{X \eiff (A \eand B), B \eiff Y, B \eif A\} \sststile{}{} X \eiff Y$
+
+%4) $X \eiff (A \eand B)$, $B \eiff Y$, $B \eif A$  $\therefore$ $X \eiff Y$
+%
+%\begin{proof}
+%\hypo{1}{X \eiff (A \eand B)}
+%\hypo{2}{B \eiff Y}
+%\hypo{3}{B \eif A} \by{Want: X \eiff Y}{} 
+%\open
+%\hypo{4}{X} \by{Want: Y}{}
+%\have{5}{A \eand B} \by{\eiff E}{1, 4}
+%\have{6}{B} \ae{5}
+%\have{7}{Y} \by{\eiff E}{2, 6}
+%\close
+%\open
+%\hypo{8}{Y} \by{Want: X}{}
+%\have{9}{B} \by{\eiff E}{2, 8}
+%\have{10}{A} \ce{3, 9}
+%\have{11}{A \eand B} \ai{9, 10}
+%\have{12}{X} \by{\eiff E}{1, 12}
+%\close
+%\have{13}{X \eiff Y} \by{\eiff I}{4-7, 8-12} 
+%\end{proof}
+
+
+\item $\{(A \eif B) \sststile{}{} (A \eif \enot B) \eif \enot A\}$
+
+\answer{
+\begin{proof}
+ \hypo{}{A \eif B} \by{Want: (A \eif \enot B) \eif \enot A}{}
+\open
+\hypo{}{A \eif \enot B} \by{Want: \enot A}{}
+\open
+\hypo{}{A} \by{Want: A contradiction}{}
+\have{}{B} \by{\eif E}{1, 3}
+\have{}{\enot B} \by{\eif E}{2, 3}
+\close
+\have{}{\enot A} \by{\enot I}{3-5}
+\close
+\have{}{(A \eif \enot B) \eif \enot A} \by{\eif I}{2-6}
+\end{proof}
+}
+
+\item $\{\enot W \eand \enot E, Q \eiff D\} \sststile{}{} (W \eor Q) \eiff (E \eor D)$
+
+%5) \enot W \eand \enot E, Q \eiff D $\therefore$ (W \eor Q) \eiff (E \eor D)
+%
+%\begin{proof}
+%\hypo{1}{\enot W \eand \eand E} 
+%\hypo{2}{Q \eiff D} \by{Want: (W \eor Q) \eiff (E \eor D)}{}
+%\have{3}{\enot W} \ae{1}
+%\have{4}{\enot E} \ae{1}
+%\open
+%\hypo{5}{W \eor Q} \by{Want: E \eor D}{}
+%\have{6}{Q} \oe{3, 5}
+%\have{7}{D} \by{\eiff E}{2, 6}
+%\have{8}{E \eor D} \oi{7}
+%\close
+%\open
+%\hypo{9}{E \eor D} \by{Want: W \eor Q}{}
+%\have{10}{D} \oe{4, 9}
+%\have{11}{Q} \by{\eiff E}{2, 10}
+%\have{12}{W \eor Q} \oi{11}
+%\close
+%\have{13}{(W \eor Q) \eiff (E \eor D)} \ci{5-8, 9-12}
+%\end{proof}
+\end{enumerate}
+
+\noindent\problempart Derive the following 
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
+%originally Chapter 6, part B, number 2
+%
+%2)  $A\eif (B\eif C)$ $\therefore$ $(A\eand B)\eif C$
+%\begin{proof}
+%\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
+%\open
+%\hypo{2}{A \eand B} \by{Want: C}{}
+%\have{3}{A} \ae{2}
+%\have{4}{B} \ae{2}
+%\have{5}{B \eif C} \ce{1, 3}
+%\have{6}{C} \ce{4, 5}
+%\close
+%\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
+%\end{proof}
+
+\item $\{B \eif \enot E, A \eif \enot D, D \eor (E \eor R), (R \eand A) \eif C\} \sststile{}{} A \eif (B \eif C)$ 
+
+\answer{
+\begin{proof}
+\hypo{}{B \eif \enot E}
+\hypo{}{A \eif \enot D}
+\hypo{}{D \eor (E \eor R)}
+\hypo{}{(R \eand A) \eif C}	\by{Want: A \eif (B \eif C)}{} 
+\open
+\hypo{}{A}	\by{Want: B \eif C}{}
+\open
+\hypo{}{B}	\by{Want: C}{}
+\have{}{\enot E} \by{	\eif E 1, 6}{}
+\have{}{\enot D} \by{\eif E 2, 5}{}
+\have{}{E \eor R} \by{\eor E 3, 7}{}
+\have{}{R} \by{\eor E 7, 9}{}
+\have{}{R \eand} \by{\eand I 5, 10}{}
+\have{}{C	} \by{\eif E 4, 11}{}
+\close
+\have{}{B \eif C} \by{\eif I 6-12}{}
+\close
+\have{}{A \eif (B \eif C)} \by{\eif I 5-13}{}
+\end{proof}
+}
+
+
+
+\item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$
+
+%5) $\enot A$, $(B \eand C) \eif D$ $\therefore$ $(A \eor B) \eif (C \eif D)$
+%\begin{proof}
+%
+%\hypo{1}{\enot A}
+%\hypo{2}{(B \eand C) \eif D} \by{Want: (A \eor B) \eif (C \eif D}{}
+%\open
+%\hypo{3}{A \eor B} \by{Want: C \eif D}{}
+%\open
+%\hypo{4}{C}  \by{Want: D}{}
+%\have{5}{B} \oe{1, 4}
+%\have{6}{B \eand C} \ai{4, 5}
+%\have{7}{D} \ce{2, 6}
+%\close
+%\have{8}{C \eif D} \ci{4-7}
+%\close
+%\have{9}{(A \eor B) \eif (C \eif D)} \ci{3-8}
+%\end{proof}
+
+
+\item $\{(K \eif K) \eif R, (R \eor M) \eif N \sststile{}{} N$
+
+%1.	(K  K)  R
+%3.	(R  M)  N		Want: N
+%3.		K				Want: K
+%4.		K				R 3
+%5.	K  K				I, 3–4
+%6.	R					E, 1, 5
+%7.	R  M				I 6
+%8.	N					E 2, 7
+%
+%Appears in: Hurley 10, p. 401
+%Now it your text, replace ASAP
+
+
+\item $\{(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z\} \sststile{}{} A \eand (B \eand C) \eiff X \eand (Y \eand Z)$
+%
+%7) $(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z $\therefore$ A \eand (B \eand C) \eiff X \eand (Y \eand Z)$
+%
+%\begin{proof}
+%\hypo{1}{(A \eand B) \eiff D}
+%\hypo{2}{D \eiff (X \eand Y)}
+%\hypo{3}{C \eiff Z} \by{A \eand (B \eand C) \eiff X \eand (Y \eand Z)}{}
+%	\open
+%	\hypo{4}{A \eand (B \eand C)} \by{Want: X \eand (Y \eand Z)}{}
+%	\have{5}{A} \ae{4}
+%	\have{6}{B \eand C} \ae{4}
+%	\have{7}{B} \ae{6}
+%	\have{8}{C} \ae{6}
+%	\have{9}{Z} \by{\eiff-E}{3, 8}
+%	\have{10}{A \eand B} \ai{5, 7}
+%	\have{11}{D} \by{\eiff-E}{1, 10}
+%	\have{12}{X \eand Y}  \by{\eiff-E}{2, 11}
+%	\have{13}{X} \ae{12}
+%	\have{14}{Y} \ae{12}
+%	\have{15}{Y \eand Z} \ai{13, 14}
+%	\have{16}{X \eand (Y \eand Z)} \ai{13, 15}
+%	\close
+%	
+%	\open
+%	\hypo{17}{X \eand (Y \eand Z)} \by{Want: A \eand (B \eand C)}{} 
+%	\have{18}{X} \ae{17}
+%	\have{19}{Y \eand Z} \ae{17}
+%	\have{20}{Y} \ae{19}
+%	\have{21}{Z} \ae{19}
+%	\have{22}{C}  \by{\eiff-E}{3, 22}
+%	\have{23}{X \eand Y} \ai{18, 20}
+%	\have{24}{D}  \by{\eiff-E}{2, 23}
+%	\have{25}{A \eand B}  \by{\eiff-E}{1, 24}
+%	\have{26}{A} \ae{25}
+%	\have{27}{B} \ae{25}
+%	\have{28}{B \eand C} \ai{22, 27}
+%	\have{29}{A \eand (B \eand C)} \ai{26, 28}
+%	\close
+%\have{30}{A \eand (B \eand C) \eiff (X \eand (Y \eand Z)} \by{\eiff I, 4-16, 17-29}{}
+%\end{proof}
+
+
+
+\end{enumerate}	
+
+%\noindent\problempart 
+%Translate the following arguments in to SL and then show that they are valid. Be sure to write out your dictionary. 
+
+
+% *******************************************
+% *				Indirect Proof					   *	
+% *******************************************
+
+\section{Indirect Proof}
+\label{sec:indirect_proof}
+
+%signposting paragraph added
+
+The last two rules we need to discuss are negation introduction (\enot I)  and negation elimination (\enot E). As with the rules of conditional and biconditional introduction, we have put off explaining the rules, because they require launching subproofs. In the case of negation introduction and elimination, these subproofs are designed to let us perform a special kind of derivation classically known as \emph{reductio ad absurdum}, or simply \emph{reductio}. 
+
+%rob: changed the example to something less exact but more familiar
+A \emph{reductio} in logic is a variation on a tactic we use in ordinary arguments all the time. In arguments we often stop to imagine, for a second, that what our opponent is saying is true, and then realize that it has unacceptable consequences. In so-called ``slippery slope'' arguments or ``arguments from consequences,'' we claim that doing one thing will will lead us to doing another thing which would be horrible. For instance, you might argue that legalizing physician assisted suicide for some patients might lead to the involuntary termination of lots of other sick people. These arguments are typically not very good, but they have a basic pattern whcih we can make rigorous  in our logical system. These arguments say ``if my opponent wins, all hell will break loose.'' In logic the equivalent of all hell breaking loose is asserting a contradiction. The worst thing you can do in logic is contradict yourself. The equivalent of our opponent being right in logic would be that a sentence we are trying to prove true turns out to be false (or alternately, that a sentence we are trying to prove false turns out to be true.) So, in developing the rules for reductio ad absurdum, we need to find a way to say ``if this sentence were false (or true), we would have to assert a contradiction.'' 
+
+%The example from Magnus's version
+%
+%Here is a simple mathematical argument in English for the conclusion that there is no largest number:
+%\begin{earg}
+%\item[] Assume there \emph{is} some greatest natural number. Call it $A$.
+%\item[] That number plus one is also a natural number.
+%\item[] Obviously, $A+1 > A$.
+%\item[] So there is a natural number greater than $A$.
+%\item[] This is impossible, since $A$ is assumed to be the greatest natural number.
+%\item[$\therefore$] There is no greatest natural number.
+%\end{earg}
+%This argument form is traditionally called a \emph{reductio}. Its full Latin name is \emph{reductio ad absurdum}, which means ``reduction to absurdity.'' In a reductio, we assume something for the sake of argument---for example, that there is a greatest natural number. Then we show that the assumption leads to two contradictory sentences---for example, that $A$ is the greatest natural number and that it is not. In this way, we show that the original assumption must have been false.
+
+In our system of natural deduction, this kind of proof will be known as \define{indirect proof}.The basic rules for negation will allow for arguments like this. If we assume something and show that it leads to contradictory sentences, then we have proven the negation of the assumption. This is the negation introduction ({\enot}I) rule:
+
+\begin{multicols}{2}
+
+\begin{proof}
+\open
+	\hypo[m]{na}{\script{A}}\by{for reductio}{}
+	\have[n]{b}{\script{B}}
+	\have{nb}{\enot\script{B}}
+\close
+\have{a}[\ ]{\enot\script{A}}\ni{na-nb}
+\end{proof}
+
+\begin{proof}
+\open
+	\hypo[m]{na}{\script{A}}\by{for reductio}{}
+	\have[n]{b}{\enot\script{B}}
+	\have{nb}{\script{B}}
+\close
+\have{a}[\ ]{\enot\script{A}}\ni{na-nb}
+\end{proof}
+
+\end{multicols}
+
+
+For the rule to apply, the last two lines of the subproof must be an explicit contradiction: either the second sentence is the direct negation of the first, or vice versa. We write ``for reductio'' as a note to ourselves, a reminder of why we started the subproof. It is not formally part of the proof, and you can leave it out if you find it distracting.
+
+To see how the rule works, suppose we want to prove a law of double negation $A$ $\therefore$ $\enot \enot A$
+\label{DN1}
+%doublenegation
+
+\begin{proof}
+\hypo{1}{A} \by{Want: \enot \enot A}{}
+	\open
+	\hypo{2}{\enot A} \by{for reductio}{}
+	\have{3}{A} \by{R}{1}
+	\have{4}{\enot A} \by{R}{2}
+	\close
+\have{5}{\enot \enot A} \ni{2-4}
+\end{proof}
+
+The {\enot}E rule will work in much the same way. If we assume \enot\script{A} and show that it leads to a contradiction, we have effectively proven \script{A}. So the rule looks like this:
+
+\begin{multicols}{2}
+\begin{proof}
+\open
+	\hypo[m]{na}{\enot\script{A}}\by{for reductio}{}
+	\have[n]{b}{\script{B}}
+	\have{nb}{\enot\script{B}}
+\close
+\have{a}[\ ]{\script{A}}\ne{na-nb}
+\end{proof}
+
+
+\begin{proof}
+\open
+	\hypo[m]{na}{\enot\script{A}}\by{for reductio}{}
+	\have[n]{b}{\enot\script{B}}
+	\have{nb}{\script{B}}
+\close
+\have{a}[\ ]{\script{A}}\ne{na-nb}
+
+\end{proof}
+\end{multicols}
+
+Here is a simple example of negation elimination at work. We can show $L \eiff \enot O, L \eor \enot O \therefore L$ by assuming \enot L, deriving a contradiction, and then using \enot E.
+
+\begin{proof}
+\hypo{1}{L \eiff \enot O}
+\hypo{2}{L \eor \enot O}\by{Want: $L$}{}
+\open
+	\hypo{3}{\enot L}\by{for reductio}{}
+	\have{4}{\enot O} \oe{2, 3}
+	\have{5}{L} \be{1, 4}
+	\have{6}{\enot L} \by{R}{3}
+\close
+\have{7}{L}\ne{3-6}
+\end{proof}
+
+With the addition of \enot E and \enot I, our system of natural deduction is complete. We can now prove that any valid argument is actually valid. This is really where the fun begins. 
+
+One important bit of strategy. Sometimes, you will launch a subproof right away by assuming the negation of the conclusion to the whole argument. Other times, you will use a subproof to get a piece of the conclusion you want, or some stepping stone to the conclusion you want. Here's a simple example. Suppose you were asked to show that this argument is valid: $\enot(A \eor B) \therefore \enot A \eand \enot B$. (The argument, by the way, is part of DeMorgan's Laws, some very useful equivalences which we will see more of later on.)
+
+You need to set up the proof like this.
+
+\begin{proof}
+\hypo{1}{\enot(A \eor B)} \by{Want $\enot A \eand \enot B$}{}
+\end{proof}
+
+Since you are trying to show $\enot A \eand \enot B$, you could open a subproof with $\enot(\enot A \eand \enot B$) and try to derive a contradiction, but there is an easier way to do things. Since you are tying to prove a conjunction, you can set out to prove each conjunct separately. Each conjunct, then, would get its own reductio. Let's start by assuming $A$ in order to show $\enot A$
+
+\begin{proof}
+\hypo{1}{\enot(A \eor B)} \by{Want $\enot A \eand \enot B$}{}
+	\open
+	\hypo{2}{A}	\by{for reductio}{}
+	\have{3}{A \eor B} \oi{2}
+	\have{4}{\enot (A \eor B)} \by{R}{1}
+	\close
+\have{5}{\enot A} \ni{2-4}
+\end{proof}
+
+%\pagebreak[4]
+
+We can then finish the proof by showing $\enot B$ and putting it together with $\enot A$ and conjunction introduction. 
+
+% Demorgan's negated disjunction to conjunction of negations.
+\label{DeM1}
+\begin{proof}
+\hypo{1}{\enot(A \eor B)} \by{Want $\enot A \eand \enot B$}{}
+	\open
+	\hypo{2}{A}	\by{for reductio}{}
+	\have{3}{A \eor B} \oi{2}
+	\have{4}{\enot (A \eor B)} \by{R}{1}
+	\close
+\have{5}{\enot A} \ni{2-4}
+	\open
+	\hypo{6}{B}	\by{for reductio}{}
+	\have{7}{A \eor B} \oi{6}
+	\have{8}{\enot (A \eor B)} \by{R}{1}
+	\close
+\have{10}{\enot B} \ni{7-9}
+\have{11}{\enot A \eand \enot B} \ai{6,10}
+\end{proof}
+
+
+%%%%%%%%Practice problems  %%%%%%%%%%%%%%%%%
+ 	
+\practiceproblems
+
+\noindent\problempart Fill in the blanks in the following proofs.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=(\arabic*)]
+
+\item \textcolor{white}{.} \\ 
+\vspace{-16pt}
+%DeMorgans, conjunction of negations to negated disjunction
+\label{DeM2}
+\begin{proof}
+\hypo{1}{\enot A \eand \enot B} \by{Want: }{}
+\have{2}{\enot A} 
+\have{3}{\enot B} 
+\open
+	\hypo{4}{A \eor B} \by{for reductio}{}
+	\have{5}{B} 
+	\have{6}{\enot B} 
+\close
+\have{7}{\enot(A \eor B)} 
+\end{proof}
+
+%\begin{proof}
+%\hypo{1}{\enot A \eand \enot B} \by{Want: \enot (A \eor B)}{}
+%\have{2}{\enot A} \ae{1}
+%\have{3}{\enot B} \ae{2}
+%\open
+%	\hypo{4}{A \eor B} \by{for reductio}{}
+%	\have{5}{B} \oe{2, 4}
+%	\have{6}{\enot B} \by{R}{3}
+%\close
+%\have{7}{\enot(A \eor B)} \ni{4-6}
+%\end{proof}
+
+\vspace{5cm}
+
+\item \textcolor{white}{.} \\ 
+\vspace{-16pt}
+%Demorgans disjunction of negations to a negated conjunction.
+\label{DeM3}
+\begin{proof}
+\hypo{1}{\enot A \eor \enot B} \by{Want: $\enot(A \eand B)$}{}
+	\open
+	\hypo{2}{A \eand B} \by{for reductio}{}
+	\have{3}{\hspace{1cm}} \ae{2}	
+	\have{4}{} \ae{2}
+		\open
+		\hypo{5}{\hspace{1cm}} \by{for reductio}{}
+		\have{6}{} \by{R}{3}
+		\have{7}{} \by{R}{5}
+		\close
+	\have{8}{\enot \enot A} 
+	\have{9}{B} 
+	\have{10}{\enot B} 
+	\close
+\have{11}{\enot(A \eand B)} 
+\end{proof}
+
+%Demorgans disjunction of negations to a negated conjunction.
+%\begin{proof}
+%\have{1}{\enot A \eor \enot B} \by{Want: \enot(A \eand B)}{}
+%	\open
+%	\hypo{2}{A \eand B} \by{for reductio}{}
+%	\have{3}{A} \ae{2}	
+%	\have{4}{B} \ae{2}
+%		\open
+%		\hypo{5}{\enot A} \by{for reductio}{}
+%		\have{6}{A} \by{R}{3}
+%		\have{7}{\enot A} \by{R}{5}
+%		\close
+%	\have{8}{\enot \enot A} \ni{5-7}
+%	\have{9}{B} \by{R}{4}
+%	\have{10}{\enot B} \oe{1, 8}
+%	\close
+%\have{11}{\enot(A \eand B} \ni{2-10}
+%\end{proof}
+\end{enumerate}
+\end{multicols}
+
+\noindent\problempart Fill in the blanks in the following proofs.
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textcolor{white}{.}  
+\vspace{-20pt} %$P \eif Q \therefore \enot P \eor Q$
+%conditional disjunction, from conditional to disjunction
+\begin{proof}
+\hypo{1}{P \eif Q} \by{Want: $\enot P \eor Q$}{}
+	\open
+	\hypo{2}{\hspace{1cm}} \by{for reductio}{}
+		\open
+		\hypo{3}{\hspace{1cm}} \by{for reductio}{}
+		\have{4}{} \ce{1, 3}
+		\have{5}{} \oi{4}
+		\have{6}{} \by{R}{2}
+		\close
+	\have{7}{\enot P} \ni{3-6}
+	\have{8}{ } \oi{7}
+	\have{9}{ } \by{R}{2}
+	\close
+\have{10}{\enot P \eor Q} \ne{2-9}			
+\end{proof}
+
+%\begin{proof}
+%\hypo{1}{P \eif Q} \by{Want: \enot P \eor Q}{}
+%	\open
+%	\hypo{2}{\enot(\enot P \eor Q)} \by{for reductio}{}
+%		\open
+%		\hypo{3}{P} \by{for reductio}{}
+%		\have{4}{Q} \ce{1, 3}
+%		\have{5}{\enot P \eor Q} \oi{4}
+%		\have{6}{\enot(\enot P \eor Q} \by{R}{2}
+%		\close
+%	\have{7}{\enot P} \ni{3-6}
+%	\have{8}{\enot P \eor Q} \oi{7}
+%	\have{9}{\enot(\enot P \eor Q)} \by{R}{2}
+%	\close
+%\have{10}{\enot P \eor Q} \ne{2-9}			
+%\end{proof}
+
+
+\item \textcolor{white}{.}  
+\vspace{-18pt} %$(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ $\therefore$ $M$
+
+\begin{proof}
+\hypo{1}{(X\eand Y)\eor(X\eand Z)}
+\hypo{2}{\enot(X\eand D)}
+\hypo{3}{D \eor M} \by{Want: M}{}
+	\open
+	\hypo{4}{\hspace{1cm}} \by{for reductio}{}
+	\have{5}{D} \oe{ }
+		\open
+		\hypo{6}{\hspace{1cm}} \by{for reductio}{}
+		\have{7}{\enot X \eor \enot Y} 
+			\open
+			\hypo{8}{\hspace{1cm}}	\by{for reductio}{}
+			\have{9}{X}	
+			\have{10}{\enot X}	
+			\close
+		\have{11}{\enot(X \eand Y)} \ni{8-10}
+		\have{12}{} \oe{1, 11}
+		\have{13}{} \ae{12}
+		\have{14}{} \by{R}{6}
+		\close
+	\have{15}{X} 
+	\have{16}{X \eand D} 
+	\have{17}{\enot (X \eand D)} 
+	\close
+\have{18}{M} \ne{4-17}
+\end{proof}
+
+%\begin{proof}
+%\have{1}{(X\eand Y)\eor(X\eand Z)}
+%\have{2}{\enot(X\eand D)}
+%\have{3}{D \eor M} \by{Want: M}{}
+%	\open
+%	\hypo{4}{\enot M} \by{for reductio}{}
+%	\hypo{5}{D} \oe{3, 4}
+%		\open
+%		\hypo{6}{\enot X} \by{for reductio}{}
+%		\have{7}{\enot X \eor \enot Y} \oi{6}
+%			\open
+%			\hypo{8}{X \eand Y}	\by{for reductio}{}
+%			\have{9}{X}	\ae{8}
+%			\have{10}{\enot X}	\by{R}{6}
+%			\close
+%		\have{11}{\enot(X \eand Y)} \ni{8-10}
+%		\have{12}{X \eand Z} \oe{1, 11}
+%		\have{13}{X} \ae{12}
+%		\have{14}{\enot X} \by{R}{6}
+%		\close
+%	\have{15}{X} \ne{6-14}
+%	\have{16}{X \eand D} \ai{5, 15}
+%	\have{17}{\enot (X \eand D)} \by{R}{2}
+%	\close
+%\have{18}{M} \ne{4-17}
+%\end{proof}
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%   Part C: Derive the following using indirect derivation %%%%%
+\noindent\problempart Derive the following using indirect derivation. You may also have to use conditional derivation.
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\enot \enot A  \sststile{}{}  A$
+%Double negation removing negations
+\label{DN2}
+
+%\begin{proof}
+%\hypo{1}{\enot \enot A} \by{Want: $A$}{}
+%	\open
+%	\hypo{2}{\enot A} \by{for reductio}{}
+%	\have{3}{\enot \enot A} \by{R}{1}
+%	\have{4}{\enot A} \by{R}{2}
+%	\close
+%\have{5}{A} \ne{2-4}
+%\end{proof}
+
+\item $\{A \eif B, \enot B\} \sststile{}{} \enot A$
+%modus tollens
+\label{ModusTollens}
+
+%\begin{proof}
+%	\hypo{1}{A \eif B}
+%	\hypo{2}{\enot B} \by{Want: $\enot A$}{}
+%		\open
+%		\hypo{3}{A} \by{for reductio}{}
+%		\have{4}{B} \ce{1, 3}
+%		\have{5}{\enot B} \by{R}{2}
+%		\close
+%	\have{6}{\enot A} \ni{3-5}
+%\end{proof}
+
+\item $A \eif (\enot B \eor \enot C) \sststile{}{} A \eif \enot (B \eand C)$
+%
+%\hypo{1}{A \eif (\enot B \eor \enot C)} \by{Want: $A \eif \enot (B \eand C)$}{}
+%	\open
+%	\hypo{2}{A}	\by{Want: \enot (B \eand C)}{}
+%	\have{3}{\enot B \eor \enot C} \ce{1,2}		
+%		\open
+%		\hypo{4}{B \eand C} \by{for reductio}{}
+%		\have{5}{B} \ae{3}
+%		\have{6}{C} \ae{3}
+%			\open
+%			\hypo{7}{\enot B} \by{for reductio}{}
+%			\have{8}{B} \by{R}{4}
+%			\have{9}{\enot B} \by{R}{6}
+%			\close
+%		\have{10}{\enot \enot B} \ni{6-8}
+%		\have{11}{\enot C} \oe{3, 10}
+%		\have{12}{C} \by{R}{5}
+%		\close
+%	\have{13}{\enot (B \eand C)} \ni{3-11}
+%	\close
+%\have{14}{A \eif \enot (B \eand C)} \ci{2-12} 
+%\end{proof}
+
+\item $\enot(A \eand B) \sststile{}{} \enot A \eor \enot B$
+%DeMorgan's negated conjunction to disjunction of negations
+%\begin{proof}
+%\hypo{1}{\enot(A \eand B)} \by{Want: \enot A \eor \enot B}{}
+%	\open
+%	\hypo{2}{\enot(\enot A \eor \enot B)} \by{for reductio}{}
+%		\open
+%		\hypo{3}{\enot A} \by{for reductio}{}
+%		\have{4}{\enot A \eor  \enot B} \oi{3}
+%		\have{5}{\enot(\enot A \eor \enot B)} \by{R}{2}
+%		\close
+%	\have{6}{A} \ne{3-5}
+%		\open
+%		\hypo{7}{\enot B} \by{for reductio}{}
+%		\have{8}{\enot A \eor \enot B} \oi{7}
+%		\have{9}{\enot(\enot A \eor \enot B)} \by{R}{2}
+%		\close
+%	\have{10}{B} \ne{7-9}
+%	\have{11}{A \eand B} \ai{6, 10}
+%	\have{12}{\enot(A \eand B)} \by{R}{1}
+%	\close
+%\have{13}{\enot A \eor \enot B} \ne{2-12}
+%\end{proof}
+
+\item $\{\enot F\eif G, F\eif H\} \sststile{}{} G\eor H$
+
+%
+%\begin{proof}
+%\hypo{1}{\enot F\eif G}
+%\hypo{2}{F\eif H} \by{Want: $G\eor H$}{}
+%	\open
+%	\hypo{3}{\enot (G \eor H)} \by{for reductio}{}
+%		\open
+%		\hypo{4}{F} \by{for reductio}{}
+%		\have{5}{H} \ce{2, 4}
+%		\have{6}{G \eor H} \oi{5}
+%		\have{7}{\enot(G \eor H)} \by{R}{3}
+%		\close
+%	\have{8}{\enot F} \ni{4-7}
+%	\have{9}{G} \oe{1,8}
+%	\have{10}{G \eor H} \oi{9}
+%	\have{11}{\enot G \eor H} \by{R}{3}
+%	\close
+%\have{12}{G \eor H} \ne{3-11}
+%\end{proof}
+
+\item	$\{(T \eand K) \eor (C \eand E), E \eif \enot C\} \sststile{}{}  T \eand K$
+
+
+%There are two solutions. In one, you look at the want line to figure out the assumption for the subproof. In the other, you think of another think you might want, and assume the negation of that.
+
+%\begin{proof}
+%\hypo{1.}{(T \eand K) \eor (C \eand E)}
+%\hypo{2.}{E \eif \enot C} 			\by{Want: T \eand K}{}
+%\open
+%\have{3.}{\enot (T \eand K)} \by{For Reductio}{}
+%\have{4.}{C \eand E}	 \by{\eor E}{1, 4}
+%\have{5.}{E} \by{\eand E}{4}
+%\have{6.}{C} \by{\eand E}{5}
+%\have{7.}{\enot C} \by{\enot E}{2, 6}
+%\close
+%\have{8.}{T \eand K}	\by{\enot E}{3-7}
+%\end{proof}
+%
+%1.	(T & K) ˅ (C & E)
+%2.	E → ~C 				Want: T & K
+%3.		C & E			For Reductio
+%4.		E				&E 3
+%5.		C				&E 4
+%6.		~C				E 2, 4
+%7.	~(C & E)			~I 3–4
+%8.	T&K				E 1, 7
+
+
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%   Part D: Derive the following using indirect derivation %%%%%
+\noindent\problempart Derive the following using indirect derivation. You may also have to use conditional derivation.
+\label{derivation_set_with_const_d}
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\{P \eif Q, P \eif \enot Q\} \sststile{}{} \enot P$
+
+%\begin{proof}
+%\hypo{1}{P \eif Q}
+%\hypo{2}{P \eif \enot Q} \by{Want: \enot P}{}
+%	\open
+%	\hypo{3}{P} \by{for reductio}{}
+%	\have{4}{Q} \ce{1, 3}
+%	\have{5}{\enot Q} \ce{2, 3}
+%	\close
+%\have{6}{\enot P} \ni{3-5}
+%\end{proof}
+
+\item $(C\eand D)\eor E \sststile{}{} E\eor D$
+
+%\begin{proof}
+%\hypo{1}{(C\eand D)\eor E} \by{Want: $E \eor D$}{}
+%	\open
+%	\hypo{2}{\enot (E \eor D)} \by{for reductio}{}
+%		\open
+%		\hypo{3}{E} \by{for reductio}{}
+%		\have{4}{E \eor D} \oi{3}
+%		\have{5}{\enot (E \eor D)} \by{R}{2}
+%		\close
+%	\have{6}{\enot E} \ni{3-5}
+%	\have{7}{C \eand D} \oe{1, 6}
+%	\have{8}{D} \ae{7}
+%	\have{9}{E \eor D} \oi{8}
+%	\have{10}{\enot (E \eor D)}	\by{R}{2}
+%	\close
+%\have{11}{E \eor D} \ne{2-10}
+%\end{proof}
+
+\item $M\eor(N\eif M) \sststile{}{} \enot M \eif \enot N$ \label{DeM4}
+
+%\begin{proof}
+%\hypo{1}{M\eor(N\eif M)} \by{want: \enot M \eif \enot N}{}
+%\open
+%\hypo{2}{\enot M} \by{want: \enot N}{}
+%\have{3}{N \eif M}
+%\open
+%\hypo{4}{N} \by{want: M and \enot M}{}
+%\have{5}{M} \ce{3, 4}
+%\have{6}{\enot M} \by{R}{2}
+%\close
+%\have{7}{\enot N} \by{\enot I}{4--6}
+%\close
+%\have{8}{\enot M \eif \enot N} \ci{2--7}
+%\end{proof}
+
+
+
+\item \label{itm:const_d} \{$A \eor B, A \eif C, B \eif C\} \sststile{}{} C$
+
+%\begin{proof}
+%\hypo{1}{A \eor B}
+%\hypo{2}{A \eif C}
+%\hypo{3}{B \eif C}  \by{Want: C}{}
+%	\open
+%	\hypo{4}{\enot C} \by{for reductio}{}
+%		\open
+%		\hypo{5}{\enot A} \by{for reductio}{}
+%		\have{6}{B} \oe{1,5}
+%		\have{7}{C} \ce{3, 6}
+%		\have{8}{\enot C} \by{R}{7}
+%		\close
+%	\have{9}{A} \ne{5-8}
+%	\have{10}{C} \ce{2, 9}
+%	\have{11}{\enot C} \by{R}{4}
+%	\close
+%\have{12}{C} \ne{4-11}
+%\end{proof}
+
+\item	$A \eif (B \eor (C \eor D))  \sststile{}{} \enot[A \eand (\enot B \eand (\enot C \eand \enot D))] $
+
+%1.	A → (B ˅ (C ˅ D)) 			Want: ~[A & (~B & (~C &~D))]
+%2.		A & (~B & (~C &~D))	For reductio
+%3.		A							&E 2
+%4.		B ˅ (C ˅ D)				→E 1, 3
+%5.		~B & (~C &~D)			&E 2
+%6.		~B							&E 5
+%7.		C ˅ D						˅E 4, 6
+%8.		~C & ~D					&E 5
+%9.		~C							&E 8
+%10.		D							˅E 7, 9
+%11.		~D							&E 8
+%12.	~[A & (~B & (~C &~D))]	~I 2–11	
+%
+
+
+
+
+
+\end{enumerate}
+
+%\noindent\problempart 
+%Translate the following arguments in to SL and then show that they are valid. Be sure to write out your dictionary. 
+
+
+
+% *******************************************
+% *		Tautologies and Equivalences				   *	
+% *******************************************
+
+\section{Tautologies and Equivalences}
+
+
+So far all we've looked at is whether conclusions follow validly from sets of premises. However, as we saw in the chapter on truth tables, there are other logical properties we want to investigate: whether a statement is a tautology, a contradiction or a contingent statement, whether two statements are equivalent, and whether sets of sentences are consistent. In this section, we will look at using derivations to test for two properties which will be important in later sections, logical equivalence and being a tautology.
+
+
+\newglossaryentry{syntactically logically equivalent in SL}
+{
+name=syntactically logically equivalent in SL,
+description={A property held by pairs of statements in SL if and only if there is a derivation which takes you from each one to the other one.}
+}
+
+We can say that two statements are \textsc{\gls{syntactically logically equivalent in SL}} \label{def:syntactically_logically_equivalent_in_sl} if you can derive each of them from the other. We can symbolize this the same way we symbolized semantic equivalence. When we introduced the double turnstile (p. \pageref{defDoubleTurnstile}), we said we would write the symbol facing both directions to indicate that two sentences were semantically equivalent, like this: $A \eand B \ndststile{}{} \hspace{.5em} \sdtstile{}{} B \eand A$. We can do the same thing with the single turnstile for syntactic equivalence, like this:  $A \eand B \nsststile{}{} \hspace{.5em} \sststile{}{} B \eand A$. 
+
+For an example of how we can show two sentences to be syntactically equivalent, consider the sentences $P \eif (Q \eif R)$ and $(P \eif Q) \eif (P \eif R)$. \label{theorem_DistributionOfImplicationOverImplication} To prove these logically equivalent using derivations, we simply use derivations to prove the equivalence one way, from P \eif (Q \eif R) to (P \eif Q) \eif (P \eif R). And then we prove it going the other way, from (P \eif Q) \eif (P \eif R) to P \eif (Q \eif R). We set up the proof going left to right like this: 
+
+\begin{proof}
+\hypo{1}{P \eif (Q \eif R)}	\by{Want: (P \eif Q) \eif (P \eif R)}{}
+\end{proof}
+
+Since our want line is a conditional, we can set this up as a conditional proof. Once we set up the conditional proof, we also have a conditional in next want line, which means that we can put a conditional proof inside a conditional proof, like this.
+
+\begin{proof}
+\hypo{1}{P \eif (Q \eif R)}	\by{Want: (P \eif Q) \eif (P \eif R)}{}
+	\open
+	\hypo{2}{P \eif Q}	\by{Want: P \eif R}{}
+		\open
+		\hypo{3}{P}	\by{Want: R}{}
+\end{proof}
+
+The completed proof for the equivalence going in one direction will look like this.
+
+\begin{proof}
+\hypo{1}{P \eif (Q \eif R)}	\by{Want: (P \eif Q) \eif (P \eif R)}{}
+	\open
+	\hypo{2}{P \eif Q}	\by{Want: P \eif R}{}
+		\open
+		\hypo{3}{P}	\by{Want: R}{}
+		\have{4}{Q \eif R} \by{\eif E}{1, 3}
+		\have{5}{Q}	\by{\eif E}{2, 3}
+		\have{6}{R} \by{\eif E}{4, 5}
+		\close
+	\have{7}{P \eif R} \by{\eif I}{3-6}
+	\close
+\have{8}{(P \eif Q) \eif (P \eif R)} \by{\eif I}{2-7}
+\end{proof}
+
+This shows that $P \eif (Q \eif R) \sststile{}{} (P \eif Q) \eif (P \eif R)$. In order to show $P \eif (Q \eif R) \nsststile{}{} \hspace{.5em} \sststile{}{} (P \eif Q) \eif (P \eif R)$, we need to prove the equivalence going the other direction. That proof will look like this:
+
+\begin{proof}
+\hypo{1}{(P \eif Q) \eif (P \eif R)}	\by{Want: P \eif (Q \eif R)}{}
+	\open
+	\hypo{2}{P} \by{Want: Q \eif R}{}
+		\open
+		\hypo{3}{Q} \by{Want: R}{}
+			\open
+			\hypo{4}{P} \by{Want: Q}{}
+			\have{5}{Q} \by{R}{3}
+			\close
+		\have{6}{P \eif Q} \by{\eif I}{4-5}
+		\have{7}{P \eif R} \by{\eif E}{1, 6}
+		\have{8}{R} \by{\eif E}{2, 7}
+		\close	
+\have{9}{Q \eif R} \by{\eif I}{3-8}
+\close
+\have{10}{P \eif (Q \eif R)} \by{\eif I}{2-9}
+\end{proof}
+You might think it is strange that we assume $P$ twice in this proof, but that is the way we have to do it. When we assume $P$ on line 2, our goal is to prove $P \eif {Q \eif R}$. Before we can finish that proof, we also need to know that $P \eif Q$. This requires a different subproof. 
+
+These two proofs show that $P \eif (Q \eif R)$ and $(P \eif Q) \eif (P \eif R)$ are equivalent, so we can write $P \eif (Q \eif R) \nsststile{}{} \hspace{.5em} \sststile{}{} (P \eif Q) \eif (P \eif R)$. 
+
+\newglossaryentry{syntactic tautology in SL}
+{
+name=syntactic tautology in SL,
+description={A statement in SL that can be derived without any premises}
+}
+
+We can also prove that a sentence is a tautology using a derivation. A tautology is something that must be true as a matter of logic. If we want to put this in syntactic terms, we would say that \textsc{\gls{syntactic tautology in SL}} \label{def:syntactic_tautology_in_sl} is a statement that can be derived without any premises, because its truth doesn't depend on anything else. Now that we have all of our rules for starting and ending subproofs, we can actually do this. Rather than listing any premises, we simply start a subproof at the beginning of the derivation. The rest of the proof can work only using premises assumed for the purposes of subproofs. By the end of the proof, you have discharged all these assumptions, and are left knowing a tautological statement without relying on any leftover premises. Consider this proof of the law of noncontradiction: $\enot(G \eand \enot G)$. \label{theorem_Noncontradiction}
+
+\begin{proof}
+	\open
+		\hypo{gng}{G\eand \enot G}\by{for reductio}{}
+		\have{g}{G}\ae{gng}
+		\have{ng}{\enot G}\ae{gng}
+	\close
+	\have{ngng}{\enot(G \eand \enot G)}\ni{gng-ng}
+\end{proof}
+
+This statement simply says that any sentence G cannot be both true and not true at the same time. We prove it by imagining what would happen if G were actually both true and not true, and then pointing out that we already have our contradiction. 
+
+In the previous chapter, we expressed the fact that something could be proven a tautology using truth tables by writing the double turnstile in front of it. The law of noncontradiction above could have been proven using truth tables, so we could write: $\sdtstile{}{} \enot(G \eand \enot G)$ In this chapter, we will use the single turnstile the same way, to indicate that a sentence can be proven to be a tautology using a derivation. Thus the above proof entitles us to write $\sststile{}{} \enot(G \eand \enot G)$.  
+
+
+\practiceproblems
+ 	
+
+\noindent\problempart
+Prove each of the following equivalences
+\begin{enumerate}[label=(\arabic*)]
+
+\item $J \nsststile{}{} \hspace{.5em} \sststile{}{} J\eor (L\eand\enot L)$
+%\vspace{5pt}
+%$ \sststile{}{}$
+%\vspace{5pt}
+%\begin{proof}
+%		\hypo{1}{J} \by{Want: J \eor(L \eand \enot L)}{}
+%		\have{2}{J \eor (L \eand \enot L)} \oi{1}
+%\end{proof}
+%\vspace{5pt}
+%$\nsststile{}{}$
+%\vspace{5pt}
+%\begin{proof}	
+%		\hypo{1}{J \eor (L \eand \enot L)} \by{Want: J}{}
+%			\open
+%			\hypo{2}{L \eand \enot L} \by{for reductio}{}
+%			\have{3}{L} \ae{4}
+%			\have{4}{\enot L} \ae{4}
+%			\close
+%		\have{5}{\enot(L \eand \enot L)} \ni{4-6}
+%		\have{6}{J} \oe{3, 7}
+%\end{proof}
+
+
+\item $P \eif (Q \eif R) \nsststile{}{} \hspace{.5em} \sststile{}{} Q \eif (P \eif R)$
+
+%Modified from KMM T107 p. 82.
+
+%\vspace{5pt}
+%$ \sststile{}{}$
+%\vspace{5pt}
+%
+%\begin{proof}
+%\hypo{1.}{P \eif (Q \eif R)} \by{Want: Q \eif (P \eif R)}{}
+%\open
+%\hypo{2.}{Q} \by{Want: P \eif R}{}
+%\open
+%\hypo{3.}{P} \by{Want: R}{}
+%\have{4}{Q \eif R } \by{\eif E}{1,3}
+%\have{5.}{R} \by{ \eif E }{2, 4}
+%\close
+%\have{6}{P \eif R } \by{\eif I}{3-5}
+%\close
+%\have{7.}{Q \eif (P \eif R)} \by{\eif I}{2-6}
+%\end{proof}
+%
+%\vspace{5pt}
+%$\nsststile{}{}$
+%\vspace{5pt}
+%
+%
+%\begin{proof}
+%\hypo{1.}{Q \eif (P \eif R)} \by{Want: P \eif (Q \eif R)}{}
+%\open
+%\hypo{2.}{P} \by{Want: Q \eif R}{}
+%\open
+%\hypo{3.}{Q} \by{Want: R}{}
+%\have{4}{P \eif R } \by{\eif E}{1,3}
+%\have{5.}{R} \by{ \eif E }{2, 4}
+%\close
+%\have{6}{Q \eif R } \by{\eif I}{3-5}
+%\close
+%\have{7.}{P \eif (Q \eif R)} \by{\eif I}{2-6}
+%\end{proof}
+
+\item $P \eif \enot P \nsststile{}{} \hspace{.5em} \sststile{}{}  \enot P $ %(KMM T115, p. 111)
+
+%\vspace{5pt}
+%$ \sststile{}{}$
+%\vspace{5pt}
+%
+%
+%\begin{proof}
+%\hypo{1}{P \eif \enot P} \by{Want:  \enot P}{}
+%	\open
+%	\hypo{2}{P} \by{Want: A contradiction}{}
+%	\have{3}{\enot P} \by{\eif E}{1, 2}
+%	\have{4}{P} \by{R}{2}
+%	\close
+%\have{5}{P} \by{\enot E}{2-4}
+%\end{proof}
+%
+%\vspace{5pt}
+%$\nsststile{}{}$
+%\vspace{5pt}
+%
+%\begin{proof}
+%\hypo{1}{ \enot P } \by{Want: P \eif \enot P}{}
+%	\open
+%	\hypo{2}{P} \by{Want: \enot P}{}
+%	\have{3}{\enot P} \by{R}{1}
+%	\close
+%\have{4}{P \eif \enot P} \by{\eif I}{2-3}
+%\end{proof}
+%
+
+\item $\enot (P \eiff Q) \nsststile{}{} \hspace{.5em} \sststile{}{} (P \eiff \enot Q) $ %(KMM T90 p. 110)
+
+%\vspace{5pt}
+%$ \sststile{}{}$
+%\vspace{5pt}
+%
+%\begin{proof}
+%\hypo{1.}{\enot (P \eiff Q)} \by{Want: $P \eiff \enot Q$}{}
+%	\open
+%	\hypo{2.}{P} \by{Want: $\enot Q$}{}
+%		\open
+%		\hypo{3.}{Q}	\by{Want: A contradiction}{}
+%			\open
+%			\hypo{4.}{P} \by{Want: Q}{}
+%			\have{5.}{Q} \by{R}{3}
+%			\close
+%			\open
+%			\hypo{6.}{Q} \by{Want: P}{}
+%			\have{7.}{P} \by{R}{2}
+%			\close
+%		\have{8.}{P \eiff Q} \by{\eiff I}{4-5, 6-7}
+%		\have{9.}{\enot(P \eiff Q)} \by{R}{1}
+%		\close
+%	\have{10.}{\enot Q} \by{\enot I}{2-9}
+%	\close
+%	\open
+%	\hypo{a}{\enot Q} \by{Want: P}{}
+%		\open
+%		\hypo{b}{\enot P} \by{Want: A contradiction}{}
+%			\open
+%			\hypo{c}{P} \by{Want: Q}{}
+%			\have{d}{P \eor Q} \by{\eor I}{13}
+%			\have{e}{Q} \by{\eor E}{12, 14}
+%			\close
+%			\open
+%			\hypo{f}{Q} \by{Want: P}{}
+%			\have{g}{Q \eor P} \by{\eor I}{f}
+%			\have{h}{P} \by{\eor E}{f, g}
+%			\close
+%		\have{i}{P \eiff Q} \by{\eiff I}{c-e, f-h}
+%		\have{j}{\enot (P \eiff Q)} \by{R}{b}
+%		\close
+%	\have{21.}{P} \by{\enot I}{a-j}
+%	\close
+%\have{22.}{P \eiff \enot Q} \by{\eiff I}{}
+%\end{proof}
+%
+%\vspace{5pt}
+%$\nsststile{}{}$
+%\vspace{5pt}
+%
+%\begin{proof}
+%\hypo{1}{P \eiff \enot Q} \by {Want: \enot (P \eiff Q)}{}
+%	\open
+%	\hypo{2}{P \eiff Q} \by{Want: A contradiction}{}
+%		\open
+%		\hypo{3}{Q} \by{Want: A contradiction}{}
+%		\have{4}{P} \by{\eiff E}{2, 3}
+%		\have{5}{\enot Q} \by{\eiff E}{1, 4}
+%		\have{6}{Q} \by{R}{3}
+%		\close
+%	\have{7}{\enot Q} \by{\enot I}{3-6}
+%	\have{8}{P} \by{\eiff}{1, 7}
+%	\have{9}{Q}\by{\eiff}{2, 8}
+%	\have{10}{\enot Q} \by{R}{7}
+%	\close
+%\have{11}{\enot (P \eiff Q)} \by{\enot I}{2-10}
+%\end{proof}
+%\vspace{15pt}
+
+
+
+
+\end{enumerate}
+
+\noindent\problempart
+Prove each of the following equivalences
+\begin{enumerate}[label=(\arabic*)]
+
+\item $(P \eif R) \eand (Q \eif R) \nsststile{}{} \hspace{.5em} \sststile{}{}(P \eor Q) \eif R $ %(KMM T50 p.109)
+\item $(P \eif (Q \eor R)) \nsststile{}{} \hspace{.5em} \sststile{}{} (P \eif Q) \eor (P \eif R)$ %(KMM T55 p.109)
+\item $(P \eiff Q)  \nsststile{}{} \hspace{.5em} \sststile{}{} \enot P \eiff \enot Q		$ %(KMM T96 p.110)
+\end{enumerate}
+
+%\item $P \eif Q \nsststile{}{} \hspace{.5em} \sststile{}{}(R \eor P) \eif (R \eor Q)$ %(KMM T56 p.109)
+% ^ removed because it doesn't work right to left. Check to see if this is really in KRR.
+
+\noindent\problempart
+Prove each of the following tautologies
+\begin{enumerate}[label=(\arabic*)]
+
+\item $\sststile{}{} O \eif O$		%KMM T1, p.41
+%
+%	\begin{proof}
+%
+%	\open
+%	\hypo{1}{O}\by{Want: O}{}
+%	\have{2}{O}\by{R}{1}
+%	\close
+%	\have{3}{O \eif O} \ci{1-2}
+%
+%	\end{proof}
+
+\item $\sststile{}{} N \eor \enot N$ \label{theorem_ExcludedMiddle}
+
+%	\begin{proof}
+%
+%	\open
+%	\hypo{1}{\enot (N \eor \enot N)} \by{for reductio}{}
+%	\open
+%	\hypo{2}{N} \by{for reductio}{}
+%	\have{3}{N \eor \enot N} \oi{2}
+%	\have{4}{\enot (N \eor \enot N)} \by{R}{1}
+%	\close
+%	\have{5}{\enot N} \ni{2-4}
+%	\have{6}{N \eor \enot N} \oi{5}
+%	\have{7}{\enot (N \eor \enot N)} \by{R}{1}
+%	\close
+%	\have{8}{N \eor \enot N} \ne{2-7}
+%
+%	\end{proof}
+
+\item $\sststile{}{} \enot(A \eif \enot C) \eif (A \eif C)$
+
+%	\begin{proof}
+%	
+%		\open
+%		\hypo{1}{\enot(A \eif \enot C)} \by{Want: A \eif C}{}
+%			\open
+%			\hypo{2}{A} \by{Want: C}{}
+%				\open
+%				\hypo{3}{\enot C} \by{for reductio}{}
+%					\open
+%					\hypo{4}{A} \by{Want: \enot C}{}
+%					\have{5}{\enot C} \by{R}{3}
+%					\close
+%				\have{6}{A \eif \enot C} \ci{4-5}
+%				\have{7}{\enot (A \eif \enot C)} \by{R}{1}
+%				\close
+%			\have{8}{C} \ne{3-7}
+%			\close
+%		\have{9}{A \eif C} \ci{2-9}
+%		\close
+%	\have{10}{\enot(A \eif \enot C) \eif (A \eif C)} \ci{1-9}
+%	
+%	\end{proof}
+
+\item $\sststile{}{} P \eiff (P \eor (Q \eand P))$ 
+
+%
+%1.		P				Want: P  (Q & P)
+%2.		P  	(Q & P)		I 1
+%3.		P  (Q & P)		Want P
+%4			~P			For reductio
+%5.			Q & P		E 3, 4
+%6.			P			&E 5
+%8.			~P			R 4
+%9.		P				~E 4
+%10.	P ↔ (P  (Q & P)	I 1¬–2, 3–9
+%
+%Appears in Hurley 10, 404 replace ASAP
+
+\end{enumerate}
+
+
+\noindent\problempart
+Prove each of the following tautologies
+\begin{enumerate}[label=(\arabic*)]
+\item $\sststile{}{} (B \eif \enot B) \eiff \enot B$
+
+%1.		B \eif ~B		Want: ~B
+%2.			B			For reductio
+%3.			~B			\eif E 1, 2
+%4.			B			R2
+%5.		~B				~I 2–4
+%6.		~B				Want: B \eif ~B
+%7.			B			Want: ~B
+%8.			~B			R6
+%9.		B \eif ~B
+%10	(B \eif ~B) \eiff ~B
+
+\item $\sststile{}{} (P \eif [P \eif Q]) \eif (P \eif Q)$ %(KMM T9 p. 42)
+
+\item $\sststile{}{} (P \eor \enot P) \eand (Q \eiff Q) $ %(KMM T119 p.111)
+
+\item $\sststile{}{} (P \eand \enot P) \eor  (Q \eiff Q)$%(KMM T120 p.111)
+
+\end{enumerate}
+
+% *******************************************
+% *					Derived Rules				   *	
+% *******************************************
+
+\section{Derived Rules}
+\setlength{\parindent}{1em}
+
+%rob: new opening paragraph, more ambitions for this section.
+
+Now that we have our five rules for introduction and our five rules for elimination, plus the rule of reiteration, our system is complete. If an argument is valid, and you can symbolize that argument in SL, you can \emph{prove} that the argument is valid using a derivation. (We will say a bit more about this in section \ref{sec:rules_of_rep}.) Now that our system is complete, we can really begin to play around with it and explore the exciting  logical world it creates.
+
+There's an exciting logical world created by these eleven rules? Yes, yes there is. You can begin to see this by noticing that there are a lot of other interesting rules that we could have used for our introduction and elimination rules, but didn't. In many textbooks, the system of natural deduction has a disjunction elimination rule that works like this:
+
+\begin{proof}
+	\have[m]{ab}{\script{A}\eor\script{B}}
+	\have[n]{ac}{\script{A}\eif\script{C}}
+	\have[o]{bc}{\script{B}\eif\script{C}}
+	\have[\ ]{c}{\script{C}} \by{${\eor}\ast$}{ab,ac,bc}
+\end{proof}
+
+You might think our system is incomplete because it lacks this alternative rule of disjunction elimination. Yet this is not the case. If you can do a proof with this rule, you can do a proof with the basic rules of the natural deduction system. You actually proved this rule in problem \ref{itm:const_d} of part \ref{derivation_set_with_const_d} in the exercises for section \ref{sec:indirect_proof}. Furthermore, once you have a proof of this rule, you can use it inside other proofs whenever you think you would need a rule like $\eor \ast$. Simply use the proof you gave in the last homework as a sort of recipe for generating a new series of steps to get you to a line saying $\script{C} \eor \script{D}$
+
+But adding lines to a proof using this recipe all the time would be a pain in the neck. What's worse, there are dozens of interesting possible rules out there, which we could have used for our introduction and elimination rules, and which we now find ourselves replacing with recipes like the one above. 
+
+Fortunately our basic set of introduction and elimination rules, plus reiteration, was meant to be expanded on. That's part of the game we are playing here. The first system of deduction created in the Western tradition was the system of geometry created by Euclid (c 300 BCE). Euclid's \emph{Elements}  began with 10 basic laws, along with definitions of terms like ``point,'' ``line,'' and ``plane.'' He then went on to prove hundreds of different theorems about geometry, and each time he proved a theorem he could use that theorem to help him prove later theorems. 
+
+We can do the same thing in our system of natural deduction. What we need is a rule that will allow us to make up new rules. The new rules we add to the system will be called \define{derived rules}. Our ten rules for adding and eliminating connectives are then the \define{axioms} of SL. Now here is our rule for adding rules. 
+
+{\narrower \narrower
+ 
+\bf{Rule of Derived Theorem Introduction:} \rm Given a derivation in SL of some argument $A_1$ \ldots $A_n \sststile{}{} B$, create the rule $\script{A}_1$ \ldots $\script{A}_n \sststile{}{} \script{B}$ and assign a name to it of the form ``$T_n$'', to be read ``theorem n.'' Now given a derivation of some theorem $T_m$, where $n < m$, if $\script{A_1}$ \ldots $\script{A_n}$ occur as earlier lines $x_1$ \ldots $x_n$ in a proof, one may infer \script{B}, and justify it ``$T_n$, $x_1$ \ldots $x_n$'', so long as none of lines $x_1$ \ldots $x_n$ are in a closed subproof.
+\par
+}
+
+
+Let's make our rule $\eor \ast$ above our first theorem. The proof of $T_1$ is derived simply from the recipe above.
+
+{\narrower
+\bf $T_\arabic{theorem} $ (Constructive Dilemma, CD): \rm $ \{ \script{A} \eor \script {B}, \script{A}\eif\script{C}, \script{B}\eif\script{C} \} \sststile{}{} 	\script{C}$
+\addtocounter{theorem}{1}
+\par
+}
+
+Proof:
+
+\begin{proof}
+	\hypo{1}{A\eor B}
+	\hypo{2}{A\eif C}
+	\hypo{3}{B \eif C} \by{want: C}{}
+	\open
+		\hypo{4}{\enot{C}}\by{for reductio}{}
+			\open
+			\hypo{5}{\enot A} \by{for reductio}{}
+			\have{6}{B} \oe{2, 5}
+			\have{7}{C}\ci{3, 6}
+			\have{8}{\enot C} \by{R}{4}
+			\close
+		\have{9}{A}\ni{5-8}
+		\have{11}{C} \ce{2, 10}
+		\have{12}{\enot C} \by{R}{4}
+		\close
+	\have{13}{C} \ni{4-13}		
+\end{proof} 
+
+
+
+Informally, we will refer to $T_1$ as ``Constructive Dilemma'' or by the abbreviation ``CD.'' Most theorems will have names and easy abbreviations like this. We will generally use the abbreviations to refer to the proofs when we use them in derivations, because they are easier to remember. 
+
+Several other important theorems have already appeared as examples or in homework problems. We'll talk about most of them in the next section, when we discuss rules of replacement. In the meantime, there is one important one we need to introduce now
+
+{\narrower
+$\mathbf T_\arabic{theorem}$  \bf (Modus Tollens, MT): \rm $\{ \script{A} \eif \script{B}, \enot \script{B} \} \sststile{}{} \hspace{.25em} \enot \script{A}$
+\addtocounter{theorem}{1}
+\par}
+
+Proof: See page \pageref{ModusTollens}
+
+Now that we have some theorems, let's close by looking at how they can be used in a proof. 
+
+
+$\mathbf T_\arabic{theorem}$ \bf (Destructive Dilemma, DD): \rm $ \{ \script{A} \eif \script{B}, \script{A} \eif \script{C}, \enot \script{B} \eor \enot \script{C} \} \sststile{}{} \hspace{.25em} \enot \script{A}$
+\addtocounter{theorem}{1}
+
+\begin{proof}
+\hypo{1}{A \eif B}
+\hypo{2}{A \eif C}
+\hypo{3}{\enot B \eor \enot C} \by{Want: \enot A}{}
+	\open
+	\hypo{4}{A} \by{for reductio}{}
+	\have{5}{B} \ce{1, 4}
+		\open
+		\hypo{6}{\enot B} \by{For reductio}{}
+		\have{7}{B} \by{R}{5}
+		\have{8}{\enot B} \by{R}{6}
+		\close
+	\have{9}{\enot \enot B} \ni{6-8}
+	\have{10}{\enot C} \oe{3, 9}
+	\have{11}{A}	\by{R}{4}
+	\have{12}{\enot A} \by{MT}{2, 10}
+	\close
+\have{13}{\enot A} \ni{4-12}
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%          Practice problems %%%%%%
+
+\practiceproblems
+ 
+
+\noindent\problempart
+Prove the following theorems
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item $T_\arabic{theorem}$ (Hypothetical Syllogism, HS): $ \{ \script{A} \eif \script{B}, \script{B} \eif \script{C} \} \sststile{}{} \hspace{.25em} \script{A} \eif \script{C}$
+\addtocounter{theorem}{1}
+
+
+%\begin{proof}
+%\hypo{1}{A \eif B}
+%\hypo{2}{B \eif C} \by{Want: A \eif C}{}
+%	\open
+%	\hypo{3}{A} \by{Want: C}{}
+%	\have{4}{B} \ce{1, 3}
+%	\have{5}{C} \ce{2, 4}
+%	\close
+%\have{6}{A \eif C} \ci{3-5}
+%\end{proof}
+
+\item $T_\arabic{theorem}$ (Idempotence of \eor, Idem\eor): $  \script{A} \eor \script{A}  \sststile{}{} \script{A} $
+\addtocounter{theorem}{1}
+
+\item $T_\arabic{theorem}$ (Idempotence of \eand, Idem\eand): $  \script{A} \sststile{}{} \script{A} \eand \script{A} $
+\addtocounter{theorem}{1}
+
+%\begin{proof}
+%\hypo{1}{A} \by{Want A \eand A}{}
+%\have{2}{A} \by{R}{1}
+%\have{3}{A \eand A} \ai{1, 2}
+%\end{proof}
+
+\item $ T_\arabic{theorem}$ (Weakening, WK): \rm $\script{A} \sststile{}{} \script{B} \eif \script{A}$ \\
+\addtocounter{theorem}{1}
+
+\end{enumerate}
+
+%\item $\enot\enot\enot\enot G$, $G$
+
+\noindent\problempart
+Provide proofs using both axioms and derived rules to show each of the following.
+\begin{enumerate}[label=(\arabic*)]
+\item \{$M \eand (\enot N \eif \enot M) \} \sststile{}{} (N \eand M) \eor \enot M$
+
+%\begin{proof}
+%\hypo{1}{M \eand (\enot N \eif \enot M)} \by{Want: $(N \eand M) \eor \enot M$}{}
+%\have{2}{M} \ae{1}
+%\have{3}{\enot N \eif \enot M} \ae{1}
+%	\open
+%	\hypo{4}{\enot N} \by{For reductio}{}
+%	\have{5}{M} \by{R}{2}
+%	\have{6}{\enot M} \by{\eif E}{3, 4}
+%	\close
+%\have{7}{N} \ne{4-6}
+%\have{8}{N \eand M} \ai{2, 7}
+%\have{9}{(N \eand M) \eor M} \oi{8}
+%\end{proof}
+
+
+
+\item \{$C\eif(E\eand G)$, $\enot C \eif G$\} $\sststile{}{}$ $G$
+\item \{$(Z\eand K)\eiff(Y\eand M)$, $D\eand(D\eif M)$\} $\sststile{}{}$ $Y\eif Z$
+
+%\begin{proof}
+%\hypo{1}{(Z\eand K)\eiff(Y\eand M)}
+%\hypo{2}{D\eand(D\eif M)} \by{Want: Y \eif Z}{}
+%\have[3]{3}{D} \ae{2}
+%\have[4]{4}{D \eif M} \ae{2}
+%\have[5]{5}{M} \ce{3-4}
+%	\open
+%	\hypo[6]{6}{Y} \by{Want: Z}{}
+%	\have[7]{7}{Y \eand M} \ai{5, 6}
+%	\have[8]{8}{Z \eand K} \by{\eiff E, 1, 7}{}
+%	\have[9]{9}{Z} \ae{8}
+%	\close
+%\have[10]{10}{Y \eif Z} \ci{6-9}
+%\end{proof}
+
+
+
+\item \{$(W \eor X) \eor (Y \eor Z)$, $X\eif Y$, $\enot Z$\} $\sststile{}{}$ $W\eor Y$
+\item \{$(B \eif C) \eand (C \eif D), (B \eif D) \eif A $ \}$ \sststile{}{}$ $A$
+
+%\begin{proof}
+%\hypo{1}{(B \eif C) \eand (C \eif D)}
+%\hypo{2}{(B \eif D) \eif A} \by{Want: A}{}\
+%\have{3}{B \eif C}\by{\eand E}{1}
+%\have{4}{C \eif D} \by{\eand E}{1}
+%\have{5}{B \eif D} \by{HS}{3, 5}
+%\have{6}{A} \by{\eif E}{2, 5}
+%\end{proof}
+
+
+\end{enumerate}
+
+\noindent\problempart
+\begin{enumerate}[label=(\arabic*)]
+
+\item If you know that $\script{A}\sststile{}{}\script{B}$, what can you say about $(\script{A}\eand\script{C})\sststile{}{}\script{B}$? Explain your answer.
+
+%1) It is valid. If you know that \script{A} on its own implies \script{B}, then a proof of $(\script{A}\eand\script{C})\sststile{}{}\script{B}$ would only require \eand E and then the proof that $\script{A}\sststile{}{}\script{B}$
+
+
+\item If you know that $\script{A}\sststile{}{}\script{B}$, what can you say about $(\script{A}\eor\script{C})\sststile{}{}\script{B}$? Explain your answer.
+\end{enumerate}
+
+
+
+
+
+% *******************************************
+% *				Rules of Replacement			   *	
+% *******************************************
+\section{Rules of Replacement}
+\label{sec:rules_of_rep}
+\setlength{\parindent}{1em}
+
+
+
+Very often in a derivation, you have probably been tempted to apply a rule to a part of a line. For instance, if you knew $F\eif(G\eand H)$ and wanted $F\eif G$, you would be tempted to apply \eand E to just the $G \eand H$ part of $F \eif (G \eand H)$. But, of course you aren't allowed to do that. We will now introduce some new derived rules where you can do that. These are called \define{rules of replacement}, because they can be used to replace part of a sentence with a logically equivalent expression. What makes the rules of replacement different from other derived rules is that they draw on only one previous line and are symmetrical, so that you can reverse premise and conclusion and still have a valid argument. Some of the most simple examples are Theorems $8-10$, the rules of commutativity for \eand, \eor, and \eiff. 
+
+{\narrower
+
+
+$\mathbf T_\arabic{theorem}$  \bf (Commutativity of \eand, Comm\eand): \rm $(\script{A}\eand\script{B}) \nsststile{}{} \hspace{.25em} \sststile{}{}  (\script{B}\eand\script{A})$\\ 
+\addtocounter{theorem}{1}
+$\mathbf T_\arabic{theorem}$  \bf (Commutativity of \eor, Comm\eor): \rm $(\script{A}\eor\script{B}) \nsststile{}{} \hspace{.25em} \sststile{}{} (\script{B}\eor\script{A})$\\
+\addtocounter{theorem}{1}
+$\mathbf T_{\arabic{theorem}}$  \bf (Commutativity of \eiff, Comm\eiff): \rm $(\script{A}\eiff\script{B}) \nsststile{}{} \hspace{.25em} \sststile{}{} (\script{B}\eiff\script{A})$
+\addtocounter{theorem}{1}
+
+\par}
+
+
+You will be asked to prove these in the homework. In the meantime, let's see an example of how they work in a proof. Suppose you wanted to prove $(M \eor P) \eif (P \eand M)$, $\therefore$\ $(P \eor M) \eif (M \eand P)$ You could do it using only the basic rules, but it will be long and inconvenient. With the Comm rules, we can provide a proof easily:
+
+\begin{proof}
+	\hypo{1}{(M \eor P) \eif (P \eand M)}
+	\have{2}{(P \eor M) \eif (P \eand M)}\by{Comm\eand}{1}
+	\have{n}{(P \eor M) \eif (M \eand P)}\by{Comm\eor}{2}
+\end{proof}
+
+Formally, we can put our rule for deploying rules of replacement like this
+
+{\narrower \narrower
+ 
+\noindent\bf Inserting rules of replacement: \rm Given a theorem T of the form $\script{A} \nsststile{}{} \hspace{.5em} \sststile{}{} \script B$ and a line in a derivation \script{C} which contains in it a sentence \script{D}, where \script{D} is a substitution instance of either \script{A} or \script{B}, replace \script{D} with the equivalent substitution instance of the other side of theorem T. 
+\setlength{\parindent}{1em}
+
+\par}
+
+\setlength{\parindent}{1em}
+
+Here are some other important theorems that can act as rules of replacement. Some are theorems we have already proved, while you will be asked to prove others in the homework.
+
+{\narrower
+
+$\mathbf T_{\arabic{theorem}}$ \bf (Double Negation, DN): \rm $\script{A} \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} \enot \enot \script{A}$
+\addtocounter{theorem}{1}
+\par}
+Proof: See pages \pageref{DN1} and \pageref{DN2}. 
+
+{\narrower
+
+$\mathbf T_{\arabic{theorem}}$: \rm $\enot(\script{A} \eor \script{B}) \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} \enot \script{A} \eand \enot \script{B}$
+\addtocounter{theorem}{1}
+\par}
+Proof: See page \pageref{DeM1}
+
+{\narrower
+$\mathbf T_{\arabic{theorem}}$: \rm $\enot (\script{A} \eand \script{B}) \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} \enot \script{A} \eor \enot \script{B}$
+\addtocounter{theorem}{1}
+\par}
+
+Proof: See pages \pageref{DeM3} and \pageref{DeM4}.
+
+
+
+$ T_{12}$  and $T_{13}$ are collectively known as \define{DeMorgan's Laws}, and we will use the abbreviation DeM to refer to either of them in proofs.
+
+
+{\narrower
+
+$ \mathbf T_{\arabic{theorem}}$: \rm $(\script{A}\eif\script{B}) \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} (\enot\script{A}\eor\script{B})$ 
+\addtocounter{theorem}{1}
+
+
+$ \mathbf T_{\arabic{theorem}}$: \rm $(\script{A}\eor\script{B}) \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} (\enot\script{A}\eif\script{B})$  
+\addtocounter{theorem}{1}
+
+\par}
+
+$ T_{14}$ and $T_{15}$ are collectively known as the rule of Material Conditional (MC). You will prove them in the homework. 
+
+ 
+$ \mathbf T_{\arabic{theorem}}$ \bf (Biconditional Exportation, ex): \rm $\script{A}\eiff \script{B} \nsststile{}{} \hspace{.5em} \sststile{}{} (\script{A} \eif \script{B})\eand(\script{B}\eif \script{\script{A}})$ 
+\addtocounter{theorem}{1}
+\setlength{\parindent}{1em}
+
+Proof: See the homework.
+
+{\narrower
+$ \mathbf T_{\arabic{theorem}}$ \bf (Transposition, trans): \rm $\script{A}\eif \script{B} \nsststile{}{} \hspace{.5em} \sststile{}{} \hspace{.25em} \enot \script{B} \eif \enot \script{A}$ \addtocounter{theorem}{1}
+\par}
+
+Proof: See the homework.
+
+
+To see how much these theorems can help us, consider this argument: $$\enot(P \eif Q) \sststile{}{} P \eand \enot Q$$
+
+As always, we could prove this argument using only the basic rules. With rules of replacement, though, the proof is much simpler:
+
+ 
+
+\begin{proof}
+	\hypo{1}{\enot(P \eif Q)}
+	\have{2}{\enot(\enot P \eor Q)}\by{MC}{1}
+	\have{3}{\enot\enot P \eand \enot Q}\by{DeM}{2}
+	\have{4}{P \eand \enot Q}\by{DN}{3}
+\end{proof}
+
+%Although they don't do it in the book, I've been in the habit of writing $(\script{A}\eand\script{B}\eand\script{C})$ and dropping the inner pair of parentheses. This is fine. If we'd wanted to, we could have defined the basic rules in a more general way:
+
+%\begin{proof}
+%	\have[n]{a1}{\script{A}_1}
+%	\have{2}{\script{A}_2}
+%	\have[\vdots]{1}{\vdots}
+%	\have[n]{an}{\script{A}_n}
+%	\have[\ ]{aaa}{\script{A}_1~\eand\ldots\eand~\script{A}_n} \ai{}
+%\end{proof}
+
+%\bigskip
+%\begin{proof}
+%	\have{3}{\script{A}_1~\eand\ldots\eand~\script{A}_n}
+%	\have{1}{\script{A}_i} \ae{}
+%\end{proof}
+
+%\bigskip
+%\begin{proof}
+%	\have{1}{\script{A}}
+%	\have{3}{\script{A}\eor\script{B}_1\eor\script{B}_2\ldots\eor\script{B}_n} \ai{}
+%\end{proof}
+
+%We don't need these extended versions, since for any given n we could prove them as a derived rule.
+
+
+
+
+%%%%%%%%%%%%%          Practice problems %%%%%%%%%
+ 
+
+\practiceproblems
+\noindent\problempart
+Prove $T_{8}$ through $T_{10}$. You may use $T_{1}$ through $T_7$ in your proofs.
+
+\noindent\problempart
+Prove $T_{11}$ through $T_{17}$. You may use $T_{1}$ through $T_{12}$ in your proofs.
+
+
+
+
+% *******************************************
+% *				Proof Strategy					   *	
+% *******************************************
+
+
+\section{Proof Strategy}
+\setlength{\parindent}{1em}
+There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
+
+\emph{Work backwards from what you want.}
+The ultimate goal is to derive the conclusion. Look at the conclusion and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to derive this new goal. For example: If your conclusion is a conditional $\script{A}\eif\script{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume \script{A}. In the subproof, you want to derive \script{B}. Similarly, if your conclusion is a biconditional, $\script{A} \eiff \script{B}$, plan on using {\eiff}I and be prepared to launch two subproofs. If you are trying to prove a single sentence letter or a negated single sentence letter, you might plan on using indirect proof. 
+
+%Rob: I removed QL examples here and put ih more SL examples
+
+\emph{Work forwards from what you have.}
+When you are starting a proof, look at the premises; later, look at the sentences that you have derived so far. Think about the elimination rules for the main operators of these sentences. These will tell you what your options are. For example: If you have $A \eand B$ use \eand E to get $A$ and $B$ separately. If you have $A \eor B$ see if you can find the negation of either $A$ or $B$ and use \eor E.
+
+\emph{Repeat as necessary.} Once you have decided how you might be able to get to the conclusion, ask what you might be able to do with the premises. Then consider the target sentences again and ask how you might reach them.  Remember, a long proof is formally just a number of short proofs linked together, so you can fill the gap by alternately working back from the conclusion and forward from the premises.
+
+%Rob: I deleted a sentence from ``work forward from what you have'' that didn't make sense and then merged other material in the the ``repeat as necessary'' section.. 
+
+\emph{Change what you are looking at.} Replacement rules can often make your life easier. If a proof seems impossible, try out some different substitutions.For example: It is often difficult to prove a disjunction using the basic rules. If you want to show $\script{A}\eor\script{B}$, it is often easier to show $\enot\script{A}\eif\script{B}$ and use the MC rule. Some replacement rules should become second nature. If you see a negated disjunction, for instance, you should immediately think of DeMorgan's rule.
+
+\emph{When all else fails, try indirect proof.} If you cannot find a way to show something directly, try assuming its negation. Remember that most proofs can be done either indirectly or directly. One way might be easier---or perhaps one sparks your imagination more than the other---but either one is formally legitimate.
+
+%Rob: I changed the way the advice is phrased to match the slogan I repeat in class.
+
+%\emph{Persist.} Try different things. If one approach fails, then try something else.
+% Rob: deleted ``persist'' in favor of other advice.
+
+\emph{Take a break} If you are completely stuck, put down your pen and paper, get up from your computer, and do something completely different for a while. Walk the dog. Do the dishes. Take a shower. I find it especially helpful to do something physically active. Doing other desk work or watching TV doesn't have the same effect. When you come back to the problem, everything will seem clearer. Of course, if you are in a testing situation, taking a break to walk around might not be advisible. Instead, switch to another problem.
+
+A lot of times, when you are stuck, your mind keeps trying the same solution again and again, even though you know it won't work. ``If I only knew $Q \eif R$,'' you say to yourself, ``it would all work. Why can't I derive $Q \eif R$!'' If you go away from a problem and then come back, you might not be as focused on That One Thing that you were sure you needed, and you can find a different approach.
+
+	
+%I added the section on taking a break
+
+
+%%%%%%%Practice problems %%%%%%%%%
+
+\practiceproblems
+ 
+\noindent\problempart
+ 
+Show the following theorems are valid. Feel free to use $T_{1}$ through $T_{17}$
+
+\begin{enumerate}[label=(\arabic*)]
+\item $ T_{\arabic{theorem}}$ (Associativity of \eand, Ass\eand): \rm $(\script{A} \eand \script{B}) \eand \script{C} \nsststile{}{} \hspace{.25em} \sststile{}{} \script{A} \eand (\script{B} \eand \script{C})$ \\ \addtocounter{theorem}{1}
+\item $ T_{\arabic{theorem}}$  (Associativity of \eor, Ass\eor): \rm $(\script{A} \eor \script{B}) \eor \script{C} \nsststile{}{} \hspace{.25em} \sststile{}{} \script{A} \eor (\script{B} \eor \script{C})$ 	\\ \addtocounter{theorem}{1}
+\item $ T_{\arabic{theorem}}$  (Associativity of \eiff, Ass\eiff): \rm $(\script{A} \eiff \script{B}) \eiff \script{C} \nsststile{}{} \hspace{.25em} \sststile{}{} \script{A} \eiff (\script{B} \eiff \script{C})$ 	\addtocounter{theorem}{1}
+\end{enumerate}
+
+
+% *******************************************
+% *			Soundness and completeness			   *	
+% *******************************************
+
+%I merged sections 6.7, 6.8, and 6.9 and restricted the material to SL to create this section. 
+\section{Soundness and completeness}
+\label{sec:soundness_and_completeness}
+In section 4.6, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a statement is a tautology or a pair of statements are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \script{A} was a tautology with a truth table, we wrote $\sdtstile{}{}\script{A}$, and if we could prove it using a derivation, we wrote $\sststile{}{}\script{A}.$ 
+
+You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \script{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, $valid_{\models}$ and  $valid_{\vdash}$ and then show that the two concepts always work the same way. 
+
+\newglossaryentry{syntactic contradiction in SL}
+{
+name=syntactic contradiction in SL,
+description={A statement in SL whose negation can be derived without any premises.}
+}
+
+
+   
+\newglossaryentry{syntactically contingent in SL}
+{
+name=syntactically contingent in SL,
+description={A property held by a statement in SL if and only if it is not a syntactic tautology or a syntactic contradiction.}
+}
+
+
+
+
+To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in Chapter \ref{chap:truth_tables}. We have also already given syntactic definitions for a tautologies and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
+
+For instance, we defined a syntactic tautology as a statement that can be derived without any premises (p. \pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \textsc{\gls{syntactic contradiction in SL}} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \textsc{\gls{syntactically contingent in SL}} \label{def:syntactically_contingent_in_sl} if it is not a syntactic tautology or contradiction. 
+ 
+\newglossaryentry{syntactically inconsistent in SL}
+{
+name=syntactically inconsistent in SL,
+description={A property held by sets of sentences in SL if and only if one can derive a contradiction from them.}
+}
+
+\newglossaryentry{syntactically consistent in SL}
+{
+name=syntactically consistent in SL,
+description={A property held by sets of sentences in SL if and only if they are not syntactically inconsistent.}
+}
+
+A set of sentences is \textsc{\gls{syntactically inconsistent in SL}} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A set of set of sentences is \textsc{\gls{syntactically consistent in SL}} \label{def:syntactically consistent in SL} if and only if they are not syntactically inconsistent.
+    
+\newglossaryentry{syntactically valid in SL}
+{
+name=syntactically valid in SL,
+description={A property held by arguments in SL if and only if there is a derivation that goes from the premises to the conclusion.}
+}
+
+Finally, an argument is \textsc{\gls{syntactically valid in SL}} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of it. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
+
+
+\begin{sidewaystable}
+\begin{mdframed}[style=mytablebox]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\bf{Concept} 		&	\bf{Truth table (semantic) definition} 	&	\bf{Derivation (syntactic) definition} \\ \hline \hline
+
+Tautology  &	A statement whose truth table only has Ts under the main connective & A statement that can be derived without any premises.	 \\ \hline
+ 
+Contradiction		&	A statement whose truth table only has Fs under the main connective  &	A statement whose negation can be derived without any premises\\ \hline
+
+Contingent sentence	&	A statement whose truth table contains both Ts and Fs under the main connective & A statement that is not a syntactic tautology or contradiction \\ \hline
+
+Equivalent sentences &	The columns under the main connectives are identical.& The statements can be derived from each other	\\ \hline
+
+Inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences which one can derive a contradiction from \\ \hline
+
+Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences which are no inconsistent	\\ \hline
+
+Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where can derive the conclusion from the premises	\\ 
+\end{tabu}
+\end{mdframed}
+\caption{Two ways to define logical concepts.}
+\label{table:truth_tables_or_derivations}
+\end{sidewaystable}
+
+All of our concepts have now been defined both semantically and syntactically. How can we prove that these definitions always work the same way? A full proof here goes well beyond the scope of this book. However, we can sketch what it would be like. We will focus on showing the two notions of validity to be equivalent.  From that the other concepts will follow quickly. The proof will have to go in two directions. First we will have to show that things which are syntactically valid will also be semantically valid. In other words, everything that we can prove using derivations could also be proven using truth tables. Put symbolically, we want to show that $valid_{\vdash}$ implies $valid_{\models}$. Afterwards, we will need to show things in the other directions,  $valid_{\models}$ implies $valid_{\vdash}$
+
+\newglossaryentry{soundness}
+{
+name=soundness,
+description={A property held by logical systems if and only if $\sststile{}{}$ implies $\sdtstile{}{}$}
+}
+
+This argument from $\sststile{}{}$ to $\sdtstile{}{}$ is the problem of \textsc{\gls{soundness}}. \label{def:soundness} A proof system is \define{sound} if there are no derivations of arguments that can be shown invalid by truth tables. \label{def_Soundness} Demonstrating that the proof system is sound would require showing that \emph{any} possible proof is the proof of a valid argument. It would not be enough simply to succeed when trying to prove many valid arguments and to fail when trying to prove invalid ones.
+
+The proof that we will sketch depends on the fact that we initially defined a sentence of SL using a recursive definition (see p. \pageref{def:recursive_definition}). We could have also used recursive definitions to define a proper proof in SL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{recursive proof} to show the soundness of SL. A recursive proof works the same way a recursive definition does.With the recursive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a well formed formula, the base class was the set of sentence letters A, B, C \ldots{}. We just announced that these were sentences. The second step of a recursive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p. \pageref{def:sentence_of_SL}). Once you have established a recursive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give a recursive proof.
+
+Even though we don't have a recursive definition of a proof in SL, we can sketch how a recursive proof of the soundness of SL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\{\script{A}, \script{B}\} \sststile{}{} \script{A} \eand \script{B}$; $\script{A} \eand \script{B} \sststile{}{}\script{A}$; $\{\script{A} \eor \script{B}, \enot\script{A}\} \sststile{}{} \script{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\script{A} \eand \script{B} \sststile{}{} \script{B}$ Notice that these are all statements in the metalanguage. The proof that SL is sound is not a part of SL, because SL does not have the power to talk about itself. 
+
+You can use truth tables to prove to yourself that each of these one-line proofs in this base class is $valid_{\models}$. For instance the proof $\{\script{A}, \script{B}\} \sststile{}{} \script{A} \eand \script{B}$ corresponds to a truth table that shows $\{\script{A}, \script{B}\} \sdtstile{}{} \script{A} \eand \script{B}$ This establishes the first part of our recursive proof. 
+
+The next step is to show that adding lines to any proof will never change a $valid_{\models}$ proof into an $invalid_{\models}$ one. We would need to this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\script{A}_{1} \ldots{} \script{A}_{n} \sststile{}{} \script {B}$ adding a line where we use \eand{I} to infer $\script{C} \eand \script{D}$, where $\script{C} \eand \script{D}$ can be legitimately inferred from $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\script{C} \eand \script{D}$ from these premises, then $\script{C} and \script{D}$ must be already available in the proof. They are either members of  $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$ or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \script{C} and \script{D} are true. According to the characteristic truth table for \eand, this means that \script{C}\eand\script{D} is also true on that line. Therefore, \script{C}\eand\script{D} validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+
+In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 11 other basic rules. This tedious exercise falls beyond the scope of this book.
+
+So we have shown that $\script{A} \sststile{}{} \script{B}$ implies $\script{A} \sdtstile{}{}\script{B}.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
+
+\newglossaryentry{completeness}
+{
+name=completeness,
+description={A property held by logical systems if and only if $\sdtstile{}{}$ implies $\sststile{}{}$}
+}
+
+This is the problem of completeness. A proof system has the property of  \textsc{\gls{completeness}} \label{def:completeness} if and only if there is a derivation of every semantically valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for SL is both sound and complete. This is not the case for all proof systems and all formal languages. Because it is true of SL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
+
+Now that we know that the truth table method is interchangeable with the method of derivation, you can chose which method you want to use for any given problem. Students often prefer to use truth tables, because a person can produce them purely mechanically, and that seems `easier'. However, we have already seen that truth tables become impossibly large after just a few sentence letters. On the other hand, there are a couple situations where using derivations simply isn't possible. We syntactically defined a contingent sentence as a sentence that couldn't be proven to be a tautology or a contradiction. There is no practical way to prove this kind of negative statement. We will never know if there isn't some proof out there that a statement is a contradiction and we just haven't found it yet. We have nothing to do in this situation but resort to truth tables. Similarly, we can use derivations to prove two sentences equivalent, but what if we want to prove that they are \emph{not} equivalent? We have no way of proving that we will never find the relevant proof. So we have to fall back on truth tables again.
+
+Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and when it is best to give truth tables. 
+
+\begin{table}
+\tabulinesep=1ex
+\begin{mdframed}[style=mytablebox]
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\bf{Logical property} 	&	\bf{To prove it present} 	&	\bf{To prove it absent} \\ \hline \hline
+Being a tautology 		& Derive the statement  						& Find the false line in the truth table for the sentence \\ \hline
+Being a contradiction 	&  Derive the negation of the statement  		 & Find the true line in the truth table for the sentence\\ \hline
+Contingency 			& Find a false line and a true line in the truth table for the statement & Prove the statement or its negation\\ \hline
+Equivalence 			& Derive each statement from the other 		 & Find a line in the truth tables for the statements where they have different values\\ \hline
+Consistency 		& Find a line in truth table for the sentence where they all are true & Derive a contradiction from the sentences\\ \hline
+Validity 				& Derive the conclusion form the premises & Find a line in the truth table where the premises are true and the conclusion false. \\ 
+\end{tabu}
+\end{mdframed}
+\caption{When to provide a truth table and when to provide a proof.}
+\label{table.ProofOrModel}
+\end{table}
+
+
+
+\practiceproblems
+\noindent\problempart Use either a derivation or a truth table for each of the following. 
+\begin{enumerate}[label=(\arabic*)]
+\item Show that $A \eif [((B \eand C) \eor D) \eif A]$ is a tautology.
+\item Show that $A \eif (A \eif B)$ is not a tautology
+\item Show that the sentence $A \eif \enot{A}$ is not a contradiction.
+\item Show that the sentence $A \eiff \enot A$ is a contradiction. 
+\item Show that the sentence $ \enot (W \eif (J \eor J)) $ is contingent
+\item Show that the sentence $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ is not contingent
+ \item Show that the sentence $B \eif \enot S$ is equivalent to the sentence $\enot \enot B \eif \enot S$
+\item Show that the sentence $ \enot (X \eor O) $ is not equivalent to the sentence $X \eand O$
+\item Show that the set $\{\enot(A \eor B), C, C \eif A\}$ is inconsistent.
+\item Show that the set \{\enot(A \eor B), \enot{B}, B \eif A\} is consistent
+\item Show that $\enot(A \eor (B \eor C)) $ \therefore $ \enot{C}$ is valid.
+\item Show that $\enot(A \eand (B \eor C))$ \therefore $ \enot{C}$ is invalid. 
+\end{enumerate}
+
+
+\noindent\problempart Use either a derivation or a truth table for each of the following. 
+\begin{enumerate}[label=(\arabic*)]
+\item Show that $A \eif (B \eif A)$ is a tautology
+\item Show that $\enot (((N \eiff Q) \eor Q) \eor N)$ is not a tautology
+\item Show that $ Z \eor (\enot Z \eiff Z) $ is contingent
+\item show that $ (L \eiff ((N \eif N) \eif L)) \eor H $ is not contingent
+\item Show that $ (A \eiff A) \eand (B \eand \enot B)$ is a contradiction
+\item Show that $ (B \eiff (C \eor B)) $ is not a contradiction.
+\item Show that $ ((\enot X \eiff X) \eor X) $ is equivalent to $X$
+\item Show that $F \eand (K \eand R) $ is not equivalent to $ (F \eiff (K \eiff R)) $
+\item Show that the set \{$ \enot (W \eif W)$, $(W \eiff W) \eand W$, $E \eor (W \eif \enot (E \eand W))$\} is inconsistent.
+\item Show that the set  \{$\enot R \eor C $, $(C \eand R) \eif \not R$, $(\enot (R \eor R) \eif R) $\} is consistent.
+\item Show that $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ is valid.
+\item Show that $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ is invalid. 
+\end{enumerate}
+
+
+%\noindent\problempart
+%Show that each of the following is provably inconsistent.
+%\begin{earg}
+%\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
+%\end{earg}
+%convert last item to something in SL
+
+
+\section*{Key Terms}
+\begin{multicols}{2}
+\begin{sortedlist}
+\sortitem{Syntactically logically equivalent in SL}{}
+\sortitem{Syntactic tautology in SL}{}
+\sortitem{Syntactic contradiction in SL}{}
+\sortitem{Syntactically contingent in SL}{}
+\sortitem{Syntactically inconsistent in SL}{}
+\sortitem{Syntactically consistent in SL}{}
+\sortitem{Syntactically valid in SL}{}
+\sortitem{Soundness}{}
+\sortitem{Completeness}{} 	
+\end{sortedlist}
+\end{multicols}
+
+
+ 
+
+
+
+

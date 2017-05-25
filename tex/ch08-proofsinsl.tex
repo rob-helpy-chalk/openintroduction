@@ -1987,6 +1987,21 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 %\close
 %\have{6}{K \eiff L} \by{\eiff E}{4--5, 6--7}
 
+\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
+%originally Chapter 6, part B, number 2
+%
+%2)  $A\eif (B\eif C)$ $\therefore$ $(A\eand B)\eif C$
+%\begin{proof}
+%\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
+%\open
+%\hypo{2}{A \eand B} \by{Want: C}{}
+%\have{3}{A} \ae{2}
+%\have{4}{B} \ae{2}
+%\have{5}{B \eif C} \ce{1, 3}
+%\have{6}{C} \ce{4, 5}
+%\close
+%\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
+%\end{proof}
 
 \item $\{A\eiff B, B\eiff C\} \sststile{}{} A\eiff C$
 %originally Chapter 6, part C, number 4
@@ -2032,69 +2047,6 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 %\have{13}{X \eiff Y} \by{\eiff I}{4-7, 8-12} 
 %\end{proof}
 
-
-\item $\{(A \eif B) \sststile{}{} (A \eif \enot B) \eif \enot A\}$
-
-\answer{
-\begin{proof}
- \hypo{}{A \eif B} \by{Want: (A \eif \enot B) \eif \enot A}{}
-\open
-\hypo{}{A \eif \enot B} \by{Want: \enot A}{}
-\open
-\hypo{}{A} \by{Want: A contradiction}{}
-\have{}{B} \by{\eif E}{1, 3}
-\have{}{\enot B} \by{\eif E}{2, 3}
-\close
-\have{}{\enot A} \by{\enot I}{3-5}
-\close
-\have{}{(A \eif \enot B) \eif \enot A} \by{\eif I}{2-6}
-\end{proof}
-}
-
-\item $\{\enot W \eand \enot E, Q \eiff D\} \sststile{}{} (W \eor Q) \eiff (E \eor D)$
-
-%5) \enot W \eand \enot E, Q \eiff D $\therefore$ (W \eor Q) \eiff (E \eor D)
-%
-%\begin{proof}
-%\hypo{1}{\enot W \eand \eand E} 
-%\hypo{2}{Q \eiff D} \by{Want: (W \eor Q) \eiff (E \eor D)}{}
-%\have{3}{\enot W} \ae{1}
-%\have{4}{\enot E} \ae{1}
-%\open
-%\hypo{5}{W \eor Q} \by{Want: E \eor D}{}
-%\have{6}{Q} \oe{3, 5}
-%\have{7}{D} \by{\eiff E}{2, 6}
-%\have{8}{E \eor D} \oi{7}
-%\close
-%\open
-%\hypo{9}{E \eor D} \by{Want: W \eor Q}{}
-%\have{10}{D} \oe{4, 9}
-%\have{11}{Q} \by{\eiff E}{2, 10}
-%\have{12}{W \eor Q} \oi{11}
-%\close
-%\have{13}{(W \eor Q) \eiff (E \eor D)} \ci{5-8, 9-12}
-%\end{proof}
-\end{enumerate}
-
-\noindent\problempart Derive the following 
-\begin{enumerate}[label=(\arabic*)]
-
-\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
-%originally Chapter 6, part B, number 2
-%
-%2)  $A\eif (B\eif C)$ $\therefore$ $(A\eand B)\eif C$
-%\begin{proof}
-%\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
-%\open
-%\hypo{2}{A \eand B} \by{Want: C}{}
-%\have{3}{A} \ae{2}
-%\have{4}{B} \ae{2}
-%\have{5}{B \eif C} \ce{1, 3}
-%\have{6}{C} \ce{4, 5}
-%\close
-%\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
-%\end{proof}
-
 \item $\{B \eif \enot E, A \eif \enot D, D \eor (E \eor R), (R \eand A) \eif C\} \sststile{}{} A \eif (B \eif C)$ 
 
 \answer{
@@ -2121,6 +2073,38 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 }
 
 
+\item $\{\enot W \eand \enot E, Q \eiff D\} \sststile{}{} (W \eor Q) \eiff (E \eor D)$
+
+%5) \enot W \eand \enot E, Q \eiff D $\therefore$ (W \eor Q) \eiff (E \eor D)
+%
+%\begin{proof}
+%\hypo{1}{\enot W \eand \eand E} 
+%\hypo{2}{Q \eiff D} \by{Want: (W \eor Q) \eiff (E \eor D)}{}
+%\have{3}{\enot W} \ae{1}
+%\have{4}{\enot E} \ae{1}
+%\open
+%\hypo{5}{W \eor Q} \by{Want: E \eor D}{}
+%\have{6}{Q} \oe{3, 5}
+%\have{7}{D} \by{\eiff E}{2, 6}
+%\have{8}{E \eor D} \oi{7}
+%\close
+%\open
+%\hypo{9}{E \eor D} \by{Want: W \eor Q}{}
+%\have{10}{D} \oe{4, 9}
+%\have{11}{Q} \by{\eiff E}{2, 10}
+%\have{12}{W \eor Q} \oi{11}
+%\close
+%\have{13}{(W \eor Q) \eiff (E \eor D)} \ci{5-8, 9-12}
+%\end{proof}
+
+
+%\noindent\problempart Derive the following 
+%\begin{enumerate}[label=(\arabic*)]
+
+
+
+
+
 
 \item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$
 
@@ -2143,7 +2127,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 %\end{proof}
 
 
-\item $\{(K \eif K) \eif R, (R \eor M) \eif N \sststile{}{} N$
+%\item $\{(K \eif K) \eif R, (R \eor M) \eif N \sststile{}{} N$
 
 %1.	(K  K)  R
 %3.	(R  M)  N		Want: N
@@ -2673,7 +2657,23 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 %7.	~(C & E)			~I 3–4
 %8.	T&K				E 1, 7
 
+\item $\{(A \eif B) \}\sststile{}{} (A \eif \enot B) \eif \enot A$
 
+\answer{
+\begin{proof}
+ \hypo{}{A \eif B} \by{Want: (A \eif \enot B) \eif \enot A}{}
+\open
+\hypo{}{A \eif \enot B} \by{Want: \enot A}{}
+\open
+\hypo{}{A} \by{Want: A contradiction}{}
+\have{}{B} \by{\eif E}{1, 3}
+\have{}{\enot B} \by{\eif E}{2, 3}
+\close
+\have{}{\enot A} \by{\enot I}{3-5}
+\close
+\have{}{(A \eif \enot B) \eif \enot A} \by{\eif I}{2-6}
+\end{proof}
+}
 
 \end{enumerate}
 
