@@ -4,11 +4,11 @@
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
       <bcf:key>output_encoding</bcf:key>
-      <bcf:value>ascii</bcf:value>
+      <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>input_encoding</bcf:key>
-      <bcf:value>ascii</bcf:value>
+      <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>debug</bcf:key>
@@ -3067,8 +3067,8 @@
     <bcf:citekey order="12">Woods2014</bcf:citekey>
     <bcf:citekey order="13">Magnus2008</bcf:citekey>
     <bcf:citekey order="14">Aristotle1984b</bcf:citekey>
-    <bcf:citekey order="15">sherwood1275</bcf:citekey>
-    <bcf:citekey order="16">sherwood1275</bcf:citekey>
+    <bcf:citekey order="15">Sherwood1275</bcf:citekey>
+    <bcf:citekey order="16">Sherwood1275</bcf:citekey>
     <bcf:citekey order="17">Read2002</bcf:citekey>
     <bcf:citekey order="18">Parsons2008</bcf:citekey>
     <bcf:citekey order="19">Hurley2014</bcf:citekey>
