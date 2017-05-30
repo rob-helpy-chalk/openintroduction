@@ -996,7 +996,7 @@ name=logically structured English,
 description={English that has been regimented into a standard form to make its logical structure clear and to remove ambiguity. A stepping stone to full-fledged formal languages.}
 }
 
-Because the four basic forms are stated using variables, they have a great deal of generality. We can expand on that generality by showing how many different kinds of English sentences can be transformed into sentences in our four basic forms. We already touched on this a little in section \ref{sec:qcatstatements}, when we look at sentences like ``Thirty percent of Canadians speak French.'' There we saw that the predicate was not explicitly a class. We needed to change ``speak French'' to ``people who speak French.'' In this section, we are going to expand on that to show how ordinary English sentences can be transformed into something we will call ``logically structured English.'' \textsc{\gls{logically structured English}} \label{def:LSE} is English that has been put into a standardized form that allows us to see its logical structure more clearly and removes ambiguity.  Doing this is a step towards the creation of formal languages, which we will start doing in Chapter \ref{chap:SL}. 
+Because the four basic forms are stated using variables, they have a great deal of generality. We can expand on that generality by showing how many different kinds of English sentences can be represented as sentences in our four basic forms. We already touched on this a little in section \ref{sec:qcatstatements}, when we look at sentences like ``Thirty percent of Canadians speak French.'' There we saw that the predicate was not explicitly a class. We needed to change ``speak French'' to ``people who speak French.'' In this section, we are going to expand on that to show how ordinary English sentences can be transformed into something we will call ``logically structured English.'' \textsc{\gls{logically structured English}} \label{def:LSE} is English that has been put into a standardized form that allows us to see its logical structure more clearly and removes ambiguity.  Doing this is a step towards the creation of formal languages, which we will start doing in Chapter \ref{chap:SL}. 
 
 Transforming English sentences into logically structured English is fundamentally a matter of understanding the meaning of the English sentence and then finding the logically structured English statements with the same or similar meaning. Sometimes this will require judgment calls. English, like any natural  language, is fraught with ambiguity. One of our goals with logically structured English is to reduce the amount of ambiguity. Clarifying ambiguous sentences will always require making judgments that can be questioned. Things will only get harder when we start using full blown formal languages in Chapter \ref{chap:SL}, which are supposed to be completely free of ambiguity.
 
@@ -1011,12 +1011,9 @@ To transform a quantified categorical statement into logically structured Englis
 
 The subsections below identify different kinds of changes you might need to make to put a statement into logically structured English. Sometimes translating a sentence will require using multiple changes.
 
-\subsection{Nonstandard Verbs}
-\label{subsec:nonstandard_verbs}
-In section \ref{sec:qcatstatements} we saw that ``Some Canadians speak French'' has a verb phrase ``speaks French'' instead of a copula and a plural noun phrase. To transform these sentences into logically structured English, you need to add the copula and turn all the terms into plural nouns or plural noun phrases. 
-
-Below are some examples
-
+\subsection{Change the Predicate into a Noun Phrase}
+\label{subsec:predicate_noun_phrase}
+In section \ref{sec:qcatstatements} we saw that ``Some Canadians speak French'' has a verb phrase ``speaks French'' instead of a copula and a plural noun phrase. To transform these sentences into logically structured English, you need to add the copula and turn all the terms into plural nouns or plural noun phrases. Adding a plural noun phrase means you have to come up with some category, like ``people'' or ``animals.'' When in doubt, you can always use the most general category, ``things.'' Below are some examples
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1032,14 +1029,7 @@ Some thoughts should be left unsaid. &
 Some thoughts are things that should be left unsaid. 
 \end{longtabu}
 
-
-
-Adding a plural noun phrase means you have to come up with some category, like ``people'' or ``animals.'' When in doubt, you can always use the most general category, ``things.'' 
-
-\subsection{Implicit Noun Phrases}
-
-Sometimes you just have an adjective for the predicate, and you need to turn it into a noun, as in the examples below. 
-
+\noindent Sometimes English sentences will have a copula and an adjective or adjective phrase as the predicate. These need to be changed to noun phrases, just as the verb phrases did. 
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1055,14 +1045,62 @@ Some names are hurtful. &
 Some names are hurtful things.
 \end{longtabu}
 
-Again, you will have to come up with a category for the predicate, and when it doubt, you can just use ``things.''
+\noindent Again, you will have to come up with a category for the predicate, and when it doubt, you can just use ``things.''
+
+\subsection{Standardize the Quantifier}
+\label{subsec:standardize_quantifier}
+
+English has a wide variety of ways to express quantity. We need to reduce all of these to either ``all'' or ``some,'' plus negations.  Here are some examples
+
+\begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
+\underline{English} &
+\underline{Logically Structured English} \\
+\endhead 
+
+Most people with a PhD in psychology are female. &
+Some people with a PhD in psychology are female. \\
+
+Among the things that Sylvia inherited was a large mirror &
+Some things that Sylvia inherited were large mirrors\\
+
+There are Americans that are doctors. &
+Some Americans are doctors. \\
+
+At least a few Americans are doctors.&
+Some Americans are doctors. \\
+
+A man is walking down the street. &
+Some men are things that are walking down the street.\\
 
 
+Every day is a blessing. &
+All days are blessings. \\
 
-\subsection{Unexpressed Quantifiers}
+Whatever is a dog is not a cat. &
+No dogs are cats. \\
 
-Sometimes categorical generalizations come without an explicit quantifier, which you need to add. 
+Not a single dog is a cat. &
+No dogs are cats. \\
 
+Take nothing for granted &
+No things are things that should be taken for granted \\
+
+Something is rotten in Denmark &
+Some things are things that are rotten in Denmark\\
+
+Everything is coming up roses & 
+Sll things are things that are coming up roses\\
+
+
+``What does not destroy me, makes me stronger.'' --Friedrich Nietzsche & 
+All things that do not destroy me are things that make me stronger. \\
+
+
+\end{longtabu}
+
+Notice in the last case we are losing quite a bit of information when we transform the sentence into logically structured English. ``Most'' means more that fifty percent, while ``some'' could be any percentage less than a hundred. This is simply a price we have to pay in creating a standard logical form. As we will see when we move to constructing artificial languages in Chapter \ref{chap:SL}, no logical language has the expressive richness of a natural language. 
+
+Sometimes universal statements in English don't have an explicit quantifier. Instead they use a plural noun or indefinite article to express generality. 
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1082,51 +1120,41 @@ All lions are fierce creatures.\\
 
 \end{longtabu}
 
-Notice that in the second sentence we had to make two changes, adding both the words ``All'' and ``things.''
+\noindent Notice that in the second sentence we had to make two changes, adding both the words ``All'' and ``things.''
 
-In the last two sentences, the indefinite article ``a'' is being used to create a kind of generic sentence. Not all sentences using the indefinite article work this way. If a story begins ``A man is walking down the street,'' it is not talking about all men generically. It is introducing some specific man. For this kind of  statement, see the subsection on singular propositions. You will have to use your good judgment and understanding of context to know how the indefinite article is being used.
+In the last two sentences, the indefinite article ``a'' is being used to create a kind of generic sentence. Not all sentences using the indefinite article work this way. The list before this one included the example ``A man is walking down the street.'' This sentence is not talking about all men generically. It is talking about a specific man whose identity is unknown. Here the indefinite article is being used like a nonstandard version of the quantifier ``some,'' which is why it appeared in the earlier list. You will have to use your good judgment and understanding of context to know when the indefinite article is being used like the word ``all'' and when it is being used like the word ``some.''
 
-\subsection{Nonstandard Quantifiers}
-\label{subsec:nonstandard_quantifiers}
-English has many alternate ways of saying ``all'' and ``some.'' You need to change these when translating to logically structured English. 
+English also uses specialized adverbial phrases as quantifiers for people, places and times. If we want to talk about all people, we use a specialized quantifier like ``everyone,'' ``someone'' or ``no one.'' We use ``everywhere,'' ``somehwere,'' and ``nowhere'' for places, and ``always,'' ``sometimes,'' and ``never'' for times.  All of these need to be transformed into using the simple quantifiers ``all'' or ``some,'' plus negations.  
 
+\tabulinesep=1.25ex
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
 \underline{Logically Structured English} \\
 \endhead 
-Every day is a blessing. &
-All days are blessings. \\
-
-Whatever is a dog is not a cat. &
-No dogs are cats. \\
-
-Not a single dog is a cat. &
-No dogs are cats. \\
-
-There are Americans that are doctors. &
-Some Americans are doctors. \\
-
 Someone in America is a doctor. &
-Some Americans are doctors. \\
-
-At least a few Americans are doctors.&
 Some Americans are doctors. \\
 
 Not everyone who is an adult is a logician. &
 Some adults are not logicians. \\
 
-Most people with a PhD in psychology are female. &
-Some people with a PhD in psychology are female. \\
+``Whenever you need me, I'll be there.'' -- Michael Jackson &
+All times that you need me are times that I will be there. \\
 
-Among the things that Sylvia inherited was a large mirror &
-Some things that Sylvia inherited were large mirrors
+``We are never, ever, ever getting back together.'' -- Taylor Swift &
+No times are times when we will get back together.\\
+
+``Whoever fights with monsters should be careful lest he thereby become a monster.'' --Friedrich Nietzsche & 
+All persons who fight with monsters are persons who should be careful lest they become a monster.\\
+ 
 \end{longtabu}
+%\tabulinesep=.75ex
 
-Notice in the last case we are losing quite a bit of information when we transform the sentence into logically structured English. ``Most'' means more that fifty percent, while ``some'' could be any percentage less than a hundred. This is simply a price we have to pay in creating a standard logical form. As we will see when we move to constructing artificial languages in Chapter \ref{chap:SL}, no logical language has the expressive richness of a natural language. 
+\subsection{Standardize Alternative Universal Forms}
+\label{subsec:alternative_universals}
 
-\subsection{Singular Propositions}
-\label{subsec:singular_propositions}
-Aristotle treated sentences about individual things, like specific people, differently than either general or particular categorical statements. A statement like ``Socrates is mortal,'' for Aristotle, was neither A, E, I, nor O. We can expand the power of logically structured English by bringing these kind of singular propositions into our system of categorical propositions. Using phrases like ``All things identical to\ldots'' we can turn singular terms into general ones. 
+Many constructions in English can be represented as universal statements in Logically Structured English, either affirmative (A) or negative (E)
+
+For instance, it turns out that statements about individual people or specific objects can be represented by A or E statements. This is not something Aristotle originally noticed. For him a statement like ``Socrates is mortal,'' for Aristotle, were neither universal nor particular. They were a third class he called ``singular.'' The power of categorical logic was expanded considerably when it was realized singular statements can converted into universal statements. The trick is to add a phrase like ``All things identical to\ldots'' to our singular sentence. Essentially we are adding a universal quantifier that only picks out one specific object.
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1141,35 +1169,8 @@ All things identical to The Empire State Building are tall things. \\
 Ludwig was not happy. &
 No persons identical with Ludwig are happy. \\
 
-A man is walking down the street. &
-Some men are things that are walking down the street.
 \end{longtabu}
 
-\subsection{Adverbs and Pronouns}
-
-In English we use specific adverbs like ``everywhere'' and ``always'' to create quantified statements about place and time. We can transform these into logically structured English by talking about ``all places'' or ``all times''  and things like that. English also has specific pronouns for quantified statements about people or things, such as ``everyone'' or ``nothing.'' 
-
-
-\tabulinesep=1.25ex
-\begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
-\underline{English} &
-\underline{Logically Structured English} \\
-\endhead 
-``Whenever you need me, I'll be there.'' -- Michael Jackson &
-All times that you need me are times that I will be there. \\
-
-``We are never, ever, ever getting back together.'' -- Taylor Swift &
-No times are times when we will get back together.\\
-
-``Whoever fights with monsters should be careful lest he thereby become a monster.'' --Friedrich Nietzsche & 
-All persons who fight with monsters are persons who should be careful lest they become a monster.\\
-
-``What does not destroy me, makes me stronger.'' --Friedrich Nietzsche & 
-All things that do not destroy me are things that make me stronger. 
- 
-
-\end{longtabu}
-\tabulinesep=.75ex
 
 %
 %\subsection{``It Is False That''}
@@ -1193,10 +1194,7 @@ All things that do not destroy me are things that make me stronger.
 %\textbf{A}: All dogs are mammals. 
 %\end{tabu}
 
-
-\subsection{Conditional Statements}
-
-A conditional is a statement of the form ``If \ldots then \ldots.'' They will become a big focus of our attention starting in Chapter \ref{chap:SL} when we begin introducing modern formal languages. They are not given special treatment in the Aristotelian tradition, however. Instead, where we can, we just treat them as categorical generalizations:
+Another kind of statement that can be transformed into a universal statement is a conditional. A conditional is a statement of the form ``If \ldots then \ldots.'' They will become a big focus of our attention starting in Chapter \ref{chap:SL} when we begin introducing modern formal languages. They are not given special treatment in the Aristotelian tradition, however. Instead, where we can, we just treat them as categorical generalizations:
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1209,10 +1207,7 @@ If something is a dog, then it's not a cat. &
 No dogs are cats. \\
 \end{longtabu}
 
-
-\subsection{Exclusive Propositions}
-
-Phrases like ``only,'' ``none but,'' or ``none except'' are used in English to create exclusive propositions. They are applied to the predicate term and exclude everything but the predicate term from the subject term. 
+The word ``only'' is used in a couple of different constructions in English that can be represented as universal statements. ``Exclusive propositions'' are statements that say the subject excludes everything except what is in the predicate. For instance the sentence ``Only people over 21 may drink'' says that the class of people who may drink excludes everyone except those who are over 21. In English exclusive propositions are created using the words ``only,'' ``none but,'' or ``none except.'' These statements become A statements when translated into logically structured English. So ``Only people over 21 may drink'' becomes ``If you may drink, you  are over 21.'' It is important to see that in each case these words are used to introduce the predicate, not the subject. In the sentence ``Only people over 21 may drink,'' the term ``people over 21'' is actually the  predicate, and ``people who may drink'' is the subject. 
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1228,12 +1223,8 @@ None but the strong survive. &
 All people who survive are strong people. \\
 \end{longtabu}
 
-The important thing to see here is that words like ``only'' are actually modifying the predicate, and not the subject. So when you translate them into logically structured English, the order of the words often gets turned around. In ``only people over 21 may drink'' the predicate is actually ``people over 21.''
 
-
-\subsection{``The Only''}
-
-Sentences with ``The only'' are a little different than sentences that just have ``only'' in them. The sentence ``Humans are the only animals that talk on cell phones'' should be translated as ``All animals who talk on cell phones are humans.'' In this sentence, ``the only'' introduces the subject, rather than the predicate. 
+Sentences with ``The only'' are a little different than sentences that just have ``only'' in them. The sentence ``Humans are the only animals that talk on cell phones'' should be translated as ``All animals who talk on cell phones are humans.'' In this sentence, ``the only'' introduces the subject, rather than the predicate. The statement still asserts that the subject excludes everything except what is in the predicate, and we still represent them using mood A statements.
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1246,6 +1237,11 @@ Shrews are the only venomous mammal in North America. &
 All venomous mammals in North America are shrews.\\
 
 \end{longtabu}
+
+Transforming sentences into Logically Structured English requires judgment and attention to the nuances of meaning in English. You must be able to recognize which of the transformations describe above needs to be applied and apply it correctly. One frequent mistake by people starting out is to overgeneralize. We saw at the start of the subsection on alternative universal forms that singular propositions can be turned into universal propositions by adding the phrase ``Things identical to \ldots'' Once you get in the habit of doing this, it becomes tempting to add the phrase ``things identical to \ldots'' to everything, even when it isn't necessary or doesn't make sense. The sentence ``Fido is a dog'' should become ``all things identical to Fido are dogs'' in logically structured English, because ``Fido'' is a singluar term referring to an individual dog. But with the sentence ``dogs are mammals,'' you do not need to add the phrase ``All things identical to\ldots'', because ``dogs'' is already a collective noun, not an individual.   
+
+The same is true for the phrases we use to transform adjective and verb phrases into noun phrases. The sentence ``No cats bark'' has to be changed, because ``bark'' is a verb, so it becomes ``No cats are animals that bark'' in Logically Structured English. But the sentence ``No cats are reptiles'' already has a noun, ``reptiles,'' for a predicate, so you do not need to transform it into ``No cats are animals that are reptiles.'' The key is not only knowing when o use the transformations we describe, but knowing when not to use them. 
+
 
 %%%%%%%%%% practice problems %%%%%%%%%%%%
 
@@ -1277,90 +1273,47 @@ All venomous mammals in North America are shrews.\\
 \end{longtabu}
 
 \begin{exercises}
-\item Cats are predators.\answer{\\
-All cats are predators. \\
-Form: A \\
-
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-     \begin{scope}[shift={(4cm,0cm)}]
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-        \end{scope}
-
-\end{tikzpicture}\\
-$S$: Cats\\
-$P$: Predators
-}
 
 \item If something is worth doing, it is worth doing well. \answer{\\
 All things that are worth doing are things that are worth doing well. \\
 Form: A \\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}
 
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-     \begin{scope}[shift={(4cm,0cm)}]
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-        \end{scope}
-
-\end{tikzpicture}\\
 $S$: Things that are worth doing \\
 $P$: Things that are worth doing well.
+}
+
+\item Cats are not herbivores.\answer{\\
+No cats are herbivores. \\
+Form: E \\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}
+
+$S$: Cats\\
+$P$: Herbivores
 }
 
 \item Some chimpanzees know sign language. \answer{\\
 Some chimpanzees are things that know sign language. \\
 Form: I \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-%        \begin{scope}[even odd rule]% first circle without the second
-%            \clip \secondcircle (-1,-1) rectangle (1,1);
-%        \fill[red] \firstcircle;
-%        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodIStatementRed
+\end{venns}
+	
 $S$: Chimpanzees \\
 $P$: Things that know sign language.
 }
 
-\item All dogs are loyal. \answer{\\
-All dogs are things that are loyal. \\
-Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\item Some dogs are not loyal. \answer{\\
+Some dogs are not things that are loyal. \\
+Form: O \\
+\begin{venns}
+\MoodOStatementRed
+\end{venns}
+
 $S$: Dogs \\
 $P$: Things that are loyal.
 }
@@ -1368,47 +1321,23 @@ $P$: Things that are loyal.
 \item Monotremes are the only egg-laying mammals.\answer{\\
 All egg-laying mammals are monotremes. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}
+
 $S$: Egg-laying mammals \\
 $P$: Monotremes\\
 \vspace{11pt}
-Remember that ``the only'' introduces the subject, not the predicate. See page 72
+Remember that ``the only'' introduces the subject, not the predicate. 
 }
 
 \item Whenever a bell rings, an angel gets its wings. \answer{\\
 All times that a bell rings are times that an angel gets its wings. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}
+
 $S$: Times that a bell rings \\
 $P$: Times that an angel gets its wings\\
 \vspace{11pt}
@@ -1419,22 +1348,10 @@ Remember that words like ``whenever'' and ``where ever'' are really specialized 
 \item At least one person in this room is a liar. \answer{\\
 Some people in this room are liars. \\
 Form: I \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-%        \begin{scope}[even odd rule]% first circle without the second
-%            \clip \secondcircle (-1,-1) rectangle (1,1);
-%        \fill[red] \firstcircle;
-%        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodIStatementRed
+\end{venns}
+	
 $S$: People in this room \\
 $P$: Liars\\
 \vspace{11pt}
@@ -1444,22 +1361,10 @@ $P$: Liars\\
 \item Only natural born citizens can be president of the United States.\answer{\\
 All presidents of the United States are natural born citizens. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}
+
 $S$: Presidents of the United States\\
 $P$: Natural born citizens\\
 \vspace{11pt}
@@ -1468,22 +1373,10 @@ $P$: Natural born citizens\\
 \item Gottlob Frege suffered from severe depression. \answer{\\
 All people identical with Gottlob Frege are people who suffer from severe depression. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}
+
 $S$: People identical with Gottlob Frege\\
 $P$: People who suffer from severe depression\\
 }
@@ -1491,41 +1384,121 @@ $P$: People who suffer from severe depression\\
 \item ``Anyone who ever had a heart, wouldn't turn around and break it.'' --Lou Reed. \answer{\\
 No things who ever had a heart are things that would turn around and break it. \\
 Form: E \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-%        \begin{scope}[even odd rule]% first circle without the second
-%            \clip \secondcircle (-1,-1) rectangle (1,1);
-%        \fill[red] \firstcircle;
-%        \end{scope}
-    \begin{scope}
-      \clip \firstcircle;
-      \fill[red] \secondcircle;
-    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+
+\begin{venns}
+\MoodEStatementRed 
+\end{venns}
+
 $S$: Things who ever had a heart\\
 $P$: Things that would turn around a break it\\
 }
 
 \end{exercises}
 
-
 \noindent\problempart Transform the following into logically structured English; identify it as A, E, I, or O; and provide the appropriate Venn diagram.
 
 \begin{exercises}
-\item If a muffin has frosting, then it is a cupcake.
-\item ``Anyone who ever played a part, wouldn't turn around and hate it.'' --Lou Reed.
-\item Seahorses are the only fish species in which the male carries the eggs. 
-\item Seahorses are animals that mate for life.
-\item Few dogs are fans of classical music.
-\item Ruth Barcan Marcus was a member of the Yale faculty.
-\item Only zombies are brain eaters.
-\item Some logicians are not mentally ill
-\item Some birds eat fish.
+\item If a muffin has frosting, then it is a cupcake. \answer{\\
+All muffins with frosting are cupcakes\\
+Mood: A\\
+\begin{venns}
+\MoodAStatementRed 
+\end{venns}
+
+$S$: Muffins with frosting\\
+$P$: Cupcakes\\
+}
+
+\item Some birds eat fish. \answer{\\
+Some birds are things that eat fish \\
+Mood: I\\
+\begin{venns}
+\MoodIStatementRed
+\end{venns}\\
+$S$: Birds\\
+$P$: Things that eat fish\\
+}
+
+\item Dragons don't take kindly to strangers \answer{\\
+No dragons are things that take kindly to strangers.\\
+Mood: E\\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}\\
+$S$:  Dragons\\
+$P$:  Things that take kindly to strangers\\
+}
+
+\item Some logicians are not mentally ill \answer{\\
+Some logicians are not people who are mentally ill\\
+Mood: O\\
+\begin{venns}
+\MoodOStatementRed
+\end{venns}\\
+$S$:  Logicians\\
+$P$:  People who are not mentally ill\\
+}
+
+\item There's no milk in the fridge \answer{\\
+No things in the fridge are milk \\
+Mood: E\\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}\\
+$S$:  Things in the fridge\\
+$P$:  Milk\\
+}
+ 
+\item Seahorses are the only fish species in which the male carries the babies. \answer{\\
+All fish species where the male carries the babies are seahorses   \\
+Mood: A\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$:  Fish species where the male carries the babies\\
+$P$:  Seahorses\\
+}
+ 
+\item Seahorses are animals that mate for life. \answer{\\
+ All seahorses are animals that made for life  \\
+Mood:  A\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns} \\
+$S$:  Seahorses\\
+$P$:  Animals that mate for life\\
+}
+ 
+\item Few dogs are fans of classical music. \answer{\\
+Some dogs are fans of classical music   \\
+Mood:  I\\
+\begin{venns}
+\MoodIStatementRed
+\end{venns}\\
+$S$:  Dogs\\
+$P$:  Fans of classical music\\
+}
+ 
+\item Ruth Barcan Marcus was a member of the Yale faculty. \answer{\\
+ All people identical to Ruth Barcan Marcus were members of the Yale faculty  \\
+Mood: A \\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$:  People identical to Ruth Barcan Marcus \\
+$P$:  Members of the Yale faculty  \\
+}
+ 
+\item Only zombies are brain eaters. \answer{\\
+ All brain eaters are zombies  \\
+Mood:  A \\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$:  Brain eaters\\
+$P$:  Zombies\\
+}
+ 
 \end{exercises}
 
 \noindent\problempart Transform the following into logically structured English; identify it as A, E, I, or O; and provide the appropriate Venn diagram. Some problems will require multiple transformations.
@@ -1555,235 +1528,105 @@ $P$: Things that would turn around a break it\\
 
 \item Many logicians work in computer science. \answer{\\
 Some logicians are people who work in computer science. \\
-Form: E \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-%        \begin{scope}[even odd rule]% first circle without the second
-%            \clip \secondcircle (-1,-1) rectangle (1,1);
-%        \fill[red] \firstcircle;
-%        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+Form: I \\
+\begin{venns}
+\MoodIStatementRed
+\end{venns}\\
 $S$: Logicians\\
-$P$: Things that work in computer science\\
+$P$: People that work in computer science\\
 }
 
 
 \item Ludwig Wittgenstein severed in the Austro-Hungarian Army in World War I.\answer{\\
-All things identical to Ludwig Wittgenstein are things that served in the Austro-Hungarian Army in World War I \\
+All people identical to Ludwig Wittgenstein are people that served in the Austro-Hungarian Army in World War I \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: Things identical to Ludwig Wittgenstein\\
-$P$: Things that served int he Austro-Hungarian Army in WWI\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$: People identical to Ludwig Wittgenstein\\
+$P$: People that served int he Austro-Hungarian Army in WWI\\
 }
 
-\item Humans can be found everywhere on Earth.\answer{\\
-All humans are things that can be found everywhere on Earth. \\
-Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: Humans\\
-$P$: Things that can be found everywhere on Earth\\
+\item Martians can be found nowhere on Earth.\answer{\\
+No place on earth is a place where you can find Martians. \\
+Form: E \\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}\\
+$S$: Places on Earth\\
+$P$: Places you can find Martians\\
 }
 
-\item Cats are crepuscular. \answer{\\
-All cats are crepuscular. \\
-Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: Cats\\
-$P$: Things that are crepuscular\\
+\item One of our cats is not awake. \answer{\\
+Some of our cats are not animals that are awake\\
+Form: O \\
+\begin{venns}
+\MoodOStatementRed
+\end{venns}\\
+$S$: Our cats\\
+$P$: Animals that are awake\\
 }
 
 \item Grover Cleveland was the only president to serve two nonconsecutive terms. \answer{\\
-All presidents who served two nonconsecutive terms are things identical to Grover Cleveland. \\
+All presidents who served two nonconsecutive terms are people identical to Grover Cleveland. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
 $S$: Presidents who served two nonconsecutive terms \\
-$P$: Things identical to Grover Cleveland\\
+$P$: People identical to Grover Cleveland\\
 }
 
-\item Grover Cleveland was the only president named ``Grover.'' \answer{\\
-All presidents named Grover are things identical to Grover Cleveland. \\
-Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: Presidents named ``Grover''\\
-$P$: Things identical to Grover Cleveland\\
+\item Grover Cleveland was not a Muppet \answer{\\
+No people identical to Grover Cleveland are Muppets \\
+Form: E \\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}\\
+$S$: People identical to Grover Cleveland\\
+$P$: Muppets\\
 }
 
 
 
 \item The band's only singer also plays guitar. \answer{\\
-All things identical to the singer of the band are things that play guitar. \\
+All people identical to the singer of the band are people who play guitar. \\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: Things identical to the singer of the band\\
-$P$: Things that play guitar\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$: People identical to the singer of the band\\
+$P$: People who play guitar\\
 }
 
 \item If a dog has a collar, it is someone's pet.\answer{\\
-All dogs that have a collar are things that are someone's pet.\\
+All dogs that have a collar are animals that are someone's pet.\\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
 $S$: Dogs that have a collar\\
-$P$: Things that are someone's pet. \\
+$P$: Animals that are someone's pet. \\
 }
 
 \item Only the basketball players in the class were tall. \answer{\\
 All tall people in the class were basketball players\\
 Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: All tall people in the class\\
+\begin{venns}
+\MoodAStatementRed
+\end{venns}\\
+$S$: Tall people in the class\\
 $P$: Basketball players\\
 }
 
-\item If you study, then you will pass the test.\answer{\\
+\item If you study, then you will not fail the test.\answer{\\
 All things that study are things that will pass the test. \\
-Form: A \\
-\noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-1,-1) rectangle (1,1);
-        \fill[red] \firstcircle;
-        \end{scope}
-%    \begin{scope}
-%      \clip \firstcircle;
-%      \fill[red] \secondcircle;
-%    \end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-%\node[outer sep=.3cm] (x) {\Large{x}};
-%\node[outer sep=.3cm, xshift=.5cm] (x) {\Large{x}};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{tikzpicture}\\
-$S$: All things who study \\
-$P$: All things who pass the test\\
+Form: E \\
+\begin{venns}
+\MoodEStatementRed
+\end{venns}\\
+$S$: People who study \\
+$P$: People who fail the test\\
 }
 
 \end{exercises}
@@ -2476,7 +2319,7 @@ So far we have seen eight valid forms of argument with one premise: two argument
 
 In the real world, the inferences we make are messy and hard to classify. Much of the complexity of this issue is tackled in the parts of the complete version of this text that cover critical thinking. \label{ver_var} \nix{Part \ref{part:CT_and_informal_logic} of this text, on critical thinking.} Right now we are just going to deal with a limited subset of inferences: immediate inferences that might be based on conversion, obversion, or contraposition. Let's start start with the uncontroversial premise ``All dogs are mammals.'' Can we infer from this that all non-mammals are non-dogs? In canonical form, the argument would look like this. 
 
-\pagebreak[4] %Note the hard page break. Delete if things start to drift.
+%\pagebreak[4] %Note the hard page break. Delete if things start to drift.
 
 \begin{earg*}
 \item All dogs are mammals
@@ -3483,28 +3326,28 @@ The Boolean solution to the the question of existential import leaves us with a 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Practice Problems 
 
 \practiceproblems
-\problempart Evaluate each of the following arguments twice. First, evaluate it using Ockham's theory of existential import, where positive statements have existential import and negative ones do not. If the argument is valid, state which relationship makes it valid (contradictories, contraries, etc.) Second, evaluate the argument using Boole's theory, where particular statements have existential import and universal statements do not. If the premise of the argument is just a categorical statement, rather than a claim that a categorical statement is false, draw the Venn diagram for the premise. 
+\problempart Evaluate each of the following arguments twice. First, evaluate it using Ockham's theory of existential import, where positive statements have existential import and negative ones do not. If the argument is valid, state which relationship makes it valid (contradictories, contraries, etc.) Second, evaluate the argument using Boole's theory, where particular statements have existential import and universal statements do not. %If the premise of the argument is just a categorical statement, rather than a claim that a categorical statement is false, draw the Venn diagram for the premise. 
 
 \begin{longtabu}{p{.15\linewidth}p{.75\linewidth}}
 \textbf{Example 1}: & All $S$ are $P$. Therefore, it is false that no $S$ are $P$.   \\
 \textbf{Answer}: & Ockham: Valid. Contraries.\\ 
 & Boole: Invalid \\
-& \noindent \begin{tikzpicture}
-\def\firstcircle{(0,0) circle (.75cm)}
-\def\secondcircle{(0:1cm) circle (.75cm)}
-\begin{scope}[shift={(4cm,0cm)}]
-\begin{scope}[even odd rule]% first circle without the second
-\clip \secondcircle (-1,-1) rectangle (1,1);
-\fill[gray] \firstcircle;
-\end{scope}
-\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
-\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
-\end{scope}
-\end{tikzpicture}
-\\
-& The overlap between $S$ and $P$ is neither shaded out nor has an ``x'' in it, so ``No $S$ are $P$'' could either be true or false. \\
-\end{longtabu}
-\begin{longtabu}{p{.15\linewidth}p{.75\linewidth}}
+%& \noindent \begin{tikzpicture}
+%\def\firstcircle{(0,0) circle (.75cm)}
+%\def\secondcircle{(0:1cm) circle (.75cm)}
+%\begin{scope}[shift={(4cm,0cm)}]
+%\begin{scope}[even odd rule]% first circle without the second
+%\clip \secondcircle (-1,-1) rectangle (1,1);
+%\fill[gray] \firstcircle;
+%\end{scope}
+%\draw \firstcircle node[outer sep=.66cm, above left] (s) {$S$};
+%\draw \secondcircle node[outer sep=.66cm, above right] (p) {$P$};
+%\end{scope}
+%\end{tikzpicture}
+%\\
+%& The overlap between $S$ and $P$ is neither shaded out nor has an ``x'' in it, so ``No $S$ are $P$'' could either be true or false. \\
+%\end{longtabu}
+%\begin{longtabu}{p{.15\linewidth}p{.75\linewidth}}
 \textbf{Example 2:} & It is false that all $S$ are $P$. Therefore, some $S$ are not $P$.\\
 \textbf{Answer:} & Ockham: Valid. Contradictories \\
 & Boole: Valid.
@@ -3512,32 +3355,46 @@ The Boolean solution to the the question of existential import leaves us with a 
 
 
 \begin{exercises}
+
+\item Some $S$ are $P$. Therefore all $S$ are $P$.	
+\answer{\\ Ockham: Invalid\\\
+Boole: Invalid \\
+%\begin{venns}
+%%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%%\someexistonesent
+%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns}
+}	
+
 \item  It is false that some $S$ are $P$. Therefore, it is false that all $S$ are $P$.
 \answer{\\ Ockham: Valid. Subalternation.\\
 Boole: Invalid. \\
-\begin{venns}
-\shadeintersectred{\subjectcircle}{\predicatecircle}
-\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-\someexistonesent
-\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns}
+%\begin{venns}
+%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%\someexistonesent
+%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns}
 }	
 
 
 \item  All $S$ are $P$. Therefore, some $S$ are not $P$.
 \answer{\\Ockham: Invalid. \\
-Boole: invalid \\ \vspace{11pt}
-\begin{venns}
-%\shadeintersectred{\subjectcircle}{\predicatecircle}
-\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-%\someexistonesent
-%\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns}\\ \vspace{6pt}
-The shading from the premise means the conclusion is impossible.\\
+Boole: invalid \\ %\vspace{11pt}
+%\begin{venns}
+%%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%%\someexistonesent
+%%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns}\\ \vspace{6pt}
+%The shading from the premise means the conclusion is impossible.\\
 }	
 
 
@@ -3567,7 +3424,7 @@ Boole: Invalid \vspace{5pt}\\
 \drawsubsent 
 \drawpredsent 
 \end{venns} \vspace{5pt} \\
-It is possible that all $S$ are $P$, in the case that no $S$ exist at all. We can see this in the diagram from the fact that it is still possible to fill in the part of $S$ that is in the complement of $P$. Note that in doing this, we wind up filling in all of $S$. This just emphasizes the fact that ``No $S$ are $P$'' and ``All $S$ are $P$'' are both true only when no $S$ exist at all. 
+It is possible that all $S$ are $P$, in the case that no $S$ exist at all. We can see this in by drawing the diagram for the premise. It is still possible to fill in the part of $S$ that is in the complement of $P$. Note that in doing this, we wind up filling in all of $S$. This just emphasizes the fact that ``No $S$ are $P$'' and ``All $S$ are $P$'' are both true only when no $S$ exist at all. 
 }	
  
 
@@ -3575,15 +3432,15 @@ It is possible that all $S$ are $P$, in the case that no $S$ exist at all. We ca
 \item Some $S$ are not $P$. Therefore, it is false that all $S$ are $P$. 		
 \answer{\\Ockham: Valid. Contradictories\\
 Boole: Valid.\vspace{5pt}\\
-\begin{venns}
-%\shadeintersectred{\subjectcircle}{\predicatecircle}
-%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-\someexistonesent
-%\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns}\vspace{5pt}\\
-You cannot shade in the part of $S$ that is in the complement of $P$, because there is already an X there. 
+%\begin{venns}
+%%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%\someexistonesent
+%%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns}\vspace{5pt}\\
+%You cannot shade in the part of $S$ that is in the complement of $P$, because there is already an X there. 
 }	
 
 \item It is false that some $S$ are not $P$. Therefore, it is false that no $S$ are $P$.
@@ -3605,28 +3462,17 @@ Boole: Invalid. Both statements could be false if there are no $S$. \\
 \item Some $S$ are $P$. Therefore, it is false that some $S$ are not $P$  
 \answer{\\Ockham: Invalid \\
 Boole: Invalid \\
-\begin{venns}
-%\shadeintersectred{\subjectcircle}{\predicatecircle}
-%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-%\someexistonesent
-\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns}\\ Just because there is an x in the overlap between $S$ and $P$ doesn't mean there isn't also an x in the part of $S$ that is in the complement of $P$.
+%\begin{venns}
+%%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%%\someexistonesent
+%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns}\\ Just because there is an x in the overlap between $S$ and $P$ doesn't mean there isn't also an x in the part of $S$ that is in the complement of $P$.
 }	
 
-\item Some $S$ are $P$. Therefore all $S$ are $P$.	
-\answer{\\ Ockham: Invalid\\\
-Boole: Invalid \\
-\begin{venns}
-%\shadeintersectred{\subjectcircle}{\predicatecircle}
-%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-%\someexistonesent
-\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns}
-}	
+
 
 \end{exercises}
 

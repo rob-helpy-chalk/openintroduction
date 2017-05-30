@@ -101,19 +101,28 @@
 
 %The environment
 
-%\{venns} defines a new environment for drawing Venn diagrams. When the environment is begun, TiKz is launched and three small circles are defined. In the body of the environment, commands are available that let you draw as many of the circles as you want, shade regions, and place x's. The commands are listed below. When the environment is ended and TiKz is closed.
+%\{venns} defines a new environment for drawing Venn diagrams. When the environment is begun, TiKz is launched and three small circles are defined. In the body of the environment, commands are available that let you draw as many of the circles as you want, shade regions, and place x's. The commands are listed below. When the environment is ended TiKz is closed.
 
  %I attempted to put on an optional scale factor, and it worked in the testing ground, but not in the actual file.
 
-%Commands
+% The definitions
 
+% The environment defines three circles---subject, middle, and predicate---for a standard Aristotelian syllogism. It also defines squares around those circles which are needed to create shading. 
+
+%The commands
+
+%There are three sets of commands. The first set just draw the basic circles. The second set shades or draws x's in various parts of the circles. The third set combines elements from the first and second sets to create common diagrams, like a simple mood A statement, or SaM in a three circle diagram.
+
+
+%The commends--set 1
 %\drawsubsyl, \drawmidsyl, and \drawpredsyl draw the three circles for a syllogism.
 %\drawsubsent \drawpredsent draw the circles for a single statement.
+% \drawgrid lets you put down a guide grid useful for locating the coordinates where you might want to put other objects.
 
+%The commands--set 2
+%The command \shadecomplement{\somecircle}{\squarearoundthatcircle}{\someothercircle} is used for mood-A statements. It shades the part of the first circle named that is in the complement of the second circle. Right now you have to specify both the first circle and the square around it, which is awkward. Use \shadecomplementred to change the color to red.
 
 %The command \shadeintersect{\somecircle}{\someothercircle} is used for mood-E statements. It shades the intersection between the two named circles. Use \shadeintersectred to change the color to red.
-
-%The command \shadecomplement{\somecircle}{\squarearoundthatcircle}{\someothercircle} is used for mood-A statements. It shades the part of the first circle named that is in the complement of the second circle. Right now you have to specify both the first circle and the square around it, which is awkward. Use \shadecomplementred to change the color to red.
 
 %For mood-I and mood-O statements, you need to use commands in the family \someexistone, \someexisttwo, etc. These place at locations 1, 2, etc. The locations are as follows:
 
@@ -125,14 +134,19 @@
 %six: non-S, M, P
 %seven: S, M, P
 
+%For drawing x's, there needs to be a separate set of commands for two circle diagrams. These all have ``sent'' in the name.  
+
 %\somexistnumber1number2 gets you the boarder between areas number1 and number2
+
+
+%The commends--set 3
+%\MoodAStatementRed will do the above for a two circle mood A statement. 
+
    
-% \drawgrid lets you put down a guide grid useful for locating the coordinates where you might want to put other objects.
 
 %Things to do: 
 % *  change the \someexistthree commands to \someexist{3}
 % *  create optional scaling factor.
-% *  Fix the \somecircle \somerectangle thing.  
 % *  Set things up so you can use  SiP, SeP notation. 
 % * Have an option that removes the \begin{tikzpicture} frame, so that you can embed the environment in other TiKz pictures. 
 % * Allow users to customize circle names
@@ -140,6 +154,7 @@
 \newenvironment{venns}%[1]
 {%Begin Environment
 \begin{tikzpicture}%[scale=#1, every node/.style={scale=#1}]  
+
 %definitions
 \def\subjectcircle{(0,0) circle (.75cm)}
 \def\middlecircle{(60:.75cm) circle (.75cm)}
@@ -150,7 +165,20 @@
 \node (S) at (0,0) {};
 \node (M) at (60:.75cm) {};
 \node (P) at (0:.75cm) {};
-%commands
+
+%commands---set 1
+\newcommand{\drawgrid}{
+\filldraw [red] (0,0) circle (.1cm);
+\draw[blue!25, very thin,step=.25cm] (-1,-1) grid (2,2);
+\draw[blue, line width=2pt] (-1,0) -- (2, 0);
+\draw[blue, line width=2pt] (0,-1) -- (0, 2);}
+\newcommand{\drawsubsyl}{\draw \subjectcircle node[outer sep=.5cm, below left] {$S$};} 
+\newcommand{\drawmidsyl}{\draw \middlecircle node [outer sep=.75cm, above] {$M$};}
+\newcommand{\drawpredsyl}{\draw \predicatecircle node [outer sep=.5cm, below right] {$P$};}
+\newcommand{\drawsubsent}{\draw \subjectcircle node[outer sep=.5cm, above left] {$S$};} 
+\newcommand{\drawpredsent}{\draw \predicatecircle node [outer sep=.5cm, above right] {$P$};}
+
+%commands---set 2
 \newcommand{\shadeintersect}[2]{
 \begin{scope} 
 \clip ##1;
@@ -164,24 +192,23 @@
 \newcommand{\shadeintersectred}[2]{
 \begin{scope} 
 \clip ##1;
-\fill[red] ##2;
+\fill[red!60] ##2;
 \end{scope}}
 \newcommand{\shadecomplementred}[3]{
 \begin{scope}[even odd rule] 
 \clip ##3 ##2;
-\fill[red] ##1;
+\fill[red!60] ##1;
 \end{scope}}
-\newcommand{\SaMred}{\shadecomplementred{\subjectcircle}{\subjectsquare}{\middlecircle}}
-\newcommand{\PaMred}{\shadecomplementred{\predicatecircle}{\predicatesquare}{\middlecircle}}
-\newcommand{\SeMred}{\shadeintersectred{\subjectcircle}{\middlecircle}}
-\newcommand{\MaPred}{\shadecomplementred{\middlecircle}{\middlesquare}{\predicatecircle}}
+
+
+
 
 \newcommand{\someexistone}{\node[below left of=S, node distance=.4cm](1){X};}
 \newcommand{\someexistonesent}{\node[left of=S, node distance=.3cm](1){X};}
 \newcommand{\someexisttwo}{\node[above of=M, node distance=.4cm](2){X};}
 \newcommand{\someexistthree}{\node[below right of=P, node distance=.4cm](3){X};}
 \newcommand{\someexistfour}{\path (S) -- (P) node[midway, below, yshift=-.1cm](4){X};}
-\newcommand{\someexistfoursent}{\path (S) -- (P) node[midway, yshift=-.1cm](4){X};}
+\newcommand{\someexistfoursent}{\path (S) -- (P) node[midway](4){X};}
 \newcommand{\someexistfive}{\path (S) -- (M) node[midway, above left, yshift=-.05cm, xshift=-.05cm](5){X};}
 \newcommand{\someexistsix}{\path (M) -- (P) node[midway, above right, yshift=-.05cm, xshift=.05cm](6){X};}
 \newcommand{\someexistseven}{\path (S) -- (P) node[midway, above](7){X};}
@@ -193,16 +220,38 @@
 \newcommand{\someexistsixseven}{\path(M) -- (P) node[midway,xshift=.1cm, fill=white](6-7){X};}
 
 
-\newcommand{\drawgrid}{
-\filldraw [red] (0,0) circle (.1cm);
-\draw[blue!25, very thin,step=.25cm] (-1,-1) grid (2,2);
-\draw[blue, line width=2pt] (-1,0) -- (2, 0);
-\draw[blue, line width=2pt] (0,-1) -- (0, 2);}
-\newcommand{\drawsubsyl}{\draw \subjectcircle node[outer sep=.5cm, below left] {$S$};} 
-\newcommand{\drawmidsyl}{\draw \middlecircle node [outer sep=.75cm, above] {$M$};}
-\newcommand{\drawpredsyl}{\draw \predicatecircle node [outer sep=.5cm, below right] {$P$};}
-\newcommand{\drawsubsent}{\draw \subjectcircle node[outer sep=.5cm, above left] {$S$};} 
-\newcommand{\drawpredsent}{\draw \predicatecircle node [outer sep=.5cm, above right] {$P$};}
+%commands---set 3
+\newcommand{\MoodAStatementRed}{
+\drawsubsent 
+\drawpredsent
+\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+}
+
+\newcommand{\MoodEStatementRed}{
+\drawsubsent 
+\drawpredsent
+\shadeintersectred{\subjectcircle}{\predicatecircle}
+}
+
+\newcommand{\MoodIStatementRed}{
+\drawsubsent 
+\drawpredsent
+\someexistfoursent
+}
+
+\newcommand{\MoodOStatementRed}{
+\drawsubsent 
+\drawpredsent
+\someexistonesent
+}
+
+
+\newcommand{\SaMred}{\shadecomplementred{\subjectcircle}{\subjectsquare}{\middlecircle}}
+\newcommand{\PaMred}{\shadecomplementred{\predicatecircle}{\predicatesquare}{\middlecircle}}
+\newcommand{\SeMred}{\shadeintersectred{\subjectcircle}{\middlecircle}}
+\newcommand{\MaPred}{\shadecomplementred{\middlecircle}{\middlesquare}{\predicatecircle}}
+
+
 }
 {%End Environment
 \end{tikzpicture}}
