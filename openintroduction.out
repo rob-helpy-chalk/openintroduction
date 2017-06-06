@@ -1,15 +1,14 @@
 \BOOKMARK [0][-]{chapter*.1}{About this Book}{}% 1
 \BOOKMARK [0][-]{chapter*.2}{Acknowledgments}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Categorical Syllogisms}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Standard Form, Mood, and Figure}{chapter.1}% 4
-\BOOKMARK [1][-]{section*.3}{Practice Exercises}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Testing Validity}{chapter.1}% 6
-\BOOKMARK [1][-]{section*.6}{Practice Exercises}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.3}{Existential Import and Conditionally Valid Forms}{chapter.1}% 8
-\BOOKMARK [1][-]{section*.7}{Practice Exercises}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.4}{Rules and Fallacies}{chapter.1}% 10
-\BOOKMARK [1][-]{section*.10}{Practice Exercises}{chapter.1}% 11
-\BOOKMARK [0][-]{appendix.A}{Other Symbolic Notation}{}% 12
-\BOOKMARK [0][-]{appendix*.19}{Bibliography}{}% 13
-\BOOKMARK [0][-]{appendix.B}{Glossary}{}% 14
-\BOOKMARK [0][-]{appendix.C}{Quick Reference}{}% 15
+\BOOKMARK [-1][-]{part.1}{I Basic Concepts}{}% 3
+\BOOKMARK [-1][-]{part.2}{II Categorical Logic}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Sentential Logic}{part.2}% 5
+\BOOKMARK [1][-]{section.1.1}{Sentence Letters}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Sentential Connectives}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{More complicated translations}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Recursive Syntax for SL}{chapter.1}% 9
+\BOOKMARK [1][-]{section*.13}{Practice Exercises}{chapter.1}% 10
+\BOOKMARK [0][-]{appendix.A}{Other Symbolic Notation}{part.2}% 11
+\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.2}% 12
+\BOOKMARK [0][-]{appendix.C}{Glossary}{part.2}% 13
+\BOOKMARK [0][-]{appendix.D}{Quick Reference}{part.2}% 14

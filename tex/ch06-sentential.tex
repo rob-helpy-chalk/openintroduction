@@ -3,7 +3,12 @@
 \label{chap:SL}
 \setlength{\parindent}{1em}
 
-This chapter introduces a logical language called SL. It is a version of \emph{sentential logic}, because the basic units of the language will represent statements, and a statement is usually given by a complete sentence in English.
+\iflabelexists{part:cat_logic} %There are two versions of the preamble for this chapter, one for books that include the chapters on categorical logic, and a generic one
+{In Part \ref{part:cat_logic}, we introduced a system of logic that dealt with categorical statements, statements like ``All people are mortal'' or ``Some dogs have  fleas.'' The system developed there was somewhat formal, because it replaced some of the contents of ordinary English sentences with abstract symbols. In Part \ref{part:sent_logic}, we go the rest of the way, and replace all of ordinary English with abstract symbols, thus creating a fully artificial language. In the previous system, capital letters like $S$ and $P$ stood for categories, like ``dogs'' or ``things that have fleas.'' In the new system individual letters will stand for whole sentences, like ``Tom wants to go to the bookstore'' or ``The sky is blue.'' Because individual letters stand for sentences this kind of system is known as \textit{sentential logic}, a term which we will be able to precisely define on page \pageref{def:sentential_logic}. We will call the specific version of sentential logic we will be developing SL.}%this is the preamble for texts that include categorical logic
+{This chapter introduces a logical language called SL. It is a version of \emph{sentential logic}, because the basic units of the language will represent statements, and a statement is usually given by a complete sentence in English.} %this  is the generic preamble
+
+
+
 
 
 
@@ -18,7 +23,7 @@ This chapter introduces a logical language called SL. It is a version of \emph{s
 \newglossaryentry{sentence letter}
 {
 name=sentence letter,
-description={A single capital letter, used in SL to represent a basic sentence.}
+description={A single capital letter, used in SL to represent a statement.}
 }
 
 \newglossaryentry{symbolization key}
@@ -27,38 +32,53 @@ name=symbolization key,
 description={A list that shows which English sentences are represented by which sentence letters in SL. It is also called a dictionary.}
 }
 
-In SL, capital letters, called \textsc{\glspl{sentence letter}} \label{def:sentence_letter} are used to represent simple statements. Considered only as a symbol of SL, the letter $A$ could mean any statement. So when translating from English into SL, it is important to provide a symbolization key, or dictionary. The \textsc{\gls{symbolization key}} \label{def:symbolization_key} provides an English language sentence for each sentence letter used in the symbolization.
+The most basic unit in our formal language SL is an individual capital letter---$A, B, C, D$, etc. These letters, called \textsc{\glspl{sentence letter}}, \label{def:sentence_letter} are used to represent individual statements. Remember in section \ref{def:statement}, we defined a statement as some bit of language that can be true or false, and listed all kinds of things that count as statements in English, from ``\emph{Tyrannosaurus rex} went extinct 65 million years ago'' to ``Lady Gaga is pretty.'' In SL, all these statements are reduced to single capital letters.
 
-Consider this argument:
+Considered only as a symbol of SL, the letter $A$ could mean any statement. So when translating from English into SL, it is important to provide a symbolization key, or dictionary. The \textsc{\gls{symbolization key}} \label{def:symbolization_key} provides an English language sentence for each sentence letter used in the symbolization. Consider this argument (recall that the portion of the passage in italics establishes the context, and is not part of the passage):
+
+\begin{quotation}
+\noindent \textit{A teacher is looking to see who has come to class} There is an apple on the desk. If there is an apple on the desk, then Jenny made it to class. Therefore, Jenny made it to class.
+\end{quotation}
+
+In canonical form, the argument would look like this:
+
 \begin{earg}
 \item[1.] There is an apple on the desk.
 \item[2.] If there is an apple on the desk, then Jenny made it to class.
 \item[] \textcolor{white}{.}\sout{\hspace{.8\linewidth}}\textcolor{white}{.} 
 \item[$\therefore$] Jenny made it to class.
 \end{earg}
-This is obviously a valid argument in English. In symbolizing it, we want to preserve the structure of the argument that makes it valid.
-What happens if we replace each sentence with a letter? Our symbolization key would look like this:
+
+A good symbolization key for this passage would look like this:
+
+\begin{ekey}
+\item[A:]There is an apple on the desk.
+\item[B:]Jenny made it to class.
+\end{ekey}
+
+Why do the symbolization key this way? The argument we are looking at is obviously valid in English. In symbolizing it, we want to preserve the structure of the argument that makes it valid. We could have made each sentence in the original argument into its own letter. Then the symbolization key would look like this: 
+
 \begin{ekey}
 \item[A:]There is an apple on the desk.
 \item[B:]If there is an apple on the desk, then Jenny made it to class.
 \item[C:]Jenny made it to class.
 \end{ekey}
-We would then symbolize the argument in this way:
+But that would mean the argument would look like this:
 \begin{earg}
 \item[1.] $A$
 \item[2.] $B$
 \item[] \textcolor{white}{.}\sout{\hspace{.05\linewidth}}\textcolor{white}{.} 
 \item[$\therefore$] $C$
 \end{earg}
-There is no necessary connection between some sentence $A$, which could be any statement, and some other sentences $B$ and $C$, which could also be anything.
-The structure of the argument has been completely lost in this translation.
+There is no necessary connection between some sentence $A$, which could be any statement, and some other sentences $B$ and $C$, which could also be anything. The structure of the argument has been completely lost in this translation.
 
-The important thing about the argument is that the second premise is not merely \emph{any} statement, logically divorced from the other statement in the argument. The second premise contains the first premise and the conclusion \emph{as parts}. Our symbolization key for the argument only needs to include meanings for $A$ and $C$, and we can build the second premise from those pieces. So we symbolize the argument this way:
+The important thing about the argument is that the second premise is not merely \emph{any} statement, logically divorced from the other statement in the argument. The second premise contains the first premise and the conclusion \emph{as parts}. Our original symbolization key allows us to write the argument like this.
+
 \begin{earg}
 \item[1.] $A$
-\item[2.] If $A$, then $C$.
+\item[2.] If $A$, then $B$.
 \item[] \textcolor{white}{.}\sout{\hspace{.2\linewidth}}\textcolor{white}{.} 
-\item[$\therefore$] $C$
+\item[$\therefore$] $B$
 \end{earg}
 This preserves the structure of the argument that makes it valid, but it still makes use of the English expression ``If$\ldots$ then$\ldots$.'' Although we ultimately want to replace all of the English expressions with logical notation, this is a good start.
 
@@ -68,12 +88,7 @@ name=atomic sentence,
 description={A sentence that does not have any sentences as proper parts.}
 }
 
-
 The individual sentence letters in SL are called atomic sentences, because they are the basic building blocks out of which more complex sentences can be built. We can identify atomic sentences in English as well. An \textsc{\gls{atomic sentence}} \label{def:atomic_sentence} is one that cannot be broken into parts that are themselves sentences. ``There is an apple on the desk'' is an atomic sentence in English, because you can't find any proper part of it that forms a complete sentence. For instance ``an apple on the desk'' is a noun phrase, not a complete sentence. Similarly ``on the desk'' is a prepositional phrase, and not a sentence, and ``is an'' is not any kind of phrase at all. This is what you will find no matter how you divide ``There is an apple on the desk.'' On the other hand you can find two proper parts of ``If there is an apple on the desk, then Jenny made it to class'' that are complete sentences: ``There is an apple on the desk'' and ``Jenny made it to class.'' As a general rule, we will want to use atomic sentences in SL (that is, the sentence letters) to represent atomic sentences in English. Otherwise, we will lose some of the logical structure of the English sentence, as we have just seen. 
-
-%Atomic sentences go together to make complex sentences in much the same way that physical atoms go together to make molecules. Physical atoms were originally called `atoms' because chemists thought that they were irreducible. Chemists were wrong, and physical atoms can be split.
-
-%It is important to remember that a symbolization key only gives the meaning of atomic sentences for purposes of translating a specific argument.
 
 There are only 26 letters of the alphabet, but there is no logical limit to the number of atomic sentences. We can use the same letter to symbolize different atomic sentences by adding a subscript, a small number written after the letter. We could have a symbolization key that looks like this:
 \begin{ekey}
@@ -92,27 +107,46 @@ Keep in mind that each of these is a different sentence letter. When there are s
 
 \section{Sentential Connectives}
 
+
+The previous section introduced the basic elements of SL, the sentence letters. But when we were looking at the argument involving Jenny and the apple, we saw that the best way to write a dictionary for the argument left the words ``if'' and ``then'' in English. In this section we will introduce ways to connect the sentence letters together that will allow us to form a complete artificial language.   
+
 \newglossaryentry{sentential connective}
 {
 name=sentential connective,
 description={A logical operator in SL used to combine sentence letters into larger sentences.}
 }
 
-Logical connectives are used to build complex sentences from atomic components. In SL, our logical connectives are called \textsc{\glspl{sentential connective}} \label{def:sentential_connective} because they connect sentence letters. There are five sentential connectives in SL. This table summarizes them, and they are explained below.
+\newglossaryentry{logical constant}
+{
+name=logical symbol,
+description={A symbol whose meaning is fixed by a formal language. Sometimes these are just called ``logical symbols.'' They are contrasted with \textsc{non-logical symbols}. (See below.)}
+}
 
-\begin{table}[h]
-\center
-\begin{tabular}{|c|c|c|}
-\hline
-Symbol&What it is called&What it means\\
-\hline
+\newglossaryentry{nonlogical symbol}
+{
+name=nonlogical symbol,
+description={A symbol whose meaning is not fixed by a formal language.}
+}
+
+The symbols used to connect sentence letters are called \textsc{\glspl{sentential connective}} \label{def:sentential_connective}, naturally enough. SL uses five sentential connectives: \eand, \eor, \enot, \eif, and \eiff. To write the sentence about Jenny and the apple we use the symbol ``\eif.'' Using the dictionary above, ``If there is an apple on the desk, then Jenny made it to class'' becomes $A \eif B$. Table \ref{table:sentential_connectives} summarizes the meaning of the five sentential connectives.
+
+The sentential connectives are a kind of \textsc{\gls{logical constant}}, because their meaning is fixed by the formal language that we have chosen. The sentence letters, by contrast, are \textsc{\glspl{nonlogical symbol}}, \label{def:nonlogical_symbol} because their meaning can change as we change the symbolization key. 
+
+The subsections below describe each connective in more detail.
+
+\begin{table}
+\begin{mdframed}[style=mytablebox]
+\begin{tabu}{p{.1\linewidth}p{.3\linewidth}p{.3\linewidth}}
+\underline{Symbol}&\underline{What it is called}&\underline{What it means}\\
 \enot&negation&``It is not the case that$\ldots$''\\
 \eand&conjunction&``Both $\ldots$\ and $\ldots$''\\
 \eor&disjunction&``Either $\ldots$\ or $\ldots$''\\
 \eif&conditional&``If $\ldots$\ then $\ldots$''\\
 \eiff&biconditional&``$\ldots$ if and only if $\ldots$''\\
-\hline
-\end{tabular}
+\end{tabu}
+\end{mdframed}
+\caption{The Sentential Connectives.}
+\label{table:sentential_connectives}
 \end{table}
 
 %%%%%%%%%%%%%%%%%% 2.2.1 Negation
@@ -143,11 +177,6 @@ Now, sentence \ref{not1} is simply $B$. Sentence \ref{not2} is obviously related
 
 Sentence \ref{not3} is about whether or not Mary is in Barcelona, but it does not contain the word ``not.'' Nevertheless, it is obviously logically equivalent to sentence \ref{not2}. They both mean: It is not the case that Mary is in Barcelona. As such, we can translate both sentence \ref{not2} and sentence \ref{not3} as $\enot B$.
 
-\factoidbox{
-A sentence can be symbolized as $\enot\script{A}$ if it can be paraphrased in English as ``It is not the case that \script{A}.''
-}
-
-
 Consider these further examples:
 \begin{earg}
 \item[\ex{not4}] The widget can be replaced if it breaks.
@@ -156,24 +185,26 @@ Consider these further examples:
 \end{earg}
 
 
-If we let $R$ mean ``The widget is replaceable'', then sentence \ref{not4} can be translated as $R$.
+If we let $R$ mean ``The widget is replaceable'', then sentence \ref{not4} can be translated as $R$. Sentence \ref{not5} means the opposite of sentence \ref{not4}, so we can translate it $\enot R$. Sentence \ref{enot5b} adds another negation to sentence \ref{not5}. We know, as competent English speakers, that the two negations cancel each other out, so that sentence \ref{enot5b} is equivalent to sentence \ref{not4}. But the fact that two negations cancel each other out is a part of the logic of English that we actually want to capture with our formal language SL. So we will represent the two negations in sentence \ref{not5b} as two negations in SL: $\enot \enot R$. We will now have to be sure that in SL the sentences $R$ and $\enot \enot R$ mean the same thing. 
 
-What about sentence \ref{not5}? Saying the widget is irreplaceable means that it is not the case that the widget is replaceable. So even though sentence \ref{not5} is not negative in English, we symbolize it using negation as $\enot{R}$.
+As the above examples begin to indicate, English has all kinds of ways to negate a sentence.  Sometimes we use an explicit ``not.'' Sometimes we use a prefix like the ``ir-'' in ``irreplaceable.'' SL has just one way to form a negation: slap a \enot in front of the sentence. There is an English expression, however, that always occurs in the same place in an English sentence as the \enot occurs in the sentence SL. The English phrase is ``It is not the case that.'' Although this phrase sounds awkward, it always occurs in front of the sentence it is negating, just as the symbol \enot does. This makes it useful in translating sentences from SL back into English. $\enot R$ can be translated ``it is not the case that this widget is replaceable.'' In the earlier example, $\enot B$ can be translated ``It is not the case that Mary is in Barcelona.'' 
 
-Sentence \ref{not5b} can be paraphrased as ``It is not the case that the widget is irreplaceable.'' Using negation twice, we translate this as $\enot\enot R$. The two negations in a row each work as negations, so the sentence means ``It is not the case that it is not the case that $R$.'' If you think about the sentence in English, it is logically equivalent to sentence \ref{not4}. So when we define logical equivalence in SL, we will make sure that $R$ and $\enot\enot R$ are logically equivalent.
+\factoidbox{
+A sentence can be symbolized as $\enot\script{A}$ can always be paraphrased in English as ``It is not the case that \script{A}.''
+}
 
-More examples:
+Sometimes negations in English do not function as neatly as the \enot does in SL, because two things aren't perfect opposites. Consider these sentences:
+
 \begin{earg}
 \item[\ex{not6}] Elliott is happy.
 \item[\ex{not7}] Elliott is unhappy.
 \end{earg}
 
 
-If we let $H$ mean ``Elliot is happy'', then we can symbolize sentence \ref{not6} as $H$.
+If we let $H$ mean ``Elliot is happy'', then we can symbolize sentence \ref{not6} as $H$, but does \ref{not7} really mean the same thing as $\enot H$? Saying ``Elliott is unhappy'' indicates that Elliott is actively sad. But $\enot H$ can be paraphrase as simply ``It is not the case that Elliott is happy,'' which might merely mean that Elliott is just feeling neutral. As we saw on page \pageref{def:bivalent}, the logics we discuss in this textbook are \emph{bivalent}. Statements are only either true or false. Everything is in black and white, and issues like Elliott's fine gradations in mood cannot be directly represented in our system. So in SL, sentences \ref{not6} and  \ref{not7} would generally be represented by separate sentence letters.
 
-However, it would be a mistake to symbolize sentence \ref{not7} as $\enot{H}$. If Elliott is unhappy, then he is not happy---but sentence \ref{not7} does not mean the same thing as ``It is not the case that Elliott is happy.'' It could be that he is not happy but that he is not unhappy either. Perhaps he is somewhere between the two. In order to symbolize sentence \ref{not7}, we would need a new sentence letter.
+One way of capturing the meaning of a sentential connective is to make a table which shows how the connective changes the meaning of the sentences it is applied to. The negation simply reverses the truth value of any sentence it is put in front of. For any sentence \script{A}: If \script{A} is true, then \enot\script{A} is false. If \enot\script{A} is true, then \script{A} is false. Using T for true and F for false, we can summarize this in a \emph{characteristic truth table} for negation:
 
-For any sentence \script{A}: If \script{A} is true, then \enot\script{A} is false. If \enot\script{A} is true, then \script{A} is false. Using T for true and F for false, we can summarize this in a \emph{characteristic truth table} for negation:
 \begin{center}
 \begin{tabular}{c|c}
 \script{A} & \enot\script{A}\\
@@ -200,9 +231,6 @@ We will need separate sentence letters for \ref{and1} and \ref{and2}, so we defi
 \item[B:] Barbara is athletic.
 \end{ekey}
 
-Sentence \ref{and1} can be symbolized as $A$.
-
-Sentence \ref{and2} can be symbolized as $B$.
 
 \newglossaryentry{conjunction}
 {
@@ -216,8 +244,7 @@ name=conjunct,
 description={A sentences joined to another by a conjunction.}
 }
 
-Sentence \ref{and3} can be paraphrased as ``$A$ and $B$.'' In order to fully symbolize this sentence, we need another symbol. We will use \eand. We translate ``$A$ and $B$'' as $A\eand B$. The logical connective \eand is called the \textsc{\gls{conjunction}}, \label{def:conjunction} and $A$ and $B$ are each called \textsc{\glspl{conjunct}}. \label{def:conjunct}
- 
+Sentence \ref{and1} can be symbolized as $A$. Sentence \ref{and2} can be symbolized as $B$. Sentence \ref{and3} can be paraphrased as ``$A$ and $B$.'' In order to fully symbolize this sentence, we need another symbol. We will use \eand. We translate ``$A$ and $B$'' as $A\eand B$. The logical connective \eand is called the \textsc{\gls{conjunction}}, \label{def:conjunction} and $A$ and $B$ are each called \textsc{\glspl{conjunct}}. \label{def:conjunct}
 
 Notice that we make no attempt to symbolize ``also'' in sentence \ref{and3}. Words like ``both'' and ``also'' function to draw our attention to the fact that two things are being conjoined. They are not doing any further logical work, so we do not need to represent them in SL.
 
@@ -247,6 +274,7 @@ Sentence \ref{and7} contains a similar contrastive structure. It is irrelevant f
 
 It is important to keep in mind that the sentence letters $A$, $B$, and $R$ are atomic sentences. Considered as symbols of SL, they have no meaning beyond being true or false. We have used them to symbolize different English language sentences that are all about people being athletic, but this similarity is completely lost when we translate to SL. No formal language can capture all the structure of the English language, but as long as this structure is not important to the argument there is nothing lost by leaving it out.
 
+As with the negation, we can understand the meaning of the conjunction by making a table that shows how the conjunction affects the truth value of the  sentences it is bringing together. 
 For any sentences \script{A} and \script{B}, \script{A} \eand \script{B} is true if and only if both \script{A} and \script{B} are true. We can summarize this in the {characteristic truth table} for conjunction:
 \begin{center}
 \begin{tabular}{c|c|c}
@@ -293,7 +321,7 @@ description={A sentences joined to another by a disjunction.}
 
 
 
-Sentence \ref{or1} is ``Either $D$ or $M$.'' To fully symbolize this, we introduce a new symbol. The sentence becomes $D \eor M$. The \eor connective is called \textsc{\gls{disjunction}}, \label{def:disjunction} and $D$ and $M$ are called \textsc{\glspl{disjunct}}. \label{def:disjunct}
+Sentence \ref{or1} is ``Either $D$ or $M$.'' To fully symbolize this, we introduce a new symbol. The sentence becomes $D \eor M$. The $\eor$ connective is called \textsc{\gls{disjunction}}, \label{def:disjunction} and $D$ and $M$ are called \textsc{\glspl{disjunct}}. \label{def:disjunct}
 
 Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. In translating, we can paraphrase it as ``Either Denison will play golf with me, or Ellery will play golf with me.'' Now it obviously translates as $D \eor E$.
 
@@ -302,11 +330,25 @@ Sentence \ref{or2} is only slightly more complicated. There are two subjects, bu
 A sentence can be symbolized as $\script{A}\eor\script{B}$ if it can be paraphrased in English as ``Either \script{A} or \script{B}.'' Each of the disjuncts must be a sentence.
 }
 
-Sometimes in English, the word ``or'' excludes the possibility that both disjuncts are true. This is called an \define{exclusive or}.  An \emph{exclusive or} is clearly intended when a restaurant menu says, ``Entrees come with either soup or salad.'' You may have soup; you may have salad; but, if you want \emph{both} soup \emph{and} salad, then you will have to pay extra.
 
-At other times, the word ``or'' allows for the possibility that both disjuncts might be true. This is probably the case with sentence \ref{or2}, above. I might play with Denison, with Ellery, or with both Denison and Ellery. Sentence \ref{or2} merely says that I will play with \emph{at least} one of them. This is called an \define{inclusive or}.
+\newglossaryentry{exclusive or}
+{
+name=exclusive or,
+description={A kind of disjunction that excludes the possibility that both disjuncts are true. The exclusive or says ``This or that, but not both.''}
+}
 
-The symbol $\eor$ represents an \emph{inclusive or}. So $D \eor E$ is true if $D$ is true, if $E$ is true, or if both $D$ and $E$ are true. It is false only if both $D$ and $E$ are false. We can summarize this with the {characteristic truth table} for disjunction:
+\newglossaryentry{inclusive or}
+{
+name=inclusive or,
+description={A kind of disjunction that allows for the possibility that both disjuncts are true. The inclusive or says ``This or that, or both.''}
+}
+
+
+The English word ``or'' is somewhat ambiguous. Sometimes in English, when we say ``this or that,'' we mean that either option is possible, but not both. For instance, if a  restaurant menu says, ``Entr\'ees come with either soup or salad'' we naturally assume you can have soup, or you can have salad; but, if you want \emph{both} soup \emph{and} salad, then you will have to pay extra. This kind of disjunction is called an \textsc{\gls{exclusive or}} \label{def:exclusive_or}, because it excludes the possibility that both disjuncts are true. 
+ 
+At other times, the word ``or'' allows for the possibility that both disjuncts might be true. This is probably the case with sentence \ref{or2}, above. I might play with Denison, with Ellery, or with both Denison and Ellery. Sentence \ref{or2} merely says that I will play with \emph{at least} one of them. \textsc{\gls{inclusive or}} \label{def:inclusive _or} 
+
+To goal of a formal language is to remove ambiguity, so we need to pick one of these ors. SL follows tradition and uses the symbol $\eor$ to represent an \emph{inclusive or}. This winds up being reflected in the characteristic truth table for the $\eor$. The sentence $D \eor E$ is true if $D$ is true, if $E$ is true, or if both $D$ and $E$ are true. It is false only if both $D$ and $E$ are false. The truth table looks like this:
 
 \begin{center}
 \begin{tabular}{c|c|c}
@@ -322,33 +364,9 @@ F & F & F
 Like conjunction, disjunction is symmetrical. \script{A} \eor \script{B} is logically equivalent to \script{B} \eor \script{A}.
 
 
-These sentences are somewhat more complicated:
-
-\begin{earg}
-\item[\ex{or3}] Either you will not have soup, or you will not have salad.
-\item[\ex{or4}] You will have neither soup nor salad.
-\item[\ex{or.xor}] You get either soup or salad, but not both.
-\end{earg}
-
-We let $S_1$ mean that you get soup and $S_2$ mean that you get salad.
-
-Sentence \ref{or3} can be paraphrased in this way: ``Either \emph{it is not the case that} you get soup, or \emph{it is not the case that} you get salad.'' Translating this requires both disjunction and negation. It becomes $\enot S_1 \eor \enot S_2$.
-
-Sentence \ref{or4} also requires negation. It can be paraphrased as, ``\emph{It is not the case that} either you get soup or you get salad.'' We need some way of indicating that the negation does not just negate the right or left disjunct, but rather negates the entire disjunction. In order to do this, we put parentheses around the disjunction: ``It is not the case that $(S_1 \eor S_2)$.'' This becomes simply $\enot (S_1 \eor S_2)$.
-
-Notice that the parentheses are doing important work here. The sentence $\enot S_1 \eor S_2$ would mean ``Either you will not have soup, or you will have salad.''
-
-Sentence \ref{or.xor} is an \emph{exclusive or}. Although $\eor$ is an inclusive or, we can symbolize an exclusive or in {SL}. We just need more than one connective to do it. We can break the sentence into two parts. The first part says that you get one or the other. We translate this as $(S_1 \eor S_2)$. The second part says that you do not get both. We can paraphrase this as ``It is not the case both that you get soup and that you get salad.'' Using both negation and conjunction, we translate this as $\enot(S_1 \eand S_2)$. Now we just need to put the two parts together. As we saw above, ``but'' can usually be translated as a conjunction. Sentence \ref{or.xor} can thus be translated as $(S_1 \eor S_2) \eand \enot(S_1 \eand S_2)$.
-
 %%%%%%%%%%%%%%%%% 2.2.4 conditional
 
 \subsection{Conditional}
-For the following sentences, let $R$ mean ``You will cut the red wire'' and $B$ mean ``The bomb will explode.''
-
-\begin{earg}
-\item[\ex{if1}] If you cut the red wire, then the bomb will explode.
-\item[\ex{if2}] The bomb will explode only if you cut the red wire.
-\end{earg}
 
 \newglossaryentry{conditional}
 {
@@ -362,38 +380,31 @@ name=antecedent,
 description={The sentence to the left of a conditional..}
 }
 
-
 \newglossaryentry{consequent}
 {
 name=consequent,
 description={The sentence to the right of a conditional.}
 }
 
+We already met the conditional at the start of this section, when we were discussing the sentence ``If there is an apple on the table, Jenny made it to class,'' which became $A \eif B$. The symbol $\eif$ is called a \textsc{\gls{conditional}}. \label{def:conditional} The sentence on the left-hand side of the conditional ($R$ in this example) is called the \textsc{\gls{antecedent}}. \label{def:antecedent}.  The sentence on the right-hand side ($B$) is called the \textsc{\gls{consequent}}. \label{def:consequent} 
+	
+Like the English word ``or,'' the English phrase ``if\ldots then\ldots'' has some ambiguity. Consider our original example, ``If there is an apple on the table, Jenny made it to class.'' The statements tells us what we should infer if there is an apple on the table, but what if there \emph{isn't} an apple on the table. Does that guarantee that Jenny did not make it to class? It could be that an apple on the table is a clear sign that Jenny made it to class, because no one else would put an apple on the table, but nevertheless Jenny sometimes comes to class without putting an apple on the table. 
 
-Sentence \ref{if1} can be translated partially as ``If $R$, then $B$.'' We will use the symbol $\eif$ to represent logical {entailment}. Sentence \ref{if1} then becomes $R\eif B$. The connective is called a \textsc{\gls{conditional}}. \label{def:conditional} The sentence on the left-hand side of the conditional ($R$ in this example) is called the \textsc{\gls{antecedent}}. \label{def:antecedent}
- The sentence on the right-hand side ($B$) is called the \textsc{\gls{consequent}}. \label{def:consequent} 
-
-Sentence \ref{if2} is also a conditional. Since the word ``if'' appears in the second half of the sentence, it might be tempting to symbolize this in the same way as sentence \ref{if1}. That would be a mistake.
-
-The conditional $R\eif B$ says that \emph{if} $R$ were true, \emph{then} $B$ would also be true. It does not say that you cutting the red wire is the \emph{only} way that the bomb could explode. Someone else might cut the wire, or the bomb might be on a timer. The sentence $R\eif B$ does not say anything about 
-what to expect if $R$ is false. Sentence \ref{if2} is different. It says that the only conditions under which the bomb will explode involve you having cut the red wire; i.e., if the bomb explodes, then you must have cut the wire. As such, sentence \ref{if2} should be symbolized as $B \eif R$.
-
-It is important to remember that the connective $\eif$ says only that, if the antecedent is true, then the consequent is true. It says nothing about the \emph{causal} connection between the two events. Translating sentence \ref{if2} as $B \eif R$ does not mean that the bomb exploding would somehow have caused you cutting the wire. Both sentence \ref{if1} and \ref{if2} suggest that, if you cut the red wire, you cutting the red wire would be the cause of the bomb exploding. They differ on the \emph{logical} connection. If sentence \ref{if2} were true, then an explosion would tell us---those of us safely away from the bomb---that you had cut the red wire. Without an explosion, sentence \ref{if2} tells us nothing.
-
-\factoidbox{
-The paraphrased sentence ``\script{A} only if \script{B}'' is logically equivalent to ``If \script{A}, then \script{B}.''
-}
-
-% Could discuss necessary and sufficient conditions here.
-
-``If \script{A}, then \script{B}'' means that if \script{A} is true, then so is \script{B}. So we know that if the antecedent \script{A} is true but the consequent \script{B} is false, then the conditional ``If \script{A} then \script{B}'' is false. What is the truth value of ``If \script{A}, then \script{B}'' under other circumstances? Suppose, for instance, that the antecedent \script{A} happened to be false. ``If \script{A}, then \script{B}'' would then not tell us anything about the actual truth value of the consequent \script{B}, and it is unclear what the truth value of ``If \script{A}, then \script{B}'' would be.
-
-In English, the truth of conditionals often depends on what \emph{would} be the case if the antecedent \emph{were true}---even if, as a matter of fact, the antecedent is false. This poses a problem for translating conditionals into SL.  Considered as sentences of SL, $R$ and $B$ in the above examples have nothing intrinsic to do with each other. In order to consider what the world would be like if $R$ were true, we would need to analyze what $R$ says about the world. Since $R$ is an atomic symbol of SL, however, there is no further structure to be analyzed. When we replace a sentence with a sentence letter, we consider it merely as some atomic sentence that might be true or false.
-
-In order to translate conditionals into SL, we will not try to capture all the subtleties of the English language ``If$\ldots$, then$\ldots$.'' Instead, the symbol $\eif$ will be what logicians call a material conditional. This means that when \script{A} is false, the conditional \script{A} \eif \script{B} is automatically true, regardless of the truth value of \script{B}. If both \script{A} and \script{B} are true, then the conditional \script{A} \eif \script{B} is true.
+We can get a good sense of the decision we face if we try to write up the characteristic truth table for the conditional. The first two lines are easy. The sentence``If \script{A}, then \script{B}'' means that if \script{A} is true, then so is \script{B}. This would be confirmed by the situation where both \script{A} and \script{B} are true, but falsified by the situation where \script{A} is true and \script{B} is false. In terms of our example, if we came to class and found the apple there, but Jenny absent, we would know that the statement ``If there is an apple on the table, Jenny made it to class'' is false. But if we came to class and found both Jenny and the apple present, we could say that the statement ``If there is an apple on the table, Jenny made it to class'' is true. That gives us this much of a truth table.
 
 
-In short, \script{A} \eif \script{B} is false if and only if \script{A} is true and \script{B} is false. We can summarize this with a characteristic truth table for the conditional.
+\begin{center}
+\begin{tabular}{c|c|c}
+\script{A} & \script{B} & \script{A}\eif\script{B}\\
+\hline
+T & T & T\\
+T & F & F\\
+F & T & ?\\
+F & F & ?
+\end{tabular}
+\end{center}
+
+How do we fill in the question marks in the last two lines?  In real life, we would generally make judgments on a case by case basis, relying heavily on the context we are in. But for a formal language we just want to lay down a simple rule. The traditional solution for sentential logic is to say that the conditional is what logicians call a ``material conditional.'' If the antecedent of a material conditional is false, then the whole statement is automatically true, regardless of the truth value of \script{B}. In short, \script{A} \eif \script{B} is false if and only if \script{A} is true and \script{B} is false. We can summarize this with a characteristic truth table for the conditional.
 
 \begin{center}
 \begin{tabular}{c|c|c}
@@ -424,33 +435,16 @@ When I say this, it means that I will be on the porch, regardless of whether any
 %%%%%%%%%%%%%%%% 6.2.5 Biconditional
 
 \subsection{Biconditional}
-Consider these sentences:
-\begin{earg}
-\item[\ex{iff1}] The figure on the board is a triangle only if it has exactly three sides.
-\item[\ex{iff2}] The figure on the board is a triangle if it has exactly three sides.
-\item[\ex{iff3}] The figure on the board is a triangle if and only if it has exactly three sides.
-\end{earg}
-
-Let $T$ mean ``The figure is a triangle'' and $S$ mean ``The figure has three sides.''
-
-Sentence \ref{iff1}, for reasons discussed above, can be translated as $T\eif S$.
-
-Sentence \ref{iff2} is importantly different. It can be paraphrased as ``If the figure has three sides, then it is a triangle.'' So it can be translated as $S\eif T$.
 
 \newglossaryentry{biconditional}
 {
 name=biconditional,
-description={The symbol \eiff, used to represent words and phrases that function like the English phrase ``if and only if.''}
+description={A sentential connective, written as double headed arrow, $\eiff$, used to represent a situation where $A$ implies  $B$ and $B$ implies $A$. This is also the situation where $A$ and $B$ are logically equivalent. This is often expressed by the English phrase ``if and only if.''}
 }
 
+The conditional was an asymmetric connective. The sentence $A \eif B$ does not mean the same thing as the sentence $B \eif A$. It is convenient to have a single symbol that combines the meaning of these two sentences. The \textsc{\gls{biconditional}}\label{def:bicondional}---written as double headed arrow, $\eiff$---is a sentential connective used to represent a situation where $A$ implies $B$ and $B$ implies $A$. 
 
-Sentence \ref{iff3} says that $T$ is true \emph{if and only if} $S$ is true; we can infer $S$ from $T$, and we can infer $T$ from $S$. This is called a \textsc{\gls{biconditional}}, \label{def:biconditional} because it entails the two conditionals $S\eif T$ and $T \eif S$. We will use \eiff  to represent the biconditional; sentence \ref{iff3} can be translated as $S \eiff T$.
-
-We could abide without a new symbol for the biconditional. Since sentence \ref{iff3} means ``$T \eif S$ and $S\eif T$,'' we could translate it as $(T \eif S)\eand(S\eif T)$. We would need parentheses to indicate that $(T \eif S)$ and $(S\eif T)$ are separate conjuncts; the expression $T \eif S\eand S\eif T$ would be ambiguous.
-
-Because we could always write $(\script{A}\eif\script{B})\eand(\script{B}\eif\script{A})$ instead of $\script{A}\eiff\script{B}$, we do not strictly speaking \emph{need} to introduce a new symbol for the biconditional. Nevertheless, logical languages usually have such a symbol. SL will have one, which makes it easier to translate phrases like ``if and only if.''
-
-\script{A} \eiff \script{B} is true if and only if \script{A} and \script{B} have the same truth value. \label{defBiconditional}This is the characteristic truth table for the biconditional:
+To draw up the characteristic truth table for the biconditional, we need to think about the situations where $A \eif B$ and $B \eif A$ are false. The sentence $A \eif B$ is only false when $A$ is true and $B$ is false. For $B \eif A$ the reverse is true. It is false when $B$ is true and $A$ is false. Our biconditional $A \eiff B$ needs to avoid both of these situations to be true, because it is only true when $A \eif B$ and $B \eif A$ are true. This, then, is the characteristic truth table for the biconditional. It says that the biconditional is true when the truth values of the two sides match.
 
 \begin{center}
 \begin{tabular}{c|c|c}
@@ -463,12 +457,44 @@ F & F & T
 \end{tabular}
 \end{center}
 
+If the bioconditional holds between two sentences, we can that the two sentences are logically equivalent. Back on page \pageref{def:logical_equivalence}, we said that two sentences were logically equivalent if they always  have the same truth value. That is exactly what is happening here. 
+
+
 % ******************************************
-%  * 		Other Symbolization	                          *
+%  * 		More complicated translations                     *
 % ******************************************
 
-\section{Other Symbolization}
-We have now introduced all of the connectives of SL. We can use them together to translate many kinds of sentences. Consider these examples of sentences that use the English-language connective ``unless'':
+\section{More complicated translations}
+
+\iflabelexists{part:cat_logic} %There are two versions of this passage, one for books that include the chapters on categorical logic, and a generic one
+{Back in section \ref{sec:transformation}, we saw that the system of categorical logic we were studying at the time could actually represent a large range of sentences in ordinary English, even though it only had the quantifiers ``All'' and ``some'' plus negation. In this section, we will see that something similar happens with SL. There is actually a lot we can cover, even though we only have five connectives. }%this is the preamble for texts that include categorical logic
+{The previous section introduced the five sentential connectives. Now we will look at some trickier translations involving those connectives}%this is the generic preamble
+
+
+\subsection{Combining connectives}
+
+\iflabelexists{part:cat_logic} %There are two versions of this passage, one for books that include the chapters on categorical logic, and a generic one
+{In our system of categorical logic, we just had four kinds of sentences---A, E, I, and O---and if we wanted to combine them, the only way to do that would be to form a syllogism. In SL, we can combine an unlimited number of connectives together into a single sentence to express complicated ideas that couldn't be represented by Aristotelean logic. }%this is the preamble for texts that include categorical logic
+{A single sentence in SL can use multiple connectives.} %this is the generic preamble
+
+Consider the English sentence ``If it is not raining, we will have a picnic.'' There are two aspects of this sentence we will want to represent with sentential connectives in SL, the ``if\ldots then\ldots'' structure and the negation in the first part of the sentence. The rest of the sentence can be represented by these sentence letters
+
+\begin{ekey}
+\item[$A$:] It is raining.
+\item[$M$:] We will have a picnic.
+\end{ekey}
+
+We can then translate the whole sentence into SL like this: $\enot A \eif B$. We can make sentences as complicated as we want this way, even to the point where the equivalent English sentence would be impossible to follow. The sentence $\enot (P \eand Q) \eif  [(R \eor S) \eiff \enot (T \eand U)]$ is perfectly acceptable in SL, even if any English sentence it translates into would be a monster. This is part of the power of a complete formal language like SL, but it is also why arguments in SL begin to resemble the ob/ob mouse more than they resemble any argument you might encounter in the wild. (See page \pageref{fig:ob_ob_mouse}) 
+
+We could abide without a new symbol for the biconditional. Since sentence \ref{iff3} means ``$T \eif S$ and $S\eif T$,'' we could translate it as $(T \eif S)\eand(S\eif T)$. We would need parentheses to indicate that $(T \eif S)$ and $(S\eif T)$ are separate conjuncts; the expression $T \eif S\eand S\eif T$ would be ambiguous.
+
+Because we could always write $(\script{A}\eif\script{B})\eand(\script{B}\eif\script{A})$ instead of $\script{A}\eiff\script{B}$, we do not strictly speaking \emph{need} to introduce a new symbol for the biconditional. Nevertheless, logical languages usually have such a symbol. SL will have one, which makes it easier to translate phrases like ``if and only if.''
+
+
+
+\subsection{Unless}
+
+Consider these examples of sentences that use the English-language connective ``unless'':
 
 \begin{earg}
 \item[\ex{unless1}] Unless you wear a jacket, you will catch cold. 
@@ -490,7 +516,65 @@ When symbolizing sentences like sentence \ref{unless1} and sentence \ref{unless2
 If a sentence can be paraphrased as ``Unless \script{A}, \script{B},'' then it can be symbolized as $\script{A}\eor\script{B}$.
 }
 
+\subsection{Only}
 
+For the following sentences, let $R$ mean ``You will cut the red wire'' and $B$ mean ``The bomb will explode.''
+
+\begin{earg}
+\item[\ex{if1}] If you cut the red wire, then the bomb will explode.
+\item[\ex{if2}] The bomb will explode only if you cut the red wire.
+\end{earg}
+
+
+Sentence \ref{if1} can be translated partially as ``If $R$, then $B$.'' 
+Sentence \ref{if2} is also a conditional. Since the word ``if'' appears in the second half of the sentence, it might be tempting to symbolize this in the same way as sentence \ref{if1}. That would be a mistake.
+
+The conditional $R\eif B$ says that \emph{if} $R$ were true, \emph{then} $B$ would also be true. It does not say that you cutting the red wire is the \emph{only} way that the bomb could explode. Someone else might cut the wire, or the bomb might be on a timer. The sentence $R\eif B$ does not say anything about what to expect if $R$ is false. Sentence \ref{if2} is different. It says that the only conditions under which the bomb will explode involve you having cut the red wire; i.e., if the bomb explodes, then you must have cut the wire. As such, sentence \ref{if2} should be symbolized as $B \eif R$.
+
+It is important to remember that the connective $\eif$ says only that, if the antecedent is true, then the consequent is true. It says nothing about the \emph{causal} connection between the two events. Translating sentence \ref{if2} as $B \eif R$ does not mean that the bomb exploding would somehow have caused you cutting the wire. Both sentence \ref{if1} and \ref{if2} suggest that, if you cut the red wire, you cutting the red wire would be the cause of the bomb exploding. They differ on the \emph{logical} connection. If sentence \ref{if2} were true, then an explosion would tell us---those of us safely away from the bomb---that you had cut the red wire. Without an explosion, sentence \ref{if2} tells us nothing.
+
+\factoidbox{
+The paraphrased sentence ``\script{A} only if \script{B}'' is logically equivalent to ``If \script{A}, then \script{B}.''
+}
+
+
+Consider these sentences:
+\begin{earg}
+\item[\ex{iff1}] The figure on the board is a triangle only if it has exactly three sides.
+\item[\ex{iff2}] The figure on the board is a triangle if it has exactly three sides.
+\item[\ex{iff3}] The figure on the board is a triangle if and only if it has exactly three sides.
+\end{earg}
+
+Let $T$ mean ``The figure is a triangle'' and $S$ mean ``The figure has three sides.''
+
+Sentence \ref{iff1}, for reasons discussed above, can be translated as $T\eif S$.
+
+Sentence \ref{iff2} is importantly different. It can be paraphrased as ``If the figure has three sides, then it is a triangle.'' So it can be translated as $S\eif T$.
+
+
+Sentence \ref{iff3} says that $T$ is true \emph{if and only if} $S$ is true; we can infer $S$ from $T$, and we can infer $T$ from $S$. This is called a \textsc{\gls{biconditional}}, \label{def:biconditional} because it entails the two conditionals $S\eif T$ and $T \eif S$. We will use \eiff  to represent the biconditional; sentence \ref{iff3} can be translated as $S \eiff T$.
+
+
+
+\subsection{Combining negation and disjunction}
+
+These sentences are somewhat more complicated:
+
+\begin{earg}
+\item[\ex{or3}] Either you will not have soup, or you will not have salad.
+\item[\ex{or4}] You will have neither soup nor salad.
+\item[\ex{or.xor}] You get either soup or salad, but not both.
+\end{earg}
+
+We let $S_1$ mean that you get soup and $S_2$ mean that you get salad.
+
+Sentence \ref{or3} can be paraphrased in this way: ``Either \emph{it is not the case that} you get soup, or \emph{it is not the case that} you get salad.'' Translating this requires both disjunction and negation. It becomes $\enot S_1 \eor \enot S_2$.
+
+Sentence \ref{or4} also requires negation. It can be paraphrased as, ``\emph{It is not the case that} either you get soup or you get salad.'' We need some way of indicating that the negation does not just negate the right or left disjunct, but rather negates the entire disjunction. In order to do this, we put parentheses around the disjunction: ``It is not the case that $(S_1 \eor S_2)$.'' This becomes simply $\enot (S_1 \eor S_2)$.
+
+Notice that the parentheses are doing important work here. The sentence $\enot S_1 \eor S_2$ would mean ``Either you will not have soup, or you will have salad.''
+
+Sentence \ref{or.xor} is an \emph{exclusive or}. Although $\eor$ is an inclusive or, we can symbolize an exclusive or in {SL}. We just need more than one connective to do it. We can break the sentence into two parts. The first part says that you get one or the other. We translate this as $(S_1 \eor S_2)$. The second part says that you do not get both. We can paraphrase this as ``It is not the case both that you get soup and that you get salad.'' Using both negation and conjunction, we translate this as $\enot(S_1 \eand S_2)$. Now we just need to put the two parts together. As we saw above, ``but'' can usually be translated as a conjunction. Sentence \ref{or.xor} can thus be translated as $(S_1 \eor S_2) \eand \enot(S_1 \eand S_2)$.
 
 
 % ******************************************
@@ -500,7 +584,7 @@ If a sentence can be paraphrased as ``Unless \script{A}, \script{B},'' then it c
 
 \section{Recursive Syntax for SL} % I reworked this section to focus on the idea of recursive syntax
 
-The previous two sections gave you a rough, informal sense of how to create sentences in SL. If I give you an English sentence like ``Grass is either green or brown,'' you should be able to write a corresponding sentence in SL: ``$A \eor B$.'' In this section we want to give a more precise definition of a sentence in SL.  When we defined sentences in English, we did so using the concept of truth: Sentences were units of language that can be true or false. In SL, it is possible to define what counts as a sentence without talking about truth. Instead, we can just talk about the structure of the sentence. This is one respect in which a formal language like SL is more precise than a natural language like English.
+The previous two sections gave you a rough, informal sense of how to create sentences in SL. If I give you an English sentence like ``Grass is either green or brown,'' you should be able to write a corresponding sentence in SL: ``$A \eor B$.'' In this section we want to give a more precise definition of a sentence in SL.  When we defined sentences in English, we did so using the concept of truth: Sentences were units of language that can be true or false. (See page \pageref{def:statement}.) In SL, it is possible to define what counts as a sentence without talking about truth. Instead, we can just talk about the structure of the sentence. This is one respect in which a formal language like SL is more precise than a natural language like English.
 
 \newglossaryentry{syntax}
 {
@@ -566,7 +650,7 @@ Consider negation: Given any sentence \script{A} of SL, $\enot\script{A}$ is a s
 \newglossaryentry{sentence of SL}
 {
 name=sentence of SL,
-description={A string of symbols in SL that can be built up using according to the recursive rules given on page }
+description={A string of symbols in SL that can be built up using according to the recursive rules given on page \pageref{def:sentence_of_SL}.} % }
 }
 
 
@@ -592,6 +676,16 @@ description={A definition that defines a term by identifying base class and rule
 }
 
 Definitions like this are called recursive. \textsc{\Glspl{recursive definition}} \label{def:recursive_definition} begin with some specifiable base elements and define ways to indefinitely compound the base elements. Just as the recursive definition allows complex sentences to be built up from simple parts, you can use it to decompose sentences into their simpler parts. To determine whether or not something meets the definition, you may have to refer back to the definition many times.
+
+\newglossaryentry{sentential logic}
+{
+name=sentential logic,
+description={A system of logic in which statements can be defined using a recursive definition with only sentences in the base class.}
+}
+
+
+We are now in a position to define what it means for a system of logic to be a system of sentential logic. A \textsc{\gls{sentential logic}} \label{def:sentential_logic} is a system of logic in which statements can be defined using a recursive definition with only sentences in the base class. This book defines on system of sentential logic, which we call SL. Other books use other systems.
+
 
 \newglossaryentry{scope}
 {
@@ -648,16 +742,16 @@ If we had given a different definition for a sentence, then these could count as
 \item[G:] Those creatures are gorillas.
 \end{ekey}
 \begin{earg}
-\item Those creatures are not men in suits. % {\color{red}$\enot M$} \vspace{1ex}
-\item Those creatures are men in suits, or they are not. % {\color{red}$M \eor \enot M$} \vspace{1ex}
-\item Those creatures are either gorillas or chimpanzees. % {\color{red}$G \eor C$} \vspace{1ex}
-\item Those creatures are not gorillas, but they are not chimpanzees either. % {\color{red}$\enot G \eand \enot C$} \vspace{1ex}
-\item Those creatures cannot be both gorillas and men in suits. % {\color{red}$\enot(G \eand M)$} \vspace{1ex}
-\item If those creatures are not gorillas, then they are men in suits % {\color{red} $\enot G \eif M$} \vspace{1ex}
-\item Those creatures are men in suits only if they are not gorillas. % {\color{red} $M \eif \enot G$} \vspace{1ex}
-\item Those creatures are chimpanzees if and only if they are not gorillas. % {\color{red} $C \eiff G$} \vspace{1ex}
-\item Those creatures are neither gorillas nor chimpanzees. % {\color{red} $~(G \eor C).$ See p.34, sentence 19, and p. 156} \vspace{1ex}
-\item Unless those creatures are men in suits, they are either chimpanzees or they are gorillas. % {\color{red}$M \eor (C \eor G)$} \vspace{1ex}
+\item Those creatures are not men in suits. \answer{$\enot M$} 
+\item Those creatures are men in suits, or they are not. \answer{$M \eor \enot M$} 
+\item Those creatures are either gorillas or chimpanzees. \answer{$G \eor C$} 
+\item Those creatures are not gorillas, but they are not chimpanzees either. \answer{$\enot G \eand \enot C$} 
+\item Those creatures cannot be both gorillas and men in suits. \answer{$\enot(G \eand M)$} 
+\item If those creatures are not gorillas, then they are men in suits \answer{$\enot G \eif M$} 
+\item Those creatures are men in suits only if they are not gorillas. \answer{$M \eif \enot G$} 
+\item Those creatures are chimpanzees if and only if they are not gorillas. \answer{$C \eiff G$} 
+\item Those creatures are neither gorillas nor chimpanzees. \answer{$~(G \eor C).$} %See p.34, sentence 19, and p. 156
+\item Unless those creatures are men in suits, they are either chimpanzees or they are gorillas. \answer{$M \eor (C \eor G)$} 
 \end{earg}
 
 %If					X
@@ -823,7 +917,7 @@ For each argument, write a symbolization key and translate the argument as well 
 %\end{ekey}
 
 %begin{\earg}
-%\item[1.] $A \ief B$
+%\item[1.] $A \eif B$
 %\item[2.] $A \eor C$
 %\item[$$\therefore$$] $\enot B \eif C$
 %}
@@ -965,6 +1059,10 @@ For each argument, write a symbolization key and translate the argument as well 
 \sortitem{Main connective}{}
 \sortitem{Recursive definition}{}
 \sortitem{Scope}{}
+\sortitem{Nonlogical symbol}{}
+\sortitem{Logical constant}{}
+\sortitem{Exclusive or}{}
+\sortitem{Inclusive or}{}
 \end{sortedlist}
 \end{multicols}
 

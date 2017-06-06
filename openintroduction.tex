@@ -1,4 +1,4 @@
-\documentclass[openany, twoside]{book}
+\documentclass[twoside, openright]{book}
 
 %glossary and indexing stuff
 \usepackage[toc, nopostdot, numberedsection]{glossaries}
@@ -30,7 +30,7 @@
 %%% Bibstuff
 \usepackage[authordate,autocite=inline,backend=biber, natbib]{biblatex-chicago}
 \bibliography{tex/z-openlogic}
-\usepackage[nottoc,numbib]{tocbibind}
+
 
 %%%  graphics packages %%%
 \usepackage{tikz}
@@ -71,7 +71,7 @@
 
 \begin{document}
 
-\label{showanswers} %uncomment this tag and typeset twice to show answers
+%\label{showanswers} %uncomment this tag and typeset twice to show answers
 
 
 \raggedright
@@ -104,17 +104,17 @@
 \label{full_version} %Include this label to make cross references work right when typesetting full text
 
 %
-%\part{Basic Concepts} \label{part:basic_concepts}
+\part{Basic Concepts} \label{part:basic_concepts}
 %\include{tex/ch01-whatislogic}	
 %\include{tex/ch02-basicevaluation}
 %
 %\part{Formal Logic} \label{part:formal_logic}
 %\include{tex/ch03-whatisformallogic}
-%\part{Categorical Logic}\label{part:cat_logic}
+\part{Categorical Logic}\label{part:cat_logic}
 %\include{tex/ch04-categoricalstatements}
-\include{tex/ch05-categoricalsyllogisms}
+%\include{tex/ch05-categoricalsyllogisms}
 %\part{Sentential Logic} \label{part:sent_logic}
-%\include{tex/ch06-sentential}	
+\include{tex/ch06-sentential}	
 %\include{tex/ch07-truthtables}
 %\include{tex/ch08-proofsinsl}
 %%\part{Quantificational Logic} \label{part:quant_logic}
@@ -148,13 +148,10 @@
 \appendix
 \include{tex/z-app-notation}
 %\include{app-solutions}
-
-\begin{flushleft}
-\printbibliography[heading=bibintoc]
+\printbibliography[heading=bibnumbered]
 
 %\bibliography{tex/z-openlogic}{}
 %\bibliographystyle{Chicago}
-\end{flushleft}
 
 \setglossarysection{chapter}
 \printglossaries
