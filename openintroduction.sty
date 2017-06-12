@@ -15,8 +15,11 @@
 
 \newcommand{\answer}[1]{\ifcsundef{r@showanswers}{}{{\color{red}#1}}}
 
-\newcommand{\answerblank}[2]{\ifcsundef{r@showanswers}{#2}{{\color{red}#1}}}
+%This is the first way I encoded the answer sheet in the text. After each problem, the command ``\answer{foobar}'' appears, where ``foobar'' is the text of the answer. If the label ``{showanswers}'' is uncommented at the beginning of the document the answers will appear after the problem in red
 
+\newcommand{\answerblank}[2]{\ifcsundef{r@showanswers}{\iflabelexists{blank_prob_set}{#2}{}}{{\color{red}#1}}}
+
+%this is the first modification of the \answer command. With this version, you can use the label ``showanswers'' to print the answers, or the label {blank_prob_seet} to print blank space for handouts. Problems that have been formatted for this command have the answer coded like this: ``\answerblank{[problem answer]}{[problem space]}
 
 
 %    ****************************************
