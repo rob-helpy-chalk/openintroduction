@@ -1,3 +1,27 @@
+@Video{Sagan1980,
+  title = 	 {Encyclopaedia Galactica},
+  date = 	 1980,
+  booktitle = 	 {Cosmos},
+  booktitleaddon = 	 {Episode~12},
+  author = 	 {Sagan, Carl and Druyan, Ann and Soter, Steven},
+  eventdate = 	 {1980-12-14},
+%  editor = 	 { },
+%  editortype = 	 {director},
+  publisher = { },
+%  type = 	 {DVD},
+  annotation = 	 {This is a template for citing television shows.  The
+                  \textsf{eventdate} is the original broadcast date,
+                  while the \textsf{date} applies to the
+                  \vadjust{\eject}medium you are citing.  As in other
+                  audiovisual entries, the earliest date automatically
+                  goes at the head of the entry.  Note that
+                  information about the season and episode numbers
+                  goes in \textsf{booktitleaddon}.}
+}
+
+
+
+
 
 @Article{NASA2015,
 journaltitle = {NASA Space Place},
@@ -28,33 +52,34 @@ annotation = {.}
 
 
 
-
-
-@misc{Carnap1928,
-howpublished = {Translated by Rolf A. George in \textit{The Logical Structure of the World and Pseudoproblems in Philosophy} Chicago: Open Court},
-address = {Berlin},
+@inbook{Carnap1928,
 author = {Carnap, Rudolf},
-publisher = {Weltkreis-Verlag},
-title = {{Scheinprobleme in der Philosophie}},
-year = {1928}
+title = {Pseudoproblems  in Philosophy},
+booktitle = {The Logical Structure of the World and Pseudoproblems in Philosophy},
+translator ={Rolf A. George},
+year = 2003,
+origdate = 1928,
+publisher ={Open Court Press}
 }
+	
 
 
 @book{Okrent2009,
-address = {New York},
+%address = {New York},
 author = {Okrent, Arika},
-publisher = {Random House (1966), Hardcover},
+publisher = {Random House},
 title = {{In the Land of Invented Languages: Esperanto Rock Stars, Klingon Poets, Loglan Lovers, and the Mad Dreamers Who Tried to Build A Perfect Language}},
 year = {2009}
 }
 
 
-@misc{Tolkein1931,
-howpublished = {Originally a talk entitled ``A Hobby From Home,'' given to a philological society. Now reprinted by Harper Collins edited by D. Fimi and A. Higgins.},
+@book{Tolkien1931,
 author = {Tolkein, J.R.R.},
-file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Tolkein/Tolkein - 1931 - A Secret Vice.PDF:PDF},
+publisher = {Harper Collins}, 
+editor = {D. Fimi and A. Higgins},
 title = {{A Secret Vice}},
-year = {{1931/2016}}
+year = 2016,
+origdate = 1931
 }
 
 
@@ -62,7 +87,7 @@ year = {{1931/2016}}
 @article{DutilhNovaes2011,
 abstract = {What does it mean to say that logic is formal? The short answer is: it means (or can mean) several different things. In this paper, I argue that there are (at least) eight main variations of the notion of the formal that are relevant for current discussions in philosophy and logic, and that they are structured in two main clusters, namely the formal as pertaining to forms, and the formal as pertaining to rules. To the first cluster belong the formal as schematic; the formal as indifference to particulars; the formal as topic-neutrality; the formal as abstraction from intentional content; the formal as de-semantification. To the second cluster belong the formal as computable; the formal as pertaining to regulative rules; the formal as pertaining to constitutive rules. I analyze each of these eight variations, providing their historical background and raising related philosophical questions. The significance of this work of ?conceptual archeology? is that it may enhance clarity in debates where the notion of the formal plays a prominent role (such as debates where it is expected to play a demarcating role), but where it is oftentimes used equivocally and/or imprecisely. What does it mean to say that logic is formal? The short answer is: it means (or can mean) several different things. In this paper, I argue that there are (at least) eight main variations of the notion of the formal that are relevant for current discussions in philosophy and logic, and that they are structured in two main clusters, namely the formal as pertaining to forms, and the formal as pertaining to rules. To the first cluster belong the formal as schematic; the formal as indifference to particulars; the formal as topic-neutrality; the formal as abstraction from intentional content; the formal as de-semantification. To the second cluster belong the formal as computable; the formal as pertaining to regulative rules; the formal as pertaining to constitutive rules. I analyze each of these eight variations, providing their historical background and raising related philosophical questions. The significance of this work of ?conceptual archeology? is that it may enhance clarity in debates where the notion of the formal plays a prominent role (such as debates where it is expected to play a demarcating role), but where it is oftentimes used equivocally and/or imprecisely.},
 author = {{Dutilh Novaes}, Catarina},
-doi = {10.1080/01445340.2011.555505},
+%doi = {10.1080/01445340.2011.555505},
 file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Dutilh Novaes/Dutilh Novaes - 2011 - The Different Ways in which Logic is (said to be) Formal.pdf:pdf},
 %isbn = {0144-5340},
 %issn = {0144-5340},
@@ -76,23 +101,29 @@ year = {2011}
 
 
 @book{Panini2015,
-author = {P\={a}\d{n}ini},
-edition = {2nd},
+author =  {P\={a}\d{n}ini, Dākṣīputra},  %{P\={a}nini},
+edition = {2nd edition},
 translator = {Katre, Sumitra M.},
+%origlanguage = {sanskrit},
 publisher = {Motilal Banarsidass},
-title = {{A\d{s}\d{t}\={a}dhy\={a}y\={i}}},
+title = {{A\d{s}\d{t}\={a}dhy\={a}y\={i}}}, % {{Ast\={a}dhy\={a}y\={i}}}, % 
 year = {2015} %c. 350 \textsc{bce}/
 }
 
+%note, you must run biber from the command line with the ``--output-safechars'' flag in order to display \d{n}, \d{s} and \d{t} properly.
 
-
-@misc{Dretzin2004,
+@Article{Dretzin2004,
+entrysubtype = {magazine},
 author = {Dretzin, Rachel and Goodman, Barak and Soenens, Muriel},
+journaltitle = {PBS: Frontline},
 publisher = {Corporation for Public Broadcasting},
-title = {{Frontline: The Persuaders}},
-url = {http://tinyurl.com/6sjku},
-year = {2004}
+title = {Interview with Frank Luntz},
+url = {http://www.pbs.org/wgbh/pages/frontline/shows/persuaders/interviews/luntz.html},
+origdate = {2003-12-15},
+date = {2004-11-09}
 }
+
+%Frontline: The Persuaders
 
 
 @misc{Orwell1946,
@@ -126,10 +157,10 @@ year = {2014}
 abstract = {I know my own mind.I am able to assess others in a fair and accurate way.These self-perceptions are challenged by leading psychologists Mahzarin R. Banaji and Anthony G. Greenwald as they explore the hidden biases we all carry from a lifetime of exposure to cultural attitudes about age, gender, race, ethnicity, religion, social class, sexuality, disability status, and nationality.“Blindspot” is the authors' metaphor for the portion of the mind that houses hidden biases. Writing with simplicity and verve, Banaji and Greenwald question the extent to which our perceptions of social groups—without our awareness or conscious control—shape our likes and dislikes and our judgments about people's character, abilities, and potential.In Blindspot, the authors reveal hidden biases based on their experience with the Implicit Association Test, a method that has revolutionized the way scientists learn about the human mind and that gives us a glimpse into what lies within the metaphoric blindspot.The title's “good people” are those of us who strive to align our behavior with our intentions. The aim of Blindspot is to explain the science in plain enough language to help well-intentioned people achieve that alignment. By gaining awareness, we can adapt beliefs and behavior and “outsmart the machine” in our heads so we can be fairer to those around us. Venturing into this book is an invitation to understand our own minds.Brilliant, authoritative, and utterly accessible, Blindspot is a book that will challenge and change readers for years to come.Praise for Blindspot “A riveting book steeped in research that feels personal, sometimes uncomfortably so . . . Banaji and Greenwald capture our attention . . . in this accessible and sobering book.”—BookPage “Accessible and authoritative . . . This research takes Freud's dagger into our vanity and twists it.”—The Washington Post “An accessible and persuasive account of the causes of stereotyping and discrimination . . . Banaji and Greenwald will keep even nonpsychology students engaged with plenty of self-examinations and compelling elucidations of case studies and experiments.”—Publishers Weekly “Mahzarin R. Banaji and Anthony G. Greenwald's work has revolutionized social psychology, proving that—unconsciously—people are affected by dangerous stereotypes.”—Psychology Today  “A stimulating treatment that should help readers deal with irrational biases that they would otherwise consciously reject.”—Kirkus Reviews},
 author = {Banaji, Mahzarin R. and Greenwald, Anthony G.},
 %isbn = {0553804642},
-pages = {254},
+%pages = {254},
 publisher = {Delacorte Press},
-title = {{Blind Spot: Hidden Biases of Good People}},
-url = {https://books.google.com/books?id=\_7NU-HXdGF4C\&pgis=1},
+title = {{Blind spot: Hidden biases of good people}},
+%url = {https://books.google.com/books?id=\_7NU-HXdGF4C\&pgis=1},
 year = {2013}
 }
 
@@ -142,7 +173,7 @@ keywords = {Discrimination,Prejudice,Racial labels},
 number = {40},
 pages = {183--190},
 publisher = {Elsevier Inc.},
-title = {{A rose by any other name: The consequences of subtyping "African-Americans" from "Blacks"}},
+title = {{A rose by any other name: The consequences of subtyping `African-Americans' from `Blacks'}},
 volume = {56},
 year = {2015}
 }
@@ -168,10 +199,10 @@ abstract = {Critics of intelligence tests writers such as Robert Sternberg, Howa
 author = {Stanovich, Keith E.},
 %isbn = {0300142536},
 mendeley-groups = {Current/Logic and Critical Thinking/Critical Thinking},
-pages = {325},
+%pages = {325},
 publisher = {Yale University Press},
 title = {{What Intelligence Tests Miss: The Psychology of Rational Thought}},
-url = {https://books.google.com/books/about/What\_Intelligence\_Tests\_Miss.html?id=2SQvleDwn9YC\&pgis=1},
+%url = {https://books.google.com/books/about/What\_Intelligence\_Tests\_Miss.html?id=2SQvleDwn9YC\&pgis=1},
 year = {2009}
 }
 
@@ -190,7 +221,7 @@ year = {1748}
 abstract = {This second edition has been extensively revised with updated examples and a brand new chapter on how to obtain reliable information from the internet. Studying critical thinking involves trying to change the ways in which most of us think. In this second edition of the popular 'Critical Thinking: An Introduction', Alec Fisher concentrates on developing critical thinking skills explicitly and directly. His aim is to teach the ability to interpret, analyse and evaluate ideas and arguments and to show how these skills can be transferred to other studies and everyday life. A new chapter covers getting reliable information from the internet and examples and passages have been replaced by completely new material. The book is also suitable for the independent learner.},
 author = {Fisher, Alec},
 %isbn = {1107401984},
-pages = {294},
+%pages = {294},
 publisher = {Cambridge University Press},
 title = {{Critical Thinking: An Introduction}},
 %url = {http://books.google.com/books/about/Critical\_Thinking.html?id=wMhBQ0WdjF4C\&pgis=1},
@@ -219,7 +250,7 @@ file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Unknown/Unknown - Unknown - No 
 %isbn = {978-0-521-88617-8},
 pmid = {35448900},
 title = {{Informal logic: a pragmatic approach}},
-url = {http://www.cambridge.org/9780521713801},
+%url = {http://www.cambridge.org/9780521713801},
 year = {2008}
 }
 
@@ -227,7 +258,7 @@ year = {2008}
 @article{Rogers2011,
 abstract = {What happens when speakers try to "dodge" a question they would rather not answer by answering a different question? In 4 studies, we show that listeners can fail to detect dodges when speakers answer similar-but objectively incorrect-questions (the "artful dodge"), a detection failure that goes hand-in-hand with a failure to rate dodgers more negatively. We propose that dodges go undetected because listeners' attention is not usually directed toward a goal of dodge detection (i.e., Is this person answering the question?) but rather toward a goal of social evaluation (i.e., Do I like this person?). Listeners were not blind to all dodge attempts, however. Dodge detection increased when listeners' attention was diverted from social goals toward determining the relevance of the speaker's answers (Study 1), when speakers answered a question egregiously dissimilar to the one asked (Study 2), and when listeners' attention was directed to the question asked by keeping it visible during speakers' answers (Study 4). We also examined the interpersonal consequences of dodge attempts: When listeners were guided to detect dodges, they rated speakers more negatively (Study 2), and listeners rated speakers who answered a similar question in a fluent manner more positively than speakers who answered the actual question but disfluently (Study 3). These results add to the literatures on both Gricean conversational norms and goal-directed attention. We discuss the practical implications of our findings in the contexts of interpersonal communication and public debates.},
 author = {Rogers, Todd and Norton, Michael I},
-doi = {10.1037/a0023439},
+%doi = {10.1037/a0023439},
 file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Rogers, Norton/Rogers, Norton - 2011 - The Artful Dodger Answering the Wrong Question the Right Way.pdf:pdf},
 %isbn = {1076-898X},
 issn = {1076-898X},
@@ -291,28 +322,43 @@ year = {1988}
 }
 
 
-@book{SextusEmpiricus2000,
-abstract = {Outlines of Scepticism, by the Greek philosopher Sextus Empiricus, is a work of major importance for the history of Greek philosophy. It is the fullest extant account of ancient scepticism, and it is also one of our most copious sources of information about the other Hellenistic philosophies. Its argumentative approach revolutionized the study of philosophy when Sextus' works were rediscovered in the sixteenth century. This volume presents the accurate and readable translation which was first published in 1994, together with a substantial new historical and philosophical introduction by Jonathan Barnes.},
+
+@Book{SextusEmpiricus2000,
+title = {{Outlines of Scepticism}},
+%entrysubtype = {classical},
+year = 2000,
 author = {{Sextus Empiricus}},
 editor = {Barnes, Jonathan and Annas, Julia},
-isbn = {0521778093},
-pages = {248},
+nameb = {Barnes, Jonathan and Annas, Julia},
+%origlanguage = {greek},
+%userf = { },
+%isbn = {0521778093},
+maintitle = { },
 publisher = {Cambridge University Press},
-title = {{Sextus Empiricus: Outlines of Scepticism}},
-url = {https://books.google.com/books?id=mzO77w6KvDgC\&pgis=1},
-year = {c. 100--250/2000}
+abstract = {Outlines of Scepticism, by the Greek philosopher Sextus Empiricus, is a work of major importance for the history of Greek philosophy. It is the fullest extant account of ancient scepticism, and it is also one of our most copious sources of information about the other Hellenistic philosophies. Its argumentative approach revolutionized the study of philosophy when Sextus' works were rediscovered in the sixteenth century. This volume presents the accurate and readable translation which was first published in 1994, together with a substantial new historical and philosophical introduction by Jonathan Barnes.},
+annotation = {the {classical} subtype means that the book will
+be listed in the text by its title or shortitle, so that you can cite 
+Bekker numbers. The {userf} field gives the bibtext key for an 
+entry to the Greek original, in case you want to append that. 
+The \textsf{origlanguage} field means that the
+connecting text between the two books in the list of
+references will read \enquote{Greek edition:}
+instead of \enquote{Originally published as.} 
+{nameb} is the field for the translator.}
 }
 
 
-@book{Descartes2008,
+
+@book{Descartes1996,
 abstract = {'It is some years now since I realized how many false opinions I had accepted as true from childhood onwards...I saw that at some stage in my life the whole structure would have to be utterly demolished' In Descartes's Meditations, one of the key texts of Western philosophy, the thinker rejects all his former beliefs in the quest for new certainties. Discovering his own existence as a thinking entity in the very exercise of doubt, he goes on to prove the existence of God, who guarantees his clear and distinct ideas as a means of access to the truth. He develops new conceptions of body and mind, capable of serving as foundations for the new science of nature. Subsequent philosophy has grappled with Descartes's legacy, questioning many of its conclusions and even his basic approach, but his arguments set the agenda for many of the greatest philosophical thinkers, and their fascination endures. This new translation includes the Third and Fourth Objections and Replies in full, and a selection from the rest of these exchanges with Descartes's contemporaries that helped to expound his philosophy. ABOUT THE SERIES: For over 100 years Oxford World's Classics has made available the widest range of literature from around the globe. Each affordable volume reflects Oxford's commitment to scholarship, providing the most accurate text plus a wealth of other valuable features, including expert introductions by leading authorities, helpful notes to clarify the text, up-to-date bibliographies for further study, and much more.},
 author = {Descartes, Ren\'{e}},
-isbn = {0192806963},
-pages = {336},
-publisher = {OUP Oxford},
+origdate = 1641,
+publisher = {Cambridge University Press},
 title = {{Meditations on First Philosophy: with Selections from the Objections and Replies}},
-url = {https://books.google.com/books?id=9XQd\_ILFkn0C\&pgis=1},
-year = {1641/2008}
+editor = {John Cottingham},
+translator = {John Cottingham},	 	 
+%origlanguage = {latin},
+year = {1996}
 }
 
 
@@ -382,7 +428,7 @@ entrysubtype = {classical},
 year = 2001,
 author = {{Lucretius Carus}, Titus.},
 nameb = {Martin Ferguson Smith},
-origlanguage = {latin},
+%origlanguage = {latin},
 %userf = {aristotle:metaphy:gr},
 publisher = {Hackett Publishing},
 annotation = {the {classical} subtype means that the book will
@@ -415,7 +461,7 @@ author = {Kalish, Donald and Montague, Richard and Mar, Gary},
 %isbn = {0195155041},
 keywords = {Logic},
 mendeley-tags = {Logic},
-pages = {520},
+%pages = {520},
 publisher = {Oxford University Press},
 title = {{Logic: Techniques of Formal Reasoning}},
 %url = {http://books.google.com/books/about/Logic.html?id=\_c8CVQXUdpUC\&pgis=1},
@@ -485,17 +531,17 @@ url = {http://plato.stanford.edu/entries/medieval-terms/\#3},
 year = {2002}
 }
 
-@incollection{Aristotle1984d,
-%address = {Princeton, NJ},
+@book{Aristotle:refutations,
+title = {Sophistical refutations},
+entrysubtype = {classical},
+year = {1984}, %c. 350 \textsc{bce}/
 author = {Aristotle},
-booktitle = {The Complete Works of Aristotle},
 editor = {Barnes, Jonathan},
+nameb = {W. A. Pickard-Cambridge},
+%origlanguage = {greek},
+maintitle = {The Complete Works of Aristotle},
 publisher = {Princeton University Press},
-title = {{Sophistical Refutations}},
-year = {1984} %c. 350 \textsc{bce}/
 }
-
-
 
 
 @Book{Aristotle:heavens,
@@ -505,36 +551,24 @@ year = 1984,
 author = {Aristotle},
 editor = {Barnes, Jonathan},
 nameb = {Stocks, J.L.},
-origlanguage = {greek},
+%origlanguage = {greek},
 %userf = {aristotle:metaphy:gr},
 maintitle = {The Complete Works of Aristotle},
 publisher = {Princeton University Press},
 %location = {Princeton, NJ},
-annotation = {the {classical} subtype means that the book will
-be listed in the text by its title or shortitle, so that you can cite 
-Bekker numbers. The {userf} field gives the bibtext key for an 
-entry to the greek original, in case you want to append that. 
-The \textsf{origlanguage} field means that the
-connecting text between the two books in the list of
-references will read \enquote{Greek edition:}
-instead of \enquote{Originally published as.} 
-{nameb} is the field for the translator.}
 }
 
 
-
-
-
-
-
-@incollection{Aristotle1984b,
+@book{Aristotle:prior,
 %address = {Princeton, NJ},
-author = {Aristotle},
-booktitle = {The Complete Works of Aristotle},
-editor = {Barnes, Jonathan},
-publisher = {Princeton University Press},
 title = {{Prior Analytics}},
-year = {1984} %c. 350 \textsc{bce}/
+entrysubtype = {classical},
+year = {1984}, %c. 350 \textsc{bce}/
+author = {Aristotle},
+editor = {Barnes, Jonathan},
+nameb = {Jenkinson, A.J.},
+maintitle = {The Complete Works of Aristotle},
+publisher = {Princeton University Press},
 }
 
 
@@ -553,7 +587,7 @@ year = {1984} %c. 350 \textsc{bce}/
 
 @article{Parsons2008,
 author = {Parsons, Terence},
-doi = {10.1007/s11787-007-0031-x},
+%doi = {10.1007/s11787-007-0031-x},
 file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Parsons/Parsons - 2008 - Things That Are Right with the Traditional Square of Opposition.pdf:pdf},
 issn = {1661-8297},
 journal = {Logica Universalis},
@@ -611,14 +645,17 @@ year = {1896}
 }
 
 
-@book{pascal2005pensees,
+@book{Pascal1995,
 author = {Pascal, B},
-editor = {Trotter, W F},
-isbn = {9781420926101},
-publisher = {Digireads.com},
-title = {{Pensees (Thoughts)}},
-url = {http://books.google.com/books?id=-yPjmAEACAAJ},
-year = {1669/2005}
+editor = {{A. J. Krailsheimer}},
+translator = {{A. J. Krailsheimer}},
+%isbn = {9781420926101},
+origilanguage = {french},
+publisher = {Penguin Classics},
+title = {{Pens\'ees}},
+origdate = 1669,
+%url = {http://books.google.com/books?id=-yPjmAEACAAJ},
+year = {2005}
 }
 
 
@@ -641,23 +678,30 @@ year = {1994}
 }
 
 
-@misc{Barry1981,
+
+
+
+@Article{Barry1981,
+journaltitle = {The Miami Herold. \textnormal{Transcribed at}},
+entrysubtype = {magazine},
+date = {1981},
 author = {Barry, Dave},
-booktitle = {The Miami Herold},
 title = {{How To Argue Effectively}},
-howpublished = {Originally published in \emph{The Miami Herold}. Transcribed at: http://tinyurl.com/knn32yc},
-year = {1981}
+url = {http://www.cogsci.rpi.edu/~heuveb/teaching/CriticalThinking/Web/Handouts/DaveBarryArgueEffectively.pdf},
 }
+
+%I put ``Transcribed at'' in the journal title field, because I couldn't find a way to get it to appear before the url without being formatted as part of the url. ``Howpublished'' does not work for the @article type. 
+
 
 
 @book{Allan2001,
 abstract = {Provides a study of euphemism and dysphemism in the early Dutch and English languages},
 author = {Allan, Keith and Burridge, Kate},
-isbn = {0735102880},
-pages = {276},
+%isbn = {0735102880},
+%pages = {276},
 publisher = {Replica Books},
 title = {{Euphemism and Dysphemism: Language Used As Shield and Weapon}},
-url = {http://books.google.com/books/about/Euphemism\_and\_Dysphemism.html?id=YBtQPgAACAAJ\&pgis=1},
+%url = {http://books.google.com/books/about/Euphemism\_and\_Dysphemism.html?id=YBtQPgAACAAJ\&pgis=1},
 year = {2001}
 }
 
@@ -792,15 +836,15 @@ year = {1958}
 @article{Henrich2010,
 abstract = {Behavioral scientists routinely publish broad claims about human psychology and behavior in the world’s top journals based on samples drawn entirely from Western, Educated, Industrialized, Rich and Democratic (WEIRD) societies. Researchers - often implicitly - assume that either there is little variation across human populations, or that these “standard subjects” are as representative of the species as any other population. Are these assumptions justified? Here, our review of the comparative database from across the behavioral sciences suggests both that there is substantial variability in experimental results across populations and that WEIRD subjects are particularly unusual compared with the rest of the species - frequent outliers. The domains reviewed include visual perception, fairness, cooperation, spatial reasoning, categorization and inferential induction, moral reasoning, reasoning styles, self-concepts and related motivations, and the heritability of IQ. The findings suggest that members of WEIRD societies, including young children, are among the least representative populations one could find for generalizing about humans. Many of these findings involve domains that are associated with fundamental aspects of psychology, motivation, and behavior - hence, there are no obvious a priori grounds for claiming that a particular behavioral phenomenon is universal based on sampling from a single subpopulation. Overall, these empirical patterns suggests that we need to be less cavalier in addressing questions of human nature on the basis of data drawn from this particularly thin, and rather unusual, slice of humanity. We close by proposing ways to structurally re-organize the behavioral sciences to best tackle these challenges.},
 author = {Henrich, Joe and Heine, Steven J. and Norenzayan, Ara},
-doi = {10.2139/ssrn.1601785},
+%doi = {10.2139/ssrn.1601785},
 file = {:C$\backslash$:/Dropbox/Rob/mendeley/pdf/Henrich, Heine, Norenzayan/Henrich, Heine, Norenzayan - 2010 - The Weirdest People in the World.pdf:pdf},
-issn = {1556-5068},
+%issn = {1556-5068},
 journal = {Brain and Behaviorial Sciences},
 keywords = {behavioral economics,cross-cultural research,cultural psychology,culture,evolutionary psychology,experiments,external validity,generalizability,human universals,population variability},
 month = may,
 pages = {61--135},
 title = {{The Weirdest People in the World?}},
-url = {http://papers.ssrn.com/abstract=1601785 tinyurl.com/37tm274},
+%url = {http://papers.ssrn.com/abstract=1601785 tinyurl.com/37tm274},
 volume = {13},
 year = {2010}
 }

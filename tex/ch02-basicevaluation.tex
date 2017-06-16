@@ -259,136 +259,175 @@ A general trick for determining whether an argument is valid is to try to come u
 
 \practiceproblems
 
-\noindent\problempart  Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+\noindent\problempart  For each passage, (i) put the argument in canonical form and (ii) say whether it is valid or invalid.
 
-\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
-\textbf{Example}: & \textit{Monica is looking for her coworker} Jack is in his office. Jack's office is on the second floor. So, Jack is on the second floor. \\
-\textbf{Answer}: & \vspace{-16pt}
-\begin{earg*}
+\begin{longtabu}{X[1,l,p]X[.15,l,p]X[8.5,l,p]}
+
+\textbf{Example}: & \multicolumn{2}{p{.9\linewidth}}{\textit{Monica is looking for her coworker} Jack is in his office. Jack's office is on the second floor. So, Jack is on the second floor.} \\
+\\
+\textbf{Answer}: & (i) & {\color{white}.} \vspace{-22pt} \begin{earg*}
 \item Jack is in his office. 
 \item Jack's office is on the second floor.
 \itemc Jack is on the second floor.
-\end{earg*}
-Valid
-\\
+\end{earg*} \\
+& (ii) & Valid 
 \end{longtabu}
 
 \begin{exercises}
 \item All dinosaurs are people, and all people are fruit. Therefore all dinosaurs are fruit. 
 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item All dinosaurs are people
 \item All people are fruit. 
 \itemc[.4] All dinosaurs are fruit. 
 \end{earg*}
-
-\underline{Valid}}
+\item Valid
+\end{enumerate}
+}
 %% F, F, conclusion last
 
-\item All dogs are mammals. Therefore, Fido is a mammal, because Fido is a dog.  
-
-\answer{
-\begin{earg*}
-\item All dogs are mammals
-\item Fido is a dog.   
-\itemc[.4] Fido is a mammal, 
-\end{earg*}
-
-\underline{Valid}}
-%%Made up, conclusion middle
-
-\item Abe Lincoln must have been from France, because he was either from France or from Luxemborg, and we know was not from Luxemborg. 
-\answer{
-
-\begin{earg*}
-\item Abe Lincoln was either from France or from Luxemborg
-\item Abe Lincoln was not from Luxemborg. 
-\itemc[.4] Abe Lincoln was from France. 
-\end{earg*}
-
-\underline{Valid}}
-%%F, F, conclusion first
-
-\item Love is blind. God is love. Ray Charles is blind. Therefore, Ray Charles is God
-\answer{
-\begin{earg*}
-\item  Love is blind.
-\item  God is love. 
-\item  Ray Charles is blind. 
-\itemc[.4]  Ray Charles is God
-\end{earg*}
-\underline{Invalid}
-Inductive fallacy--equivocation, }%conclusion last
-
-\item If the world were to end today, then I would not need to get up tomorrow morning. I will need to get up tomorrow morning. Therefore, the world will not end today.
-
-\answer{
-\begin{earg*}
-\item If the world were to end today, then I would not need to get up tomorrow morning.
-\item I will need to get up tomorrow morning.
-\itemc[.4]  The world will not end today.
-\end{earg*}
-\underline{Valid}}
-%%Made up
 
 \item All people are mortal. Socrates is mortal. Therefore all people are Socrates. 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  All people are mortal.
 \item Socrates is mortal. 
 \itemc[.4]  All people are Socrates. 
 \end{earg*}
-\underline{Invalid}}
+\item Invalid
+\end{enumerate}}
 %%Formal fallacy
 
 
-\item \textit{A forest ranger is surveying the park} I can tell that bears have been down by the river, because there are tracks in the mud. Tracks like these are made by bears in almost every case. 
+
+\item All dogs are mammals. Therefore, Fido is a mammal, because Fido is a dog.  
 
 \answer{
-\begin{earg*}
-\item  There are tracks in the mud.
-\item Tracks like these are made by bears in almost every case. 
-\itemc[.4]  Bears have been down by the river
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
+\item All dogs are mammals
+\item Fido is a dog.   
+\itemc[.4] Fido is a mammal, 
 \end{earg*}
-\underline{Invalid}}
-%%Inductive, conclusion first 
+\item Valid
+\end{enumerate}
+}
+%%Made up, conclusion middle
+
+\item Abe Lincoln must have been from France, because he was either from France or from Luxemborg, and we know was not from Luxemborg. 
+\answer{
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
+\item Abe Lincoln was either from France or from Luxemborg
+\item Abe Lincoln was not from Luxemborg. 
+\itemc[.4] Abe Lincoln was from France. 
+\end{earg*}
+\item Valid
+\end{enumerate}
+}
+%%F, F, conclusion first
+
+
+\item If the world were to end today, then I would not need to get up tomorrow morning. I will need to get up tomorrow morning. Therefore, the world will not end today.
+
+\answer{
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
+\item If the world were to end today, then I would not need to get up tomorrow morning.
+\item I will need to get up tomorrow morning.
+\itemc[.4]  The world will not end today.
+\end{earg*}
+\item Valid
+\end{enumerate}
+}
+%%Made up
 
 \item If the triceratops were a dinosaur, it would be extinct. Therefore, the triceratops is extinct, because the triceratops was a dinosaur. 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  If the triceratops were a dinosaur, it would be extinct.
 \item The triceratops is extinct 
 \itemc[.4] The triceratops was a dinosaur. 
 \end{earg*}
-
-\underline{Valid}}
+\item Valid
+\end{enumerate}
+}
 %%T, T, conclusion middle
 
 \item If George Washington was assassinated, he is dead. George Washington is dead. Therefore George Washington was assassinated.
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  If George Washington was assassinated, he is dead.
 \item George Washington is dead.
 \itemc[.4] George Washington was assassinated.
 \end{earg*}
-\underline{Invalid}}
+\item Invalid
+\end{enumerate}
+}
 %% Formal fallacy
 %
 \item Jack prefers Pepsi to Coke. After all, about 52\% of people prefer Pepsi to Coke, and Jack is a person. 
 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  About 52\% of people prefer Pepsi to Coke
 \item Jack is a person. 
 \itemc[.4] Jack prefers Pepsi to Coke.
 \end{earg*}
-
-\underline{invalid}}
+\item invalid
+\end{enumerate}
+}
 %%Inductive, conclusion first 
+
+\item \textit{Steve thinks about the consequences of laziness.}  If I don't mow the lawn, it will become a haven for all kinds of exotic insect species. If the lawn becomes a haven for all kinds of exotic insect species, I will be protecting biodiversity. Therefore, if I don't mow the lawn, I'll be protecting biodiversity.
+
+\answer{
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-15pt} \begin{earg*} 
+\item  If I don't mow the lawn, it will become a haven for insects.
+\item  If the lawn becomes a haven for insects, I will be protecting biodiversity 
+\itemc[.6]  If I don't mow the lawn, I will be protecting biodiversity.
+\end{earg*}
+\item Valid. If the premises were true, the conclusion would have to be true.
+
+In general, the argument has the form, 
+
+\begin{earg*}
+\item If $A$, then $B$
+\item If $B$, then $C$
+\itemc[.2] If $A$ then $C$.
+\end{earg*}
+which is valid. 
+
+\end{enumerate}
+}
+
+%conclusion last
+
+\item \textit{A forest ranger is surveying the park} I can tell that bears have been down by the river, because there are tracks in the mud. Tracks like these are made by bears in almost every case. 
+
+\answer{
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
+\item  There are tracks in the mud.
+\item Tracks like these are made by bears in almost every case. 
+\itemc[.4]  Bears have been down by the river
+\end{earg*}
+\item Invalid
+\end{enumerate}
+}
+%%Inductive, conclusion first 
+
 \end{exercises}
 
-\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+%part B
+\noindent\problempart For each passage, (i) put the argument in canonical form and (ii) say whether it is valid or invalid.
 \answer{Answers by Ben Sheredos}
 \begin{exercises}
 \item Cindy Lou Who lives in Whoville. You can tell because Cindy Lou Who is a Who, and all Whos live in Whoville.  
@@ -501,87 +540,106 @@ Valid. IF premises are true, conclusion has to be.}
 Invalid. There are sources of wealth other than what one is paid.}% Weak
 \end{exercises}
 
-\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+%Part C
+\noindent\problempart For each passage, (i) put the argument in canonical form and (ii) say whether it is valid or invalid.
 
 \begin{exercises}
 \item Jack is close to the pond. The pond is close to the playground. So, Jack is close to the playground.
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  Jack is close to the pond. 
 \item The pond is close to the playground. 
 \itemc[.4] Jack is close to the playground.
 \end{earg*}
-\underline{Invalid}}
+\item Invalid
+\end{enumerate}
+}
 %% General fallacy
 
-\item \textit{Jack is at work: }I have up to half an hour to get to the bank, because work ends at 5:00 and the bank closes at 5:30. 
+\item \textit{Jack is at work, and is unable to leave early}I have up to half an hour to get to the bank, because work ends at 5:00 and the bank closes at 5:30. 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  Work ends at 5:00
 \item The bank closes at 5:30. 
 \itemc[.4] I have up to half an hour to get to the bank
 \end{earg*}
-
-\underline{Valid}}
+\item Valid
+\end{enumerate}
+}
 %% Made up, conclusion first.
 
 \item Jack and Gill ate at Guadalajara restaurant earlier and both of them feel nauseated now. So, something they ate there is making them sick.
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  Jack and Gill ate at Guadalajara restaurant earlier
 \item  Jack and Gill feel nauseated now. 
 \itemc[.4] Something they ate there is making them sick.
 \end{earg*}
-
-\underline{ Invalid}}
+\item Invalid
+\end{enumerate}
+}
 %% Inductive
 
 \item Zhaoquing must be west of Huizhou, because Zhaoquing is west of Guangzhou, which is west of Huizhou. 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item   Zhaoquing is west of Guangzhou
 \item  Guangzhou is west of Huizhou.  
 \itemc[.4] Zhaoquing is west of Huizhou
 \end{earg*}
-\underline{Valid}}
+\item Valid
+\end{enumerate}
+}
 %%T, T (?), conclusion first
 %
 \item \textit{Henry can't find his glasses. }I remember I had them when I came in from the car. So, they are in the house somewhere.
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item   Henry had his glasses when he came in from the car
 \itemc[.4]  His glasses are in the house somewhere.
 \end{earg*} 
-\underline{Invalid}}
+\item Invalid
+\end{enumerate}}
 % False dilemma
 %% General fallacy
 
 \item I was talking about tall John---the one who is over 6'4''---but Jack was talking about short John, who is at most 5'2''. So, we were talking about two different Johns.
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item I was talking about tall John  
 \item   Jack was talking about short John
 \itemc[.4]  We were talking about two different Johns.
-\end{earg*}\underline{Valid}}
+\end{earg*}\item Valid
+\end{enumerate}
+}
 %% Made up
 
 \item Tomorrow's trip to Ensenada will take about 10 hours, because the last time I drove there from here it took 10 hours. 
 \answer{
-\begin{earg*}
+\begin{enumerate}[label=(\roman*)]
+\item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item   The last time I drove to Ensenada from here it took 10 hours. 
 \itemc[.4]  Tomorrow's trip to Ensenada will take about 10 hours
-\end{earg*}\underline{Invalid}}
+\end{earg*}\item Invalid
+\end{enumerate}
+}
 %%Induction, conclusion first.
 
 \end{exercises}
 
-\noindent\problempart Put the following arguments in canonical form and then decide whether they are valid. If the argument is invalid, explain why.
+\noindent\problempart For each passage, (i) put the argument in canonical form and (ii) say whether it is valid or invalid.
 \answer{Answers by Ben Sheredos}
 \begin{exercises}
 \item \textit{Monica is surveying the crowd that showed up for her talk} There must be at least 150 people here. That's how many people the auditorium holds, and every seat is full and people are beginning to sit on the stairs at the side. 
 \answer{
 	\begin{earg*} 
-		\item The auditorium holds 150 people.
+		\item The auditor	ium holds 150 people.
 		\item Every seat in the auditorium is full and people are beginning to sit on the stairs at the side.
 		\itemc There are at least 150 people here.
 	\end{earg*}
@@ -899,62 +957,99 @@ To sum up this section, we have seen that there are two styles of reasoning, ded
 \begin{exercises}
 
 \item On 2003-06-19 in Norfolk, VA, a violent storm blew through and the power went out over much of the city. So, the storm caused the power to go out.
-\answer{\underline{Strong} \\Storms often cause power outages, but other things can cause them, too. In general, causal inferences are part of inductive reasoning, and are therefore at best strong. }
+
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Strong
+\item Storms often cause power outages, but other things can cause them, too. In general, causal inferences are part of inductive reasoning, and are therefore at best strong. 
+\end{enumerate}
+}
 
 \item  All human beings are things with purple hair, and all things with purple hair have nine legs. Therefore, all human beings have nine legs.
 
-\answer{\underline{Valid.}\\ You can see this by substituting in different things for ``purple hair'' and ``has nine legs.'' For instance, you could use ``mammals'' and ``has hair.'' There is no way to do this that will make the premises true and the conclusion false. So the argument is valid. }
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid.
+\item You can see this by substituting in different things for ``purple hair'' and ``has nine legs.'' For instance, you could use ``mammals'' and ``has hair.'' There is no way to do this that will make the premises true and the conclusion false. So the argument is valid. 
+\end{enumerate}
+}
 
 
 \item  Elvis Presley was known as The King. Elvis had 18 songs reach \#1 in the Billboard charts. So, The King had 18 \#1 hits.
 
-\answer{ \underline{Valid} \\This is an example of substituting different names for the same thing to create a valid argument. }
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid
+\item This is an example of substituting different names for the same thing to create a valid argument. 
+\end{enumerate}}
 
 \item Most philosophers are right-handed. Terence Irwin is a philosopher. So, he is right-handed.
 
-\answer{\underline{Strong} (?)\\
-
-The conclusion isn't necessarily true, so the inference is not valid. Is it strong or weak? If you read "most" as "very many" or something like that, it would be strong; if you read "most" as "a majority" (in the sense of 'somewhere between 51\% and 99\%' ), it would probably be weak. Advertisers sometimes use the vagueness of "most" to get you to feel that lots of people are buying a certain product or service, when in fact only a small majority is. }
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Either strong or weak depending on how much confidence you need. Definitely not valid.
+\item The conclusion isn't necessarily true, so the inference is not valid. Is it strong or weak? If you read "most" as "very many" or something like that, it would be strong; if you read "most" as "a majority" (in the sense of 'somewhere between 51\% and 99\%' ), it would probably be weak. Advertisers sometimes use the vagueness of "most" to get you to feel that lots of people are buying a certain product or service, when in fact only a small majority is.
+\end{enumerate}}
 
 \item  Jack has purple hair, and purple toe nails. Hence, he has toe nails.
 
-\answer{\underline{Valid}}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid
+\item If the color exists, the colored object has to exist
+\end{enumerate}
+}
 
 \item  The Ohio State football team beat the Miami football team on 2003-01-03 for the college national championship. So, the Ohio State football team was the best team in college football in the 2002-2003 season.
 
-\answer{\underline{Strong} (?) \\
-
-What are the chances that the non-best team would win the championship? If you think that a non-best time wins somewhat frequently, this inference would be weak. If, on the other hand, you think winning the championship is  a good way to judge the best team, you think the inference is strong.}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Strong or weak, depending on your background beliefs.
+\item What are the chances that the non-best team would win the championship? If you think that a non-best time wins somewhat frequently, this inference would be weak. If, on the other hand, you think winning the championship is  a good way to judge the best team, you think the inference is strong.
+\end{enumerate}
+}
 
 \item Willie Mosconi made almost all of the pool shots he took from 1940-1945. He took a bunch of shots in 1941. So, he made almost every shot he took in 1941.
 
-\answer{\underline{Strong}   \\
-"Almost all" is fairly vague. So we are not sure how many missed shots we are talking about in the five year period. If there were all clustered in 1941, it is possible that the success rate for 1941 would no longer qualify as "almost all," but this is unlikely. }
-
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Strong
+\item ``Almost all'' is fairly vague. So we are not sure how many missed shots we are talking about in the five year period. If there were all clustered in 1941, it is possible that the success rate for 1941 would no longer qualify as ``almost all,'' but this is unlikely. 
+\end{enumerate}
+}
 
 \item Some philosophers are people who are right-handed. Therefore, some people who are right-handed are philosophers.
 
-\answer{\underline{Valid.} \\ The conclusion can't be false if the premise is true.}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid.
+\item The conclusion can't be false if the premise is true.
+\end{enumerate}
+}
 
 \item U.S. President Obama firmly believed that Iran is planning a nuclear attack against Israel. We can conclude that Iran is planning a nuclear attack on Israel.
 
-\answer{\underline{Weak}  \\
-
-Even if you think Obama's judgment is generally reliable here, a nuclear attack on Israel is an incredibly unlikely event. After all, this land is holy to Muslims, too. Extraordinary claims require extraordinary evidence, and I don't think any one's person's judgment is enough to go on here. }
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Weak
+\item Even if you think Obama's judgment is generally reliable here, a nuclear attack on Israel is an incredibly unlikely event. After all, this land is holy to Muslims, too. Extraordinary claims require extraordinary evidence, and I don't think any one's person's judgment is enough to go on here.
+\end{enumerate} 
+}
 
 \item Since the Spanish American War occurred before the American Civil War, and since the American Civil War occurred after the Korean War, it follows that the Spanish American War occurred before the Korean War.
 
-\answer{\underline{Weak.}\\ If A is before B and C is before B, we know nothing about the relationship between B and C. A and C could be at the same time or either one before the other.}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Weak.
+\item If A is before B and C is before B, we know nothing about the relationship between B and C. A and C could be at the same time or either one before the other.
+\end{enumerate}
+}
 
 \item There are exactly 10 humans in Carnegie Hall right now. Every human in Carnegie Hall right now has exactly ten legs. And, of course, no human in Carnegie Hall shares any legs with another human. Thus, there are at least 100 legs in Carnegie Hall right now.
 
-\answer{\underline{Valid}}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid
+\item The conclusion follows from the fact that $10 \times 10 = 100$
+\end{enumerate} 
+}
 
 \item Amy Bishop is an evolutionary biologist (who shot a number of her colleagues to death in 2010). Evolutionary biology is incompatible with [Christian] scriptural teaching. Scriptural teaching is the only grounding for morality. Thus, evolutionary biologists are immoral.
 
-\answer{\underline{Weak}\\
-
-Many beliefs are incompatible with scriptural teaching on some point or other, but it's not clear that the people who hold those beliefs are immoral, unless morality is defined as following every single scriptural edict.}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Weak
+\item Many beliefs are incompatible with scriptural teaching on some point or other, but it's not clear that the people who hold those beliefs are immoral, unless morality is defined as following every single scriptural edict.
+\end{enumerate}
+}
 
 %\item Corrupt people do harm to those around them, and no one intentionally wants to be done harm. Therefore, I [Socrates] did not corrupt my associates intentionally.
 %
@@ -962,7 +1057,10 @@ Many beliefs are incompatible with scriptural teaching on some point or other, b
 
 \item Taxation means paying some of your earned income to the government. Some of this income is distributed to others. Paying so that someone else can benefit is slavery. Therefore, taxation is slavery.
 
-\answer{\underline{Valid.}\\ Chain argument. However, the definition of slavery here is contentious, to say the least.}
+\answer{\begin{enumerate}[label=(\roman*)]
+\item Valid.
+\item Chain argument. However, the definition of slavery here is contentious, to say the least.
+\end{enumerate}}
 
 %\item Attempts have been made recently to carry bombs or bomb-making materials onto planes in the underwear and in other personal areas. These types of procedure provide a large measure of security against such attempts. Thus, flyers are required to submit to either a full-body scan or a thorough pat-down.
 %

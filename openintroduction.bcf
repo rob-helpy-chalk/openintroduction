@@ -3066,6 +3066,19 @@
     <bcf:citekey order="11">van2002argumentation</bcf:citekey>
     <bcf:citekey order="12">Woods2014</bcf:citekey>
     <bcf:citekey order="13">Magnus2008</bcf:citekey>
+    <bcf:citekey order="14">Venn1880a</bcf:citekey>
+    <bcf:citekey order="15">Venn1880b</bcf:citekey>
+    <bcf:citekey order="16">Venn1880a</bcf:citekey>
+    <bcf:citekey order="17">Aristotle1984a</bcf:citekey>
+    <bcf:citekey order="18">Parsons1997</bcf:citekey>
+    <bcf:citekey order="19">Parsons1997</bcf:citekey>
+    <bcf:citekey order="20">Parsons1997</bcf:citekey>
+    <bcf:citekey order="21">Boole1854</bcf:citekey>
+    <bcf:citekey order="22">Read2002</bcf:citekey>
+    <bcf:citekey order="23">Parsons1997</bcf:citekey>
+    <bcf:citekey order="24">Parsons2008</bcf:citekey>
+    <bcf:citekey order="25">Ockham1343</bcf:citekey>
+    <bcf:citekey order="26">Ockham1343</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="cms/global/" type="entry" sortscheme="cms" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>
