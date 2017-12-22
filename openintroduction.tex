@@ -8,6 +8,8 @@
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
 \makeglossaries
 
+%General packages
+\usepackage{answers}
 \usepackage{textcomp}
 \usepackage{anyfontsize}	
 \usepackage{geometry}
@@ -32,6 +34,9 @@
 \bibliography{tex/z-openlogic}
 % To typeset the bibliography, you need to run "biber --output-safechars openintroduction" from the command line. You can't use the function within TeXworks, because it doen't have the --output-safechars flag. Without that flag, biber is unable to handle many characters used for Sanskrit words, like the n with a dot under it.
 
+
+
+
 %%%  graphics packages %%%
 \usepackage{tikz}
 \usetikzlibrary{shapes,backgrounds,matrix,arrows,decorations,positioning,arrows.new}
@@ -54,6 +59,7 @@
 \usepackage{multirow}
 \usepackage{openintroduction}
 \usepackage{rotating}
+\usepackage{booktabs}
 	
 
 %linking and bookmarks in the pdf.
@@ -71,7 +77,7 @@
 
 \begin{document}
 
-\label{showanswers} %uncomment this tag and typeset twice to show answers
+%\label{showanswers} %uncomment this tag and typeset twice to show answers
 %\label{blank_prob_set} %uncomment this tag and typeset twice to create a blank problem set sheet. Don't use with \label{showanswers} uncommented
 
 \raggedright
@@ -105,26 +111,27 @@
 
 %
 \part{Basic Concepts} \label{part:basic_concepts}
-%\include{tex/ch01-whatislogic}	
-%\include{tex/ch02-basicevaluation}
-%
-%\part{Formal Logic} 
-%\label{part:formal_logic}
-%\include{tex/ch03-whatisformallogic}
-%\part{Categorical Logic}\label{part:cat_logic}
+\include{tex/ch01-whatislogic}	
+\include{tex/ch02-basicevaluation}
+
+%\part{Formal Logic}
+\label{part:formal_logic}
+\include{tex/ch03-whatisformallogic}
+\part{Categorical Logic}
+\label{part:cat_logic}
 \include{tex/ch04-categoricalstatements}
-%\include{tex/ch05-categoricalsyllogisms}
-%\part{Sentential Logic} \label{part:sent_logic}
-%\include{tex/ch06-sentential}	
-%\include{tex/ch07-truthtables}
-%\include{tex/ch08-proofsinsl}
-%%\part{Quantificational Logic} \label{part:quant_logic}
-%\include{tex/ch09-predicate}
-%\include{tex/ch10-semanticsforql}
-%\include{tex/ch11-proofsinql}
+\include{tex/ch05-categoricalsyllogisms} %Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
+\part{Sentential Logic} \label{part:sent_logic}
+\include{tex/ch06-sentential}	
+\include{tex/ch07-truthtables}
+\include{tex/ch08-proofsinsl}%Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
+\part{Quantificational Logic} \label{part:quant_logic}
+\include{tex/ch09-predicate}
+\include{tex/ch10-semanticsforql}
+\include{tex/ch11-proofsinql}
+
 %
-%
-\part{Critical Thinking} \label{part:CT}	
+%\part{Critical Thinking} \label{part:CT}	
 %\include{tex/ch12-whatiscriticalthinking}
 %\include{tex/ch13-substitutes}
 %\include{tex/ch14-incompletearguments}
@@ -149,10 +156,24 @@
 \appendix
 \iflabelexists{part:formal_logic}{\include{tex/z-app-notation}}{}
 %\include{app-solutions}
-\printbibliography[heading=bibnumbered]
 
-%\bibliography{tex/z-openlogic}{}
-%\bibliographystyle{Chicago}
+%Bibstuff
+%If the {part:CT} label is found, LaTeX will typeset separate bibliographies for sample passages and logical sources.
+
+\iflabelexists{part:CT}{%text for CT version}
+
+\defbibnote{sample}{\textit{ \large  This bibliography includes all sources except for those that were used as examples for logical analysis, either in the main text or problem sets}}
+
+\printbibliography [keyword=samplepassage, title=Bibliography of Sample Passages, prenote=sample, heading=bibnumbered] %for separate bibs sample passages and general citations
+
+\printbibliography [notkeyword=samplepassage, title=General Bibliography, heading=bibnumbered] %for separate bibs sample passages and general citations
+
+}% End CT version
+{\printbibliography[heading=bibnumbered]} %single bib for non-CT version
+
+
+%%The way I’ve set this up now is that there is one bib for sample passages and one bib for everything else. This means that it would not be possible to put one entry in both bibliographies. (This might be needed for Aristotle.) To do that, you will need to define a separate logicsource category
+
 
 \setglossarysection{chapter}
 \printglossaries

@@ -6,6 +6,9 @@
 \newcounter{theorem}
 \setcounter{theorem}{1}
 
+\label{whole_slproof_chap} %uncomment and typeset twice to print the whole chapter.
+
+
 %rob: This chapter is based on the original Chapter 6. I took all the material on proof in SL and moved it earlier in the book so the students would have a chance to start doing derivations earlier. I have also expanded the opening material that wasn't in a Chapter section into its own Chapter section explaining the basic idea of a proof. 
 
 % *******************************************
@@ -107,7 +110,38 @@ Again, you can check these using truth tables, although the 16 line truth tables
 
 As we explained in Chapter \ref{chap:SL}, the fancy script letters are \emph{metavariables}.  They are a part of our metalanguage and can refer to single sentence letters like $P$ or longer sentences like $A \eiff (B \eand (C \eor D))$. 
 
-Formally, we can define a \define{sentence form} as a sentence in SL that contains one or more metavariables in place of sentence letters. A \define{substitution instance} of that sentence form is then a sentence created by consistently substituting sentences for one or more of the metavariables in the sentence form. Here ``consistently substituting'' means replacing all instances of the metavariable with the same sentence. You cannot replace instances of the same metavariable with different sentences, or leave a metavariable as it is, if you have replaced other metavariables of that same type. An \define{argument form} is an argument that includes one or more sentence forms, and a \define{substitution instance} of the argument form is the argument obtained by consistently replacing the sentence forms in the argument form with their substitution instances.
+\newglossaryentry{sentence form}
+{
+name=sentence form,
+description={A sentence in SL that contains one or more metavariables in place of sentence letters.}
+}
+
+
+
+\newglossaryentry{substitution instance}
+{
+name=substitution instance,
+description={A sentence that is created by consistently substituting sentences for one or more of the metavariables in a sentence form..}
+}
+
+
+\newglossaryentry{argument form}
+{
+name=argument form,
+description={An argument that includes one or more sentence forms.}
+}
+
+
+\newglossaryentry{substitution instance of an argument form}
+{
+name=substitution instance of an argument form,
+description={An argument obtained by consistently replacing the sentence forms in the argument form with their substitution instances..}
+}
+
+
+
+Formally, we can define a \textsc{\gls{sentence form}}\label{def:sentence_form} as a sentence in SL that contains one or more metavariables in place of sentence letters. A \textsc{\gls{substitution instance}}\label{def:substitution_instance} of that sentence form is then a sentence created by consistently substituting sentences for one or more of the metavariables in the sentence form. Here ``consistently substituting'' means replacing all instances of the metavariable with the same sentence. You cannot replace instances of the same metavariable with different sentences, or leave a metavariable as it is, if you have replaced other metavariables of that same type. An \textsc{\gls{argument form}}\label{def:argument_form}
+ is an argument that includes one or more sentence forms, and a \textsc{\gls{substitution instance of an argument form}}\label{def:substitution instance_of_an_argument_form} of the argument form is the argument obtained by consistently replacing the sentence forms in the argument form with their substitution instances.
 
 Once we start identifying valid argument forms like this, we have a new way of showing that longer arguments are valid. Truth tables are fun, but doing the 1028 line truth table for an argument with 10 sentence letters would be tedious. Worse, we would never be sure we hadn't made a little mistake in all those Ts and Fs. Part of the problem is that we have no way of knowing  \emph{why} the argument is valid. The table gives you very little insight into how the premises work together. 
 
@@ -158,7 +192,15 @@ and then go like this
 	\have{4}{J} \oe{2, 3}
 \end{proof}
 
-The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J \eor L)$ and $\enot L$. We will also call proofs like this \emph{derivations}. Formally, a \define{proof} is a sequence of sentences. The first sentences of the sequence are assumptions; these are the premises of the argument. Every sentence later in the sequence follows from earlier sentences by one of the rules of proof. The final sentence of the sequence is the conclusion of the argument.
+\newglossaryentry{proof}
+{
+name=proof,
+description={A sequence of sentences, where the first sentences of the sequence are assumptions, and all sentences after the assumptions follow from sentences earlier in the sequence according to the rules of derivation.}
+}
+
+
+
+The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J \eor L)$ and $\enot L$. We will also call proofs like this \emph{derivations}. Formally, a \textsc{\gls{proof}}\label{def:proof} is a sequence of sentences. The first sentences of the sequence are assumptions; these are the premises of the argument. Every sentence later in the sequence follows from earlier sentences by one of the rules of proof. The final sentence of the sequence is the conclusion of the argument.
 
 \iflabelexists{chap:proofsinQL}{In the remainder of this chapter, we will develop a system for proving sentences in SL. Later, in Chapter \ref{chap:proofsinQL}, this will be expanded to cover Quantified Logic (QL). First, though, you should practice identifying substitution instances of sentences and longer rules.}{} 
 
@@ -175,119 +217,66 @@ The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J 
 \item $\script{A} \eand \script{B}$: 
 	\begin{enumerate}[label=\alph*.]
 	\item $P \eor Q$
-	\item $(A \eif B) \eand C$
-	\item \begin{flushleft}$[(A \eand B) \eif (B \eand A)] \linebreak \eand (\enot A \eand \enot B)$\end{flushleft}
-	\item $[((A \eand B) \eand C) \eand D] \eand F$  
-	\item $(A \eand B) \eif C$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(A \eif B) \eand C$}}{\item $(A \eif B) \eand C$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}] \begin{flushleft}$[(A \eand B) \eif (B \eand A)] \linebreak \eand (\enot A \eand \enot B)$\end{flushleft}}}{\item \begin{flushleft}$[(A \eand B) \eif (B \eand A)] \linebreak \eand (\enot A \eand \enot B)$\end{flushleft}}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$[((A \eand B) \eand C) \eand D] \eand F$}}{\item $[((A \eand B) \eand C) \eand D] \eand F$ } 
+	\item[e.] $(A \eand B) \eif C$
 	\end{enumerate}
-
-%	\begin{enumerate}[label=\alph*.]
-%	\item $P \eor Q$
-%	\item \framebox{$(A \eif B) \eand C$}
-%	\item \framebox{\begin{flushleft}$[(A \eand B) \eif (B \eand A)] \eand (\enot A \eand \enot B)$\end{flushleft}}
-%	\item \framebox{$[((A \eand B) \eand C) \eand D] \eand F$}  
-%	\item $(A \eand B) \eif C$
-%	\end{enumerate}
 
 &
 
 \item $\enot(\script{P} \eand \script{Q})$
 	\begin{enumerate}[label=\alph*.]
-	\item $\enot(A \eand B)$
-	\item $\enot(A \eand A)$
-	\item $\enot A \eand B$
-	\item \begin{flushleft}$\enot((\enot A \eand B) \eand (B \eand \enot A))$\end{flushleft}
-	\item $\enot(A \eif B)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot(A \eand B)$}}{\item $\enot(A \eand B)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot(A \eand A)$}}{\item $\enot(A \eand A)$}
+	\item[c.] $\enot A \eand B$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{d.}}}]\begin{flushleft}$\enot((\enot A \eand B) \eand (B \eand \enot A))$\end{flushleft}}}{\item \begin{flushleft}$\enot((\enot A \eand B) \eand (B \eand \enot A))$\end{flushleft}}
+	\item[e.] $\enot(A \eif B)$
 	\end{enumerate}
 
-%2) $\enot(\script{P} \eand \script{Q})$
-%\begin{enumerate}[label=\alph*., topsep=0pt, parsep=0pt, itemsep=3pt]
-%	\item \framebox{$\enot(A \eand B)$}
-%	\item \framebox{$\enot(A \eand A)$}
-%	\item $\enot A \eand B$
-%	\item \framebox{$\enot((\enot A \eand B) \eand (B \eand \enot A))$}
-%	\item $\enot(A \eif B)$
-%	\end{enumerate}
 
 \\
 
 \item $\enot \script{A}$
 	\begin{enumerate}[label=\alph*.]
 	\item $\enot A \eif B$
-	\item $\enot (A \eif B)$
-	\item $\enot[(G \eif (H \eor I)) \eif G]$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot (A \eif B)$}}{\item $\enot (A \eif B)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$\enot[(G \eif (H \eor I)) \eif G]$}}{\item $\enot[(G \eif (H \eor I)) \eif G]$}
 	\item $\enot G \eand (\enot B \eand \enot H)$
-	\item $\enot(G \eand (B \eand H))$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]$\enot(G \eand (B \eand H))$}}{\item $\enot(G \eand (B \eand H))$}
 	\end{enumerate}
-%(3) $\enot \script{A}$
-%	\begin{enumerate}[label=\alph*.]
-%	\item $\enot A \eif B$
-%	\item \framebox{$\enot (A \eif B)$}
-%	\item \framebox{$\enot[(G \eif (H \eor I)) \eif G]$}
-%	\item $\enot G \eand (\enot B \eand \enot H)$
-%	\item \framebox{$\enot(G \eand (B \eand H))$}
-%	\end{enumerate}
-%\vspace{1em}
 &
 
 \item $\enot \script{A} \eif  \script{B}$
 	\begin{enumerate}[label=\alph*.]
 	\item $\enot A \eand B$
-	\item $\enot B \eif A$
-	\item $\enot(X \eand Y) \eif (Z \eor B)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot B \eif A$}}{\item $\enot B \eif A$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$\enot(X \eand Y) \eif (Z \eor B)$}}{\item $\enot(X \eand Y) \eif (Z \eor B)$}
 	\item $\enot(A \eif B)$
 	\item $A \eif \enot B$
 	\end{enumerate}
-
-%(4) $\enot \script{A} \eif  \script{B}$
-%	\begin{enumerate}[label=\alph*.]
-%	\item $\enot A \eand B$
-%	\item \framebox{$\enot B \eif A$}
-%	\item \framebox{$\enot(X \eand Y) \eif (Z \eor B)$}
-%	\item $\enot(A \eif B)$
-%	\item $A \eif \enot B$
-%	\end{enumerate}
-
 \\
 
 \item $\enot \script{A} \eiff \enot \script{Z}$
 	\begin{enumerate}[label=\alph*.]
 	\item $\enot (P \eiff Q)$
-	\item $\enot(P \eiff Q) \eiff \enot (Q \eiff P)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot(P \eiff Q) \eiff \enot (Q \eiff P)$}}{\item $\enot(P \eiff Q) \eiff \enot (Q \eiff P)$}
 	\item $\enot H \eif \enot G$
 	\item $\enot (A \eand B) \eiff C$
-	\item \begin{flushleft} $\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ \end{flushleft}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]\begin{flushleft} $\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ \end{flushleft}}}{\item \begin{flushleft} $\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ \end{flushleft}}
 	\end{enumerate}
-%(5) $\enot \script{A} \eiff \enot \script{Z}$
-%	\begin{enumerate}[label=\alph*.]
-%	\item $\enot (P \eiff Q)$
-%	\item \framebox{$\enot(P \eiff Q) \eiff \enot (Q \eiff P)$}
-%	\item $\enot H \eif \enot G$
-%	\item $\enot (A \eand B) \eiff C$
-%	\item \framebox{$\enot [\enot (P \eiff Q) \eiff R] \eiff \enot S$ }
-%	\end{enumerate}
-
 
 &
 
 \item $(\script{A} \eand \script{B}) \eor \script{C}$
 	\begin{enumerate}[label=\alph*.]
 	\item $(P \eor Q) \eand R$
-	\item $(\enot M \eand \enot D) \eor C$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(\enot M \eand \enot D) \eor C$}}{\item $(\enot M \eand \enot D) \eor C$}
 	\item $(D \eand R) \eand (I \eor D)$
 	\item $[(D \eif O) \eor A] \eand D$
-	\item $[(A \eand B) \eand C] \eor (D \eor A)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]}$[(A \eand B) \eand C] \eor (D \eor A)$}{\item $[(A \eand B) \eand C] \eor (D \eor A)$}
 	\end{enumerate}
 %\factoidbox{B, E}
-
-%6) $(\script{A} \eand \script{B}) \eor \script{C}$
-%	\begin{enumerate}[label=\alph*.]
-%	\item $(P \eor Q) \eand R$
-%	\item \framebox{$(\enot M \eand \enot D) \eor C$}
-%	\item $(D \eand R) \eand (I \eor D)$
-%	\item $[(D \eif O) \eor A] \eand D$
-%	\item \framebox{$[(A \eand B) \eand C] \eor (D \eor A)$}
-%	\end{enumerate}
 
 
 \\
@@ -296,45 +285,24 @@ The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J 
 	\begin{flushleft}
 	\begin{enumerate}[label=\alph*.]
 	\item$((C \eif D) \eand E) \eor A$
-	\item$(A \eand A) \eor A$
-	\item$((C \eif D) \eand E) \eor (C \eif D)$
-	\item$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(A \eand A) \eor A$}}{\item$(A \eand A) \eor A$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$((C \eif D) \eand E) \eor (C \eif D)$}}{\item$((C \eif D) \eand E) \eor (C \eif D)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{d.}}}]$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$}}{\item$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$}
 	\item$(P \eor Q) \eand P$
 	\end{enumerate}
 	\end{flushleft}
-%
-%(7) $(\script{A} \eand \script{B}) \eor \script{A}$							
-%	\begin{flushleft}
-%	\begin{enumerate}[label=\alph*.]
-%	\item$((C \eif D) \eand E) \eor A$
-%	\item \framebox{$(A \eand A) \eor A$}
-%	\item \framebox{$((C \eif D) \eand E) \eor (C \eif D)$}
-%	\item \framebox{$((G \eand B) \eand (Q \eor R)) \eor (G \eand B)$}
-%	\item$(P \eor Q) \eand P$
-%	\end{enumerate}
-%	\end{flushleft}
 
 &
 \item $\script{P} \eif (\script{P} \eif \script{Q})$
 	\begin{flushleft}
 	\begin{enumerate}[label=\alph*.]
 	\item $A \eif (B \eif C)$
-	\item $(A \eand B) \eif [(A \eand B) \eif C]$
-	\item $(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$
-	\item $M \eif [M \eif (D \eand (C \eand M))]$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(A \eand B) \eif [(A \eand B) \eif C]$}}{\item $(A \eand B) \eif [(A \eand B) \eif C]$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$}}{\item $(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{d.}}}]$M \eif [M \eif (D \eand (C \eand M))]$}}{\item $M \eif [M \eif (D \eand (C \eand M))]$}
 	\item $(S \eor O) \eif [(O \eor S) \eif A]$
 	\end{enumerate}
 	\end{flushleft}
-%\factoidbox{B, C and D}
-
-%8) $\script{P} \eif (\script{P} \eif \script{Q})$
-%	\begin{enumerate}[label=\alph*.]
-%	\item $A \eif (B \eif C)$
-%	\item \framebox{$(A \eand B) \eif [(A \eand B) \eif C]$}
-%	\item \framebox{$(G \eif B) \eif [(G \eif B) \eif (G \eif B)]$}
-%	\item \framebox{$M \eif [M \eif (D \eand (C \eand M)]$}
-%	\item $(S \eor O) \eif [(O \eor S) \eif A]$
-%	\end{enumerate}
 
 
 
@@ -343,22 +311,12 @@ The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J 
 	\begin{flushleft}
 	\begin{enumerate}[label=\alph*.]
 	\item $\enot P \eor (Q \eand \enot P)$
-	\item $\enot A \eor (A \eand \enot A)$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$\enot A \eor (A \eand \enot A)$}}{\item $\enot A \eor (A \eand \enot A)$}
 	\item $(P \eif Q) \eor [(P \eif Q) \eand \enot R]$
 	\item $\enot E \eand (F \eand \enot F)$
-	\item $\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]$\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$}}{\item $\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$}
 	\end{enumerate}
 	\end{flushleft}
-%(9) $\enot \script{A} \eor (\script{B} \eand \enot \script{B})$
-%	\begin{flushleft}
-%	\begin{enumerate}[label=\alph*.]
-%	\item $\enot P \eor (Q \eand \enot P)$
-%	\item \framebox{$\enot A \eor (A \eand \enot A)$}
-%	\item $(P \eif Q) \eor [(P \eif Q) \eand \enot R]$
-%	\item $\enot E \eand (F \eand \enot F)$
-%	\item \framebox{$\enot G \eor [(H \eif G) \eand \enot (H \eif G)]$}
-%	\end{enumerate}
-%	\end{flushleft}
 
 &
 
@@ -367,23 +325,13 @@ The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J 
 \begin{flushleft} 	
 \begin{enumerate}[label=\alph*.]
 	\item	$A \eif \enot B$
-	\item	$(A \eor B) \eif \enot(A \eand B)$
-	\item	$(A \eor A) \eif \enot(A \eand A)$
-	\item	$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot[(A \eand B) \eand (D \eif E)]$
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(A \eor B) \eif \enot(A \eand B)$}}{\item	$(A \eor B) \eif \enot(A \eand B)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{c.}}}]$(A \eor A) \eif \enot(A \eand A)$}}{\item	$(A \eor A) \eif \enot(A \eand A)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{d.}}}]$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot[(A \eand B) \eand (D \eif E)]$}}{$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot[(A \eand B) \eand (D \eif E)]$}
 	\item	$(A \eand B) \eif \enot(A \eor B)$
 	\end{enumerate}
 \end{flushleft} 
 
-%10)	$(\script{P} \eor \script{Q}) \eif \enot(\script{P} \eand \script{Q})$
-%\begin{flushleft} 	
-%\begin{enumerate}[label=\alph*.]
-%	\item	$A \eif \enot B$
-%	\item	\framebox{$(A \eor B) \eif \enot(A \eand B)$}
-%	\item	\framebox{$(A \eor A) \eif \enot(A \eand A)$}
-%	\item	\framebox{$[(A \eand B) \eor (D \eif E)] \eif $ \linebreak[4]$ \enot(A \eand B) \eand (D \eif E)]$}
-%	\item	$(A \eand B) \eif \enot(A \eor B)$
-%	\end{enumerate}
-%\end{flushleft} 
 \end{longtabu}
 \end{exercises}
 \noindent\problempart For each problem, a sentence form is given in sentence variables. Identify which of the sentences after it are legitimate substitution instances of that form. 
@@ -553,20 +501,28 @@ $\script{D}:\enot (B \eand C)$  & $\script{E}: D \eiff E$
 \begin{exercises}
 \begin{longtabu}{X[1,l,m]X[1,p,m]} 
 \item $\enot( \script{A} \eiff \script{B})$ 
-% $\enot(B \eiff  \enot{C})
+\answer{$\enot(B \eiff  \enot{C})$}
 &
 
 \item $(\script{B} \eif \script{C}) \eand \script{D}$ 
-%$(\enot{C} \eif (A \eif B)) \eand \enot(B \eand C)$
+
+
+\answer{$(\enot{C} \eif (A \eif B)) \eand \enot(B \eand C)$}
 \\
 \item $\script{D} \eif (\script{B} \eand \enot \script{B}) $ 
-%$\enot(B \eand C) \eif (\enot{C} \eand \enot \enot{C}) $
+
+
+\answer{$\enot(B \eand C) \eif (\enot{C} \eand \enot \enot{C}) $}
 &
 \item $\enot \enot (\script{C} \eor \script{E})$ 
-%$\enot \enot ((A \eif B) \eor (D \eiff E))$
+
+
+\answer{$\enot \enot ((A \eif B) \eor (D \eiff E))$}
 \\
 \item $\enot \script{C} \eiff (\enot \enot \script{D} \eand \script{E})$ 
-%$\enot (A \eif B) \eiff (\enot \enot \enot(B \eand C) \eand (D \eiff E))$
+
+
+\answer{$\enot (A \eif B) \eiff (\enot \enot \enot(B \eand C) \eand (D \eiff E))$}
 
 \end{longtabu}
 \end{exercises}
@@ -613,7 +569,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \item $B \eif C$ 
 \itemc[.3] $A \eif C$
 \end{earg*}
-%\framebox{Not MP}
+\answer{\framebox{Not MP}}
 	
 &
 
@@ -623,14 +579,14 @@ $\script{A}: I \eor (I \eiff V)  $
 \itemc[.3] 	 $Q$
 \end{earg*}
 
-%	\> \framebox{Not MP}\\
+\answer{\framebox{Not MP}}
 	
 &
 \item \begin{earg*}	
 \item $P \eif Q$ 
 \itemc[.3] 	$Q$
 \end{earg*}
-%	\framebox{Not MP}\\
+\answer{\framebox{Not MP}}
 
 \\
 \item \begin{earg*}	
@@ -638,7 +594,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \item 	$E$ 
 \itemc[.3] 	$D$
 \end{earg*}
-	%\framebox{Not MP}\\
+\answer{\framebox{Not MP}}
 
 &
 
@@ -647,7 +603,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \item 	$P \eand Q$
 \itemc[.3] 	 $Q \eand V$
 \end{earg*}
-%framebox{MP}\\
+\answer{\framebox{MP}}
 \end{longtabu}
 \end{exercises}
 	
@@ -710,7 +666,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \itemc[.3]  $X \eif Y$
 \end{earg*}
 
-%\framebox{Not DS}\\
+\answer{\framebox{Not DS}}
 
 &	
 
@@ -719,7 +675,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \item $\enot[(S \eor T) \eor U]$  
 \itemc[.3] $V$
 \end{earg*}
-%\framebox{DS}\\	
+\answer{\framebox{DS}}
 
 \\
 \item \begin{earg*}
@@ -727,7 +683,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \item $P$  
 \itemc[.3] \enot $Q$
 \end{earg*}
-%\framebox{Not DS}\\
+\answer{\framebox{Not DS}}
 
 &
 \item \begin{earg*}
@@ -735,13 +691,13 @@ $\script{A}: I \eor (I \eiff V)  $
 \item $\enot A$  
 \itemc[.3] $B$
 \end{earg*}
-%\framebox{Not DS}\\
+\answer{\framebox{Not DS}}
 \\
 
 \item \begin{earg*}
 \item $(P \eor Q) \eor R$  
 \itemc[.3]  $R$
-%\framebox{Not DS}\\
+\answer{\framebox{Not DS}}
 \end{earg*}
 
 \end{longtabu}
@@ -1028,7 +984,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item $R \eor S$ 
 \itemc[.3] $S$
 	\end{earg*}
-%\factoidbox{Invalid Argument}
+\answer{\factoidbox{Not a single inference}}
 
 &
 
@@ -1039,7 +995,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \itemc[.3] $B \eif A$
 	\end{earg*}
 
-%	\factoidbox{Invalid Argument}
+\answer{\factoidbox{Not a single inference}}
 
 \\
 
@@ -1048,7 +1004,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item $P \eand (Q \eor R)$
 \itemc[.3] $R$
 	\end{earg*}
-%\factoidbox{Invalid Argument}
+\answer{\factoidbox{Not a single inference}}
 
 &
 \item %4
@@ -1056,7 +1012,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item $P \eand (Q \eand R)$
 \itemc[.3] $P$
 	\end{earg*}
-%		\factoidbox{\eand-Elimination}
+\answer{		\factoidbox{\eand-Elimination}}
 
 \\
 \item %5
@@ -1064,7 +1020,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item  $A$
 \itemc[.3] $P \eand (Q \eif A)$
 	\end{earg*}
-%	\factoidbox{Invalid Argument}
+\answer{\factoidbox{Not a single inference}}
 
 &	
 	
@@ -1074,7 +1030,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item  $B \eand C$
 \itemc[.3] $(A \eand B) \eand C$
 	\end{earg*}
-%	\factoidbox{\begin{flushleft}Illegitimate Argument. You need the associativity of \eand to infer this.\end{flushleft}}
+\answer{\factoidbox{\begin{flushleft}Not a single inference. You need the associativity of \eand to infer this.\end{flushleft}}}
 \\
 \item %7
 	\begin{earg*}
@@ -1082,7 +1038,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item $Z \eand W$
 \itemc[.3] $X \eand Y$
 	\end{earg*}
-%	\factoidbox{\eiff-Elimination}
+\answer{	\factoidbox{\eiff-Elimination}}
 &
 \item %8
 	\begin{earg*}
@@ -1090,7 +1046,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\item $L$
 \itemc[.3] $M$
 	\end{earg*}
-%	\factoidbox{Invalid Argument}
+\answer{	\factoidbox{Not a single inference}}
 
 \end{longtabu}
 \end{exercises}
@@ -1126,7 +1082,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
  
 	\itemc[.3]$R$
 	\end{earg*}
-%	\factoidbox{\begin{flushleft}Illegitmate Argument. You need two uses of \eand-elim. to do this\end{flushleft}}
+%	\factoidbox{\begin{flushleft}Not a single inference. You need two uses of \eand-elim. to do this\end{flushleft}}
 &
 
 \item %4
@@ -1155,7 +1111,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
  
 	\itemc[.3]$X \eand Y$
 	\end{earg*}
-%	\factoidbox{Invalid Argument}
+%	\factoidbox{Not a single inference}
 \\
 
 \item %7
@@ -1165,7 +1121,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
  
 	\itemc[.3]$\enot(Z \eand W)$
 	\end{earg*}
-%	\factoidbox{Invalid Argument}
+%	\factoidbox{Not a single inference}
 &
 
 \item %8
@@ -1194,23 +1150,12 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \begin{proof}
 	\hypo{1}{W \eif \enot B}
 	\hypo{2}{A \eand W}
-	\hypo{2b}{B \eor (J \eand K)} \by{Want: $K$}{}
-	\have{3}{W}{}
-	\have{4}{\enot B} {}
-	\have{5}{J \eand K} {}
-	\have{6}{K}{}
+	\hypo{3}{B \eor (J \eand K)} \by{Want: $K$}{}
+	\have{4}{W}{} \iflabelexists{showanswers}{\by{\color{red}\eand E,}{2}}{}
+	\have{5}{\enot B} {} \iflabelexists{showanswers}{\by{\color{red}\eif E,} {1,4}}{}
+	\have{6}{J \eand K} {} \iflabelexists{showanswers}{\by{\color{red}\eor E}{3,5}}{}
+	\have{7}{K}{} \iflabelexists{showanswers}{\by{\color{red}\eand E}{6}}{}
 	\end{proof}
-
-%(1) 
-%	\begin{proof}
-%	\hypo{1}{W \eif \enot B}
-%	\hypo{2}{A \eand W}
-%	\hypo{2b}{B \eor (J \eand K)} \by{Want: $K$}{}
-%	\have{3}{W}{} \by{\eand E,}{2}
-%	\have{4}{\enot B} {} \by{\eif E,} {1,4}
-%	\have{5}{J \eand K} {}\by{\eor E}{3,5}
-%	\have{6}{K}{}\by{\eand E}{6}
-%	\end{proof}
 
 &
 
@@ -1220,19 +1165,12 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\begin{proof}
 	\hypo{1}{W \eand B}
 	\hypo{2}{E \eand Z} \by{Want: $W \eand Z$}{}
-	\have{3}{} \by{\eand E}{1}
-	\have{4}{} \by{\eand E}{2}
-	\have{5}{W \eand Z} \by{}{}
+	\have{3}{\iflabelexists{showanswers}{\color{red}W}{}} \by{\eand E}{1}
+	\have{4}{\iflabelexists{showanswers}{\color{red}Z}{}} \by{\eand E}{2}
+	\have{5}{W \eand Z} \iflabelexists{showanswers}{\by{\color{red}\eand I}{3, 4}}{}
 	\end{proof}
 
-%(2)
-%	\begin{proof}
-%	\hypo{1}{W \eand B}
-%	\hypo{2}{E \eand Z} \by{Want: W \eand Z}{}
-%	\have{3}{W} \by{\eand E}{1}
-%	\have{4}{Z} \by{\eand E}{2}
-%	\have{5}{W \eand Z} \by{\eand I}{3, 4}
-%	\end{proof}
+
 
 \\
 
@@ -1240,25 +1178,13 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \vspace{-16pt}
 	\begin{proof}
 	\hypo{1}{(A \eand B) \eand C} \by{Want: $A \eand (B \eand C)$}{}
-	\have{2}{A \eand B} 
-	\have{3}{C} 	
-	\have{4}{A} 
-	\have{5}{B} 
-	\have{6}{B \eand C} 
-	\have{7}{A \eand (B \eand C)} 	
+	\have{2}{A \eand B} \iflabelexists{showanswers}{\by{\color{red}\eand E}{1}}{}	
+	\have{3}{C} \iflabelexists{showanswers}{\by{\color{red}\eand E}{1}}{}
+	\have{4}{A} \iflabelexists{showanswers}{\by{\color{red}\eand E}{2}}{}
+	\have{5}{B} \iflabelexists{showanswers}{\by{\color{red}\eand E}{2}}{}
+	\have{6}{B \eand C} \iflabelexists{showanswers}{\by{\color{red}\eand I}{3,5}}{}
+	\have{7}{A \eand (B \eand C)} \iflabelexists{showanswers}{\by{\color{red}\eand I}{4,6}}{}
 	\end{proof}
-%\vspace{.25cm}
-
-%(3)
-%	\begin{proof}
-%	\hypo{1}{(A \eand B) \eand C} \by{Want: A \eand (B \eand C)}{}
-%	\have{2}{A \eand B} \ae{1}
-%	\have{3}{C} \ae{1}	
-%	\have{4}{A} \ae{2}
-%	\have{5}{B} \ae{2}
-%	\have{6}{B \eand C} \ai{3,5}
-%	\have{7}{A \eand (B \eand C)} \ai{4,6}	
-%	\end{proof}
 
 &
 
@@ -1268,11 +1194,14 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\hypo{1}{(\enot A \eand B) \eif C}
 	\hypo{2}{\enot A}
 	\hypo{3}{A \eor B} \by{Want: $C$}{}
-	\have{4}{\nix{B}} \by{\eor E}{2, 3}
-	\have{5}{\nix{\enot A \eand B}} \by{\eand I}{2, 4}
-	\have{6}{\nix{C}} \by{\eif E}{1, 5}
+	\have{4}{\iflabelexists{showanswers}{\color{red}B}{}} \by{\eor E}{2, 3}
+	\have{5}{\iflabelexists{showanswers}{\color{red}\enot A \eand B}{}} \by{\eand I}{2, 4}
+	\have{6}{\iflabelexists{showanswers}{\color{red}C}{}} \by{\eif E}{1, 5}
 	\end{proof} 
 
+
+%\iflabelexists{showanswers}{\by{\color{red}foo}{bar}}{}
+%\iflabelexists{showanswers}{\color{red}Foo}{}
 \\
 \vspace{-1cm}
 \item \textcolor{white}{.}  
@@ -1280,18 +1209,18 @@ The single turnstile will work the same way the double turnstile did. So, in add
 	\begin{proof}
 	\hypo{1}{\enot A \eand (\enot B \eand C)}
 	\hypo{2}{C \eif (D \eand (B \eor E))}
-	\hypo{3}{(E \eand \enot A) \eif F}	\by{Want: $D \eand F$}{}
-	\have{4}{\nix{\enot A}} \by{\eand E}{1}
-	\have{5}{\enot B \eand C} \nix{\by{\eand E}{1}}
-	\have{6}{\nix{\enot B}} \by{\eand E}{5}
-	\have{7}{C} \nix{\by{\eand E}{5}}
-	\have{8}{\nix{D \eand (B \eor E)}} \by{\eif E}{2, 7}
-	\have{9}{D} \nix{\by{\eand E}{8}}
-	\have{10}{\nix{B \eor E}} \by{\eand E}{8}
-	\have{11}{E} \nix{\by{\eor  E}{6, 10}}
-	\have[12]{12}{\nix{E \eand \enot A}} \by{\eand I}{4, 11}
-	\have[13]{13}{F} \nix{\by{\eif E}{3, 12}}
-	\have[14]{14}{\nix{D \eand F}} \by{\eand I}{9, 13}
+	\hypo{3}{(E \eand \enot A) \eif F}	\by{Want: $D \eand F$}{} 
+	\have{4}{\iflabelexists{showanswers}{\color{red}\enot A}{}} \by{\eand E}{1} 
+	\have{5}{\enot B \eand C} \iflabelexists{showanswers}{\by{\color{red}\eand E}{1}}{} %
+	\have{6}{\iflabelexists{showanswers}{\color{red}\enot B}{}} \by{\eand E}{5}
+	\have{7}{C} \iflabelexists{showanswers}{\by{\color{red}\eand E}{5}}{} %
+	\have{8}{\iflabelexists{showanswers}{\color{red}D \eand (B \eor E)}{}} \by{\eif E}{2, 7} 
+	\have{9}{D}\iflabelexists{showanswers}{\by{\color{red}\eand E}{8}}{} %
+	\have{10}{\iflabelexists{showanswers}{\color{red}B \eor E}{}} \by{\eand E}{8} 
+	\have{11}{E} \iflabelexists{showanswers}{\by{\color{red}\eor  E}{6, 10}}{}
+	\have[12]{12}{\iflabelexists{showanswers}{\color{red}E \eand \enot A}{}} \by{\eand I}{4, 11} 
+	\have[13]{13}{F} \iflabelexists{showanswers}{\by{\color{red}\eif E}{3, 12}}{}
+	\have[14]{14}{\iflabelexists{showanswers}{\color{red}D \eand F}{}} \by{\eand I}{9, 13} 
 	\end{proof}
 
 \end{longtabu}
@@ -1380,79 +1309,91 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \begin{enumerate}[label=(\arabic*)]
 \item \{$A \eif B, A\} \sststile{}{} A \eand B$
 
-%	\begin{proof}
-%	\hypo{1}{A \eif B}
-%	\hypo{2}{A} \by{Want: A \eand B}{}
-%	\have{3}{B} \by{\eif E}{1,2}
-%	\have{4}{A \eand B} \ai{2,3}
-%	\end{proof}
-
+\answer{
+	\begin{proof}
+	\hypo{1}{A \eif B}
+	\hypo{2}{A} \by{Want: A \eand B}{}
+	\have{3}{B} \by{\eif E}{1,2}
+	\have{4}{A \eand B} \ai{2,3}
+	\end{proof}
+}
 \item \{$A \eiff D, C, [(A \eiff D) \eand C] \eif (C \eiff B)\} \sststile{}{} B$
 
-%\begin{proof}
-%\hypo{1}{A \eiff D}
-%\hypo{2}{C}
-%\hypo{3}{((A \eiff D) \eand C) \eif (C \eiff B)} \by{Want: B}{} 
-%\have{4}{(A \eiff D) \eand C} \by{\eand I}{1, 2}
-%\have{5}{C \eiff B} \by{\eif E}{3, 4}
-%\have{6}{B} \by{\eiff E}{2, 5}
-%\end{proof}
-
+\answer{
+\begin{proof}
+\hypo{1}{A \eiff D}
+\hypo{2}{C}
+\hypo{3}{((A \eiff D) \eand C) \eif (C \eiff B)} \by{Want: B}{} 
+\have{4}{(A \eiff D) \eand C} \by{\eand I}{1, 2}
+\have{5}{C \eiff B} \by{\eif E}{3, 4}
+\have{6}{B} \by{\eiff E}{2, 5}
+\end{proof}
+}
 
 \item \{$A \eiff B, B \eiff C, C \eif D, A\} \sststile{}{} D$
 
-%	\begin{proof}
-%	\hypo{1}{A \eiff B}
-%	\hypo{2}{B \eiff C}
-%	\hypo{3}{C \eiff D} 
-%	\hypo{4}{A}	\by{Want: D}{}
-%	\have{5}{B} \be{1, 4}
-%	\have{6}{C} \be{2, 5}
-%	\have{7}{D} \be{3, 6}
-%	\end{proof}
+\answer{
+	\begin{proof}
+	\hypo{1}{A \eiff B}
+	\hypo{2}{B \eiff C}
+	\hypo{3}{C \eiff D} 
+	\hypo{4}{A}	\by{Want: D}{}
+	\have{5}{B} \be{1, 4}
+	\have{6}{C} \be{2, 5}
+	\have{7}{D} \be{3, 6}
+	\end{proof}
+}
 
 \item $\{(A \eif \enot B) \eand A, B \eor C\} \sststile{}{} C$
 
-%\begin{proof}
-%\hypo{1}{(A \eif \enot B) \eand A}
-%\hypo{2}{B \eor C} \by{Want: C}{}
-%\have{3}{A \eif \enot B} \by{\eand E}{1}
-%\have{4}{A}\by{\eand E}{1}
-%\have{5}{\enot B} \by{\eif E}{3, 4}
-%\have{6}{C} \by{\eor E}{2, 5}
-%\end{proof} 
-
+\answer{
+\begin{proof}
+\hypo{1}{(A \eif \enot B) \eand A}
+\hypo{2}{B \eor C} \by{Want: C}{}
+\have{3}{A \eif \enot B} \by{\eand E}{1}
+\have{4}{A}\by{\eand E}{1}
+\have{5}{\enot B} \by{\eif E}{3, 4}
+\have{6}{C} \by{\eor E}{2, 5}
+\end{proof} 
+}
 
 \item $\{(A \eif B) \eor (C \eif (D \eand E)), \enot (A \eif B), C\} \sststile{}{} D$
-%
-%	\begin{proof}
-%	\hypo{1}{(A \eif B) \eor (C \eif (D \eand E))} 
-%	\hypo{2}{\enot (A \eif B)}
-%	\hypo{3}{C} \by{Want: D}{}
-%	\have{4}{C \eif (D \eand E)} \oe{1, 3}
-%	\have{5}{D \eand E} \ce{3, 4}
-%	\end{proof}
 
+\answer{
+	\begin{proof}
+	\hypo{1}{(A \eif B) \eor (C \eif (D \eand E))} 
+	\hypo{2}{\enot (A \eif B)}
+	\hypo{3}{C} \by{Want: D}{}
+	\have{4}{C \eif (D \eand E)} \oe{1, 3}
+	\have{5}{D \eand E} \ce{3, 4}
+	\have{6}{D} \ae{5}
+	\end{proof}
+}
 
 \item $\{C \eor (B \eand  A),  \enot C\} \sststile{}{} A \eor A$		%requires \eorI
-%\begin{proof}
-%\hypo{1}{C \eor (B \eand A)}
-%\hypo{2}{\enot C} \by{Want: A \eor A}{}
-%\have{3}{B \eand A} \oe{1, 2}
-%\have{4}{A} \ae{3}
-%\have{5}{A \eor A} \oe{4}
-%\end{proof}
+
+\answer{
+\begin{proof}
+\hypo{1}{C \eor (B \eand A)}
+\hypo{2}{\enot C} \by{Want: A \eor A}{}
+\have{3}{B \eand A} \oe{1, 2}
+\have{4}{A} \ae{3}
+\have{5}{A \eor A} \oe{4}
+\end{proof}
+}
 
 \item $\{A \eor B, \enot A, \enot B\} \sststile{}{} C$				%\eorIE trick
 
-%	\begin{proof}
-%	\hypo{1}{A \eor B}
-%	\hypo{2}{\enot A}
-%	\hypo{3}{\enot B} \by{Want: C}{}
-%	\have{4}{B} \oe{1, 2}
-%	\have{5}{B \eor C} \oi{4}
-%	\have{6}{C} \oe{3, 5}
-%	\end{proof}
+\answer{
+	\begin{proof}
+	\hypo{1}{A \eor B}
+	\hypo{2}{\enot A}
+	\hypo{3}{\enot B} \by{Want: C}{}
+	\have{4}{B} \oe{1, 2}
+	\have{5}{B \eor C} \oi{4}
+	\have{6}{C} \oe{3, 5}
+	\end{proof}
+}
 \end{enumerate}
 
 %%%%PART F
@@ -1499,89 +1440,105 @@ The single turnstile will work the same way the double turnstile did. So, in add
 
 \item $H \eand A \sststile{}{} A \eand H	$
 
-%\begin{proof}
-%\hypo{1}{H \eand A} \by{Want: A \eand H}{}
-%\have{2}{H} \by{\eand E}{1}
-%\have{3}{A} \by{\eand E}{1}
-%\have{4}{A \eand H} \by{\eand I}{2, 3}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{H \eand A} \by{Want: A \eand H}{}
+\have{2}{H} \by{\eand E}{1}
+\have{3}{A} \by{\eand E}{1}
+\have{4}{A \eand H} \by{\eand I}{2, 3}
+\end{proof}
+}
 
 \item $\{{P \eor Q, D \eif E, \enot P \eand D} \} \sststile{}{} E \eand Q$
 
-%
-%\begin{proof}
-%\hypo{1}{P \eor Q}
-%\hypo{2}{D \eif E}
-%\hypo{3}{~P \eand D}  \by{Want: E \eand Q}{}
-%\have{4}{~P} \by{\eand E}{3}
-%\have{5}{D} \by{\eand E 3}{}
-%\have{6}{Q} \by{\eor E}{1, 4}
-%\have{7}{E	} \by{\eif E}{2, 5}
-%\have{8}{E \eand Q} \by{\eand E}{6, 7}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{P \eor Q}
+\hypo{2}{D \eif E}
+\hypo{3}{~P \eand D}  \by{Want: E \eand Q}{}
+\have{4}{~P} \by{\eand E}{3}
+\have{5}{D} \by{\eand E 3}{}
+\have{6}{Q} \by{\eor E}{1, 4}
+\have{7}{E	} \by{\eif E}{2, 5}
+\have{8}{E \eand Q} \by{\eand E}{6, 7}
+\end{proof}
+}
 
 \item $\{\enot A \eif (A \eor \enot C), \enot A, \enot C \eiff D \} \sststile{}{} D$
 
-%\begin{proof}
-%\hypo{1}{~A \eif (A \eor ~C)}
-%\hypo{2}{~A}
-%\hypo{3}{~C \eiff D} \by{Want: D}{}
-%\have{4}{A \eor ~C} \by{\eif E}{1, 2}
-%\have{5}{~C} \by{\eor E} {2, 4}
-%\have{6}{D} \by{\eiff E}{3, 5}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{~A \eif (A \eor ~C)}
+\hypo{2}{~A}
+\hypo{3}{~C \eiff D} \by{Want: D}{}
+\have{4}{A \eor ~C} \by{\eif E}{1, 2}
+\have{5}{~C} \by{\eor E} {2, 4}
+\have{6}{D} \by{\eiff E}{3, 5}
+\end{proof}
+}
 
 \item $\{\enot A \eand C, A \eor B, (B \eand C) \eif (D \eand E) \} \sststile{}{} D$
-%\begin{proof}
-%\hypo{1}{~A \eand C}
-%\hypo{2}{A \eor B}
-%\hypo{3}{(B \eand C) \eif (D \eand E)} \by{Want: D}{}
-%\have{4}{~A} \by{\eand E}{1}
-%\have{5}{C} \by{\eand E}{1}
-%\have{6}{B} \by{\eor E}{2, 4}
-%\have{7}{B \eand C} \by{\eand E}{5, 6}
-%\have{8}{D \eand E} \by{\eif E}{3, 7}
-%\have{9}{D}\by{\eand E}{8}
-%\end{proof}
+
+\answer{
+\begin{proof}
+\hypo{1}{~A \eand C}
+\hypo{2}{A \eor B}
+\hypo{3}{(B \eand C) \eif (D \eand E)} \by{Want: D}{}
+\have{4}{~A} \by{\eand E}{1}
+\have{5}{C} \by{\eand E}{1}
+\have{6}{B} \by{\eor E}{2, 4}
+\have{7}{B \eand C} \by{\eand E}{5, 6}
+\have{8}{D \eand E} \by{\eif E}{3, 7}
+\have{9}{D}\by{\eand E}{8}
+\end{proof}
+}
 
 \item $\{A \eif (B \eif (C \eif D)), A \eand (B \eand C) \} \sststile{}{} D$
-%\begin{proof}
-%\hypo{1}{A \eif (B \eif (C \eif D))}
-%\hypo{2}{A \eand (B \eand C)} \by{Want: D}{}
-%\have{3}{A} \by{\eand E}{2}
-%\have{4}{B \eand C} \by{\eand E}{2}
-%\have{5}{B} \by{\eand E}{4}
-%\have{6}{C} \by{\eand E}{4}
-%\have{7}{B \eif (C \eif D)} \by{\eif E}{1, 3}
-%\have{8}{C \eif D} \by{\eif E}{5, 7}
-%\have{9}{D} \by{\eif E}{6, 8}
-%\end{proof}
+
+\answer{
+\begin{proof}
+\hypo{1}{A \eif (B \eif (C \eif D))}
+\hypo{2}{A \eand (B \eand C)} \by{Want: D}{}
+\have{3}{A} \by{\eand E}{2}
+\have{4}{B \eand C} \by{\eand E}{2}
+\have{5}{B} \by{\eand E}{4}
+\have{6}{C} \by{\eand E}{4}
+\have{7}{B \eif (C \eif D)} \by{\eif E}{1, 3}
+\have{8}{C \eif D} \by{\eif E}{5, 7}
+\have{9}{D} \by{\eif E}{6, 8}
+\end{proof}
+}
+
 
 \item $\{E \eor F, F \eor G, \enot F\} \sststile{}{} E \eand G$
 
+\answer{
+\begin{proof}
+\hypo{1}{E \eor F}
+\hypo{2}{F\eor G}
+\hypo{3}{\enot F} \by{Want: $E \eand G$}{}
+\have{4}{E} \by{\eor E}{1, 3}
+\have{5}{G} \by{\eor E}{2, 3}
+\have{6}{E \eand G} \by{\eand I}{4, 5}
+\end{proof}
+}
 
-%\begin{proof}
-%\hypo{1}{E \eor F}
-%\hypo{2}{F\eor G}
-%\hypo{3}{\enot F} \by{Want: $E \eand G$}{}
-%\have{4}{E} \by{\eor E}{1, 3}
-%\have{5}{G} \by{\eor E}{2, 3}
-%\have{6}{E \eand G} \by{\eand I}{4, 5}
 
 \item $\{X \eand (Z \eor Y), \enot Z, Y \eif \enot X\} \sststile{}{} A$  %\eorIE trick
 
-%\begin{proof}
-%\hypo{1}{X \eand (Z \eor Y)}
-%\hypo{2}{\enot Z}
-%\hypo{3}{Y \eif \enot X} \by{Want: $A$}{}
-%\have{4}{X} \by{\eand E}{1}
-%\have{5}{Z \eor Y} \by{\eand E}{1}
-%\have{6}{Y} \by{\eor E}{2, 5}
-%\have{7}{\enot X} \by{\eif E}{3, 6}
-%\have{8}{X \eor A} \by{\eor I}{4}
-%\have{9}{A} \by{\eor E}{7, 8}
-%\end{proof}
-
+\answer{
+\begin{proof}
+\hypo{1}{X \eand (Z \eor Y)}
+\hypo{2}{\enot Z}
+\hypo{3}{Y \eif \enot X} \by{Want: $A$}{}
+\have{4}{X} \by{\eand E}{1}
+\have{5}{Z \eor Y} \by{\eand E}{1}
+\have{6}{Y} \by{\eor E}{2, 5}
+\have{7}{\enot X} \by{\eif E}{3, 6}
+\have{8}{X \eor A} \by{\eor I}{4}
+\have{9}{A} \by{\eor E}{7, 8}
+\end{proof}
+}
 
 \end{enumerate}
 
@@ -1621,40 +1578,43 @@ Translate the following arguments into SL and then show that they are valid. Be 
 \item If Professor Plum did it, he did it with the rope in the kitchen. Either Professor Plum or Miss Scarlett did it, and it wasn't Miss Scarlett. Therefore the murder was in the kitchen.  
 %rob: note to self: problem 1 taken from test 4 SP08.
 
-%A: Professor Plum did it\\
-%B: The murder was committed in the kitchen \\
-%C: The murder was committed with the rope\\
-%D: Miss Scarlett did it
-%\end{multicols}
-%
-%\begin{proof}
-%\hypo{1}{A \eif (B \eand C)}
-%\hypo{2}{(A \eor D) \eand \enot D} \by{Want: B}{}
-%\have{3}{A \eor D} \ae{2}
-%\have{4}{\enot D} \ae{2}
-%\have{5}{A} \oe{3, 4}
-%\have{6}{B \eand C} \ce{1, 5}
-%\have{7}{B} \ae{6}
-%\end{proof}
+\answer{
+A: Professor Plum did it \\
+B: The murder was committed in the kitchen \\
+C: The murder was committed with the rope\\
+D: Miss Scarlett did it
+
+
+\begin{proof}
+\hypo{1}{A \eif (B \eand C)}
+\hypo{2}{(A \eor D) \eand \enot D} \by{Want: B}{}
+\have{3}{A \eor D} \ae{2}
+\have{4}{\enot D} \ae{2}
+\have{5}{A} \oe{3, 4}
+\have{6}{B \eand C} \ce{1, 5}
+\have{7}{B} \ae{6}
+\end{proof}
+}
 
 \item If you are going to replace the bathtub, you might as well redo the whole bathroom. If you redo the whole bathroom, you will have to replace all the plumbing on the north side of the house. You will spend a lot of money on this project if and only if you replace the plumbing on the north side of the house. You are definitely going to replace the bathtub. Therefore you will spend a lot of money on this project. 
 
-%A: You are going to replace the bathtub \\
-%B: You redo the whole bathroom.  \\
-%C: You replace all the plumbing on the north side of the house. \\
-%D: You will spend a lot of money on this project  \\ 
-%
-%
-%\begin{proof}
-%\hypo{1}{A \eif B}
-%\hypo{2}{B \eif C}
-%\hypo{3}{C \eiff D}
-%\hypo{4}{A} \by{Want: D}{}
-%\have{5}{B} \by{\eif E}{1, 4}
-%\have{6}{C} \by{\eif E}{2, 5}
-%\have{7}{D}  \by{\eiff E}{3, 6}
-%\end{proof}
+\answer{
+A: You are going to replace the bathtub \\
+B: You redo the whole bathroom.  \\
+C: You replace all the plumbing on the north side of the house. \\
+D: You will spend a lot of money on this project  \\ 
 
+
+\begin{proof}
+\hypo{1}{A \eif B}
+\hypo{2}{B \eif C}
+\hypo{3}{C \eiff D}
+\hypo{4}{A} \by{Want: D}{}
+\have{5}{B} \by{\eif E}{1, 4}
+\have{6}{C} \by{\eif E}{2, 5}
+\have{7}{D}  \by{\eiff E}{3, 6}
+\end{proof}
+}
 
 \end{enumerate}
 
@@ -1861,7 +1821,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 
 %%%%%%Practice Problems %%%%%%%%%%%%%%%
 \practiceproblems
-\noindent\problempart Fill in the blanks in the following proofs. Be sure to include the ``Want'' line for each subproof. 
+\noindent\problempart Fill in the blanks in the following proofs. Be sure to include the ``Want'' line for each subproof.  %!@#$
 
 \begin{exercises}
 \item  \textcolor{white}{.} % $\{\enot P \eif (Q \eor R), P \eor \enot Q\} \sststile{}{} \enot P \eif R$
@@ -1870,12 +1830,12 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \hypo{1}{\enot P \eif (Q \eor R)}
 \hypo{2}{P \eor \enot Q}  \by{Want: \enot P \eif R}{}
 \open
-\hypo{3}{\enot P} \by{Want: }{}
-\have{4}{Q \eor R} 
-\have{5}{} \oe{2, 3}
-\have{6}{R} 
+\hypo{3}{\enot P} \by{Want: \iflabelexists{showanswers}{\color{red} R}{}}{} 
+\have{4}{Q \eor R}   \iflabelexists{showanswers}{\by{\color{red} \eif E}{1, 3}}{}
+\have{5}{\iflabelexists{showanswers}{\color{red}\enot Q}{}} \oe{2, 3}
+\have{6}{R}  \iflabelexists{showanswers}{\by{\color{red} \eor E}{2, 3}}{}
 \close
-\have{7}{\enot P \eif R} 
+\have{7}{\enot P \eif R} \iflabelexists{showanswers}{\by{\color{red} \eif I}{3-6}}{}
 \end{proof}
 
 %\begin{proof}
@@ -1896,25 +1856,25 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \hypo{1}{A \eor B}
 \hypo{2}{B \eif (B \eif \enot A)} \by{Want: \enot A \eiff B}{}
 	\open
-	\hypo{3}{\enot A} \by{Want: \nix{B}}{}
-	\have{4}{\nix{B}} \by{\eor E}{1, 3}
+	\hypo{3}{\enot A} \by{Want: \iflabelexists{showanswers}{\color{red}B}{}}{}
+	\have{4}{\iflabelexists{showanswers}{\color{red}B}{}} \by{\eor E}{1, 3}
 	\close
 	\open
-	\hypo{5}{B} \by{Want: \nix{\enot A}}{}
-	\have{6}{B \eif \enot A} \nix{\by{\eif E}{2, 3}}
-	\have{7}{\nix{\enot A}} \by{\eif E}{5, 6}
+	\hypo{5}{B} \by{Want: \iflabelexists{showanswers}{\color{red}\enot A}{}}{}
+	\have{6}{B \eif \enot A} \iflabelexists{showanswers}{ \by{\color{red}\eif E}{2, 3}}{} % 
+	\have{7}{\iflabelexists{showanswers}{\color{red}\enot A}{}} \by{\eif E}{5, 6}
 	\close
-\have{8}{\enot A \eiff B} \nix{\by{\eiff I}{3-4, 5-7}}
+\have{8}{\enot A \eiff B} \iflabelexists{showanswers}{\by{\color{red}\eiff I}{3-4, 5-7}}{}
 \end{proof}
 \end{exercises}
 
  
 \noindent\problempart Fill in the blanks in the following proofs. Be sure to include the ``Want'' line for each subproof. 
 
-\begin{enumerate}[label=(\arabic*)]
+\begin{exercises}
 
 \item \textcolor{white}{.} \\ % $\{\enot P \eif (Q \eor R), P \eor \enot Q\} \sststile{}{} \enot P \eif R$
-\vspace{-30pt}
+\vspace{-16pt}
 \begin{proof}
 \hypo{1}{B \eif \enot D}
 \hypo{2}{A \eif (D \eor C)}  \by{Want: $A \eif (B \eif C)$}{}
@@ -1966,86 +1926,89 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 	\close
 \have{10}{\nix{G \eif C}} \by{\eif I}{3-9}
 \end{proof}
-\end{enumerate}
+\end{exercises}
 
 \noindent\problempart Derive the following 
 \begin{enumerate}[label=(\arabic*)]
 
 \item $\{K\eand L\} \sststile{}{} K\eiff L$
 %originally Chapter 6, part B, number 1
-
-%
-%\begin{proof}
-%\hypo{1}{K \eand L} \by{want: K \eiff L}{}
-%\open
-%\hypo{2}{K} \by{Want: L}{}
-%\have{3}{L} \ae{1}
-%\close
-%\open
-%\hypo{4}{L} \by{Want: K}{}
-%\have{5}{K} \ae{1}
-%\close
-%\have{6}{K \eiff L} \by{\eiff E}{4--5, 6--7}
+\answer{
+\begin{proof}
+\hypo{1}{K \eand L} \by{want: K \eiff L}{}
+\open
+\hypo{2}{K} \by{Want: L}{}
+\have{3}{L} \ae{1}
+\close
+\open
+\hypo{4}{L} \by{Want: K}{}
+\have{5}{K} \ae{1}
+\close
+\have{6}{K \eiff L} \by{\eiff E}{4-5, 6-7}
+\end{proof}
+}
 
 \item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
 %originally Chapter 6, part B, number 2
-%
-%2)  $A\eif (B\eif C)$ $\therefore$ $(A\eand B)\eif C$
-%\begin{proof}
-%\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
-%\open
-%\hypo{2}{A \eand B} \by{Want: C}{}
-%\have{3}{A} \ae{2}
-%\have{4}{B} \ae{2}
-%\have{5}{B \eif C} \ce{1, 3}
-%\have{6}{C} \ce{4, 5}
-%\close
-%\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
-%\end{proof}
+
+\answer{
+\begin{proof}
+\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
+\open
+\hypo{2}{A \eand B} \by{Want: C}{}
+\have{3}{A} \ae{2}
+\have{4}{B} \ae{2}
+\have{5}{B \eif C} \ce{1, 3}
+\have{6}{C} \ce{4, 5}
+\close
+\have{7}{(A \eand B) \eif C} \by{\eif I}{2--6}
+\end{proof}
+}
 
 \item $\{A\eiff B, B\eiff C\} \sststile{}{} A\eiff C$
 %originally Chapter 6, part C, number 4
-%
-%\begin{proof}
-%\hypo{1}{A \eiff B}
-%\hypo{2}{B \eiff C} \by{Want: A \eiff C}{}
-%\open
-%\hypo{3}{A} \by{Want: C}{}
-%\have{4}{B} \by{\eiff E}{1, 3}
-%\have{5}{C} \by{\eiff E}{2, 4}
-%\close
-%\open
-%\hypo{6}{C} \by{Want: A}{}
-%\have{7}{B} \by{\eiff E}{2, 6}
-%\have{8}{A} \by{\eiff E}{1, 7}
-%\close
-%\have{9}{A \eiff C} \by{\eiff I}{3--5, 6--8}
-%\end{proof}
 
+\answer{
+\begin{proof}
+\hypo{1}{A \eiff B}
+\hypo{2}{B \eiff C} \by{Want: A \eiff C}{}
+\open
+\hypo{3}{A} \by{Want: C}{}
+\have{4}{B} \by{\eiff E}{1, 3}
+\have{5}{C} \by{\eiff E}{2, 4}
+\close
+\open
+\hypo{6}{C} \by{Want: A}{}
+\have{7}{B} \by{\eiff E}{2, 6}
+\have{8}{A} \by{\eiff E}{1, 7}
+\close
+\have{9}{A \eiff C} \by{\eiff I}{3--5, 6--8}
+\end{proof}
+}
 
 \item $\{X \eiff (A \eand B), B \eiff Y, B \eif A\} \sststile{}{} X \eiff Y$
 
-%4) $X \eiff (A \eand B)$, $B \eiff Y$, $B \eif A$  $\therefore$ $X \eiff Y$
-%
-%\begin{proof}
-%\hypo{1}{X \eiff (A \eand B)}
-%\hypo{2}{B \eiff Y}
-%\hypo{3}{B \eif A} \by{Want: X \eiff Y}{} 
-%\open
-%\hypo{4}{X} \by{Want: Y}{}
-%\have{5}{A \eand B} \by{\eiff E}{1, 4}
-%\have{6}{B} \ae{5}
-%\have{7}{Y} \by{\eiff E}{2, 6}
-%\close
-%\open
-%\hypo{8}{Y} \by{Want: X}{}
-%\have{9}{B} \by{\eiff E}{2, 8}
-%\have{10}{A} \ce{3, 9}
-%\have{11}{A \eand B} \ai{9, 10}
-%\have{12}{X} \by{\eiff E}{1, 12}
-%\close
-%\have{13}{X \eiff Y} \by{\eiff I}{4-7, 8-12} 
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{X \eiff (A \eand B)}
+\hypo{2}{B \eiff Y}
+\hypo{3}{B \eif A} \by{Want: X \eiff Y}{} 
+\open
+\hypo{4}{X} \by{Want: Y}{}
+\have{5}{A \eand B} \by{\eiff E}{1, 4}
+\have{6}{B} \ae{5}
+\have{7}{Y} \by{\eiff E}{2, 6}
+\close
+\open
+\hypo{8}{Y} \by{Want: X}{}
+\have{9}{B} \by{\eiff E}{2, 8}
+\have{10}{A} \ce{3, 9}
+\have{11}{A \eand B} \ai{9, 10}
+\have{12}{X} \by{\eiff E}{1, 12}
+\close
+\have{13}{X \eiff Y} \by{\eiff I}{4-7, 8-12} 
+\end{proof}
+}
 
 \item $\{B \eif \enot E, A \eif \enot D, D \eor (E \eor R), (R \eand A) \eif C\} \sststile{}{} A \eif (B \eif C)$ 
 
@@ -2075,28 +2038,27 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 
 \item $\{\enot W \eand \enot E, Q \eiff D\} \sststile{}{} (W \eor Q) \eiff (E \eor D)$
 
-%5) \enot W \eand \enot E, Q \eiff D $\therefore$ (W \eor Q) \eiff (E \eor D)
-%
-%\begin{proof}
-%\hypo{1}{\enot W \eand \eand E} 
-%\hypo{2}{Q \eiff D} \by{Want: (W \eor Q) \eiff (E \eor D)}{}
-%\have{3}{\enot W} \ae{1}
-%\have{4}{\enot E} \ae{1}
-%\open
-%\hypo{5}{W \eor Q} \by{Want: E \eor D}{}
-%\have{6}{Q} \oe{3, 5}
-%\have{7}{D} \by{\eiff E}{2, 6}
-%\have{8}{E \eor D} \oi{7}
-%\close
-%\open
-%\hypo{9}{E \eor D} \by{Want: W \eor Q}{}
-%\have{10}{D} \oe{4, 9}
-%\have{11}{Q} \by{\eiff E}{2, 10}
-%\have{12}{W \eor Q} \oi{11}
-%\close
-%\have{13}{(W \eor Q) \eiff (E \eor D)} \ci{5-8, 9-12}
-%\end{proof}
-
+\answer{
+\begin{proof}
+\hypo{1}{\enot W \eand \eand E} 
+\hypo{2}{Q \eiff D} \by{Want: (W \eor Q) \eiff (E \eor D)}{}
+\have{3}{\enot W} \ae{1}
+\have{4}{\enot E} \ae{1}
+\open
+\hypo{5}{W \eor Q} \by{Want: E \eor D}{}
+\have{6}{Q} \oe{3, 5}
+\have{7}{D} \by{\eiff E}{2, 6}
+\have{8}{E \eor D} \oi{7}
+\close
+\open
+\hypo{9}{E \eor D} \by{Want: W \eor Q}{}
+\have{10}{D} \oe{4, 9}
+\have{11}{Q} \by{\eiff E}{2, 10}
+\have{12}{W \eor Q} \oi{11}
+\close
+\have{13}{(W \eor Q) \eiff (E \eor D)} \ci{5-8, 9-12}
+\end{proof}
+}
 
 %\noindent\problempart Derive the following 
 %\begin{enumerate}[label=(\arabic*)]
@@ -2108,82 +2070,69 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 
 \item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$
 
-%5) $\enot A$, $(B \eand C) \eif D$ $\therefore$ $(A \eor B) \eif (C \eif D)$
-%\begin{proof}
-%
-%\hypo{1}{\enot A}
-%\hypo{2}{(B \eand C) \eif D} \by{Want: (A \eor B) \eif (C \eif D}{}
-%\open
-%\hypo{3}{A \eor B} \by{Want: C \eif D}{}
-%\open
-%\hypo{4}{C}  \by{Want: D}{}
-%\have{5}{B} \oe{1, 4}
-%\have{6}{B \eand C} \ai{4, 5}
-%\have{7}{D} \ce{2, 6}
-%\close
-%\have{8}{C \eif D} \ci{4-7}
-%\close
-%\have{9}{(A \eor B) \eif (C \eif D)} \ci{3-8}
-%\end{proof}
+\answer{
+\begin{proof}
+
+\hypo{1}{\enot A}
+\hypo{2}{(B \eand C) \eif D} \by{Want: (A \eor B) \eif (C \eif D}{}
+\open
+\hypo{3}{A \eor B} \by{Want: C \eif D}{}
+\open
+\hypo{4}{C}  \by{Want: D}{}
+\have{5}{B} \oe{1, 4}
+\have{6}{B \eand C} \ai{4, 5}
+\have{7}{D} \ce{2, 6}
+\close
+\have{8}{C \eif D} \ci{4-7}
+\close
+\have{9}{(A \eor B) \eif (C \eif D)} \ci{3-8}
+\end{proof}
+}
 
 
-%\item $\{(K \eif K) \eif R, (R \eor M) \eif N \sststile{}{} N$
-
-%1.	(K  K)  R
-%3.	(R  M)  N		Want: N
-%3.		K				Want: K
-%4.		K				R 3
-%5.	K  K				I, 3–4
-%6.	R					E, 1, 5
-%7.	R  M				I 6
-%8.	N					E 2, 7
-%
-%Appears in: Hurley 10, p. 401
-%Now it your text, replace ASAP
 
 
 \item $\{(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z\} \sststile{}{} A \eand (B \eand C) \eiff X \eand (Y \eand Z)$
-%
-%7) $(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z $\therefore$ A \eand (B \eand C) \eiff X \eand (Y \eand Z)$
-%
-%\begin{proof}
-%\hypo{1}{(A \eand B) \eiff D}
-%\hypo{2}{D \eiff (X \eand Y)}
-%\hypo{3}{C \eiff Z} \by{A \eand (B \eand C) \eiff X \eand (Y \eand Z)}{}
-%	\open
-%	\hypo{4}{A \eand (B \eand C)} \by{Want: X \eand (Y \eand Z)}{}
-%	\have{5}{A} \ae{4}
-%	\have{6}{B \eand C} \ae{4}
-%	\have{7}{B} \ae{6}
-%	\have{8}{C} \ae{6}
-%	\have{9}{Z} \by{\eiff-E}{3, 8}
-%	\have{10}{A \eand B} \ai{5, 7}
-%	\have{11}{D} \by{\eiff-E}{1, 10}
-%	\have{12}{X \eand Y}  \by{\eiff-E}{2, 11}
-%	\have{13}{X} \ae{12}
-%	\have{14}{Y} \ae{12}
-%	\have{15}{Y \eand Z} \ai{13, 14}
-%	\have{16}{X \eand (Y \eand Z)} \ai{13, 15}
-%	\close
-%	
-%	\open
-%	\hypo{17}{X \eand (Y \eand Z)} \by{Want: A \eand (B \eand C)}{} 
-%	\have{18}{X} \ae{17}
-%	\have{19}{Y \eand Z} \ae{17}
-%	\have{20}{Y} \ae{19}
-%	\have{21}{Z} \ae{19}
-%	\have{22}{C}  \by{\eiff-E}{3, 22}
-%	\have{23}{X \eand Y} \ai{18, 20}
-%	\have{24}{D}  \by{\eiff-E}{2, 23}
-%	\have{25}{A \eand B}  \by{\eiff-E}{1, 24}
-%	\have{26}{A} \ae{25}
-%	\have{27}{B} \ae{25}
-%	\have{28}{B \eand C} \ai{22, 27}
-%	\have{29}{A \eand (B \eand C)} \ai{26, 28}
-%	\close
-%\have{30}{A \eand (B \eand C) \eiff (X \eand (Y \eand Z)} \by{\eiff I, 4-16, 17-29}{}
-%\end{proof}
 
+\answer{
+\begin{proof}
+\hypo{1}{(A \eand B) \eiff D}
+\hypo{2}{D \eiff (X \eand Y)}
+\hypo{3}{C \eiff Z} \by{A \eand (B \eand C) \eiff X \eand (Y \eand Z)}{}
+	\open
+	\hypo{4}{A \eand (B \eand C)} \by{Want: X \eand (Y \eand Z)}{}
+	\have{5}{A} \ae{4}
+	\have{6}{B \eand C} \ae{4}
+	\have{7}{B} \ae{6}
+	\have{8}{C} \ae{6}
+	\have{9}{Z} \by{\eiff-E}{3, 8}
+	\have{10}{A \eand B} \ai{5, 7}
+	\have{11}{D} \by{\eiff-E}{1, 10}
+	\have{12}{X \eand Y}  \by{\eiff-E}{2, 11}
+	\have{13}{X} \ae{12}
+	\have{14}{Y} \ae{12}
+	\have{15}{Y \eand Z} \ai{13, 14}
+	\have{16}{X \eand (Y \eand Z)} \ai{13, 15}
+	\close
+	
+	\open
+	\hypo{17}{X \eand (Y \eand Z)} \by{Want: A \eand (B \eand C)}{} 
+	\have{18}{X} \ae{17}
+	\have{19}{Y \eand Z} \ae{17}
+	\have{20}{Y} \ae{19}
+	\have{21}{Z} \ae{19}
+	\have{22}{C}  \by{\eiff-E}{3, 22}
+	\have{23}{X \eand Y} \ai{18, 20}
+	\have{24}{D}  \by{\eiff-E}{2, 23}
+	\have{25}{A \eand B}  \by{\eiff-E}{1, 24}
+	\have{26}{A} \ae{25}
+	\have{27}{B} \ae{25}
+	\have{28}{B \eand C} \ai{22, 27}
+	\have{29}{A \eand (B \eand C)} \ai{26, 28}
+	\close
+\have{30}{A \eand (B \eand C) \eiff (X \eand (Y \eand Z)} \by{\eiff I, 4-16, 17-29}{}
+\end{proof}
+}
 
 
 \end{enumerate}	
@@ -2344,7 +2293,7 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 \end{proof}
 
 
-%%%%%%%%Practice problems  %%%%%%%%%%%%%%%%%
+%%%%%%%%Practice problems  %%%%%%%%%%%%%%%%%  !@#$ 
  	
 \practiceproblems
 
@@ -2358,28 +2307,16 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 %DeMorgans, conjunction of negations to negated disjunction
 \label{DeM2}
 \begin{proof}
-\hypo{1}{\enot A \eand \enot B} \by{Want: }{}
-\have{2}{\enot A} 
-\have{3}{\enot B} 
+\hypo{1}{\enot A \eand \enot B} \by{Want: \iflabelexists{showanswers}{\color{red}$\enot (A \eor B)$}{}}{}
+\have{2}{\enot A} \iflabelexists{showanswers}{ \by{\color{red}\eand E}{1}}{}
+\have{3}{\enot B} \iflabelexists{showanswers}{ \by{\color{red}\eand E}{1}}{}
 \open
 	\hypo{4}{A \eor B} \by{for reductio}{}
-	\have{5}{B} 
-	\have{6}{\enot B} 
+	\have{5}{B} \iflabelexists{showanswers}{ \by{\color{red}\eor E}{2, 4}}{}
+	\have{6}{\enot B} \iflabelexists{showanswers}{ \by{\color{red}R}{3}}{}
 \close
-\have{7}{\enot(A \eor B)} 
+\have{7}{\enot(A \eor B)} \iflabelexists{showanswers}{\by{\color{red} \enot I}{4-6}}{}
 \end{proof}
-
-%\begin{proof}
-%\hypo{1}{\enot A \eand \enot B} \by{Want: \enot (A \eor B)}{}
-%\have{2}{\enot A} \ae{1}
-%\have{3}{\enot B} \ae{2}
-%\open
-%	\hypo{4}{A \eor B} \by{for reductio}{}
-%	\have{5}{B} \oe{2, 4}
-%	\have{6}{\enot B} \by{R}{3}
-%\close
-%\have{7}{\enot(A \eor B)} \ni{4-6}
-%\end{proof}
 
 \vspace{5cm}
 
@@ -2391,18 +2328,18 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 \hypo{1}{\enot A \eor \enot B} \by{Want: $\enot(A \eand B)$}{}
 	\open
 	\hypo{2}{A \eand B} \by{for reductio}{}
-	\have{3}{\hspace{1cm}} \ae{2}	
-	\have{4}{} \ae{2}
+	\have{3}{\iflabelexists{showanswers}{\color{red}A}{}} \ae{2}	
+	\have{4}{\iflabelexists{showanswers}{\color{red}B}{}} \ae{2}
 		\open
-		\hypo{5}{\hspace{1cm}} \by{for reductio}{}
-		\have{6}{} \by{R}{3}
-		\have{7}{} \by{R}{5}
+		\hypo{5}{\iflabelexists{showanswers}{\color{red} \enot A}{}}\by{for reductio}{}
+		\have{6}{\iflabelexists{showanswers}{\color{red}A}{}} \by{R}{3}
+		\have{7}{\iflabelexists{showanswers}{\color{red}\enot A}{}} \by{R}{5}
 		\close
-	\have{8}{\enot \enot A} 
-	\have{9}{B} 
-	\have{10}{\enot B} 
+	\have{8}{\enot \enot A} \iflabelexists{showanswers}{ \by{\color{red}\enot I}{5-7}}{} 
+	\have{9}{B} \iflabelexists{showanswers}{ \by{\color{red}R}{4}}{} 
+	\have{10}{\enot B} \iflabelexists{showanswers}{ \by{\color{red}\eor E}{1, 8}}{} 
 	\close
-\have{11}{\enot(A \eand B)} 
+\have{11}{\enot(A \eand B)} \iflabelexists{showanswers}{ \by{\color{red}\enot I}{2-10}}{} 
 \end{proof}
 
 %Demorgans disjunction of negations to a negated conjunction.
@@ -2535,127 +2472,142 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 %Double negation removing negations
 \label{DN2}
 
-%\begin{proof}
-%\hypo{1}{\enot \enot A} \by{Want: $A$}{}
-%	\open
-%	\hypo{2}{\enot A} \by{for reductio}{}
-%	\have{3}{\enot \enot A} \by{R}{1}
-%	\have{4}{\enot A} \by{R}{2}
-%	\close
-%\have{5}{A} \ne{2-4}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{\enot \enot A} \by{Want: $A$}{}
+	\open
+	\hypo{2}{\enot A} \by{for reductio}{}
+	\have{3}{\enot \enot A} \by{R}{1}
+	\have{4}{\enot A} \by{R}{2}
+	\close
+\have{5}{A} \ne{2-4}
+\end{proof}
+}
 
 \item $\{A \eif B, \enot B\} \sststile{}{} \enot A$
 %modus tollens
 \label{ModusTollens}
 
-%\begin{proof}
-%	\hypo{1}{A \eif B}
-%	\hypo{2}{\enot B} \by{Want: $\enot A$}{}
-%		\open
-%		\hypo{3}{A} \by{for reductio}{}
-%		\have{4}{B} \ce{1, 3}
-%		\have{5}{\enot B} \by{R}{2}
-%		\close
-%	\have{6}{\enot A} \ni{3-5}
-%\end{proof}
+\answer{
+\begin{proof}
+	\hypo{1}{A \eif B}
+	\hypo{2}{\enot B} \by{Want: $\enot A$}{}
+		\open
+		\hypo{3}{A} \by{for reductio}{}
+		\have{4}{B} \ce{1, 3}
+		\have{5}{\enot B} \by{R}{2}
+		\close
+	\have{6}{\enot A} \ni{3-5}
+\end{proof}
+}
 
 \item $A \eif (\enot B \eor \enot C) \sststile{}{} A \eif \enot (B \eand C)$
 %
-%\hypo{1}{A \eif (\enot B \eor \enot C)} \by{Want: $A \eif \enot (B \eand C)$}{}
-%	\open
-%	\hypo{2}{A}	\by{Want: \enot (B \eand C)}{}
-%	\have{3}{\enot B \eor \enot C} \ce{1,2}		
-%		\open
-%		\hypo{4}{B \eand C} \by{for reductio}{}
-%		\have{5}{B} \ae{3}
-%		\have{6}{C} \ae{3}
-%			\open
-%			\hypo{7}{\enot B} \by{for reductio}{}
-%			\have{8}{B} \by{R}{4}
-%			\have{9}{\enot B} \by{R}{6}
-%			\close
-%		\have{10}{\enot \enot B} \ni{6-8}
-%		\have{11}{\enot C} \oe{3, 10}
-%		\have{12}{C} \by{R}{5}
-%		\close
-%	\have{13}{\enot (B \eand C)} \ni{3-11}
-%	\close
-%\have{14}{A \eif \enot (B \eand C)} \ci{2-12} 
-%\end{proof}
-
+\answer{
+\begin{proof}
+\hypo{1}{A \eif (\enot B \eor \enot C)} \by{Want: $A \eif \enot (B \eand C)$}{}
+	\open
+	\hypo{2}{A}	\by{Want: \enot (B \eand C)}{}
+	\have{3}{\enot B \eor \enot C} \ce{1,2}		
+		\open
+		\hypo{4}{B \eand C} \by{for reductio}{}
+		\have{5}{B} \ae{3}
+		\have{6}{C} \ae{3}
+			\open
+			\hypo{7}{\enot B} \by{for reductio}{}
+			\have{8}{B} \by{R}{4}
+			\have{9}{\enot B} \by{R}{6}
+			\close
+		\have{10}{\enot \enot B} \ni{6-8}
+		\have{11}{\enot C} \oe{3, 10}
+		\have{12}{C} \by{R}{5}
+		\close
+	\have{13}{\enot (B \eand C)} \ni{3-11}
+	\close
+\have{14}{A \eif \enot (B \eand C)} \ci{2-12} 
+\end{proof}
+}
 \item $\enot(A \eand B) \sststile{}{} \enot A \eor \enot B$
 %DeMorgan's negated conjunction to disjunction of negations
-%\begin{proof}
-%\hypo{1}{\enot(A \eand B)} \by{Want: \enot A \eor \enot B}{}
-%	\open
-%	\hypo{2}{\enot(\enot A \eor \enot B)} \by{for reductio}{}
-%		\open
-%		\hypo{3}{\enot A} \by{for reductio}{}
-%		\have{4}{\enot A \eor  \enot B} \oi{3}
-%		\have{5}{\enot(\enot A \eor \enot B)} \by{R}{2}
-%		\close
-%	\have{6}{A} \ne{3-5}
-%		\open
-%		\hypo{7}{\enot B} \by{for reductio}{}
-%		\have{8}{\enot A \eor \enot B} \oi{7}
-%		\have{9}{\enot(\enot A \eor \enot B)} \by{R}{2}
-%		\close
-%	\have{10}{B} \ne{7-9}
-%	\have{11}{A \eand B} \ai{6, 10}
-%	\have{12}{\enot(A \eand B)} \by{R}{1}
-%	\close
-%\have{13}{\enot A \eor \enot B} \ne{2-12}
-%\end{proof}
+
+\answer{
+\begin{proof}
+\hypo{1}{\enot(A \eand B)} \by{Want: \enot A \eor \enot B}{}
+	\open
+	\hypo{2}{\enot(\enot A \eor \enot B)} \by{for reductio}{}
+		\open
+		\hypo{3}{\enot A} \by{for reductio}{}
+		\have{4}{\enot A \eor  \enot B} \oi{3}
+		\have{5}{\enot(\enot A \eor \enot B)} \by{R}{2}
+		\close
+	\have{6}{A} \ne{3-5}
+		\open
+		\hypo{7}{\enot B} \by{for reductio}{}
+		\have{8}{\enot A \eor \enot B} \oi{7}
+		\have{9}{\enot(\enot A \eor \enot B)} \by{R}{2}
+		\close
+	\have{10}{B} \ne{7-9}
+	\have{11}{A \eand B} \ai{6, 10}
+	\have{12}{\enot(A \eand B)} \by{R}{1}
+	\close
+\have{13}{\enot A \eor \enot B} \ne{2-12}
+\end{proof}
+}
 
 \item $\{\enot F\eif G, F\eif H\} \sststile{}{} G\eor H$
 
-%
-%\begin{proof}
-%\hypo{1}{\enot F\eif G}
-%\hypo{2}{F\eif H} \by{Want: $G\eor H$}{}
-%	\open
-%	\hypo{3}{\enot (G \eor H)} \by{for reductio}{}
-%		\open
-%		\hypo{4}{F} \by{for reductio}{}
-%		\have{5}{H} \ce{2, 4}
-%		\have{6}{G \eor H} \oi{5}
-%		\have{7}{\enot(G \eor H)} \by{R}{3}
-%		\close
-%	\have{8}{\enot F} \ni{4-7}
-%	\have{9}{G} \oe{1,8}
-%	\have{10}{G \eor H} \oi{9}
-%	\have{11}{\enot G \eor H} \by{R}{3}
-%	\close
-%\have{12}{G \eor H} \ne{3-11}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{\enot F\eif G}
+\hypo{2}{F\eif H} \by{Want: $G\eor H$}{}
+	\open
+	\hypo{3}{\enot (G \eor H)} \by{for reductio}{}
+		\open
+		\hypo{4}{F} \by{for reductio}{}
+		\have{5}{H} \ce{2, 4}
+		\have{6}{G \eor H} \oi{5}
+		\have{7}{\enot(G \eor H)} \by{R}{3}
+		\close
+	\have{8}{\enot F} \ni{4-7}
+	\have{9}{G} \oe{1,8}
+	\have{10}{G \eor H} \oi{9}
+	\have{11}{\enot (G \eor H)} \by{R}{3}
+	\close
+\have{12}{G \eor H} \ne{3-11}
+\end{proof}
+}
 
 \item	$\{(T \eand K) \eor (C \eand E), E \eif \enot C\} \sststile{}{}  T \eand K$
 
+\answer{
+There are two solutions. In one, you look at the want line to figure out the assumption for the subproof. In the other, you think of another think you might want, and assume the negation of that.
 
-%There are two solutions. In one, you look at the want line to figure out the assumption for the subproof. In the other, you think of another think you might want, and assume the negation of that.
+\begin{proof}
+\hypo{1.}{(T \eand K) \eor (C \eand E)}
+\hypo{2.}{E \eif \enot C} 			\by{Want: T \eand K}{}
+\open
+\hypo{3.}{\enot (T \eand K)} \by{For Reductio}{}
+\have{4.}{C \eand E}	 \by{\eor E}{1, 4}
+\have{5.}{E} \by{\eand E}{4}
+\have{6.}{C} \by{\eand E}{5}
+\have{7.}{\enot C} \by{\enot E}{2, 6}
+\close
+\have{8.}{T \eand K}	\by{\enot E}{3-7}
+\end{proof}
 
-%\begin{proof}
-%\hypo{1.}{(T \eand K) \eor (C \eand E)}
-%\hypo{2.}{E \eif \enot C} 			\by{Want: T \eand K}{}
-%\open
-%\have{3.}{\enot (T \eand K)} \by{For Reductio}{}
-%\have{4.}{C \eand E}	 \by{\eor E}{1, 4}
-%\have{5.}{E} \by{\eand E}{4}
-%\have{6.}{C} \by{\eand E}{5}
-%\have{7.}{\enot C} \by{\enot E}{2, 6}
-%\close
-%\have{8.}{T \eand K}	\by{\enot E}{3-7}
-%\end{proof}
-%
-%1.	(T & K) ˅ (C & E)
-%2.	E → ~C 				Want: T & K
-%3.		C & E			For Reductio
-%4.		E				&E 3
-%5.		C				&E 4
-%6.		~C				E 2, 4
-%7.	~(C & E)			~I 3–4
-%8.	T&K				E 1, 7
+\begin{proof}
+\hypo{1.}{(T \eand K) \eor (C \eand E)}
+\hypo{2.}{E \eif \enot C} \by{Want: T \eand K}{}
+\open
+\have{3.}{C \eand  E}	\by{For Reductio}{}
+\have{4.}{E}\by{\eand E}{3}
+\have{5.}{C}\by{\eand E}{4}
+\have{6.}{\enot C}\by{\eif E}{2, 4}
+\close
+\have{7.}{\enot (C \eand E)}\by{\enot I}{3-4}
+\have{8.}{T \eand K}\by{\eor E}{1, 7}
+\end{proof}
+}
 
 \item $\{(A \eif B) \}\sststile{}{} (A \eif \enot B) \eif \enot A$
 
@@ -2780,7 +2732,12 @@ We can then finish the proof by showing $\enot B$ and putting it together with $
 %\noindent\problempart 
 %Translate the following arguments in to SL and then show that they are valid. Be sure to write out your dictionary. 
 
+%
+%  This is the opening of the conditional formatting tag for typesetting only part of this chapter. Everything from here to the close tag will be skipped unless the {whole_slproof_chap} label at the
+%  start of this chapter is uncommented.
+%
 
+\iflabelexists{whole_slproof_chap}{
 
 % *******************************************
 % *		Tautologies and Equivalences				   *	
@@ -3223,15 +3180,15 @@ Proof:
 		\hypo{4}{\enot{C}}\by{for reductio}{}
 			\open
 			\hypo{5}{\enot A} \by{for reductio}{}
-			\have{6}{B} \oe{2, 5}
+			\have{6}{B} \oe{1, 5}
 			\have{7}{C}\ci{3, 6}
 			\have{8}{\enot C} \by{R}{4}
 			\close
-		\have{9}{A}\ni{5-8}
+		\have{9}{A}\ne{5-8}
 		\have{11}{C} \ce{2, 10}
 		\have{12}{\enot C} \by{R}{4}
 		\close
-	\have{13}{C} \ni{4-13}		
+	\have{13}{C} \ne{4-13}		
 \end{proof} 
 
 
@@ -3710,14 +3667,14 @@ Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and whe
 \begin{table}
 \tabulinesep=1ex
 \begin{mdframed}[style=mytablebox]
-\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
-\bf{Logical property} 	&	\bf{To prove it present} 	&	\bf{To prove it absent} \\ \hline \hline
-Being a tautology 		& Derive the statement  						& Find the false line in the truth table for the sentence \\ \hline
-Being a contradiction 	&  Derive the negation of the statement  		 & Find the true line in the truth table for the sentence\\ \hline
-Contingency 			& Find a false line and a true line in the truth table for the statement & Prove the statement or its negation\\ \hline
-Equivalence 			& Derive each statement from the other 		 & Find a line in the truth tables for the statements where they have different values\\ \hline
-Consistency 		& Find a line in truth table for the sentence where they all are true & Derive a contradiction from the sentences\\ \hline
-Validity 				& Derive the conclusion form the premises & Find a line in the truth table where the premises are true and the conclusion false. \\ 
+\begin{tabu}{X[.5,l,b] X[1,l,b] X[1,l,b]}
+\underline{Property}		& \underline{To prove it present} 	&	\underline{To prove it absent} \\ 
+Being a tautology 			& Derive the statement  						& Find the false line in the truth table for the sentence \\ 
+Being a contradiction 		&  Derive the negation of the statement  		 & Find the true line in the truth table for the sentence\\ 
+Contingency			 		& Find a false line and a true line in the truth table for the statement & Prove the statement or its negation\\ 
+Equivalence 					& Derive each statement from the other 		 & Find a line in the truth tables for the statements where they have different values\\ 
+Consistency	 				& Find a line in truth table for the sentence where they all are true & Derive a contradiction from the sentences\\ 
+Validity		 				& Derive the conclusion form the premises & Find a line in the truth table where the premises are true and the conclusion false. \\ 
 \end{tabu}
 \end{mdframed}
 \caption{When to provide a truth table and when to provide a proof.}
@@ -3768,24 +3725,50 @@ Validity 				& Derive the conclusion form the premises & Find a line in the trut
 %\end{earg}
 %convert last item to something in SL
 
+%
+% Below is the closing tag for typesetting only part of the chapter. Everything up to here to the close tag will be skipped unless the {whole_slproof_chap} label at the start of this chapter file is 
+%  uncommented.
+
+}{}
+
+
 
 \section*{Key Terms}
 \begin{multicols}{2}
 \begin{sortedlist}
-\sortitem{Syntactically logically equivalent in SL}{}
-\sortitem{Syntactic tautology in SL}{}
-\sortitem{Syntactic contradiction in SL}{}
-\sortitem{Syntactically contingent in SL}{}
-\sortitem{Syntactically inconsistent in SL}{}
-\sortitem{Syntactically consistent in SL}{}
-\sortitem{Syntactically valid in SL}{}
-\sortitem{Soundness}{}
-\sortitem{Completeness}{} 	
+\sortitem{sentence form}{}
+
+\sortitem{substitution instance}{}
+
+\sortitem{argument form}{}
+
+\sortitem{substitution instance of an argument form}{}
+
+\sortitem{proof}{}
+
+\iflabelexists{def:syntactically_logically_equivalent_in_sl}{\sortitem{Syntactically logically equivalent in SL}{}}{}
+
+\iflabelexists{def:syntactic_tautology_in_sl}{\sortitem{Syntactic tautology in SL}{}}{}
+
+\iflabelexists{syntactic contradiction in SL}{\sortitem{Syntactic contradiction in SL}{}}{}
+
+\iflabelexists{def:syntactically_contingent_in_sl}{\sortitem{Syntactically contingent in SL}{}}{}
+
+\iflabelexists{def:syntactically_inconsistent_ in_sl}{\sortitem{Syntactically inconsistent in SL}{}}{}
+
+\iflabelexists{def:syntactically consistent in SL}{\sortitem{Syntactically consistent in SL}{}}{}
+
+\iflabelexists{def:syntactically_valid_in_SL}{\sortitem{Syntactically valid in SL}{}}{}
+
+\iflabelexists{def:soundness}{\sortitem{Soundness}{}}{}
+
+\iflabelexists{def:completeness}{\sortitem{Completeness}{}}{} 	
+
 \end{sortedlist}
 \end{multicols}
 
 
- 
+
 
 
 

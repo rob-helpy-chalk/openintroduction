@@ -12,14 +12,12 @@
 
 Back in Chapter \ref{Chap:what_is_logic}, we saw that a statement was a unit of language that could be true or false. In this chapter and the next we are going to look at a particular kind of statement, called a quantified categorical statement, and begin to develop a formal theory of how to create arguments using these statements. This kind of logic is generally called ``categorical'' or ``Aristotelian'' logic, because it was originally invented by the great logician and philosopher Aristotle in the fourth century \textsc{bce}. This kind of logic dominated the European and Islamic worlds for 20 centuries afterward, and was expanded in all kinds of fascinating ways, some of which we will look at here.
  
-%add a cross reference to the interesting historical sidebar for the Aristotelian tradition. 
-
 Consider the following propositions:
 
 \begin{enumerate}[label=(\alph*)]
 \item \label{itm:dogs} All dogs are mammals.
 
-\item \label{itm:physicists} Most physicists are male.
+\item \label{itm:physicists} Most physicists are smart.
 
 \item \label{itm:teachers} Few teachers are rock climbers.
 
@@ -289,7 +287,7 @@ In the previous chapter we noted that formal logic achieves content neutrality b
 
 \section{Quantity, Quality, Distribution, and Venn Diagrams}
 \label{sec:QQDVD}
-Ordinary English contains all kinds of quantifiers, including the counting numbers themselves. In this chapter and the next, however, we are only going to deal with two quantifiers: ``all,'' and ``some.'' We are restricting ourselves to the quantifiers ``all'' and ``some'' because they are the ones that can easily be combined to create valid arguments using the system of logic that was invented by Aristotle. We will deal with other quantifiers in chapter in the larger version of the text on induction. \label{ver_var} \nix{Chapter \ref{chap:induction}, on induction.} There we will talk about much more specific quantified statements, like ``Thirty percent of Canadians speak French,'' and do a little bit of work with modern statistical methods. 
+Ordinary English contains all kinds of quantifiers, including the counting numbers themselves. In this chapter and the next, however, we are only going to deal with two quantifiers: ``all,'' and ``some.'' We are restricting ourselves to the quantifiers ``all'' and ``some'' because they are the ones that can easily be combined to create valid arguments using the system of logic that was invented by Aristotle. \iflabelexists{part:CT}{We will deal with other quantifiers in Chapter \ref{chap:induction}, on induction. There we will talk about much more specific quantified statements, like ``Thirty percent of Canadians speak French,'' and do a little bit of work with modern statistical methods.}{}
 
 \newglossaryentry{quantity}
 {
@@ -419,7 +417,7 @@ description={A diagram that represents categorical statements using circles that
 }
 
 
-In 1880 English logician John Venn published two essays on the use of diagrams with circles to represent categorical propositions (Venn \citeyear{Venn1880a}, \citeyear{Venn1880b}). Venn noted that the best use of such diagrams so far had come from the brilliant Swiss mathematician Leonhard Euler, but they still had many problems, which Venn felt could be solved by bringing in some ideas about logic from his fellow English logician George Boole. Although Venn only claimed to be building on the long logical tradition he traced, since his time these kinds of circle diagrams have been known as \textsc{\glspl{Venn diagram}}.
+In 1880 English logician John Venn published two essays on the use of diagrams with circles to represent categorical propositions (Venn \cite*{Venn1880a}, \cite*{Venn1880b}). Venn noted that the best use of such diagrams so far had come from the brilliant Swiss mathematician Leonhard Euler, but they still had many problems, which Venn felt could be solved by bringing in some ideas about logic from his fellow English logician George Boole. Although Venn only claimed to be building on the long logical tradition he traced, since his time these kinds of circle diagrams have been known as \textsc{\glspl{Venn diagram}}.
 
 In this section we are going to learn to use Venn diagrams to represent our four basic types of categorical statement. Later in this chapter, we will find them useful in evaluating arguments. Let us start with a statement in mood A: ``All $S$ are $P$.'' We are going to use one circle to represent $S$ and another to represent $P$. There are a couple of different ways we could draw the circles if we wanted to represent ``All $S$ are $P$.'' One option would be to draw the circle for $S$ entirely inside the circle for $P$, as in Figure \ref{fig:euler_circles}
 
@@ -443,7 +441,7 @@ In this section we are going to learn to use Venn diagrams to represent our four
 \includegraphics*{img/OriginalVenn}
 \end{center}
 \end{mdframed}
-\caption{Venn's original \\ diagram for an mood-A statement \\(Venn \citeyear{Venn1880a}).}
+\caption{Venn's original diagram for an mood-A statement (Venn \cite*{Venn1880a}). Screencap from Google Books by J.  Robert Loftis.}
 \end{figure}
 
 
@@ -501,7 +499,13 @@ If a region of a Venn diagram is blank, if it is neither shaded nor has an x in 
 
 The Venn diagrams for all four basic forms of categorical statements are in Figure \ref{fig:fourvenns}. Notice that when we draw diagrams for the two universal forms, A and E, we do not draw any x's. For these forms we are only ruling out possibilities, not asserting that things actually exist. This is part of what Venn learned from Boole, and we will see its importance in Section \ref{sec:ExistentialImport}. 
 
-Finally, notice that so far, we have only been talking about categorical statements involving the variables $S$ and $P$. Sometimes, though, we will want to represent statements in regular English. To do this, we will include a dictionary saying what the variables $S$ and $P$ represent in this case. For instance, this is the diagram for ``No dogs are reptiles.''
+\newglossaryentry{translation key}
+{
+name=translation key,
+description={A list that assigns English phrases or sentences to variable names. Also called a ``symbolization key''  or simply a ``dictionary.''}
+}
+
+Finally, notice that so far, we have only been talking about categorical statements involving the variables $S$ and $P$. Sometimes, though, we will want to represent statements in regular English. To do this, we will include a key saying what the variables $S$ and $P$ represent in this case. We will call a list that assigns English phrases or sentences to variable names a \textsc{\gls{translation key}}.\label{def:translation_key} These are sometimes also called ``symbolization keys'' or simply just ``dictionaries.'' As our logical systems get more complicated, the symbolization keys will get more complicated. For now, though, they just consist of a note saying what the $S$ and $P$ stand for. For instance, this is the diagram for ``No dogs are reptiles.''
 
 \begin{figure}[H]
 \begin{center}
@@ -605,6 +609,7 @@ Finally, notice that so far, we have only been talking about categorical stateme
 \textbf{Answer}: & Form: O\\
 &Quantity: particular \\
 &Quality: negative \\
+&Terms distributed: $P$ \\
 &
 %\vspace{.25em}
 \noindent \begin{tikzpicture}
@@ -626,7 +631,7 @@ Finally, notice that so far, we have only been talking about categorical stateme
 Form: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
-
+Terms distributed: $S$ \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -650,7 +655,7 @@ $P$: Rodents
 Form: O\\
 Quantity: Particular \\
 Quality: Negative \\
-
+Terms distributed: $P$ \\
 \vspace{.25em}
 \noindent \begin{tikzpicture}
 \def\firstcircle{(0,0) circle (.75cm)}
@@ -669,7 +674,7 @@ Quality: Negative \\
 Form: O\\
 Quantity: Particular \\
 Quality: Negative \\
-
+Terms distributed: $P$ \\
 \vspace{.25em}
 \noindent \begin{tikzpicture}
 \def\firstcircle{(0,0) circle (.75cm)}
@@ -689,7 +694,7 @@ Quality: Negative \\
 Form: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
-
+Terms distributed: $S$ \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -714,7 +719,7 @@ $P$: Things that have televisions
 Form: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
-
+Terms distributed: $S$ \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -739,7 +744,7 @@ $P$: Things that are closed
 Form: I\\
 Quantity: Particular \\
 Quality: Affirmative\\
-
+Terms distributed: None \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -765,7 +770,7 @@ $P$: Things that are graceful
 Form: E\\
 Quantity: Universal \\
 Quality: Negative\\
-
+Terms distributed: Both \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -794,7 +799,7 @@ $P$: Things in Cleveland
 Form: I\\
 Quantity: Particular \\
 Quality: Affirmative\\
-
+Terms distributed: None \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -826,7 +831,7 @@ $P$: Things that are empty
 Form: E\\
 Quantity: Universal \\
 Quality: Negative\\
-
+Terms distributed: Both\\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -855,7 +860,7 @@ $P$: Things that are mistaken}
 Form: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
-
+Terms distributed: $S$ \\
 \vspace{.25em}
 
 \noindent \begin{tikzpicture}
@@ -886,6 +891,8 @@ $P$: Things that love catnip
 
 
 \item No appeals are rejected.
+
+
 
 \item All bagels are boiled.
 
@@ -1167,7 +1174,7 @@ The Empire State Building is tall. &
 All things identical to The Empire State Building are tall things. \\
 
 Ludwig was not happy. &
-No persons identical with Ludwig are happy. \\
+No people identical with Ludwig are happy people. \\
 
 \end{longtabu}
 
@@ -1200,14 +1207,14 @@ Another kind of statement that can be transformed into a universal statement is 
 \underline{English} &
 \underline{Logically Structured English} \\
 \endhead 
-If something is a cat, then it is a feline. &
+If something is a cat, then it is a felines. &
 All cats are feline.\\
 
 If something is a dog, then it's not a cat. &
 No dogs are cats. \\
 \end{longtabu}
 
-The word ``only'' is used in a couple of different constructions in English that can be represented as universal statements. ``Exclusive propositions'' are statements that say the subject excludes everything except what is in the predicate. For instance the sentence ``Only people over 21 may drink'' says that the class of people who may drink excludes everyone except those who are over 21. In English exclusive propositions are created using the words ``only,'' ``none but,'' or ``none except.'' These statements become A statements when translated into logically structured English. So ``Only people over 21 may drink'' becomes ``If you may drink, you  are over 21.'' It is important to see that in each case these words are used to introduce the predicate, not the subject. In the sentence ``Only people over 21 may drink,'' the term ``people over 21'' is actually the  predicate, and ``people who may drink'' is the subject. 
+The word ``only'' is used in a couple of different constructions in English that can be represented as universal statements. The first kind are called ``exclusive propositions.'' These are statements that say the subject excludes everything except what is in the predicate. For instance the sentence ``Only people over 21 may drink'' says that the class of people who may drink excludes everyone except those who are over 21. In English exclusive propositions are created using the words ``only,'' ``none but,'' or ``none except.'' These statements become A statements when translated into logically structured English. So ``Only people over 21 may drink'' becomes ``If you may drink, you  are over 21.'' It is important to see that in each case these words are used to introduce the predicate, not the subject. In the sentence ``Only people over 21 may drink,'' the term ``people over 21'' is actually the  predicate, and ``people who may drink'' is the subject. 
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1224,7 +1231,7 @@ All people who survive are strong people. \\
 \end{longtabu}
 
 
-Sentences with ``The only'' are a little different than sentences that just have ``only'' in them. The sentence ``Humans are the only animals that talk on cell phones'' should be translated as ``All animals who talk on cell phones are humans.'' In this sentence, ``the only'' introduces the subject, rather than the predicate. The statement still asserts that the subject excludes everything except what is in the predicate, and we still represent them using mood A statements.
+Sentences with ``The only'' are a little different than sentences regular exclusive propositions, which just have ``only'' in them. The sentence ``Humans are the only animals that talk on cell phones'' should be translated as ``All animals who talk on cell phones are humans.'' In this sentence, ``the only'' introduces the subject, rather than the predicate. The statement still asserts that the subject excludes everything except what is in the predicate, and we still represent them using mood A statements.
 
 \begin{longtabu}{p{.5\linewidth}p{.5\linewidth}}
 \underline{English} &
@@ -1537,7 +1544,7 @@ $P$: People that work in computer science\\
 }
 
 
-\item Ludwig Wittgenstein severed in the Austro-Hungarian Army in World War I.\answer{\\
+\item Ludwig Wittgenstein served in the Austro-Hungarian Army in World War I.\answer{\\
 All people identical to Ludwig Wittgenstein are people that served in the Austro-Hungarian Army in World War I \\
 Form: A \\
 \begin{venns}
@@ -1620,7 +1627,7 @@ $P$: Basketball players\\
 }
 
 \item If you study, then you will not fail the test.\answer{\\
-All things that study are things that will pass the test. \\
+No people who study are people who will fail the test. \\
 Form: E \\
 \begin{venns}
 \MoodEStatementRed
@@ -1657,7 +1664,16 @@ $P$: People who fail the test\\
 
 \section{Conversion, Obversion, and Contraposition}
 \label{sec:conv_obv_cont}
-Now that we have shown the wide range of statements that can be represented in our four standard logical forms A, E, I, and O, it is time to begin constructing arguments with them. The arguments we are going to look at are sometimes called ``immediate inferences'' because they only have one premise. We are going to learn to identify some valid forms of these one-premise arguments by looking at ways you can transform a true sentence that maintain its truth value. For instance, ``No dogs are reptiles'' and ``No reptiles are dogs'' have the same truth value and basically mean the same thing. On the other hand if you change ``All dogs are mammals'' into ``All mammals are dogs'' you turn a true sentence into a false one. In this section we are going to look at three ways of transforming categorical statements---conversion, obversion, and contraposition---and use Venn diagrams to determine whether these transformations also lead to a change in truth value. From there we can identify valid argument forms. 
+
+\newglossaryentry{truth value}
+{
+  name=truth value,
+  description={The status of a statement with relationship to truth. For  this textbook, this means the status of a statement as true or false}
+}
+
+Now that we have shown the wide range of statements that can be represented in our four standard logical forms A, E, I, and O, it is time to begin constructing arguments with them. The arguments we are going to look at are sometimes called ``immediate inferences'' because they only have one premise. We are going to learn to identify some valid forms of these one-premise arguments by looking at ways you can transform so that a true sentence will stay true and a false sentence will stay false. Remember that on page \pageref{def:Truth_value} we said that the \gls{truth value} of a sentence is simply whether the sentence is true or false. So we can say that the transformations we will be looking at here preserve the truth values of the sentences.
+
+Consider the statements, ``No dogs are reptiles'' and ``No reptiles are dogs.'' They have the same truth value and basically mean the same thing. On the other hand if you change ``All dogs are mammals'' into ``All mammals are dogs'' you turn a true sentence into a false one. In this section we are going to look at three ways of transforming categorical statements---conversion, obversion, and contraposition---and use Venn diagrams to determine whether these transformations also lead to a change in truth value. From there we can identify valid argument forms. 
 
 \subsection{Conversion}
 
@@ -2443,73 +2459,6 @@ The Venn diagrams for the premise and conclusion of this argument will be just l
 %%%%%%%%%%%%%%%%%%%%% practice problems %%%%%%%%%%%%%
 
 \practiceproblems
-\problempart The first two columns in the table below give you a statement and a truth value for that statement. The next column gives an operation that can be performed on the statement in the first column, and the final two columns give the new statement and its truth value. 
-
-The first row is completed, as an example, but after that there are blanks. In problems 1--5 you must fill in the new statement and its truth value, and in problems 6--10 you must fill in the operation and the final truth value. If the truth value of the resulting statement cannot be determined from the original one, write a ``?'' for ``undetermined.'' You can check your work with Venn diagrams, or by identifying the logical form of the original statement and seeing if it is one where the named operation changes the truth value. 
-
-\begin{longtabu}{X[1,l,m]X[15,l,m]X[2,l,m]X[6,l,m]X[16,l,m]X[1,l,m]}
-%{p{.01\linewidth}p{.2\linewidth}p{.15\linewidth}p{.15\linewidth}p{.2\linewidth}p{.1\linewidth}}
-%{llllll} 
- & \underline{Given statement} & \underline{T/F} & \underline{Operation} & \underline{New Statement} & \underline{T/F} \\
-  \rowcolor{light-gray}
- Ex. & All $S$ are $P$ & F & Conv. & All $P$ are $S$ & ? \\ 
- \endhead
- 
-1. & Some $S$ are $P$  & F  & Obv. & \answerblank{Some $S$ are not non-$P$}{\rule[-5pt]{2.5cm}{.4pt}}& \answerblank{F}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-
-
-2.& Some non-$S$ are $P$  & F& Conv. & \answerblank{Some $P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}&\answerblank{F}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-
-3. & All $S$ are $P$  & F & Contrap. & \answerblank{All non-$P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}& \answerblank{F}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-4. & Some $S$ are $P$  & F & Contrap. & \answerblank{Some non-$P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}& \answerblank{?}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-5. & Some $S$ are non-$P$ & T & Obv. & \answerblank{Some $S$ are not $P$}{\rule[-5pt]{2.5cm}{.4pt}}& \answerblank{T}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-6.& All $S$ are non-$P$  & T & \answerblank{Contrap.}{\rule[-5pt]{1.5cm}{.4pt}}& All $P$ are non-$S$ & \answerblank{T}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-7.& Some non-$S$ are not P & T & \answerblank{Conv.}{\rule[-5pt]{1.5cm}{.4pt}}& Some $P$ are not non-$S$ & \answerblank{?}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-8. & Some $S$ are not P & F  & \answerblank{Conv.}{\rule[-5pt]{1.5cm}{.4pt}}& Some $P$ are not $S$ & \answerblank{?}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-9.& All non-$S$ are $P$ & T & \answerblank{Obv.}{\rule[-5pt]{1.5cm}{.4pt}}& No non-$S$ are non-$P$ & \answerblank{T}{\rule[-5pt]{.5cm}{.4pt}}\\
-
-10. & No non-$S$ are non-$P$ & T & \answerblank{Obv.}{\rule[-5pt]{1.5cm}{.4pt}} & All non-$S$ are non-non-$P$ & \answerblank{T}{\rule[-5pt]{.5cm}{.4pt}}\\ 
-  
-\end{longtabu}
-
-\problempart See the instructions for Part A.
-
-\begin{longtabu}{X[1,l,m]X[15,l,m]X[2,l,m]X[6,l,m]X[16,l,m]X[1,l,m]}
-%{p{.01\linewidth}p{.2\linewidth}p{.15\linewidth}p{.15\linewidth}p{.2\linewidth}p{.1\linewidth}}
-%{llllll} 
- & \underline{Given statement} & \underline{T/F} & \underline{Operation} & \underline{New Statement} & \underline{T/F} \\
-
-  
-
-1. & All $S$ are $P$& T & Obv. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}  & \nix{ } \rule[-5pt]{.5cm}{.4pt} \\ 
-
-2.& Some $S$ are not non-$P$& T & Contrap. & \nix{ } \rule[-5pt]{2.5cm}{.4pt} &\nix{ } \rule[-5pt]{.5cm}{.4pt} \\
-
-
-3. & No $S$ are non-$P$& T & Obv. & \nix{  } \rule[-5pt]{2.5cm}{.4pt} & \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
-
-4. & All non-$S$ are $P$& T & Obv. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}& \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
-
-5. & Some non-$S$ are $P$& F & Contrap. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}& \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
-
-6. & Some $S$ are $P$& F &  \nix{Obv.} \rule[-5pt]{1.5cm}{.4pt} & Some $S$ are not non-$P$  & \nix{F} \rule[-5pt]{.5cm}{.4pt} \\ 
-
-7.& No non-$S$ are non-$P$& F &  \nix{Contrap.} \rule[-5pt]{1.5cm}{.4pt} & No $P$ are $S$  & \nix{?}\rule[-5pt]{.5cm}{.4pt} \\
-
-8. & Some non-$S$ are non-$P$& T & \nix{Contrap.} \rule[-5pt]{1.5cm}{.4pt} & Some $P$ are $S$ & \nix{?} \rule[-5pt]{.5cm}{.4pt} \\
-
-9.& All $S$ are $P$ & F & \nix{Obv.}\rule[-5pt]{1.5cm}{.4pt}  & No $S$ are non-$P$  & \nix{F} \rule[-5pt]{.5cm}{.4pt} \\
-
-10. &  Some non-$S$ are not non-$P$ &  T & \nix{Obv.} \rule[-5pt]{1.5cm}{.4pt}  &Some non-$S$ are $P$   & \nix{T}  \rule[-5pt]{.5cm}{.4pt} \\
- \end{longtabu}
 
 \noindent \problempart For each sentence, write the converse, obvserse, or contrapostive as directed.
 
@@ -2565,6 +2514,76 @@ or Some dogs are not non-flea-having things.}
 \item Write the obverse of ``All spies are concealed.'' 
 \item Write the contraposition of ``No valleys are barren.'' 
 \end{exercises}
+
+
+\problempart The first two columns in the table below give you a statement and a truth value for that statement. The next column gives an operation that can be performed on the statement in the first column, and the final two columns give the new statement and its truth value. 
+
+The first row is completed, as an example, but after that there are blanks. In problems 1--5 you must fill in the new statement and its truth value, and in problems 6--10 you must fill in the operation and the final truth value. If the truth value of the resulting statement cannot be determined from the original one, write a ``?'' for ``undetermined.'' You can check your work with Venn diagrams, or by identifying the logical form of the original statement and seeing if it is one where the named operation changes the truth value. 
+
+\begin{longtabu}{X[1,l,m]X[15,l,m]X[2,l,m]X[6,l,m]X[16,l,m]X[1,l,m]}
+%{p{.01\linewidth}p{.2\linewidth}p{.15\linewidth}p{.15\linewidth}p{.2\linewidth}p{.1\linewidth}}
+%{llllll} 
+ & \underline{Given statement} & \underline{T/F} & \underline{Operation} & \underline{New Statement} & \underline{T/F/?} \\
+  \rowcolor{light-gray}
+ Ex. & All $S$ are $P$ & F & Conv. & All $P$ are $S$ & ? \\ 
+ \endhead
+ 
+1. & Some $S$ are $P$  & F  & Obv. & \answer{Some $S$ are not non-$P$}{\rule[-5pt]{2.5cm}{.4pt}}& \answer{F}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+
+
+2.& Some non-$S$ are $P$  & F& Conv. & \answer{Some $P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}&\answer{F}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+
+3. & All $S$ are $P$  & F & Contrap. & \answer{All non-$P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}& \answer{F}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+4. & Some $S$ are $P$  & F & Contrap. & \answer{Some non-$P$ are non-$S$}{\rule[-5pt]{2.5cm}{.4pt}}& \answer{?}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+5. & Some $S$ are non-$P$ & T & Obv. & \answer{Some $S$ are not $P$}{\rule[-5pt]{2.5cm}{.4pt}}& \answer{T}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+6.& All $S$ are non-$P$  & T & \answer{Contrap.}{\rule[-5pt]{1.5cm}{.4pt}}& All $P$ are non-$S$ & \answer{T}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+7.& Some non-$S$ are not P & T & \answer{Conv.}{\rule[-5pt]{1.5cm}{.4pt}}& Some $P$ are not non-$S$ & \answer{?}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+8. & Some $S$ are not P & F  & \answer{Conv.}{\rule[-5pt]{1.5cm}{.4pt}}& Some $P$ are not $S$ & \answer{?}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+9.& All non-$S$ are $P$ & T & \answer{Obv.}{\rule[-5pt]{1.5cm}{.4pt}}& No non-$S$ are non-$P$ & \answer{T}{\rule[-5pt]{.5cm}{.4pt}}\\
+
+10. & No non-$S$ are non-$P$ & T & \answer{Obv.}{\rule[-5pt]{1.5cm}{.4pt}} & All non-$S$ are non-non-$P$ & \answer{T}{\rule[-5pt]{.5cm}{.4pt}}\\ 
+  
+\end{longtabu}
+
+\problempart See the instructions for Part A.
+
+\begin{longtabu}{X[1,l,m]X[15,l,m]X[2,l,m]X[6,l,m]X[16,l,m]X[1,l,m]}
+%{p{.01\linewidth}p{.2\linewidth}p{.15\linewidth}p{.15\linewidth}p{.2\linewidth}p{.1\linewidth}}
+%{llllll} 
+ & \underline{Given statement} & \underline{T/F} & \underline{Operation} & \underline{New Statement} & \underline{T/F} \\
+
+  
+
+1. & All $S$ are $P$& T & Obv. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}  & \nix{ } \rule[-5pt]{.5cm}{.4pt} \\ 
+
+2.& Some $S$ are not non-$P$& T & Contrap. & \nix{ } \rule[-5pt]{2.5cm}{.4pt} &\nix{ } \rule[-5pt]{.5cm}{.4pt} \\
+
+
+3. & No $S$ are non-$P$& T & Obv. & \nix{  } \rule[-5pt]{2.5cm}{.4pt} & \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
+
+4. & All non-$S$ are $P$& T & Obv. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}& \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
+
+5. & Some non-$S$ are $P$& F & Contrap. & \nix{ } \rule[-5pt]{2.5cm}{.4pt}& \nix{ } \rule[-5pt]{.5cm}{.4pt} \\
+
+6. & Some $S$ are $P$& F &  \nix{Obv.} \rule[-5pt]{1.5cm}{.4pt} & Some $S$ are not non-$P$  & \nix{F} \rule[-5pt]{.5cm}{.4pt} \\ 
+
+7.& No non-$S$ are non-$P$& F &  \nix{Contrap.} \rule[-5pt]{1.5cm}{.4pt} & No $P$ are $S$  & \nix{?}\rule[-5pt]{.5cm}{.4pt} \\
+
+8. & Some non-$S$ are non-$P$& T & \nix{Contrap.} \rule[-5pt]{1.5cm}{.4pt} & Some $P$ are $S$ & \nix{?} \rule[-5pt]{.5cm}{.4pt} \\
+
+9.& All $S$ are $P$ & F & \nix{Obv.}\rule[-5pt]{1.5cm}{.4pt}  & No $S$ are non-$P$  & \nix{F} \rule[-5pt]{.5cm}{.4pt} \\
+
+10. &  Some non-$S$ are not non-$P$ &  T & \nix{Obv.} \rule[-5pt]{1.5cm}{.4pt}  &Some non-$S$ are $P$   & \nix{T}  \rule[-5pt]{.5cm}{.4pt} \\
+ \end{longtabu}
+
 
 \noindent \problempart Determine whether the following arguments are valid by drawing a Venn diagram for the premise. If they are valid, say whether they are valid by conversion, obversion, or contraposition.
 
@@ -2649,8 +2668,8 @@ Contraposition on a mood-A statement
 \drawsubsent
 \drawpredsent
 \end{venns}\\
-S: Pets\\
-P: Roosters\\
+S: Roosters\\
+P: Pets\\
 %Valid, because the diagram for the premise is also the diagram for the conclusion.
 Invalid, because the Venn diagram for the premise does not make the conclusion true.
  }
@@ -2795,7 +2814,7 @@ We have seen that conversion, obversion, and contraposition allow us to identify
 
 When Aristotle was first investigating these four kinds of categorical statements, he noticed they they conflicted with each other in different ways. If you are just thinking casually about it, you might say that ``No $S$ is $P$'' is somehow ``the opposite'' of ``All $S$ is $P$.'' But isn't the real ``opposite'' of ``All $S$ is $P$'' actually ``Some $S$ is not $P$''?  
 
-Aristotle, in his book \textit{On Interpretation} (c. 350 \textsc{bce}/1\citeyear{Aristotle1984a}), notes that the real opposite of A is O, because one must always be true and the other false.  If we know that ``All dogs are mammals'' is true, then we know ``some dog is not a mammal'' is false. On the other hand, if ``All dogs are mammals'' is false then ``some dog is not a mammal'' must be true. Back on page \pageref{def:contradictory} we said that when two propositions must have opposite truth values they are called contradictories. Aristotle noted that A and O sentences are contradictory in this way. Forms E and I also form a contradictory pair. If ``Some dogs are mammals'' then ``No dogs are mammals'' is false, and if ``Some dogs are mammals'' is false, then ``No dogs are mammals'' is true.
+Aristotle, in his book \cite{Aristotle:interpretation}, notes that the real opposite of A is O, because one must always be true and the other false.  If we know that ``All dogs are mammals'' is true, then we know ``some dog is not a mammal'' is false. On the other hand, if ``All dogs are mammals'' is false then ``some dog is not a mammal'' must be true. Back on page \pageref{def:contradictory} we said that when two propositions must have opposite truth values they are called contradictories. Aristotle noted that A and O sentences are contradictory in this way. Forms E and I also form a contradictory pair. If ``Some dogs are mammals'' then ``No dogs are mammals'' is false, and if ``Some dogs are mammals'' is false, then ``No dogs are mammals'' is true.
 
 
 \newglossaryentry{contraries}
@@ -2903,15 +2922,15 @@ In our diagram for the traditional square of opposition, we represent subalterna
 
 Note, by the way, that the language of subalternation works a little differently than the other relationships. With contradiction, we say that each sentence is the ``contradictory'' of the other. The relationship is symmetrical. With subalternation, we say that the particular sentence is the ``subaltern'' of the universal one, but not the other way around.  
 
-People started using diagrams like this as early as the second century \textsc{ce} to explain Aristotle's ideas in \textit{On Interpretation} (See Parsons \citeyear{Parsons1997}). Figure \ref{fig:apuleiussquare} shows one of the earliest surviving versions of the square of opposition, from a 9th century manuscript of a commentary on Aristotle attributed to the Roman writer Apuleius of Madaura. Although this particular manuscript dates from the 9th century, the commentary itself was written in the 2nd century, and copied by hand many times over before this one was made. Figure \ref{fig:majorsquare} shows a later illustration of the square, from a 16th century book by the Scottish philosopher and logician Johannes de Magistris.
+People started using diagrams like this as early as the second century \textsc{ce} to explain Aristotle's ideas in \textit{On Interpretation} (See Parsons \cite*{Parsons1997}). Figure \ref{fig:apuleiussquare} shows one of the earliest surviving versions of the square of opposition, from a 9th century manuscript of a commentary on Aristotle attributed to the Roman writer Apuleius of Madaura. Although this particular manuscript dates from the 9th century, the commentary itself was written in the 2nd century, and copied by hand many times over before this one was made. Figure \ref{fig:majorsquare} shows a later illustration of the square, from a 16th century book by the Scottish philosopher and logician Johannes de Magistris.
 
 \begin{figure}
 \begin{mdframed}[style=mytableclearbox]
 \begin{center}
-\includegraphics*{img/apuleiussquare}
+\includegraphics*[scale=.4]{img/ljs101}
 \end{center}
 \end{mdframed}
-\caption{One of the earliest surviving versions of the square of opposition, from a 9th century manuscript of a commentary by Apuleius of Madaura on Aristotle's \textit{On Interpretation}. Digital image from \protect\url{www.logicmuseum.com}, curated by Edward Buckner.}
+\caption{One of the earliest surviving versions of the square of opposition, from a 9th century manuscript that includes a commentary on Aristotle by the African writer Apuleius of Madaura (\cite{Apuleius1987}). The manuscript is held Lawrence J. Schoenberg collection (LJS 101) at the University of Pennsylvania, who have kindly put a facsimile online (\url{http://dla.library.upenn.edu/dla/medren/detail.html?id=MEDREN_5186550}.)  Screencap by J. Robert Loftis.}
 \label{fig:apuleiussquare}
 \end{figure}
 
@@ -2919,10 +2938,10 @@ People started using diagrams like this as early as the second century \textsc{c
 \begin{figure}
 \begin{mdframed}[style=mytableclearbox]
 \begin{center}
-\includegraphics*[scale=.5]{img/Johannesmagistris-square}
+\includegraphics*[scale=.5]{img/majorvenn2}
 \end{center}
 \end{mdframed}
-\caption{A 16th century illustration of the square of opposition from \textit{Summulae Logicales} by Johannes de Magistris, digital image by Peter Damian and uploaded to Wikimedia Commons: \protect\url{tinyurl.com/kmzmvzn}. Public Domain-U.S. }
+\caption{A 16th century illustration of the square of opposition from John Major's \textit{Introductorium Perutile in Aristotelicam Dialecticen} (\cite*[fol.L]{Major1527}). Screencap from Google Books by J.  Robert Loftis.}
 \label{fig:majorsquare}
 \end{figure}
 
@@ -2953,35 +2972,35 @@ The argument above is an immediate inference, like the arguments we saw in the p
 
 \begin{exercises}
 
-\item No quotations are spurious. \nix{{\color{red}E}} \\
-	Some quotations are not spurious. \nix{{\color{red}O}} \answer{\\The second is subaltern to the first.}
+\item No quotations are spurious. \answer{(E)} \\
+	Some quotations are not spurious. \answer{(O)} \answer{\\The second is subaltern to the first.}
 
-\item Some children are not picky eaters. \nix{{\color{red}O}} \\
-	All children are picky eaters. \nix{{\color{red}A}}\answer{\\Contradictories}
+\item Some children are not picky eaters. \answer{(O)} \\
+	All children are picky eaters. \answer{(A)}\answer{\\Contradictories}
 
-\item Some joys are not fleeting. \nix{{\color{red}O}} \\
-	Some joys are fleeting.  \nix{{\color{red}I}}\answer{\\Subcontraries}
+\item Some joys are not fleeting. \answer{(O)} \\
+	Some joys are fleeting.  \answer{(I)}\answer{\\Subcontraries}
 
-\item All fires are hot. \nix{{\color{red}A}} \\
-	Some fires are not hot.  \nix{{\color{red}O}}\answer{\\Contradictories}
+\item All fires are hot. \answer{(A)} \\
+	Some fires are not hot.  \answer{(O)}\answer{\\Contradictories}
 
-\item Some diseases are not fatal. \nix{{\color{red}O}} \\
-	No diseases are fatal.  \nix{{\color{red}E}}\answer{\\The first is the subaltern of the second}
+\item Some diseases are not fatal. \answer{(O)} \\
+	No diseases are fatal.  \answer{(E)}\answer{\\The first is the subaltern of the second}
 
-\item Some planets are not habitable. \nix{{\color{red}O}} \\
-	Some planets are habitable. \nix{{\color{red}I}}\answer{\\Subcontraries}
+\item Some planets are not habitable. \answer{(O)} \\
+	Some planets are habitable. \answer{(I)}\answer{\\Subcontraries}
 
-\item Some toys are plastic. \nix{{\color{red}I}} \\
-	No toys are plastic.  \nix{{\color{red}E}} \answer{\\Contradictories}
+\item Some toys are plastic. \answer{(I)} \\
+	No toys are plastic.  \answer{(E)} \answer{\\Contradictories}
 
-\item No transfats are healthy. \nix{{\color{red}E}} \\
-	All transfats are healthy.  \nix{{\color{red}A}}\answer{\\Contraries}
+\item No transfats are healthy. \answer{(E)} \\
+	All transfats are healthy.  \answer{(A)}\answer{\\Contraries}
 
-\item No superheroes are invincible. \nix{{\color{red}E}}  \\
-	Some superheroes are invincible. \nix{\nix{{\color{red}I}}}\answer{\\Contradictories}
+\item No superheroes are invincible. \answer{(E)}  \\
+	Some superheroes are invincible. \answer{(I)}\answer{\\Contradictories}
 
-\item Some villains are deplorable. \nix{{\color{red}I}} \\ 
-	Some villains are not deplorable. \nix{{\color{red}O}} \answer{\\Subcontraries}
+\item Some villains are deplorable. \answer{(I)} \\ 
+	Some villains are not deplorable. \answer{(O)} \answer{\\Subcontraries}
 
 \end{exercises}
 
@@ -3059,27 +3078,6 @@ All hastags are symbols. (A)}
 
 \noindent \problempart Given a sentence and its truth value, evaluate the truth of a second sentence, according to the traditional square of opposition. If the truth value cannot be determined, just write ``undetermined.''
 
-\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
-\textbf{Example}: & If ``Some $S$ are $P$'' is true, what is the truth value of ``Some $S$ are not $P$''?\\
-\textbf{Answer}: & Undetermined\\
-\end{longtabu}
-
-\begin{exercises}
-\item If ``Some $S$ are not $P$'' is true, what is the truth value of ``All $S$ are $P$''?
-\item If ``Some $S$ are not $P$'' is false, what is the truth value of ``Some $S$ are $P$''?
-\item If ``All $S$ are $P$'' is true, what is the truth value of ``No $S$ are $P$''? 
-\item If ``Some $S$ are not $P$'' is false, what is the truth value of ``No $S$ are $P$''?  
-\item If ``No $S$ are $P$'' is true, what is the truth value of ``Some $S$ are not $P$''? 
-\item If ``Some $S$ are not $P$'' is true, what is the truth value of ``All $S$ are $P$''? 
-\item If ``Some $S$ are $P$'' is true, what is the truth value of ``All $S$ are $P$''? 
-\item If ``All $S$ are $P$'' is false, what is the truth value of ``Some $S$ are $P$''? 
-\item If ``No $S$ are $P$'' is false, what is the truth value of ``All $S$ are $P$''?
-\item If ``No $S$ are $P$'' is true, what is the truth value of ``Some $S$ are $P$''?
-\end{exercises}
-
-
-\noindent \problempart Given a sentence and its truth value, evaluate the truth of a second sentence, according to the traditional square of opposition. If the truth value cannot be determined, just write ``undetermined.''
-
 \begin{exercises}
 \item If ``Some $S$ are not $P$'' is true, what is the truth value of ``All $S$ are $P$''?
 \answer{\\False. If a mood-O statement is true, the corresponding mood-A statement is false, because they are contradictories, which always have opposite truth values.}
@@ -3112,6 +3110,27 @@ All hastags are symbols. (A)}
 \answer{\\False. If a mood-E statement is true, its contradictory, a mood-I statement, must be false.}
 
 \end{exercises}
+
+\noindent \problempart Given a sentence and its truth value, evaluate the truth of a second sentence, according to the traditional square of opposition. If the truth value cannot be determined, just write ``undetermined.''
+
+\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
+\textbf{Example}: & If ``Some $S$ are $P$'' is true, what is the truth value of ``Some $S$ are not $P$''?\\
+\textbf{Answer}: & Undetermined\\
+\end{longtabu}
+
+\begin{exercises}
+\item If ``All $S$ are $P$'' is true, what is the truth value of ``Some $S$ are $P$''? %1
+\item If ``All $S$ are $P$'' is true, what is the truth value of ``No $S$ are $P$''? %2
+\item If ``Some $S$ are not $P$'' is false, what is the truth value of ``All $S$ are $P$''? %3 
+\item If ``All $S$ are $P$'' is false, what is the truth value of ``Some $S$ are not $P$''?  %4
+\item If ``No $S$ are $P$'' is false, what is the truth value of ``Some $S$ are not $P$''? %5
+\item If ``No $S$ are $P$'' is true, what is the truth value of ``Some $S$ are $P$''? %6
+\item If ``Some $S$ are $P$'' is false, what is the truth value of ``All $S$ are $P$''? %7
+\item If ``Some $S$ are $P$'' is true, what is the truth value of ``Some $S$ are not $P$''? %8
+\item If ``Some $S$ are $P$'' is false, what is the truth value of ``No $S$ are $P$''? %9
+\item If ``No $S$ are $P$'' is false, what is the truth value of ``Some $S$ are not $P$''? %10
+\end{exercises}
+
 
 \noindent\problempart Evaluate the following arguments using the traditional square of opposition. If the argument is valid, say which relationship in the square of opposition makes it valid. 
 
@@ -3265,17 +3284,17 @@ With existential import
 \label{fig:existential_import}
 \end{figure}
 
-Any statement can be read with or without existential import, even the particular ones. Consider the statements ``Some unicorns are rainbow colored'' and ``Some unicorns are not rainbow colored.'' You can argue that both of these statements are true, in the sense that if unicorns existed, they could come in many colors. If you say these statements are true, however, you are assuming that particular statements do not have existential import. As Terence Parsons (\citeyear{Parsons1997}) points out, you can change the wording of particular categorical statements in English to make them seem like they do or do not have existential import. ``Some unicorns are not rainbow colored'' might have existential import, but ``not every unicorn is rainbow colored'' doesn't seem to.	
+Any statement can be read with or without existential import, even the particular ones. Consider the statements ``Some unicorns are rainbow colored'' and ``Some unicorns are not rainbow colored.'' You can argue that both of these statements are true, in the sense that if unicorns existed, they could come in many colors. If you say these statements are true, however, you are assuming that particular statements do not have existential import. As Terence Parsons (\cite*{Parsons1997}) points out, you can change the wording of particular categorical statements in English to make them seem like they do or do not have existential import. ``Some unicorns are not rainbow colored'' might have existential import, but ``not every unicorn is rainbow colored'' doesn't seem to.	
 
 So what does this have to do with the square of opposition? A lot of the claims made in the traditional square of opposition depend on assumptions about which statements have existential import. For instance, Aristotle's claim that contrary statements cannot both be true requires that A statements have existential import. Think about the sentences ``All dragons breathe fire'' and ``no dragons breathe fire.'' If the first sentence has no existential import, then both sentences could actually be true. They are both ruling out the existence of certain kinds of dragons and are correct because no dragons exist. 
 
-In fact, the entire traditional square of opposition falls apart if you assume that all four forms of a categorical statement have existential import. Parsons (\citeyear{Parsons1997}) shows how we can derive a contradiction in this situation. Consider the I statement ``Some dragons breathe fire.'' If you interpret it as having existential import, it is false, because dragons don't exist. But then its contradictory statement, the E statement ``No dragons breathe fire'' must be true. And if that statement is true, and has existential import, then its subaltern, ``Some dragon does not breathe fire'' is true. But if it has existential import, it can't be true, because dragons don't exist. In logic, the worst thing you can ever do is contradict yourself, but that is what we have just done. So we have to change the traditional square of opposition.
+In fact, the entire traditional square of opposition falls apart if you assume that all four forms of a categorical statement have existential import. Parsons (\cite*{Parsons1997}) shows how we can derive a contradiction in this situation. Consider the I statement ``Some dragons breathe fire.'' If you interpret it as having existential import, it is false, because dragons don't exist. But then its contradictory statement, the E statement ``No dragons breathe fire'' must be true. And if that statement is true, and has existential import, then its subaltern, ``Some dragon does not breathe fire'' is true. But if it has existential import, it can't be true, because dragons don't exist. In logic, the worst thing you can ever do is contradict yourself, but that is what we have just done. So we have to change the traditional square of opposition.
 
- The way some textbooks talk about the problem, you'd think that for two thousand years logicians were simply ignorant about the problem of existential import and thus woefully confused about the square of opposition, until finally George Boole wrote \textit{The Laws of Thought} (\citeyear{Boole1854}) and found the one true solution to the problem. In fact, there was an extensive discussion of existential import from the 12th to the 16th centuries, mostly under the heading of the ``supposition'' of a term. Very roughly, we can say that the supposition of a term is the way it refers to objects, or what we now call the ``denotation'' of the term (Read \citeyear{Read2002}). \nix{insert cross reference to chapter on definitions when available} So in ``All people are mortal'' the supposition of the subject term is all of the people out there in the world. Or, as the medievals sometimes put it, the subject term ``supposits'' all the people in the world.
+ The way some textbooks talk about the problem, you'd think that for two thousand years logicians were simply ignorant about the problem of existential import and thus woefully confused about the square of opposition, until finally George Boole wrote \textit{The Laws of Thought} (\cite*{Boole1854}) and found the one true solution to the problem. In fact, there was an extensive discussion of existential import from the 12th to the 16th centuries, mostly under the heading of the ``supposition'' of a term. Very roughly, we can say that the supposition of a term is the way it refers to objects, or what we now call the ``denotation'' of the term (Read \cite*{Read2002}). \nix{insert cross reference to chapter on definitions when available} So in ``All people are mortal'' the supposition of the subject term is all of the people out there in the world. Or, as the medievals sometimes put it, the subject term ``supposits'' all the people in the world.
  
-At least some medieval thinkers had a theory of supposition that made the traditional square of opposition work. Terrance Parsons (\citeyear{Parsons1997}, \citeyear{Parsons2008})  has argued for the importance of one solution, found most clearly in the writings of William of Ockham. Under this theory, affirmative forms A and I had existential import, but the negative forms E and O did not. We would say that a statement has existential import if it would be false whenever the subject or predicate terms refer to things that don't exist. To put the matter more precisely, we would say that the statement would be false whenever the subject or predicate terms ``fail to refer.'' Linguistic philosophers these days prefer say that a term ``fails to refer'' rather than saying that it ``refers to something that doesn't exist,'' because referring to things that don't exist seems impossible.
+At least some medieval thinkers had a theory of supposition that made the traditional square of opposition work. Terrance Parsons (\cite*{Parsons1997}, \cite*{Parsons2008})  has argued for the importance of one solution, found most clearly in the writings of William of Ockham. Under this theory, affirmative forms A and I had existential import, but the negative forms E and O did not. We would say that a statement has existential import if it would be false whenever the subject or predicate terms refer to things that don't exist. To put the matter more precisely, we would say that the statement would be false whenever the subject or predicate terms ``fail to refer.'' Linguistic philosophers these days prefer say that a term ``fails to refer'' rather than saying that it ``refers to something that doesn't exist,'' because referring to things that don't exist seems impossible.
 
-In any case, Ockham describes the supposition of affirmative propositions the same way we would describe the reference of terms in those propositions. Again, if the proposition supposes the existence of something in the world, the medievals would say it ``supposits.''  Ockham says ``In affirmative propositions a term is always asserted to supposit for something. Thus, if it supposits for nothing the proposition is false'' (\citeyear{Ockham1343}/1974). On the other hand, failure to refer or to supposit actually supports the truth of negative propositions: ``in negative propositions the assertion is either that the term does not supposit for something or that it supposits for something of which the predicate is truly denied. Thus a negative proposition has two causes of truth'' (\citeyear{Ockham1343}/1974). 
+In any case, Ockham describes the supposition of affirmative propositions the same way we would describe the reference of terms in those propositions. Again, if the proposition supposes the existence of something in the world, the medievals would say it ``supposits.''  Ockham says ``In affirmative propositions a term is always asserted to supposit for something. Thus, if it supposits for nothing the proposition is false'' (\cite*{Ockham1343}, 206). On the other hand, failure to refer or to supposit actually supports the truth of negative propositions: ``in negative propositions the assertion is either that the term does not supposit for something or that it supposits for something of which the predicate is truly denied. Thus a negative proposition has two causes of truth'' (\cite*{Ockham1343}, 206). 
 
 So, for Ockham, affirmative statements about nonexistent objects are false. ``All unicorns have one horn'' and ``Some unicorns are rainbow colored'' are false, because there are no unicorns. Negative statements, on the other hand, are vacuously true. ``No unicorns are rainbow colored'' and ``No unicorns have one horn'' are both true. There are no rainbow colored unicorns out there, and no one horned unicorns out there, because there are no unicorns out there. The O statement ``Some unicorns are not rainbow colored'' is also vacuously true. This might be harder to see, but it helps to think of the statement as saying ``It is not the case that every unicorn is rainbow colored.'' 
 
@@ -3369,6 +3388,21 @@ Boole: Invalid \\
 %\end{venns}
 }	
 
+\item No $S$ are $P$. Therefore, it is false that all $S$ are $P$.  
+\answer{\\Ockham: Valid. Contraries.\\
+Boole: Invalid \vspace{5pt}\\ 
+%\begin{venns}
+%\shadeintersectred{\subjectcircle}{\predicatecircle}
+%%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
+%%\someexistonesent
+%%\someexistfoursent
+%\drawsubsent 
+%\drawpredsent 
+%\end{venns} \vspace{5pt} \\
+It is possible that all $S$ are $P$, in the case that no $S$ exist at all. We can see this in by drawing the diagram for the premise. It is still possible to fill in the part of $S$ that is in the complement of $P$. Note that in doing this, we wind up filling in all of $S$. This just emphasizes the fact that ``No $S$ are $P$'' and ``All $S$ are $P$'' are both true only when no $S$ exist at all. 
+}	
+
+
 \item  It is false that some $S$ are $P$. Therefore, it is false that all $S$ are $P$.
 \answer{\\ Ockham: Valid. Subalternation.\\
 Boole: Invalid. \\
@@ -3413,19 +3447,6 @@ Boole: Valid \\
 }	
 
 
-\item No $S$ are $P$. Therefore, it is false that all $S$ are $P$.  
-\answer{\\Ockham: Valid. Contraries.\\
-Boole: Invalid \vspace{5pt}\\ 
-\begin{venns}
-\shadeintersectred{\subjectcircle}{\predicatecircle}
-%\shadecomplementred{\subjectcircle}{\subjectsquare}{\predicatecircle}
-%\someexistonesent
-%\someexistfoursent
-\drawsubsent 
-\drawpredsent 
-\end{venns} \vspace{5pt} \\
-It is possible that all $S$ are $P$, in the case that no $S$ exist at all. We can see this in by drawing the diagram for the premise. It is still possible to fill in the part of $S$ that is in the complement of $P$. Note that in doing this, we wind up filling in all of $S$. This just emphasizes the fact that ``No $S$ are $P$'' and ``All $S$ are $P$'' are both true only when no $S$ exist at all. 
-}	
  
 
 
@@ -3658,5 +3679,6 @@ Boole: Invalid \\
 \sortitem{Particular}{}
 \sortitem{Affirmative}{}
 \sortitem{Negative}{}
+\sortitem{Translation key}{}
 \end{sortedlist}
 \end{multicols}

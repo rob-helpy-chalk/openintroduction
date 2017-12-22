@@ -19,7 +19,7 @@
 
 \newcommand{\answerblank}[2]{\ifcsundef{r@showanswers}{\iflabelexists{blank_prob_set}{#2}{}}{{\color{red}#1}}}
 
-%this is the first modification of the \answer command. With this version, you can use the label ``showanswers'' to print the answers, or the label {blank_prob_seet} to print blank space for handouts. Problems that have been formatted for this command have the answer coded like this: ``\answerblank{[problem answer]}{[problem space]}
+%this is the first modification of the \answer command. With this version, you can use the label ``showanswers'' to print the answers, or the label {blank_prob_set} to print blank space for handouts. Problems that have been formatted for this command have the answer coded like this: ``\answerblank{[problem answer]}{[problem space]}
 
 
 %    ****************************************
@@ -90,12 +90,27 @@
 %definitions
 \newcommand*{\define}[1]{\textsc{\lowercase{#1}}}
 
-%Circle around a letter, from gmedina at latex-community.org
+%Circle around a letter, second one works better, first is a legacy
+
+%from gmedina at latex-community.org
 
 \newcommand*\mycirc[1]{%
   \begin{tikzpicture}
     \node[draw,circle,inner sep=1pt] {#1};
   \end{tikzpicture}}
+
+% from barbara beeton at stackoverflow
+% syntax: \circled[optional parameters, color is just a bare name, say <shape=circle> to get a circle]{<text>}
+
+\newcommand*{\circled}[2][red]{
+  \tikz[baseline=(char.base)]{
+              \node[shape=ellipse,inner sep=1pt, 
+                draw=#1,
+             ] (char) {#2};}
+}
+
+
+
 
 
 %    ****************************************

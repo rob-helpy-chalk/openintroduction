@@ -36,7 +36,9 @@ F & F & F & F & T & T
 \section*{Symbolization}
 \label{app.symbolization}
 
+\iflabelexists{part:quant_logic}{%This heading is only necessary if there is a quantificational part to distinguish it from
 \subsection*{Sentential Connectives (chapter \ref{chap:SL})} 
+}{}
 
 \begin{longtabu}{X[1,r,m]X[1,1,m]}
 It is not the case that $P$. & $\enot P$\\
@@ -48,8 +50,9 @@ $P$ only if $Q$. & $(P \eif Q)$\\
 $P$ if and only if $Q$. & $(P \eiff Q)$\\
 Unless $P$, $Q$. $P$ unless $Q$. & $(P \eor Q)$\\
 \\
-
 \end{longtabu}
+
+\iflabelexists{part:quant_logic}{  %Optional section if quantification logic is included
 \subsection*{Predicates (chapter \ref{chap:QL})}
 \label{SymbolizingPredicates}
 
@@ -73,7 +76,9 @@ It is not the case that the F is G. (wide)& $\enot\exists x(Fx \eand \forall y(F
 The $F$ is non-$G$. (narrow) & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
 \end{longtabu}
 
+}{}
 
+\iflabelexists{part:quant_logic}{  %Optional section if quantification logic is included
 
 %****************************************
 %* Using Identity to Symbolize Quantities
@@ -162,6 +167,8 @@ Removing $F$ from the symbolizations above produces sentences that talk about th
 %	\end{tabular*}
 %	\end{center}
 %\end{table}
+
+}{} %End quantifier section
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% % Basic Proof Rules 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -348,6 +355,9 @@ Removing $F$ from the symbolizations above produces sentences that talk about th
 %********************************   
 %*  More rules 
 %********************************
+
+\iflabelexists{part:quant_logic}{  %Optional section if quantification logic is included
+
 \newpage[4]
 \section*{Quantifier Rules}
 \vspace{-9pt}
@@ -401,7 +411,9 @@ The constant \script{c} must not appear in $\exists\script{x}\script{A}$, in \sc
 One constant may replace some or all occurrences of the other.\vspace{.5ex}
 
 \end{longtabu}
+}{}
 
+\iflabelexists{whole_slproof_chap}{%rules in full SL proof chapter
 
 \begin{multicols}{2}
 \section*{Derived Rules}
@@ -473,4 +485,4 @@ One constant may replace some or all occurrences of the other.\vspace{.5ex}
 \end{earg}
 
 \end{multicols}
-
+}{}

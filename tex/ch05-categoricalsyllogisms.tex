@@ -18,7 +18,7 @@ description={An argument with two premises composed of categorical statements.}
 }
 
 
-So far we have just been looking at very short arguments using categorical statements. The arguments just had one premise and a conclusion that was often logically equivalent to the premise. For most of the history of logic in the West, however, the focus has been on arguments that are a step more complicated called \textsc{\glspl{categorical syllogism}}. A categorical syllogism is a two-premise argument composed of categorical statements. Aristotle began the study of this kind of argument in his book the \textit{Prior Analytics} (c.350 \textsc{bce}/1\citeyear{Aristotle1984b}). This work was refined over the centuries by many thinkers in the Pagan, Christian, Jewish, and Islamic traditions until it reached the form it is in today.
+So far we have just been looking at very short arguments using categorical statements. The arguments just had one premise and a conclusion that was often logically equivalent to the premise. For most of the history of logic in the West, however, the focus has been on arguments that are a step more complicated called \textsc{\glspl{categorical syllogism}}. A categorical syllogism is a two-premise argument composed of categorical statements. Aristotle began the study of this kind of argument in his book the \cite*{Aristotle:prior}. This work was refined over the centuries by many thinkers in the Pagan, Christian, Jewish, and Islamic traditions until it reached the form it is in today.
 
 \newglossaryentry{Aristotelian syllogism}
 {
@@ -184,14 +184,7 @@ The first step is to identify the conclusion, using the basic skills you acquire
 
 Step two is to identify the major, middle, and minor terms. Remember that the major term is the predicate of the conclusion, and the minor term is the subject. So here the major term is ``cats,'' the minor term is ``geckos.'' The leftover term, ``lizards,'' must then be the middle term. 
 
-
-\newglossaryentry{translation key}
-{
-name=translation key,
-description={A list that assigns English phrases or sentences to variable names.}
-}
-
-We show that we have identified the major, middle, and minor terms by writing a \textsc{\gls{translation key}}. \label{def:translation_key} A translation key is just a list that assigns English phrases or sentences to variable names. For categorical syllogism, this means matching the English phrases for the terms with the variables $S$, $M$, and $P$. 
+We show that we have identified the major, middle, and minor terms by writing a \gls{translation key}\label{def:translation_key}. As we saw on page \pageref{def:translation_key} a translation key is just a list that assigns English phrases or sentences to variable names. For categorical syllogism, this means matching the English phrases for the terms with the variables $S$, $M$, and $P$. 
 
 \begin{ekey}
 \item[$S$:] Geckos
@@ -1578,15 +1571,15 @@ Darii (AII)		& Baroco (AOO) 	& Datisi (AII) 	 & \\
 % the version of the naming scheme used here is just the one from wikipedia. Hurley gives a version of the poem, but doesn't say which one it is. He also doesn't use the names as he goes along. Hurley's list differs from the wikipedia list on three names: Ferioque for Ferio, Camenes for Calemes, Dimaris for Dimatis.
 \end{table}
 
-The names on Table \ref{tab:unconditionally_valid} come from the Christian part of the Aristotelian tradition, where thinkers were writing in Latin. Students in that part of the tradition learned the valid forms by giving each one a female name. The vowels in the name represented the mood of the syllogism. So B\textbf{a}rb\textbf{a}r\textbf{a} has the mood AAA, Fr\textbf{e}s\textbf{i}s\textbf{o}n has the mood EIO, etc. The consonants in each name were also significant: they related to a process the Aristotelians were interested in called reduction, where arguments in the later figures were shown to be equivalent to arguments in the first figure, which was taken to be more self-evident. We won't worry about reduction in this textbook, however. The names of the valid syllogisms were often worked into a mnemonic poem. The oldest known version of the poem appears in a late 13th century book called \textit{Introduction to Logic} by William of Sherwood (Sherwood c. \citeyear{Sherwood1275}/1966). Figure \ref{fig:barbara,celarent} is an image of the oldest surviving manuscript of the poem, digitized by the Bibliothèque Nationale de France.
+The names on Table \ref{tab:unconditionally_valid} come from the Christian part of the Aristotelian tradition, where thinkers were writing in Latin. Students in that part of the tradition learned the valid forms by giving each one a female name. The vowels in the name represented the mood of the syllogism. So B\textbf{a}rb\textbf{a}r\textbf{a} has the mood AAA, Fr\textbf{e}s\textbf{i}s\textbf{o}n has the mood EIO, etc. The consonants in each name were also significant: they related to a process the Aristotelians were interested in called reduction, where arguments in the later figures were shown to be equivalent to arguments in the first figure, which was taken to be more self-evident. We won't worry about reduction in this textbook, however. The names of the valid syllogisms were often worked into a mnemonic poem. The oldest known version of the poem appears in a late 13th century book called \textit{Introduction to Logic} by William of Sherwood (\cite{Sherwood1275}). Figure \ref{fig:barbara,celarent} is an image of the oldest surviving manuscript of the poem, digitized by the Bibliothèque Nationale de France.
 
 The columns in Table \ref{tab:unconditionally_valid} represent the four figures. Syllogisms with the same mood also appear in the same row. So the EIO sisters---Ferio, Festino, Ferison, and Fresison---fill up row 3.  Camestres and Calemes share row 1;  Celarent and Cesare share row 2; and Darii and Datisi share row 4.   
 
-\begin{figure}
+\begin{figure}[b]
 \begin{mdframed}[style=mytableclearbox]
 \includegraphics*[scale=.75]{img/barbara_celarent_darii_ferio} 
 \end{mdframed}
-\caption{The oldest surviving version of the ``Barbara, Celarent...'' poem, from William of Sherwood (c. \citeyear{Sherwood1275}/1966)}
+\caption{The oldest surviving version of the ``Barbara, Celarent...'' poem, from William of Sherwood (\cite*{Sherwood1275}). The manuscript is held at the Biblioth\`eque Nationale de France, ms. Lat. 16617, \url{http://gallica.bnf.fr/ark:/12148/btv1b9066740r}}
 \label{fig:barbara,celarent}
 \end{figure}
 
@@ -1633,7 +1626,7 @@ The columns in Table \ref{tab:unconditionally_valid} represent the four figures.
 \someexistthreefour
 \end{venns}
 \\
-OEI-IV Invalid 
+OEI-4 Invalid 
 }
 
 \item All $M$ are $P$, and some $M$ are $S$. Therefore some $S$ are $P$. 
@@ -1659,7 +1652,7 @@ Datisi (AII-3) Valid
 \someexistfive
 \end{venns}
 \\
-Festino (EIO-II) Valid 
+Festino (EIO-2) Valid 
 } 
       
 \item No $M$ are $P$, and all $S$ are $M$. Therefore, no $S$ are $P$.
@@ -1672,7 +1665,7 @@ Festino (EIO-II) Valid
 \drawpredsyl
 \end{venns}
 \\
-Celarent (EAE-I) Valid 
+Celarent (EAE-1) Valid 
 } 
 \item All $M$ are $P$, and no $M$ are $S$. Therefore, all $S$ are $P$.
 \answer{\\
@@ -1684,7 +1677,7 @@ Celarent (EAE-I) Valid
 \drawpredsyl
 \end{venns}
 \\
-AEA-III Invalid 
+AEA-3 Invalid 
 } 
 \item Some $M$ are not $P$, and some $M$ are $S$. Therefore, all $S$ are $P$.
 \answer{\\
@@ -1697,7 +1690,7 @@ AEA-III Invalid
 \end{venns}
 \\
 
- OIA-III Invalid 
+ OIA-3 Invalid 
 } 
  
 \item No $P$ are $M$, and some $S$ are not $M$. Therefore, some $S$ are not $P$.
@@ -1710,7 +1703,7 @@ AEA-III Invalid
 \someexistonefour
 \end{venns}
 \\
-EOO-II Invalid 
+EOO-2 Invalid 
 }
  
 \item Some $P$ are $M$, and some $S$ are $M$. Therefore, no $S$ are $P$.
@@ -1723,7 +1716,7 @@ EOO-II Invalid
 \someexistfiveseven
 \end{venns}
 \\
-IIE-II Invalid 
+IIE-2 Invalid 
 }
 
 \item No $P$ are $M$, and all $S$ are $M$. Therefore no $S$ are $P$.
@@ -1736,7 +1729,7 @@ IIE-II Invalid
 \drawpredsyl
 \end{venns}
 \\
-Cesare (EAE-II) Valid 
+Cesare (EAE-2) Valid 
 }  
 \item No $M$ are $P$ and all $S$ are $M$. Therefore some $S$ are not $P$
 \answer{\\
@@ -1829,7 +1822,7 @@ As we will learn in the next section, this argument would be valid if we added t
 \drawmidsyl
 \drawpredsyl
 \end{venns}
-\\ Barbara (AAA-I) 
+\\ Barbara (AAA-1) 
 } 
 
 \item All $M$ are $P$, and some $M$ are $S$. Therefore \underline{\hspace{2cm}}. 
@@ -1853,7 +1846,7 @@ As we will learn in the next section, this argument would be valid if we added t
 \drawpredsyl
 \someexistonefour
 \end{venns}
- \\ EO?-I Invalid 
+ \\ EO?-1 Invalid 
  }
 \item Some $M$ are $P$, and some $S$ are $M$. Therefore \underline{\hspace{2cm}}. 
 \answer{ \hspace{-2.4cm} No conclusion \\
@@ -1864,7 +1857,7 @@ As we will learn in the next section, this argument would be valid if we added t
 \someexistsixseven
 \someexistfiveseven
 \end{venns}
-\\  IE?-I Invalid 
+\\  II?-1 Invalid 
 } 
 \item Some $P$ are $M$, and all $M$ are $S$. Therefore \underline{\hspace{2cm}}. 
 \answer{\hspace{-2.4cm} Some $S$ are $P$. \\
@@ -1886,7 +1879,7 @@ As we will learn in the next section, this argument would be valid if we added t
 \drawmidsyl
 \drawpredsyl
 \end{venns}
-\\Calemes (AEE-IV) 
+\\Calemes (AEE-4) 
 }
  
 \item No $M$ are $P$ and all $S$ are $M$. Therefore \underline{\hspace{2cm}} .
@@ -1898,7 +1891,7 @@ As we will learn in the next section, this argument would be valid if we added t
 \drawmidsyl
 \drawpredsyl
 \end{venns}
-\\ Celarent (EAE-I) 
+\\ Celarent (EAE-1) 
 } 
 
 \item \label{itm:no_conclusion_set1_EEE} No $P$ are $M$, and no $M$ are $S$. Therefore \underline{\hspace{2cm}}.
@@ -2092,7 +2085,7 @@ description={the term that names things that must exist in order for a condition
 
 \
 
-In this argument $S$ is what we call the ``critical term.'' The \gls{critical term} \label{def:critical_term} is the term that names things that must exist in order for a conditionally valid argument to be actually valid. In this argument, the critical term was $S$, but sometimes it will be $M$ or $P$. 
+In this argument $S$ is what we call the ``critical term.'' The \textsc{\gls{critical term}}\label{def:critical_term} is the term that names things that must exist in order for a conditionally valid argument to be actually valid. In this argument, the critical term was $S$, but sometimes it will be $M$ or $P$. 
 
 We have used Venn diagrams to show that Barbari is valid once you include the additional premise. Using this method we can identify nine more forms, on top of the previous 15, that are valid if we add the right existence assumptions (Table \ref{tab:full_twentyfour}) 
 
@@ -2673,7 +2666,7 @@ Adding this premise merely gives a separate line in the proof for an idea that O
 
 \subsection{Proving the Rules}
 
-For each rule, we have presented an argument that any syllogism that breaks that rule is invalid. It turns out that the reverse is also true. If a syllogism obeys all five of these rules, it must be valid. In other words, these rules are \emph{sufficient} to characterize validity for Aristotelian syllogisms. \nix{(For a discussion of the term ``sufficient'' see page [ref]).} It is good practice to actually walk through a proof that these five rules are sufficient for validity. After all, that sort of proof is what formal logic is really all about. The proof below follows Hurley (\citeyear{Hurley2014}).
+For each rule, we have presented an argument that any syllogism that breaks that rule is invalid. It turns out that the reverse is also true. If a syllogism obeys all five of these rules, it must be valid. In other words, these rules are \emph{sufficient} to characterize validity for Aristotelian syllogisms. \nix{(For a discussion of the term ``sufficient'' see page [ref]).} It is good practice to actually walk through a proof that these five rules are sufficient for validity. After all, that sort of proof is what formal logic is really all about. The proof below follows Hurley (\cite*	{Hurley2014}).
 
 Imagine we have a syllogism that obeys the five rules above. We need to show that it must be valid. There are four possibilities to consider: the conclusion is either mood A, mood E, mood I, or mood O. 
 
@@ -2725,15 +2718,15 @@ So suppose we have a syllogism with two particular premises. If we want to avoid
  
 \item Some $M$ are $P$, and some $M$ are $S$. Therefore, no $S$ are $P$.
 
-\answer{ It violates Rule 1 (middle term must be distributed), Rule 2 (terms distributed in the conclusion must be distributed in the premises), Rule 4 (a negative conclusion requires exactly one negative premise), and Derived Rule 1 (At least one universal premise.)}   
+\answer{ It violates Rule 1 (middle term must be distributed), Rule 2 (terms distributed in the conclusion must be distributed in the premises), Rule 4 negative conclusion if and only if exactly one negative premise), and Derived Rule 1 (At least one universal premise.)}   
       
 \item Some $P$ are $M$, and some $M$ are not $S$. Therefore, all $S$ are $P$.
 
-\answer{Invalid. It violates Rule 1 (middle term must be distributed) and Derived Rule 1 (At least one universal premise.)}    
+\answer{Invalid. It violates Rule 1 (middle term must be distributed), Rule 4 (negative conclusion if and only if exactly one negative premise) and Derived Rule 1 (At least one universal premise.)}    
    
 \item All $P$ are $M$, and no $M$ are $S$. Therefore, no $S$ are $P$.
 
-\answer{ Valid. Camestres (AEE-4.)
+\answer{ Valid. Calemes (AEE-4.)
 
 \begin{venns}
 \shadecomplementred{\predicatecircle}{\predicatesquare}{\middlecircle}
@@ -2746,7 +2739,7 @@ So suppose we have a syllogism with two particular premises. If we want to avoid
 
 \item Some $P$ are not $M$, some $M$ are $S$. Therefore, all $S$ are $P$.
 
-\answer{Invalid. It violates Rule 1 (middle term must be distributed), Rule 2 (terms distributed in the conclusion must be distributed in the premises), and Derived Rule 1 (At least one universal premise.)}   
+\answer{Invalid. It violates Rule 2 (terms distributed in the conclusion must be distributed in the premises) and Derived Rule 1 (At least one universal premise.)}   
 
 
 \item No $M$ are $P$, and all $S$ are $M$. Also, some $S$ exist. Therefore some $S$ are not $P$.

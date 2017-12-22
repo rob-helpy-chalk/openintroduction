@@ -1,7 +1,7 @@
 \chapter{Sentential Logic}
 \markright{Chap. \ref{chap:SL}: Sentential Logic}
 \label{chap:SL}
-\setlength{\parindent}{1em}
+
 
 \iflabelexists{part:cat_logic} %There are two versions of the preamble for this chapter, one for books that include the chapters on categorical logic, and a generic one
 {In Part \ref{part:cat_logic}, we introduced a system of logic that dealt with categorical statements, statements like ``All people are mortal'' or ``Some dogs have  fleas.'' The system developed there was somewhat formal, because it replaced some of the contents of ordinary English sentences with abstract symbols. In Part \ref{part:sent_logic}, we go the rest of the way, and replace all of ordinary English with abstract symbols, thus creating a fully artificial language. In the previous system, capital letters like $S$ and $P$ stood for categories, like ``dogs'' or ``things that have fleas.'' In the new system individual letters will stand for whole sentences, like ``Tom wants to go to the bookstore'' or ``The sky is blue.'' Because individual letters stand for sentences this kind of system is known as \textit{sentential logic}, a term which we will be able to precisely define on page \pageref{def:sentential_logic}. We will call the specific version of sentential logic we will be developing SL.}%this is the preamble for texts that include categorical logic
@@ -26,15 +26,19 @@ name=sentence letter,
 description={A single capital letter, used in SL to represent a statement.}
 }
 
-\newglossaryentry{symbolization key}
-{
-name=symbolization key,
-description={A list that shows which English sentences are represented by which sentence letters in SL. It is also called a dictionary.}
-}
-
 The most basic unit in our formal language SL is an individual capital letter---$A, B, C, D$, etc. These letters, called \textsc{\glspl{sentence letter}}, \label{def:sentence_letter} are used to represent individual statements. Remember in section \ref{def:statement}, we defined a statement as some bit of language that can be true or false, and listed all kinds of things that count as statements in English, from ``\emph{Tyrannosaurus rex} went extinct 65 million years ago'' to ``Lady Gaga is pretty.'' In SL, all these statements are reduced to single capital letters.
 
-Considered only as a symbol of SL, the letter $A$ could mean any statement. So when translating from English into SL, it is important to provide a symbolization key, or dictionary. The \textsc{\gls{symbolization key}} \label{def:symbolization_key} provides an English language sentence for each sentence letter used in the symbolization. Consider this argument (recall that the portion of the passage in italics establishes the context, and is not part of the passage):
+\newglossaryentry{translation key}
+{
+name=translation key,
+description={A list that assigns English phrases or sentences to variable names. Also called a ``symbolization key''  or simply a ``dictionary.''}
+}
+
+Considered only as a symbol of SL, the letter $A$ could mean any statement. \iflabelexists{part:cat_logic}{%text if the term was defined in the cat logic section
+So when translating from English into SL, it is important to provide a \gls{translation key}\label{def:translation_key}. Previously, we used translation keys to say assign the variables $S$, $M$, and $P$ to terms. (See page \pageref{def:translation_key}.) Now we will use them to assign sentences to sentence letters.}{%text if term is being defined for the first time
+In order to specify what we mean, we need to provide a key saying what the sentence letters represent. We will call a list that assigns English phrases or sentences to variable names a \textsc{\gls{translation key}}.\label{def:translation_key} These are sometimes also called ``symbolization keys'' or simply just ``dictionaries.'' }
+
+Consider this argument (recall that the portion of the passage in italics establishes the context, and is not part of the passage):
 
 \begin{quotation}
 \noindent \textit{A teacher is looking to see who has come to class} There is an apple on the desk. If there is an apple on the desk, then Jenny made it to class. Therefore, Jenny made it to class.
@@ -118,8 +122,8 @@ description={A logical operator in SL used to combine sentence letters into larg
 
 \newglossaryentry{logical constant}
 {
-name=logical symbol,
-description={A symbol whose meaning is fixed by a formal language. Sometimes these are just called ``logical symbols.'' They are contrasted with \textsc{non-logical symbols}. (See below.)}
+name=logical constant,
+description={A symbol whose meaning is fixed by a formal language. Sometimes these are just called ``logical symbols.'' They are contrasted with \textsc{non-logical symbols}.}
 }
 
 \newglossaryentry{nonlogical symbol}
@@ -130,7 +134,7 @@ description={A symbol whose meaning is not fixed by a formal language.}
 
 The symbols used to connect sentence letters are called \textsc{\glspl{sentential connective}} \label{def:sentential_connective}, naturally enough. SL uses five sentential connectives: \eand, \eor, \enot, \eif, and \eiff. To write the sentence about Jenny and the apple we use the symbol ``\eif.'' Using the dictionary above, ``If there is an apple on the desk, then Jenny made it to class'' becomes $A \eif B$. Table \ref{table:sentential_connectives} summarizes the meaning of the five sentential connectives.
 
-The sentential connectives are a kind of \textsc{\gls{logical constant}}, because their meaning is fixed by the formal language that we have chosen. The sentence letters, by contrast, are \textsc{\glspl{nonlogical symbol}}, \label{def:nonlogical_symbol} because their meaning can change as we change the symbolization key. 
+The sentential connectives are a kind of \textsc{\gls{logical constant}},\label{def:logical_constant} because their meaning is fixed by the formal language that we have chosen. The other logical constants in SL are the parentheses. These are the things we cannot change in the symbolization key. The sentence letters, by contrast, are \textsc{\glspl{nonlogical symbol}}, \label{def:nonlogical_symbol} because their meaning can change as we change the symbolization key. We can decide that $A$ stands for ``Arthur is an aardvark'' in one translation key and ``Apu is an anthropologist'' in the next. But we can't say that the  the $\enot$ symbol will mean ``not'' in one argument and ``perhaps'' in another.
 
 The subsections below describe each connective in more detail.
 
@@ -708,7 +712,7 @@ Consider negation: Given any sentence \script{A} of SL, $\enot\script{A}$ is a s
 \newglossaryentry{sentence of SL}
 {
 name=sentence of SL,
-description={A string of symbols in SL that can be built up using according to the recursive rules given on page \pageref{def:sentence_of_SL}.} % }
+description={A string of symbols in SL that can be built up using according to the recursive rules given on page} % }
 }
 
 
@@ -767,7 +771,7 @@ name=unique readability,
 description={A property of formal languages which is present when each \iflabelexists{part:quant_logic}{well formed formula}{statement} is the product of a unique process of recursive construction.}
 }
 
-Because statement in our language is defined recursively, we can say it is ``uniquely readable'' \textsc{\Gls{term}}\label{def:term} is a property of formal languages which is present when each \iflabelexists{part:quant_logic}{well formed formula}{statement} can only be constructed in a single way. Every process of building up a sentence recursively yields a unique sentence, and every sentence is the product of a unique process of recursive definitions. This means that in an important sense our language SL is free of ambiguity, which is a key goal in the construction of any formal language. Every sentence in SL will have a unambiguous main connective and every connective in a sentence will have an unambiguous scope. This makes logicians happy.
+Because statement in our language is defined recursively, we can say it is ``uniquely readable.'' \textsc{\Gls{unique readability}}\label{def:unique_readability} is a property of formal languages which is present when each \iflabelexists{part:quant_logic}{well formed formula}{statement} can only be constructed in a single way. Every process of building up a sentence recursively yields a unique sentence, and every sentence is the product of a unique process of recursive definitions. This means that in an important sense our language SL is free of ambiguity, which is a key goal in the construction of any formal language. Every sentence in SL will have a unambiguous main connective and every connective in a sentence will have an unambiguous scope. This makes logicians happy.
 
 
 %The recursive structure of sentences in SL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence $\enot \enot \enot D$ is true if and only if the sentence $\enot \enot D$ is false, and so on through the structure of the sentence until we arrive at the atomic components: $\enot \enot \enot D$ is true if and only if the atomic sentence $D$ is false. We will return to this point in the next chapter.
@@ -799,16 +803,21 @@ If we had given a different definition for a sentence, then these could count as
 
 
 \practiceproblems
-\setlength{\parindent}{0em}
-
-\problempart Using the symbolization key given, translate each English-language sentence into SL.
+\noindent\problempart Using the symbolization key given, translate each English-language sentence into SL.
 \label{pr.monkeysuits}
 \begin{ekey}
 \item[M:] Those creatures are men in suits. 
 \item[C:] Those creatures are chimpanzees. 
 \item[G:] Those creatures are gorillas.
 \end{ekey}
-\begin{earg}
+
+\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
+\textbf{Example}: & If those creatures are not men in suits, they are gorillas. \\
+\textbf{Answer}: & $\enot M \eif G$ \\
+\end{longtabu}
+
+
+\begin{exercises}
 \item Those creatures are not men in suits. \answer{$\enot M$} 
 \item Those creatures are men in suits, or they are not. \answer{$M \eor \enot M$} 
 \item Those creatures are either gorillas or chimpanzees. \answer{$G \eor C$} 
@@ -819,7 +828,7 @@ If we had given a different definition for a sentence, then these could count as
 \item Those creatures are chimpanzees if and only if they are not gorillas. \answer{$C \eiff G$} 
 \item Those creatures are neither gorillas nor chimpanzees. \answer{$~(G \eor C).$} %See p.34, sentence 19, and p. 156
 \item Unless those creatures are men in suits, they are either chimpanzees or they are gorillas. \answer{$M \eor (C \eor G)$} 
-\end{earg}
+\end{exercises}
 
 %If					X
 %only if				X
@@ -831,7 +840,7 @@ If we had given a different definition for a sentence, then these could count as
 
 %added and changed problems to get a better distribution of kinds of problems. 
 
-\problempart Using the symbolization key given, translate each English-language sentence into SL.
+\noindent\problempart Using the symbolization key given, translate each English-language sentence into SL.
 \begin{ekey}
 \item[A:] Mister Ace was murdered.
 \item[B:] The butler did it.
@@ -840,7 +849,7 @@ If we had given a different definition for a sentence, then these could count as
 \item[E:] Mister Edge was murdered.
 \item[F:] The murder weapon was a frying pan.
 \end{ekey}
-\begin{earg}
+\begin{exercises}
 \item Either Mister Ace or Mister Edge was murdered. % {\color{red} $A \eor E$}  \vspace{1ex}
 \item If Mister Ace was murdered, then the cook did it. % {\color{red} $A \eif C$} \vspace{1ex}
 \item If Mister Edge was murdered, then the cook did not do it. % {\color{red} $E \eif \enot C} \vspace{1ex}
@@ -853,7 +862,7 @@ If we had given a different definition for a sentence, then these could count as
 \item Mister Ace was murdered, but not with a frying pan. % {\color{red} $A \eand \enot F$} \vspace{1ex}
 \item The butler and the cook did not both do it. % {\color{red} $\enot(B \enad C)$} \vspace{1ex}
 \item Of course the Duchess is lying! % {\color{red}$D$} \vspace{1ex}
-\end{earg}
+\end{exercises}
 
 %If  			x
 %only if             x
@@ -866,7 +875,7 @@ If we had given a different definition for a sentence, then these could count as
 %changed problems to get a better distribution of kinds of problems. 
 
 
-\problempart Using the symbolization key given, translate each English-language sentence into SL.
+\noindent\problempart Using the symbolization key given, translate each English-language sentence into SL.
 \label{pr.avacareer}
 \begin{ekey}
 \item[E$_1$:] Ava is an electrician.
@@ -876,20 +885,20 @@ If we had given a different definition for a sentence, then these could count as
 \item[S$_1$:] Ava is satisfied with her career.
 \item[S$_2$:] Harrison is satisfied with his career.
 \end{ekey}
-\begin{earg}
-\item Ava and Harrison are both electricians. %{\color{red} $E_1 \eand E_2$} \vspace{1ex}
-\item If Ava is a firefighter, then she is satisfied with her career. %{\color{red} $F_1 \eif S_1$}  \vspace{1ex}
-\item Ava is a firefighter, unless she is an electrician. %{\color{red} $F_1 \eor E_1$  \vspace{1ex}
-\item Harrison is an unsatisfied electrician. %{\color{red} $E_2 \eand \enot S_2$}  \vspace{1ex}
-\item Neither Ava nor Harrison is an electrician. %{\color{red} $\enot(E_1 \eor E_2)$}  \vspace{1ex}
-\item Both Ava and Harrison are electricians, but neither of them find it satisfying. %{\color{red} $(E_1 \eand E_2) \eand \enot (S_1 \eor S_2)$} \vspace{1ex}
-\item Harrison is satisfied only if he is a firefighter. %{\color{red} $S_2 \eif F_2$} \vspace{1ex}
-\item If Ava is not an electrician, then neither is Harrison, but if she is, then he is too. %{\color{red} $(\enot E_1 \eif \enot E_2) \eand (E_1 \eif E_2)$} \vspace{1ex}
-\item Ava is satisfied with her career if and only if Harrison is not satisfied with his. %{\color{red} $S_1 \eiff \enot S_2$} \vspace{1ex}
-\item If Harrison is both an electrician and a firefighter, then he must be satisfied with his work. %{\color{red} $(E_2 \eand F_2) \eif S_2$} \vspace{1ex}
-\item It cannot be that Harrison is both an electrician and a firefighter. %{\color{red} $\enot (E_2 \eand F_2)$} \vspace{1ex}
-\item Harrison and Ava are both firefighters if and only if neither of them is an electrician. %{\color{red} $(F_1 \eand F_2) \eiff \enot (E_1 \eor E_2)$} \vspace{1ex}
-\end{earg}
+\begin{exercises}
+\item Ava and Harrison are both electricians. \answer{$E_1 \eand E_2$} 
+\item If Ava is a firefighter, then she is satisfied with her career. \answer{$F_1 \eif S_1$}  
+\item Ava is a firefighter, unless she is an electrician. \answer{$F_1 \eor E_1$}  
+\item Harrison is an unsatisfied electrician. \answer{$E_2 \eand \enot S_2$}  
+\item Neither Ava nor Harrison is an electrician. \answer{$\enot(E_1 \eor E_2)$}  
+\item Both Ava and Harrison are electricians, but neither of them find it satisfying. \answer{$(E_1 \eand E_2) \eand \enot (S_1 \eor S_2)$} 
+\item Harrison is satisfied only if he is a firefighter. \answer{$S_2 \eif F_2$} 
+\item If Ava is not an electrician, then neither is Harrison, but if she is, then he is too. \answer{$(\enot E_1 \eif \enot E_2) \eand (E_1 \eif E_2)$} 
+\item Ava is satisfied with her career if and only if Harrison is not satisfied with his. \answer{$S_1 \eiff \enot S_2$} 
+\item If Harrison is both an electrician and a firefighter, then he must be satisfied with his work. \answer{$(E_2 \eand F_2) \eif S_2$} 
+\item It cannot be that Harrison is both an electrician and a firefighter. \answer{$\enot (E_2 \eand F_2)$} 
+\item Harrison and Ava are both firefighters if and only if neither of them is an electrician. \answer{$(F_1 \eand F_2) \eiff \enot (E_1 \eor E_2)$} \vspace{1ex}
+\end{exercises}
 
 %If					x	
 %only if				x
@@ -899,7 +908,7 @@ If we had given a different definition for a sentence, then these could count as
 %not both			x
 %neither nor			x
 
-\problempart Using the symbolization key given, translate each English-language sentence into SL.
+\noindent\problempart Using the symbolization key given, translate each English-language sentence into SL.
 \label{pr.jazzinstruments}
 \begin{ekey}
 \item[J$_1$:] John Coltrane played tenor sax.
@@ -909,7 +918,7 @@ If we had given a different definition for a sentence, then these could count as
 \item[M$_2$:]Miles Davis played tuba
 \end{ekey}
 
-\begin{earg}
+\begin{exercises}
 \item John Coltrane played tenor and soprano sax. %{\color{red} $J_1 \eand J_2$} \vspace{1ex}
 \item Neither Miles Davis nor John Coltrane played tuba. %{\color{red} $\enot(M_2 \eor J_3)$ or $\enot M_2 \eand \enot J_3$} \vspace{1ex}
 \item John Coltrane did not play both tenor sax and tuba.  %{\color{red} $\enot(J_1 \eand J_3)$ or $\enot J_1 \eor \enotJ_3$} \vspace{1ex}
@@ -919,7 +928,7 @@ If we had given a different definition for a sentence, then these could count as
 \item If Miles Davis played trumpet, then John Coltrane played at least one of these three instruments: tenor sax, soprano sax, or tuba. %{\color{red} $M_1 \eif (J_1 \eor (J_2 \eor J_3))&} \vspace{1ex}
 \item If John Coltrane played tuba then Miles Davis played neither trumpet nor tuba. %{\color{red} $J_3 \eif \enot(M_1 \eor M_2)$ or $J_3 \eif (\enot M_1 \eand \enot M_2)$  } \vspace{1ex}
 \item Miles Davis and John Coltrane both played tuba if and only if Coltrane did not play tenor sax and Miles Davis did not play trumpet. %{\color{red} $(J_3 \eand M_2) \eiff \enotJ_1 & \enot M_1)$ or $(J_3 \eand M_2) \eiff \enot (J_1 \eor M_1)$} \vspace{1ex}
-\end{earg}
+\end{exercises}
 %If					x					
 %only if				x		
 %if and only if		x
@@ -929,23 +938,25 @@ If we had given a different definition for a sentence, then these could count as
 %neither nor			x
 
 
-\problempart
+\noindent\problempart
 \label{pr.spies}
 Give a symbolization key and symbolize the following sentences in SL. \\
-%\begin{ekey}
-%\item[A:] Alice is a spy
-%\item [B:] Bob is a spy
-%\item [C:] The code has been broken
-%\item [D:] The German embassy is in an uproar
-%\end{ekey}
-\begin{earg}
-\item Alice and Bob are both spies. % {\color{red}$A \eand B$ \vspace{1ex}}
-\item If either Alice or Bob is a spy, then the code has been broken. %{\color{red} $(A \eor B) \eif C$ \vspace{1ex}}
-\item If neither Alice nor Bob is a spy, then the code remains unbroken.%{\color{red}$\enot(A \eor B) \eif \enot C$ \vspace{1ex}}
-\item The German embassy will be in an uproar, unless someone has broken the code.% {\color{red}$D \eor C$ \vspace{1ex}}
-\item Either the code has been broken or it has not, but the German embassy will be in an uproar regardless. %{\color{red}$(C \eor \enot C) \eand D$ \vspace{1ex}}
-\item Either Alice or Bob is a spy, but not both. %{\color{red}$(A \eor B) \eand \enot (A \eand B)$}
-\end{earg}
+\answer{
+\begin{ekey}
+\item[A:] Alice is a spy
+\item [B:] Bob is a spy
+\item [C:] The code has been broken
+\item [D:] The German embassy is in an uproar
+\end{ekey}
+}
+\begin{exercises}
+\item Alice and Bob are both spies. \answer{$A \eand B$ }
+\item If either Alice or Bob is a spy, then the code has been broken. \answer{$(A \eor B) \eif C$}
+\item If neither Alice nor Bob is a spy, then the code remains unbroken. \answer{$\enot(A \eor B) \eif \enot C$}
+\item The German embassy will be in an uproar, unless someone has broken the code. \answer{$D \eor C$}
+\item Either the code has been broken or it has not, but the German embassy will be in an uproar regardless. \answer{$(C \eor \enot C) \eand D$}
+\item Either Alice or Bob is a spy, but not both. \answer{$(A \eor B) \eand \enot (A \eand B)$}
+\end{exercises}
 
 %If
 %only if
@@ -955,7 +966,7 @@ Give a symbolization key and symbolize the following sentences in SL. \\
 %not both
 %neither nor
 
-\problempart Give a symbolization key and symbolize the following sentences in SL.
+\noindent\problempart Give a symbolization key and symbolize the following sentences in SL.
 %\begin{ekey}
 %\item[A:] Gregor plays first base
 %\item[B:] The team will lose
@@ -963,68 +974,73 @@ Give a symbolization key and symbolize the following sentences in SL. \\
 %\item[D:] Gregor's mom will bake cookies.
 %\end{ekey}
 
-\begin{earg}
+\begin{exercises}
 \item If Gregor plays first base, then the team will lose. %{\color{red} $A \eif B$ \vspace{1ex}}
 \item The team will lose unless there is a miracle. %{\color{red}$B \eor C$ \vspace{1ex}}
 \item The team will either lose or it won't, but Gregor will play first base regardless. % {\color{red}$(B \eor \enot B) \eand A$ \vspace{1ex}}
 \item Gregor's mom will bake cookies if and only if Gregor plays first base.% {\color{red}$C \eiff A$ \vspace{1ex}}
 \item If there is a miracle, then Gregor's mom will not bake cookies. %{\color{red} $C \eif \enot D$}
-\end{earg}
+\end{exercises}
 
 
-\problempart
-For each argument, write a symbolization key and translate the argument as well as possible into SL.
-\begin{earg}
-\item If Dorothy plays the piano in the morning, then Roger wakes up cranky. Dorothy plays piano in the morning unless she is distracted. So if Roger does not wake up cranky, then Dorothy must be distracted.
-%{\color{red}
-%\begin{ekey}
-%\item[A:] Dorothy plays the piano in the morning
-%\item[B:] Roger wakes up cranky
-%\item[C:] Dorothy is distracted
-%\end{ekey}
+\noindent\problempart For each argument, write a symbolization key and translate the argument  into SL, putting the argument in canonical form.
 
-%begin{\earg}
-%\item[1.] $A \eif B$
-%\item[2.] $A \eor C$
-%\item[$$\therefore$$] $\enot B \eif C$
-%}
+\begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
+\textbf{Example}: &  If Dorothy plays the piano in the morning, then Roger wakes up cranky. Dorothy plays piano in the morning unless she is distracted. So if Roger does not wake up cranky, then Dorothy must be distracted. \\
+\textbf{Answer}: & {\color{white}.} \vspace{-20pt} \begin{ekey}
+\item[A:] Dorothy plays the piano in the morning
+\item[B:] Roger wakes up cranky
+\item[C:] Dorothy is distracted
+\end{ekey}\\
+& {\color{white}.} \vspace{-22pt} \begin{earg*}
+\item $A \eif B$
+\item  $A \eor C$
+\itemc[.1] $\enot B \eif C$
+\end{earg*}\\
+\end{longtabu}
+
+\begin{exercises}
+
 \item It will either rain or snow on Tuesday. If it rains on Tuesday, Neville will be sad. If it snows on Tuesday, Neville will be cold. Therefore, Neville will either be sad or cold on Tuesday.
 
-%{\color{red}
-%\begin{ekey}
-%\item[A:]  It will rain on Tuesday
-%\item[B:]  It will snow on Tuesday
-%\item[C:]  Neville will be sad
-%\item[D:]  Neville will be cold
-%\end{ekey}
+\answer{
+\begin{ekey}
+\item[A:]  It will rain on Tuesday
+\item[B:]  It will snow on Tuesday
+\item[C:]  Neville will be sad
+\item[D:]  Neville will be cold
+\end{ekey}
 
-%\begin{earg}
-%\item[1.]  $A \eor B$
-%\item[2.]  $A \eif C$
-%\item[3.] $B \eif D$
-%\item[$$\therefore$$]  $C \eor D$
-%\end{earg}
-%}
+\begin{earg*}
+\item $A \eor B$
+\item $A \eif C$
+\item $B \eif D$
+\itemc[.1]  $C \eor D$
+\end{earg*}
+}
 
 \item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean---but not both.
-\end{earg}
 
-%{\color{red}
-%\begin{ekey}
-%\item[A:] Zoog remembered to do his chores. 
-%\item[B:] Things are clean 
-%\item[C:] Things are neat %\end{ekey}
+\answer{
+\begin{ekey}
+\item[A:] Zoog remembered to do his chores. 
+\item[B:] Things are clean 
+\item[C:] Things are neat %\end{ekey}
+\end{ekey}
 
-%\begin{earg}
-%\item[1.]  $A \eif (B \eand \enot C)$
-%\item[2.]  $\enot A \eif (\enot B \eand C)$
-%\item[$\therefore$]  $(B \eor C) \eand \enot (B \eand C)$ 
-%\end{earg}
-%}
+\begin{earg*}
+\item  $A \eif (B \eand \enot C)$
+\item  $\enot A \eif (\enot B \eand C)$
+\itemc[.2]  $(B \eor C) \eand \enot (B \eand C)$ 
+\end{earg*}
+}
 
-\problempart
-For each argument, write a symbolization key and translate the argument as well as possible into SL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
-\begin{earg}
+\end{exercises}
+
+
+\noindent\problempart For each argument, write a symbolization key and translate the argument as well as possible into SL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
+
+\begin{exercises}
 \item It is going to rain soon. I know because my leg is hurting, and my leg hurts if it’s going to rain. 
 
 %{\color{red}
@@ -1069,16 +1085,16 @@ For each argument, write a symbolization key and translate the argument as well 
 %\item[$\therefore$]  
 %}
 
-\end{earg}
+\end{exercises}
 
 
 
 
-\problempart
-\begin{earg}
-\item Are there any sentences of SL that contain no sentence letters? Why or why not? % \vspace{1ex} \\ {\color{red} No, because the rules for creating sentences begin with sentence letters and then apply connectives and more sentence letters. There is no way to remove the sentence letters that you start with.} \vspace{2ex} 
-\item In the chapter, we symbolized an \emph{exclusive or} using \eor, \eand, and \enot. How could you translate an \emph{exclusive or} using only two connectives? Is there any way to translate an \emph{exclusive or} using only one kind of connective? %\vspace{1ex} \\ {\color{red} The exclusive or (sometimes written xor) is true whenever the two sides of it have opposite truth values. This is the reverse of what the biconditional does. Thus you can represent the xor like this: \enot(A \eiff B). You can't get rid of any more connectives, though. If you had a single connective in the sentence, it would have to be equivalent on its own to the exclusive or, and none of our connectives work like that. Some systems do introduce a separate symbol for the exclusive or, often a plus sign: +.}
-\end{earg}
+\noindent\problempart
+\begin{exercises}
+\item Are there any sentences of SL that contain no sentence letters? Why or why not? \answer{\\ No, because the rules for creating sentences begin with sentence letters and then apply connectives and more sentence letters. There is no way to remove the sentence letters that you start with.} 
+\item In the chapter, we symbolized an \emph{exclusive or} using \eor, \eand, and \enot. How could you translate an \emph{exclusive or} using only two connectives? Is there any way to translate an \emph{exclusive or} using only one kind of connective? \answer{ \\ The exclusive or (sometimes written xor) is true whenever the two sides of it have opposite truth values. This is the reverse of what the biconditional does. Thus you can represent the xor like this: \enot(A \eiff B). You can't get rid of any more connectives, though. If you had a single connective in the sentence, it would have to be equivalent on its own to the exclusive or, and none of our connectives work like that. Some systems do introduce a separate symbol for the exclusive or, often a plus sign: +.}
+\end{exercises}
 
 
 
@@ -1132,6 +1148,7 @@ For each argument, write a symbolization key and translate the argument as well 
 \sortitem{Inclusive or}{}
 \sortitem{Necessary condition}{}
 \sortitem{Sufficient condition}{}
+\sortitem{Translation key}{}
 \end{sortedlist}
 \end{multicols}
 

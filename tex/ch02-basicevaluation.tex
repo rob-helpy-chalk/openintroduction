@@ -87,23 +87,32 @@ This way of understanding validity is based on what you can imagine, but not eve
 
 So, assessing validity means wondering about whether the conclusion would be true \textit{if} the premises were true. This means that valid arguments can have false conclusions. This is important to keep in mind because people naturally tend to think that any argument must be good if they agree with the conclusion. And the more passionately people believe in the conclusion, the more likely we are to think that any argument for it must be brilliant. Conversely, if the conclusion is something we don't believe in, we naturally tend to think the argument is poor. And the more we don't like the conclusion, the less likely we are to like the argument. 
 
-\newglossaryentry{fallacy}
+
+
+%\newglossaryentry{myside fallacy}
+%{
+%name=myside fallacy,
+%description={The common mistake of evaluating an argument based merely on whether one agrees or disagrees with the conclusion.}
+%}
+
+
+\newglossaryentry{cognitive bias}
 {
-name=fallacy,
-plural=fallacies,
-description={A common mistake in reasoning. Fallacies are generally conceived of as mistake forms of inference and are generally explained by arguments represented in canonical form. See also \emph{cognitive bias}.}
+name=cognitive bias,
+description={a habit of reasoning that can become dysfunctional in certain circumstances. Often these biases are not a matter of explicit belief. See also \emph{fallacy}}
 }
 
-\newglossaryentry{myside fallacy}
+But this is not the correct way to evaluate inferences at all. The quality of the inference is entirely independent of the truth of the conclusion. You can have great arguments for false conclusions and horrible arguments for true conclusions. We have trouble seeing this because of biases built deep in the way we think called ``cognitive biases.'' A  \textsc{\gls{cognitive bias}}\label{def:cognitive_bias} is a habit of reasoning that can be dysfunctional in certain circumstances. Generally these biases developed for a reason, so they serve us well in many or most circumstances. But cognitive biases also systematically distort our reasoning in other circumstances, so we must be on guard against them.
+
+\newglossaryentry{confirmation bias}
 {
-name=myside fallacy,
-description={The common mistake of evaluating an argument based merely on whether one agrees or disagrees with the conclusion.}
+name=confirmation bias,
+description={The tendency to discount or ignore evidence and arguments that contradict one's current beliefs.}
 }
 
+There is a particular cognitive bias that makes it hard for us to recognize when a poor argument is being given for a conclusion we agree with. It is called ``confirmation bias'' and it is in many ways the mother of all cognitive biases.  \textsc{\Gls{confirmation bias}} \label{def:confirmation_bias} is the tendency to discount or ignore evidence and arguments that contradict one's current beliefs. It really pervades all of our thinking, right down to our perceptions. \iflabelexists{part:CT}{We will learn more about cognitive biases in Chapter \ref{Chap:what_is_ct}.}{}
 
-But this is not the way to evaluate inferences at all. The quality of the inference is entirely independent of the truth of the conclusion. You can have great arguments for false conclusions and horrible arguments for true conclusions. Confusing the truth of the conclusion with the quality of of the inference is a mistake in logic we can call the myside fallacy. A \textsc{\gls{fallacy}} \label{def:fallacy} is any common mistake in reasoning \iflabelexists{Chap:what_is_ct}{More detail on the nature of fallacies is given in Chapter \ref{Chap:what_is_ct}, on page \label{fallacy_detail}}{} The \textsc{\gls{myside fallacy}} \label{def:myside_fallacy} is specifically the common mistake of evaluating an argument based merely on whether one agrees or disagrees with the conclusion. You can also think of this as the fallacy of mistaking the conclusion for the argument.
-
-An argument is valid if it is impossible for the premises to be true and the conclusion false. This means that you can have valid arguments with false conclusions, they just have to also have false premises. Consider the example in Figure \ref{fig:valid_oranges}
+Because of confirmation bias, we need to train ourselves to recognize valid arguments for conclusions we think are false. Remember, an argument is valid if it is impossible for the premises to be true and the conclusion false. This means that you can have valid arguments with false conclusions, they just have to also have false premises. Consider the example in Figure \ref{fig:valid_oranges}
 
 
 \begin{figure}[t]
@@ -178,6 +187,15 @@ Some invalid arguments are hard to detect because they resemble valid arguments.
 
 
 This reasoning is not valid since the premises do not \textit{definitively} support the conclusion. To see this, assume that the premises are true and then ask, "Is it possible that the conclusion could be false in such a situation?". There is no inconsistency in taking the premises to be true without taking the conclusion to be true. The first premise says that the stimulus package will allow the U.S. to avoid a depression, but it does not say that a stimulus package is the \textit{only }way to avoid a depression. Thus, the mere fact that there is no stimulus package does not necessarily mean that a depression will occur. 
+
+\newglossaryentry{fallacy}
+{
+name=fallacy,
+plural=fallacies,
+description={A common mistake in reasoning. Fallacies are generally conceived of as mistake forms of inference and are generally explained by arguments represented in canonical form. See also \emph{cognitive bias}.}
+}
+
+When an argument resembles a good argument but is actually a bad one, we say it is a .\textsc{\gls{fallacy}}\label{def:fallacy}. Fallacies are similar to cognitive biases, in that they are ways our reasoning can go wrong.  Fallacies, however, are always mistakes you can explicitly lay out as arguments in canonical form, as above. \iflabelexists{part:CT}{We will learn more about fallacies in Chapter \ref{Chap:what_is_ct}.}{}
 
 Here is another, trickier, example. I will give it first in ordinary language. 
 
@@ -350,8 +368,8 @@ A general trick for determining whether an argument is valid is to try to come u
 \begin{enumerate}[label=(\roman*)]
 \item {\color{white}.} \vspace{-13pt} \begin{earg*}
 \item  If the triceratops were a dinosaur, it would be extinct.
-\item The triceratops is extinct 
-\itemc[.4] The triceratops was a dinosaur. 
+\item The triceratops was a dinosaur. 
+\itemc[.4] The triceratops is extinct 
 \end{earg*}
 \item Valid
 \end{enumerate}
@@ -557,7 +575,7 @@ Invalid. There are sources of wealth other than what one is paid.}% Weak
 }
 %% General fallacy
 
-\item \textit{Jack is at work, and is unable to leave early}I have up to half an hour to get to the bank, because work ends at 5:00 and the bank closes at 5:30. 
+\item \textit{Jack is at work, and is unable to leave early} I have up to half an hour to get to the bank, because work ends at 5:00 and the bank closes at 5:30. 
 \answer{
 \begin{enumerate}[label=(\roman*)]
 \item {\color{white}.} \vspace{-13pt} \begin{earg*}
@@ -684,7 +702,6 @@ Valid, unless the speaker inexplicably changes to a Celsius scale or something, 
 		\itemc All the parts of my car are functioning well.
 	\end{earg*}
 Probably invalid -- probably a fallacy of "Composition and Division." Suppose the speaker added, as P2: ''I mean, the antenna fell off, so I can't listen to Jazz 98.3, but I'll fix that later'' We wouldn't jump on them and say ''\textit{A-HA!} so your car \textit{isn't} functioning well!''}
-
 \item It has been sunny every day for the last five days. So, it will be sunny today.
 
 \answer{
@@ -1144,9 +1161,10 @@ To sum up this section, we have seen that there are two styles of reasoning, ded
 \sortitem{Cogent}{} 
 \sortitem{Deductive}{} 
 \sortitem{Inductive}{} 
-\sortitem{Myside Fallacy}{}
 \sortitem{Fallacy}{}
 \sortitem{Weak}{}
+\sortitem{Confirmation bias}{} 	
+\sortitem{Cognitive Bias}{} 	
 \end{sortedlist}
 
 
