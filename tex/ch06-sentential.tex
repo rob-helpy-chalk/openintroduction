@@ -86,15 +86,15 @@ The important thing about the argument is that the second premise is not merely 
 \end{earg}
 This preserves the structure of the argument that makes it valid, but it still makes use of the English expression ``If$\ldots$ then$\ldots$.'' Although we ultimately want to replace all of the English expressions with logical notation, this is a good start.
 
-\newglossaryentry{atomic sentence}
+\newglossaryentry{atomic statement}
 {
-name=atomic sentence,
-description={A sentence that does not have any sentences as proper parts.}
+name=atomic statement,
+description={A statement that does not have any other statements as proper parts.}
 }
 
-The individual sentence letters in SL are called atomic sentences, because they are the basic building blocks out of which more complex sentences can be built. We can identify atomic sentences in English as well. An \textsc{\gls{atomic sentence}} \label{def:atomic_sentence} is one that cannot be broken into parts that are themselves sentences. ``There is an apple on the desk'' is an atomic sentence in English, because you can't find any proper part of it that forms a complete sentence. For instance ``an apple on the desk'' is a noun phrase, not a complete sentence. Similarly ``on the desk'' is a prepositional phrase, and not a sentence, and ``is an'' is not any kind of phrase at all. This is what you will find no matter how you divide ``There is an apple on the desk.'' On the other hand you can find two proper parts of ``If there is an apple on the desk, then Jenny made it to class'' that are complete sentences: ``There is an apple on the desk'' and ``Jenny made it to class.'' As a general rule, we will want to use atomic sentences in SL (that is, the sentence letters) to represent atomic sentences in English. Otherwise, we will lose some of the logical structure of the English sentence, as we have just seen. 
+The individual sentence letters in SL are called atomic statements, because they are the basic building blocks out of which more complex sentences can be built. We can identify atomic statements in English as well. An \textsc{\gls{atomic statement}} \label{def:atomic_statement} is one that cannot be broken into parts that are themselves sentences. ``There is an apple on the desk'' is an atomic statement in English, because you can't find any proper part of it that forms a complete statement. For instance ``an apple on the desk'' is a noun phrase, not a complete statement. Similarly ``on the desk'' is a prepositional phrase, and not a statement, and ``is an'' is not any kind of phrase at all. This is what you will find no matter how you divide ``There is an apple on the desk.'' On the other hand you can find two proper parts of ``If there is an apple on the desk, then Jenny made it to class'' that are complete sentences: ``There is an apple on the desk'' and ``Jenny made it to class.'' As a general rule, we will want to use atomic sentences in SL (that is, the sentence letters) to represent atomic statement in English. Otherwise, we will lose some of the logical structure of the English sentence, as we have just seen. 
 
-There are only 26 letters of the alphabet, but there is no logical limit to the number of atomic sentences. We can use the same letter to symbolize different atomic sentences by adding a subscript, a small number written after the letter. We could have a symbolization key that looks like this:
+There are only 26 letters of the alphabet, but there is no logical limit to the number of atomic statement. We can use the same letter to symbolize different atomic statement by adding a subscript, a small number written after the letter. We could have a symbolization key that looks like this:
 \begin{ekey}
 \item[A$_1$:] The apple is under the armoire.
 \item[A$_2$:] Arguments in SL always contain atomic sentences.
@@ -262,7 +262,7 @@ Some more examples:
 \item[\ex{and7}]Barbara is athletic, but Adam is more athletic than she is.
 \end{earg}
 
-Sentence \ref{and4} is obviously a conjunction. The sentence says two things about Barbara, so in English it is permissible to refer to Barbara only once. It might be tempting to try this when translating the argument: Since $B$ means ``Barbara is athletic'', one might paraphrase the sentences as ``$B$ and energetic.'' This would be a mistake. Once we translate part of a sentence as $B$, any further structure is lost. $B$ is an atomic sentence; it is nothing more than true or false. Conversely, ``energetic'' is not a sentence; on its own it is neither true nor false. We should instead paraphrase the sentence as ``$B$ and Barbara is energetic.'' Now we need to add a sentence letter to the symbolization key. Let $E$ mean ``Barbara is energetic.'' Now the sentence can be translated as $B \eand E$.
+Sentence \ref{and4} is obviously a conjunction. The sentence says two things about Barbara, that she is athletic and engergetic. In English, it is acceptable to only say ``Barbara'' once, even though two statements are being made about her. Because of this, you might be tempted just to translate the first part of the English sentence with a sentence letter and leave the second part dangling.  $B$ would then stand for ``Barbara is athletic,'' and the full sentence would be ``$B$ and energetic.'' But this doesn't work, because ``and energetic'' isn't a statement. On its own, it can't be true or false. We should instead paraphrase the sentence as ``$B$ and Barbara is energetic.'' Now we need to add a sentence letter to the symbolization key. Let $E$ mean ``Barbara is energetic.'' Now the sentence can be translated as $B \eand E$.
 
 \factoidbox{
 A sentence can be symbolized as $\script{A} \eand \script{B}$ if it can be paraphrased in English as `Both \script{A}, and \script{B}.' Each of the conjuncts must be a sentence.
@@ -270,7 +270,7 @@ A sentence can be symbolized as $\script{A} \eand \script{B}$ if it can be parap
 
 Sentence \ref{and5} says one thing about two different subjects. It says of both Barbara and Adam that they are athletic, and in English we use the word ``athletic'' only once. In translating to SL, it is important to realize that the sentence can be paraphrased as, ``Barbara is athletic, and Adam is athletic.'' This translates as $B \eand A$.
 
-Sentence \ref{and6} is a bit more complicated. The word ``although'' sets up a contrast between the first part of the sentence and the second part. Nevertheless, the sentence says both that Barbara is energetic and that she is not athletic. In order to make each of the conjuncts an atomic sentence, we need to replace ``she'' with ``Barbara.''
+Sentence \ref{and6} is a bit more complicated. The word ``although'' sets up a contrast between the first part of the sentence and the second part. Nevertheless, the sentence says both that Barbara is energetic and that she is not athletic. In order to make each of the conjuncts an atomic statement, we need to replace ``she'' with ``Barbara.''
 
 So we can paraphrase sentence \ref{and6} as, ``\emph{Both} Barbara is energetic, \emph{and} Barbara is not athletic.'' The second conjunct contains a negation, so we paraphrase further: ``\emph{Both} Barbara is energetic \emph{and} \emph{it is not the case that} Barbara is athletic.'' This translates as $E \eand \enot B$.
 
@@ -278,7 +278,7 @@ Sentence \ref{and7} contains a similar contrastive structure. It is irrelevant f
 
 \factoidbox{Sentences that can be paraphrased ``\script{A}, but \script{B}'' or ``Although \script{A}, \script{B}'' are best symbolized using conjunction  \script{A} \eand \script{B}.}
 
-It is important to keep in mind that the sentence letters $A$, $B$, and $R$ are atomic sentences. Considered as symbols of SL, they have no meaning beyond being true or false. We have used them to symbolize different English language sentences that are all about people being athletic, but this similarity is completely lost when we translate to SL. No formal language can capture all the structure of the English language, but as long as this structure is not important to the argument there is nothing lost by leaving it out.
+It is important to keep in mind that the sentence letters $A$, $B$, and $R$ are atomic statements. Considered as symbols of SL, they have no meaning beyond being true or false. We have used them to symbolize different English language sentences that are all about people being athletic, but this similarity is completely lost when we translate to SL. No formal language can capture all the structure of the English language, but as long as this structure is not important to the argument there is nothing lost by leaving it out.
 
 As with the negation, we can understand the meaning of the conjunction by making a table that shows how the conjunction affects the truth value of the  sentences it is bringing together. 
 For any sentences \script{A} and \script{B}, \script{A} \eand \script{B} is true if and only if both \script{A} and \script{B} are true. We can summarize this in the {characteristic truth table} for conjunction:
@@ -645,7 +645,7 @@ Remember on page \pageref{def:inclusive_or}, we said that the $\eor$ in SL repre
 
 \section{Recursive Syntax for SL} % I reworked this section to focus on the idea of recursive syntax
 
-The previous two sections gave you a rough, informal sense of how to create sentences in SL. If I give you an English sentence like ``Grass is either green or brown,'' you should be able to write a corresponding sentence in SL: ``$A \eor B$.'' In this section we want to give a more precise definition of a sentence in SL.  When we defined sentences in English, we did so using the concept of truth: Sentences were units of language that can be true or false. (See page \pageref{def:statement}.) In SL, it is possible to define what counts as a sentence without talking about truth. Instead, we can just talk about the structure of the sentence. This is one respect in which a formal language like SL is more precise than a natural language like English.
+The previous two sections gave you a rough, informal sense of how to create sentences in SL. If I give you an English sentence like ``Grass is either green or brown,'' you should be able to write a corresponding sentence in SL: ``$A \eor B$.'' In this section we want to give a more precise definition of a sentence in SL.  When we defined statements in English, we did so using the concept of truth: Sentences were units of language that can be true or false. (See page \pageref{def:statement}.) When we talk abotu strings of symbols in SL, we can actually say whether they are actually parts of SL without talking about their truth. So we are going to call them sentences rather than statements, and we are going to define a sentence in SL just by looking at its structure. This is one respect in which a formal language like SL is more precise than a natural language like English.
 
 \newglossaryentry{syntax}
 {
@@ -712,7 +712,7 @@ Consider negation: Given any sentence \script{A} of SL, $\enot\script{A}$ is a s
 \newglossaryentry{sentence of SL}
 {
 name=sentence of SL,
-description={A string of symbols in SL that can be built up using according to the recursive rules given on page} % }
+description={A string of symbols in SL that can be built up according to the recursive rules given on page} % NB: The page number is inserted by the indexing function
 }
 
 
@@ -720,7 +720,7 @@ description={A string of symbols in SL that can be built up using according to t
 We can say similar things for each of the other connectives. For instance, if \script{A} and \script{B} are sentences of SL, then $(\script{A}\eand\script{B})$ is a sentence of SL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \textsc{\gls{sentence of SL}}: \label{def:sentence_of_SL}
 
 \begin{enumerate}
-\item Every atomic sentence is a sentence.
+\item Every atomic statement is a sentence.
 \item If \script{A} is a sentence, then $\enot\script{A}$ is a sentence of SL.
 \item If \script{A} and \script{B} are sentences, then $(\script{A}\eand\script{B})$ is a sentence.
 \item If \script{A} and \script{B} are sentences, then $(\script{A}\eor\script{B})$ is a sentence.
@@ -729,7 +729,7 @@ We can say similar things for each of the other connectives. For instance, if \s
 \item All and only sentences of SL can be generated by applications of these rules.
 \end{enumerate}
 
-We can apply this definition to see whether an arbitrary string is a sentence. Suppose we want to know whether or not $\enot \enot \enot D$ is a sentence of SL. Looking at the second clause of the definition, we know that $\enot \enot \enot D$ is a sentence \emph{if} $\enot \enot D$ is a sentence. So now we need to ask whether or not $\enot \enot D$ is a sentence. Again looking at the second clause of the definition, $\enot \enot D$ is a sentence \emph{if} $\enot D$ is. Again, $\enot D$ is a sentence \emph{if} $D$ is a sentence. Now $D$ is a sentence letter, an atomic sentence of SL, so we know that $D$ is a sentence by the first clause of the definition. So for a compound formula like $\enot \enot \enot D$, we must apply the definition repeatedly. Eventually we arrive at the atomic sentences from which the sentence is built up.
+We can apply this definition to see whether an arbitrary string is a sentence. Suppose we want to know whether or not $\enot \enot \enot D$ is a sentence of SL. Looking at the second clause of the definition, we know that $\enot \enot \enot D$ is a sentence \emph{if} $\enot \enot D$ is a sentence. So now we need to ask whether or not $\enot \enot D$ is a sentence. Again looking at the second clause of the definition, $\enot \enot D$ is a sentence \emph{if} $\enot D$ is. Again, $\enot D$ is a sentence \emph{if} $D$ is a sentence. Now $D$ is a sentence letter, an atomic statementof SL, so we know that $D$ is a sentence by the first clause of the definition. So for a compound formula like $\enot \enot \enot D$, we must apply the definition repeatedly. Eventually we arrive at the atomic statement from which the sentence is built up.
 
 \newglossaryentry{recursive definition}
 {
@@ -825,8 +825,8 @@ If we had given a different definition for a sentence, then these could count as
 \item Those creatures cannot be both gorillas and men in suits. \answer{$\enot(G \eand M)$} 
 \item If those creatures are not gorillas, then they are men in suits \answer{$\enot G \eif M$} 
 \item Those creatures are men in suits only if they are not gorillas. \answer{$M \eif \enot G$} 
-\item Those creatures are chimpanzees if and only if they are not gorillas. \answer{$C \eiff G$} 
-\item Those creatures are neither gorillas nor chimpanzees. \answer{$~(G \eor C).$} %See p.34, sentence 19, and p. 156
+\item Those creatures are chimpanzees if and only if they are not gorillas. \answer{$C \eiff \enot G$} 
+\item Those creatures are neither gorillas nor chimpanzees. \answer{$\enot(G \eor C).$} %See p.34, sentence 19, and p. 156
 \item Unless those creatures are men in suits, they are either chimpanzees or they are gorillas. \answer{$M \eor (C \eor G)$} 
 \end{exercises}
 
@@ -1122,7 +1122,7 @@ Give a symbolization key and symbolize the following sentences in SL. \\
 \begin{sortedlist}
 \sortitem{Sentence letter}{} 	
 \sortitem{Symbolization key}{} 	
-\sortitem{Atomic sentence}{}
+\sortitem{Atomic statement}{}
 \sortitem{Sentential connective}{}
 \sortitem{Negation}{}
 \sortitem{Conjunction}{}

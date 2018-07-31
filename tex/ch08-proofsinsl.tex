@@ -6,7 +6,7 @@
 \newcounter{theorem}
 \setcounter{theorem}{1}
 
-\label{whole_slproof_chap} %uncomment and typeset twice to print the whole chapter.
+%\label{whole_slproof_chap} %uncomment and typeset twice to print the whole chapter.
 
 
 %rob: This chapter is based on the original Chapter 6. I took all the material on proof in SL and moved it earlier in the book so the students would have a chance to start doing derivations earlier. I have also expanded the opening material that wasn't in a Chapter section into its own Chapter section explaining the basic idea of a proof. 
@@ -274,7 +274,7 @@ The little chart above is a \emph{proof} that $J$ follows from $\enot L \eif (J 
 	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{b.}}}]$(\enot M \eand \enot D) \eor C$}}{\item $(\enot M \eand \enot D) \eor C$}
 	\item $(D \eand R) \eand (I \eor D)$
 	\item $[(D \eif O) \eor A] \eand D$
-	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]}$[(A \eand B) \eand C] \eor (D \eor A)$}{\item $[(A \eand B) \eand C] \eor (D \eor A)$}
+	\iflabelexists{showanswers}{{\color{red}\item [\circled{\emph{\color{red}{e.}}}]$[(A \eand B) \eand C] \eor (D \eor A)$}}{\item $[(A \eand B) \eand C] \eor (D \eor A)$}
 	\end{enumerate}
 %\factoidbox{B, E}
 
@@ -656,7 +656,7 @@ $\script{A}: I \eor (I \eiff V)  $
 
 %%%% part G
 
-\noindent\problempart Decide whether the following are examples of disjunctive syllogism. 
+\noindent\problempart Decide whether the following are examples of \eor-E (disjunctive syllogism). 
 
 \begin{exercises}
 \begin{longtabu}{X[1]X[1]} 
@@ -703,7 +703,7 @@ $\script{A}: I \eor (I \eiff V)  $
 \end{longtabu}
 \end{exercises}
 
-\noindent\problempart Decide whether the following are examples of disjunctive syllogism.
+\noindent\problempart Decide whether the following are examples of \eor-E (disjunctive syllogism).
 
 \begin{exercises}
 \begin{longtabu}{X[1]X[1]} 
@@ -763,7 +763,7 @@ In designing a proof system, we could just start with disjunctive syllogism and 
 
 Instead, we will develop what is called a \define{system of natural deduction}. In a natural deduction system, there will be two rules for each logical operator: an introduction, and an elimination rule. The introduction rule will allow us to prove a sentence that has the operator you are ``introducing'' as its main connective. The elimination rule will allow us to prove something given a sentence that has the operator we are ``eliminating'' as the main logical operator.
 
-In addition to the rules for each logical operator, we will also have a reiteration rule. If you already have shown something in the course of a proof, the reiteration rule allows you to repeat it on a new line. We can define the \define{rule of reiteration} like this
+In addition to the rules for each logical operator, we will also have a reiteration rule. If you already have shown something in the course of a proof, the reiteration rule allows you to repeat it on a new line. We can define the rule of reiteration like this
 
 Reiteration (R)
 \begin{proof}
@@ -1572,8 +1572,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 
 \end{enumerate}
 
-\noindent\problempart
-Translate the following arguments into SL and then show that they are valid. Be sure to write out your dictionary. 
+\noindent\problempart Translate the following arguments into SL and then show that they are valid. Be sure to write out your dictionary. 
 \begin{enumerate}[label=(\arabic*)]
 \item If Professor Plum did it, he did it with the rope in the kitchen. Either Professor Plum or Miss Scarlett did it, and it wasn't Miss Scarlett. Therefore the murder was in the kitchen.  
 %rob: note to self: problem 1 taken from test 4 SP08.
@@ -1655,11 +1654,10 @@ So far we have introduced introduction and elimination rules for the conjunction
 
 \subsection{Conditional introduction}
 Consider this argument:
-\begin{earg}
-\item[1.] $R \eor F$
-\item[] \textcolor{white}{.}\sout{\hspace{.2\linewidth}} \textcolor{white}{.}
-\item[$\therefore$] $\enot R \eif F$
-\end{earg}
+\begin{earg*}
+\item $R \eor F$
+\itemc[.15] $\enot R \eif F$
+\end{earg*}
 The argument is valid. You can use the truth table to check it. Unfortunately, we don't have a way to prove it in our syntactic system of derivation. To help us see what our rule for conditional introduction should be, we can try to figure out what new rule would let us prove this obviously true argument.
 
 Let's start the proof in the usual way, like this:
@@ -1770,12 +1768,11 @@ Having an exit strategy when you launch a subproof is crucial. Even if you disch
 
 Now that we have the rule for conditional introduction, consider this argument:
 \label{proofHS}
-\begin{earg}
-\item[1.] $P \eif Q$
-\item[2.] $Q \eif R$
-\item[] \textcolor{white}{.}\sout{\hspace{.1\linewidth}} \textcolor{white}{.}
-\item[$\therefore$] $P \eif R$
-\end{earg}
+\begin{earg*}
+\item $P \eif Q$
+\item $Q \eif R$
+\itemc[.15] $P \eif R$
+\end{earg*}
 We begin the proof by writing the two premises as assumptions. Since the main logical operator in the conclusion is a conditional, we can expect to use the {\eif}I rule. For that, we need a subproof---so we write in the antecedent of the conditional as an assumption of a subproof:
 
 \begin{proof}
@@ -1931,11 +1928,47 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \noindent\problempart Derive the following 
 \begin{enumerate}[label=(\arabic*)]
 
-\item $\{K\eand L\} \sststile{}{} K\eiff L$
+\item	$\{S \eor Q, Q \eif P \}\sststile{}{} \enot S \eif P  $ %Basic conditional									
+
+\answer{
+\begin{proof}
+\hypo{1}{S \eor Q}
+\hypo{2}{Q \eif P} \by{Want: $\enot S \eif P$}{}
+\open
+\hypo{3}{\enot S} \by{Want: P}{}
+\have{4}{Q} \oe{1, 3}
+\have{5}{P} \ce{2, 4}
+\close
+\have{6}{\enot S \eif P} \by{\eif E}{3-5}
+\end{proof}
+}
+
+
+\item	$\{A \eif C, B \eif D\}\sststile{}{}  (A \eand B) \eif (C \eand D)$ %Basic conditional					
+
+
+\answer{
+\begin{proof}
+\hypo{1}{A \eif C}	
+\hypo{2}{B \eif D} \by{Want: $(A \eand B) \eif (C \eand D)$}{}
+\open
+\hypo{3}{A \eand B} \by{Want: C \eand D}{}
+\have{4}{A} \ae{3}
+\have{5}{B} \ae{3}
+\have{6}{C} \ce{1, 4}
+\have{7}{D} \ce{2, 5}
+\have{8}{C \eand D} \ai{6, 7}
+\close
+\have{9}{(A \eand B) \eif (C \eand D)} \by{\eif I}{3-8}
+\end{proof}
+}
+
+
+\item $\{K\eand L\} \sststile{}{} K\eiff L$ %Basic biconditional
 %originally Chapter 6, part B, number 1
 \answer{
 \begin{proof}
-\hypo{1}{K \eand L} \by{want: K \eiff L}{}
+\hypo{1}{K \eand L} \by{want: $K \eiff L$}{}
 \open
 \hypo{2}{K} \by{Want: L}{}
 \have{3}{L} \ae{1}
@@ -1948,12 +1981,12 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \end{proof}
 }
 
-\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$
+\item $\{A\eif (B\eif C)\} \sststile{}{} (A\eand B)\eif C$ % Basic conditional, tempted to do the wrong thing
 %originally Chapter 6, part B, number 2
 
 \answer{
 \begin{proof}
-\hypo{1}{A\eif (B\eif C)} \by{(A\eand B)\eif C}{}
+\hypo{1}{A\eif (B\eif C)} \by{$(A\eand B)\eif C$}{}
 \open
 \hypo{2}{A \eand B} \by{Want: C}{}
 \have{3}{A} \ae{2}
@@ -1965,13 +1998,13 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \end{proof}
 }
 
-\item $\{A\eiff B, B\eiff C\} \sststile{}{} A\eiff C$
+\item $\{A\eiff B, B\eiff C\} \sststile{}{} A\eiff C$ %Basic biconditional
 %originally Chapter 6, part C, number 4
 
 \answer{
 \begin{proof}
 \hypo{1}{A \eiff B}
-\hypo{2}{B \eiff C} \by{Want: A \eiff C}{}
+\hypo{2}{B \eiff C} \by{Want: $A \eiff C$}{}
 \open
 \hypo{3}{A} \by{Want: C}{}
 \have{4}{B} \by{\eiff E}{1, 3}
@@ -1985,6 +2018,55 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \have{9}{A \eiff C} \by{\eiff I}{3--5, 6--8}
 \end{proof}
 }
+
+\item $\{P \eif (Q \eif R)\} \sststile{}{} Q \eif (P \eif R)$ %two subproofs
+
+\answer{
+\begin{proof}
+\hypo{1}{P \eif (Q \eif R)} \by{Want: $Q \eif (P \eif R)$}{}
+\open
+\hypo{2}{Q} \by{Want: $P \eif R$}{}
+\open
+\hypo{3}{P} \by{Want: $R$}{}
+\have{4}{Q \eif R} \ce{1, 3}
+\have{5}{R} \ce{2, 4}
+\close
+\have{6}{P \eif R} \by{\eif I}{3-5}
+\close 
+\have{7}{Q \eif (P \eif R)} \by{\eif I}{2-6}
+\end{proof}
+}
+
+
+\item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$ %two subproofs  Modified from KMR T107 p. 82.
+
+\answer{
+\begin{proof}
+
+\hypo{1}{\enot A}
+\hypo{2}{(B \eand C) \eif D} \by{Want: (A \eor B) \eif (C \eif D}{}
+\open
+\hypo{3}{A \eor B} \by{Want: C \eif D}{}
+\open
+\hypo{4}{C}  \by{Want: D}{}
+\have{5}{B} \oe{1, 4}
+\have{6}{B \eand C} \ai{4, 5}
+\have{7}{D} \ce{2, 6}
+\close
+\have{8}{C \eif D} \ci{4-7}
+\close
+\have{9}{(A \eor B) \eif (C \eif D)} \ci{3-8}
+\end{proof}
+}
+
+
+
+
+
+\end{enumerate}	
+
+\noindent\problempart Derive the following 
+\begin{enumerate}[label=(\arabic*)]
 
 \item $\{X \eiff (A \eand B), B \eiff Y, B \eif A\} \sststile{}{} X \eiff Y$
 
@@ -2060,39 +2142,8 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \end{proof}
 }
 
-%\noindent\problempart Derive the following 
-%\begin{enumerate}[label=(\arabic*)]
 
-
-
-
-
-
-\item $\{\enot A, (B \eand C) \eif D\} \sststile{}{}(A \eor B) \eif (C \eif D)$
-
-\answer{
-\begin{proof}
-
-\hypo{1}{\enot A}
-\hypo{2}{(B \eand C) \eif D} \by{Want: (A \eor B) \eif (C \eif D}{}
-\open
-\hypo{3}{A \eor B} \by{Want: C \eif D}{}
-\open
-\hypo{4}{C}  \by{Want: D}{}
-\have{5}{B} \oe{1, 4}
-\have{6}{B \eand C} \ai{4, 5}
-\have{7}{D} \ce{2, 6}
-\close
-\have{8}{C \eif D} \ci{4-7}
-\close
-\have{9}{(A \eor B) \eif (C \eif D)} \ci{3-8}
-\end{proof}
-}
-
-
-
-
-\item $\{(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z\} \sststile{}{} A \eand (B \eand C) \eiff X \eand (Y \eand Z)$
+\item $\{(A \eand B) \eiff D, D \eiff (X \eand Y), C \eiff Z\} \sststile{}{} A \eand (B \eand C) \eiff X \eand (Y \eand Z)$ %long biconditional
 
 \answer{
 \begin{proof}
@@ -2135,7 +2186,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 }
 
 
-\end{enumerate}	
+\end{enumerate}
 
 %\noindent\problempart 
 %Translate the following arguments in to SL and then show that they are valid. Be sure to write out your dictionary. 

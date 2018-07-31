@@ -1,0 +1,3786 @@
+%@String{cup = {Cambridge Univ.\ Press}}% 15th edition
+%@String{oup = {Oxford Univ.\ Press}}
+%@String{uchp = {Univ.\ of Chicago Press}}
+%@String{hup = {Harvard Univ.\ Press}}
+%@String{pup = {Princeton Univ.\ Press}}
+%@String{ucp = {Univ.\ of California Press}}
+%@String{sup = {Stanford Univ.\ Press}}
+%@String{uncp = {Univ.\ of North Carolina Press}}
+
+@String{cup = {Cambridge University Press}}% 16th edition
+@String{oup = {Oxford University Press}}
+@String{uchp = {University of Chicago Press}}
+@String{hup = {Harvard University Press}}
+@String{pup = {Princeton University Press}}
+@String{ucp = {University of California Press}}
+@String{sup = {Stanford University Press}}
+@String{uncp = {University of North Carolina Press}}
+
+@Review{Clemens:letter,
+  journaltitle = {Wall Street Journal},
+  entrysubtype = {magazine},
+  author = 	 {Clemens, David},
+  date = 	 {2000-04-21},
+  title = {letter to the editor},
+  annotation = 	 {A typical letter to an editor, using a Review entry
+                  by necessity in the 16th edition, though you can use
+                  an Article entry in the 15th edition, where either
+                  will work.  Note the use of the lower-case initial
+                  letter in the title, which isn't strictly necessary
+                  in author-date, though it works fine.}
+}
+
+@CustomC{abbrev:BSI,
+  author = 	 {BSI},
+  title = 	 {British Standards Institute},
+  annotation = 	 {A CustomC entry presenting the expansion of a
+                  shorthand from another entry (bsi:abbreviation).  It
+                  allows the presentation of that expansion in the
+                  correct, alphabetized place in the list of
+                  references. 15th Edition Only.}
+}
+
+@CustomC{abbrev:ISO,
+  entrysubtype = {classical},
+  author = 	 {ISO},
+  title = 	 {International Organization for Standardization},
+  annotation = 	 {A CustomC entry presenting the expansion of a
+                  shorthand from another entry (iso:electrodoc).  It
+                  allows the presentation of that expansion in the
+                  correct, alphabetized place in the list of
+                  references.  The entrysubtype allows you to print
+                  the expansion elsewhere, e.g., in a footnote. 15th
+                  edition only.}
+}
+
+@Review{ac:comment,
+  entrysubtype = {magazine},
+  author = 	 {AC},
+  eventdate = 	 {2008-07-01},
+  nameaddon = 	 {(10:18 a.m.)},
+  crossref = 	 {ellis:blog},
+  url = 	 {http://wardsix.blogspot.com/2008/06/squatters-rights.html},
+  title = 	 {comment on Rhian Ellis, \mkbibquote{Squatters' Rights}},
+  annotation = 	 {The 16th edition suggests a format such as this for
+                  presenting comments on blogs or other online
+                  material.  With only a generic title, it takes a
+                  Review entry instead of an Article one, and the
+                  crossref field points to the blog to which the
+                  comment is attached.  The eventdate gives the date
+                  of the comment, and if additional temporal
+                  specificity is required then you can use the
+                  nameaddon field to give a timestamp, inside
+                  parentheses.}
+}
+
+@Review{ac:comment:trad,
+  entrysubtype = {magazine},
+  author = 	 {AC},
+  eventdate = 	 {2008-07-01},
+  nameaddon = 	 {(10:18 a.m.)},
+  crossref = 	 {ellis:blog},
+  url = 	 {http://wardsix.blogspot.com/2008/06/squatters-rights.html},
+  title = 	 {comment on Rhian Ellis, Squatters' rights},
+  annotation = 	 {authordate-trad only.  The 16th edition suggests a
+                  format such as this for presenting comments on blogs
+                  or other online material.  Note the sentence-style
+                  capitalization in the title field, and the crossref
+                  field which points to the blog to which the comment
+                  is attached.  The eventdate gives the date of the
+                  comment, and if additional temporal specificity is
+                  required then you can use the nameaddon field to
+                  give a timestamp, inside parentheses.}
+}
+
+@Book{adorno:benj,
+  title = 	 {The Complete Correspondence, 1928--1940},
+  publisher = 	 hup,
+  year = 	 1999,
+  author = 	 {Adorno, Theodor W. and Benjamin, Walter},
+  editor = 	 {Lonitz, Henri},
+  translator = 	 {Nicholas Walker},
+  location =  {Cambridge, MA},
+  annotation = 	 {A published collection of letters, in a
+                  \textsf{Book} entry rather than \textsf{Letter}.
+                  Citations of it could provide details of the
+                  individual letter in the running text, and/or just
+                  cite by page number.}
+}
+
+@Book{anon:stanze,
+  title = 	 {Stanze in lode della donna brutta},
+  date = 	 1547,
+  address = 	 {Florence},
+  shorttitle = 	 {Stanze},
+  annotation = 	 {The standard way to present this work, allowing it
+                  to be alphabetized by \textsf{title}, and providing
+                  a \textsf{shorttitle} for in-text citations.}
+}
+
+@Book{anon:stanze:15,
+  title = 	 {Stanze in lode della donna brutta},
+  date = 	 1547,
+  author = 	 {Anon\adddot},
+  address = 	 {Florence},
+  annotation = 	 {One 15th edition only solution for an anonymous
+                  work in an author-date reference list.  All such
+                  works will be grouped together in the list.}
+}
+
+@Book{aristotle:metaphy:gr,
+  shorttitle = 	 {Metaph\adddot},
+  title = 	 {Metaphysics},
+  options = 	 {skipbib},
+  entrysubtype = {classical},
+  origdate = 	 1924,
+  date = 1997,
+  author = 	 {Aristotle},
+  editor = 	 {Ross, W.~D.},
+  publisher = {Oxford Univ.\ Press and Sandpiper Books},
+  pubstate = 	 {reprint},
+  volumes = 	 2,
+  location =  {Oxford},
+  annotation = 	 {A work from classical antiquity, presented in a
+                  \textsf{Book} entry with \texttt{classical}
+                  \textsf{entrysubtype}, hence in-text citations will
+                  be author-title rather than author-date.  This
+                  assumes you are using the traditional, fixed
+                  divisions of the text, in this case those of
+                  Bekker's edition, instead of page references to this
+                  particular edition.  In the latter case, you
+                  wouldn't need the \textsf{entrysubtype}.  Putting
+                  \texttt{skipbib} in the \textsf{options} field means
+                  it won't be printed separately in the reference
+                  list, because it will be appended to the entry for
+                  the English translation, given below.  This volume
+                  is a reprint edition, identified as such in the
+                  \textsf{pubstate} field.  The absence of any
+                  \texttt{cmsdate} instruction in the \textsf{options}
+                  field means that the reprint information is
+                  presented as you see it here.  The
+                  \textsf{shorttitle} provides the
+                  officially-sanctioned abbreviation for this work in
+                  citations, should you want to use such
+                  abbreviations.}
+}
+
+@Book{aristotle:metaphy:trans,
+  title = 	 {Metaphysica},
+  entrysubtype = {classical},
+  year = 	 1928,
+  volume = 	 8,
+  author = 	 {Aristotle},
+  editor = 	 {Ross, W.~D.},
+  nameb = 	 {Ross, W.~D.},
+  origlanguage = {greek},
+  userf = 	 {aristotle:metaphy:gr},
+  maintitle = 	 {The Works of {Aristotle}, Translated into {English}},
+  publisher = {Clarendon Press},
+  edition = 	 2,
+  location =  {Oxford},
+  annotation = 	 {The translation of the previous entry, in this case
+                  also using \textsf{Book} with \texttt{classical}
+                  \textsf{entrysubtype}, as citations will be by the
+                  pages of Bekker's edition.  The \textsf{userf} field
+                  contains the entry key for the Greek original, which
+                  means the entry in the list of references will
+                  contain the translation followed by the Greek text.
+                  The \textsf{origlanguage} field means that the
+                  connecting text between the two books in the list of
+                  references will read \enquote{Greek edition:}
+                  instead of \enquote{Originally published as.}  Note
+                  also \textsf{nameb}, the translator of this
+                  particular volume of the \textsf{maintitle}, as
+                  distinct from the \textsf{editor} of the whole
+                  series, even though in this case they happen to be
+                  the same person.}
+}
+
+@InBook{ashbrook:brain,
+  author = 	 {Ashbrook, James~B. and Albright, Carol Rausch},
+  title = 	 {The Frontal Lobes, Intending, and a Purposeful {God}},
+  booktitle = 	 {The Humanizing Brain},
+  publisher = {Pilgrim Press},
+  year = 	 1997,
+  chapter = 	 7,
+  location =  {Cleveland, OH},
+  annotation = 	 {A typical \textsf{InBook} entry, identified by
+                  \textsf{title} and also, in this case, by
+                  \textsf{chapter} number rather than page range.}
+}
+
+@CustomC{ashe:creasey,
+  author = 	 {Ashe, Gordon},
+  title = 	 {Creasey, John},
+  annotation = 	 {This CustomC entry provides a cross-reference from
+                  the pseudonym in the author field to the real name
+                  in the title field, allowing your readers to find
+                  the cited work under the author's real name.  The
+                  entry for that work, creasey:ashe:blast, contains a
+                  userc field which refers to this entry, ensuring
+                  that this cross-reference will be printed if the
+                  main entry itself is cited.}
+}
+
+@Article{assocpress:gun,
+  journaltitle = {New York Times},
+  entrysubtype = {magazine},
+  date = 	 {2000-06-12},
+  author = 	 {{Associated Press}},
+  title = 	 {Westchester Approves Measure on Gun Safety},
+  annotation = 	 {A fairly typical Article entry from a newspaper,
+                  with the keyword "magazine" as entrysubtype, and
+                  with a corporate author inside an extra set of curly
+                  braces.}
+}
+
+@Music{auden:reading,
+  title = 	 {Selected Poems},
+  author = 	 {Auden, W. H.},
+  date = 	 {1991},
+  number = 	 7137,
+  series = 	 {Spoken Arts},
+  type = 	 {audiocassette},
+  note = 	 {read by the author},
+  annotation = 	 {A spoken-word recording, here presented as a
+                  \textsf{Music} entry, though the \emph{CMS}
+                  sometimes uses a more book-like presentation for
+                  such material, using an \textsf{Audio} entry, as
+                  with \texttt{twain:audio} in
+                  \textsf{dates-test.bib}.}
+}
+
+@Music{auden:reading:15,
+  title = 	 {Poems},
+  author = 	 {Auden, W. H.},
+  number = 	 7137,
+  series = 	 {Spoken Arts},
+  type = 	 {compact disc},
+  entrysubtype = {classical},
+  note = 	 {read by the author},
+  annotation = 	 {An audiobook, lacking traditional publishing
+                  information, presented in a Music entry, with which
+                  cp. twain:audio, an Audio entry.  Here, the type
+                  field contains the medium, while the series and
+                  number field contain the label information for the
+                  CD, as is standard in Music entries.  The
+                  entrysubtype may help with in-text citations of a
+                  source like this in the author-date style. 15th
+                  edition only.}
+}
+
+@Article{author:forthcoming,
+  author = 	 {Author, Margaret~M.},
+  title = 	 {Article Title},
+  journaltitle = {Journal Name},
+  year = 	 {\autocap{f}orthcoming},
+  volume = 	 98,
+  annotation = 	 {An example of how to deal with a forthcoming
+                  \textsf{Article} -- note the \cmd{autocap} command,
+                  which will ensure correct capitalization in
+                  reference list and citations.}
+}
+
+@Book{babb:peru,
+  title = 	 {Between Field and Cooking Pot},
+  subtitle = 	 {The Political Economy of Marketwomen in {Peru}},
+  year = 	 1989,
+  author = 	 {Babb, Florence},
+  publisher = {University of Texas Press},
+  edition = 	 {\bibstring{revisededition}},
+  location =  {Austin},
+  annotation = 	 {A revised edition, with the \cmd{bibstring}
+                  \texttt{revisededition} in the \textsf{edition}
+                  field.}
+}
+
+@Review{barcott:review,
+  journaltitle = {New York Times Book Review},
+  author =	 {Barcott, Bruce},
+  date = 	 {2000-04-16},
+  entrysubtype = {magazine},
+  title =	 {\bibstring{reviewof} \mkbibemph{The Last Marlin: The
+                  Story of a Family at Sea}, \bibstring{by} Fred Waitzkin},
+  pages =	 7,
+  annote = 	 {A \textsf{Review} entry presenting a review from a
+                  newspaper, with keyword \texttt{magazine} in
+                  \textsf{entrysubtype}, and with the \cmd{bibstring}
+                  \texttt{reviewof} in the \textsf{title} field.  You
+                  could just write \enquote{review of} instead, but
+                  the \cmd{bibstring} makes the entry portable across
+                  languages.  Note the formatting of the reviewed
+                  book's title using \cmd{mkbibemph}, and the
+                  headline-style capitalization you have to provide by
+                  hand inside that formatting, which makes this entry
+                  incorrect for the \texttt{trad} style.}
+}
+
+@Article{barcott:review:15,
+  journaltitle = {New York Times Book Review},
+  author =	 {Barcott, Bruce},
+  date = 	 {2000-04-16},
+  entrysubtype = {magazine},
+  title =	 {\bibstring{reviewof} \mkbibemph{The last marlin: The
+                  story of a family at sea}, \bibstring{by} {Fred Waitzkin}},
+  pages =	 7,
+  annotation = 	 {Because of the absence of quotation marks around the
+                  \textsf{title} in the \texttt{trad} style, the
+                  \textsf{Article} and \textsf{Review} entry types are
+                  more or less interchangeable.  This entry presents a
+                  review from a newspaper, with keyword
+                  \texttt{magazine} in \textsf{entrysubtype}, and with
+                  the \cmd{bibstring} \texttt{reviewof} in the
+                  \textsf{title} field.  You could just write
+                  \enquote{review of} instead, but the \cmd{bibstring}
+                  makes the entry portable across languages.  Note the
+                  formatting of the reviewed book's title using
+                  \cmd{mkbibemph}, and the sentence-style
+                  capitalization you have to provide by hand for the
+                  \texttt{trad} style, because the curly braces of
+                  \cmd{mkbibemph} protect the text from the automatic
+                  sentence-style capitalization provided by the
+                  package.  \textsf{Biblatex-chicago} never modifies
+                  the capitalization of the \textsf{journaltitle}, so
+                  that field should always work properly across
+                  styles.}
+}
+
+@Book{barrows:reading,
+  title = 	 {Reading the Short Story},
+  date = 	 1959,
+  volume = 	 1,
+  author = 	 {Barrows, Herbert},
+  editor = 	 {Ray, {Gordon~N.}},
+  publisher = {Houghton Mifflin},
+  maintitle = 	 {An Introduction to Literature},
+  address = 	 {Boston},
+  annotation = 	 {An entry citing one volume of a multi-volume work.
+                  The editor refers to the whole series.}}
+
+@Article{batson,
+  author =	 {Batson, C.~Daniel},
+  title =	 {How Social Is the Animal? {The} Human Capacity for
+                  Caring},
+  journaltitle = {American Psychologist},
+  volume =	 45,
+  date = 	 {1990-03},
+  pages =	 {336--346},
+  annotation = 	 {A very typical \textsf{Article} entry, but notice
+                  the placement of the subtitle in the \textsf{title}
+                  field in order to avoid the printing of the colon
+                  usually separating the two.  When the title proper
+                  ends with a question mark or exclamation point, and
+                  you haven't placed that title into quotation marks,
+                  this workaround is necessary.}
+}
+
+@Article{beattie:crime,
+  author = 	 {Beattie, J.~M.},
+  title = 	 {The Pattern of Crime in {England}, 1660--1800},
+  journaltitle = {Past and Present},
+  year = 	 1974,
+  number = 	 62,
+  pages = 	 {47--95},
+  annotation = 	 {An \textsf{Article} entry with a \textsf{number}
+                  instead of a \textsf{volume}.}
+}
+
+@Image{bedford:photo,
+  author = 	 {Bedford, Francis},
+  title = 	 {Stratford on {Avon} Church from the {Avon}},
+  type = 	 {albumen print of collodion negative},
+  note = 	 {18.8 x 28.0 cm\adddot},
+  year = 	 {1860s},
+  institution =  {International Museum of Photography at George
+                  Eastman House},
+  location =  {Rochester},
+  annotation = 	 {A typical Image entry, for presenting a photograph.
+                  Note the type field, and the fact that it begins
+                  with a lowercase letter, allowing biblatex to
+                  capitalize it contextually if needed, though this is
+                  less important in the author-date style.  In the
+                  16th edition, Image is an alias for Artwork, as
+                  photographs are now treated just the same as works
+                  in other media, but you still need the Image entry
+                  type for the 15th edition.}
+}
+
+@Music{beethoven:sonata29,
+  title = 	 {Piano Sonata \bibstring{number} 29
+                  \mkbibquote{Hammerklavier}},
+  author = 	 {Beethoven},
+  editor = 	 {Peter Serkin},
+  editortype = 	 {none},
+  number = 	 {CDD 270},
+  series = 	 {Proarte Digital},
+  annotation = 	 {A musical recording exhibiting several of the
+                  peculiarities common to the audiovisual entry types.
+                  Here, the composer goes in the \textsf{author}
+                  field, while the performer goes into the
+                  \textsf{editor} field.  The \textsf{editortype}
+                  \texttt{none} prevents any identifying string being
+                  used for the performer, as none is needed.  As in
+                  most \textsf{Music} entries, the \textsf{series} and
+                  \textsf{number} give label identifying information.
+                  In the absence of any sort of date whatsoever, the
+                  style provides the string \enquote{n.d\adddot} for
+                  citations, a situation generally frowned upon by the
+                  \emph{CMS}.}
+}
+
+@BookInBook{bernhard:boris,
+  author =	 {Bernhard, Thomas},
+  title =	 {A Party for {Boris}},
+  crossref = 	 {bernhard:themacher},
+  sorttitle = 	 {Party},
+  year =	 1990,
+  annotation = 	 {A BookInBook entry, presenting part of a book that
+                  could in other contexts be a book in its own right.
+                  The title here will therefore be italicized.  This
+                  example shows the new abbreviated references
+                  available in this entry type when a crossref or xref
+                  is used, assuming the booklongxref option is set
+                  properly - which it isn't by default - either in the
+                  preamble or in the options field.  Such treatment, I
+                  note, isn't explicitly condoned by the Chicago
+                  specification.  See the next entry.}
+}
+
+@BookInBook{bernhard:ritter,
+  title = 	 {{Ritter, Dene, Voss}},
+  date = 	 1990,
+  author = 	 {Bernhard, Thomas},
+  crossref = 	 {bernhard:themacher},
+  annotation = 	 {This entry presents a second play by the same author
+                  contained in the same volume as the previous entry.
+                  With the crossref field present and the booklongxref
+                  set properly - which it isn't by default - you'll
+                  get abbreviated references to both in the list of
+                  references.}
+}
+
+@Book{bernhard:themacher,
+  title = 	 {Histrionics},
+  translator = 	 {Jansen, Peter~K. and Northcott, Kenneth},
+  subtitle = 	 {Three Plays},
+  date = 	 1990,
+  author = 	 {Bernhard, Thomas},
+  publisher = uchp,
+  location =  {Chicago},
+  annotation = 	 {This entry provides the booktitle for the previous
+                  two.  It will be printed in the list of references,
+                  and the entries there for its two children -
+                  bernhard:boris and bernhard:ritter - will be
+                  abbreviated references to it, assuming the
+                  booklongxref option is set properly, which it isn't
+                  by default.  Biber automatically converts the title
+                  of the Book to the booktitle of the BookInBook.}
+}
+
+@Music{bernstein:shostakovich,
+  title = 	 {Symphony \bibstring{number} 5},
+  author = 	 {Shostakovich, Dmitri},
+  editor = 	 {Bernstein, Leonard},
+  editortype = 	 {conductor},
+  editora = 	 {{New York Philharmonic}},
+  editoratype =  {none},
+  number = 	 {IM 35854},
+  series = 	 {CBS},
+  options = 	 {useauthor=false},
+  annotation = 	 {This is a rather abbreviated \textsf{Music} entry,
+                  lacking a \textsf{date} and a \textsf{type}.  It
+                  does, however, show the method for emphasizing the
+                  conductor instead of the composer (the
+                  \textsf{options} field), and also for identifying
+                  the conductor in the \textsf{editortype} field.
+                  Here, the performing orchestra goes in the
+                  \textsf{editora} field, and the \textsf{editoratype}
+                  \texttt{none} prevents any string attaching to the
+                  orchestra, as one isn't needed.  The usual
+                  \textsf{series} and \textsf{number} give the label
+                  information.  The \emph{CMS} strongly encourages you
+                  to find a date for such an entry -- online resources
+                  should be able to help.}
+}
+
+@Book{boxer:china,
+  title = 	 {South {China} in the Sixteenth Century},
+  year = 	 1953,
+  editor = 	 {Boxer, Charles~R.},
+  number = 	 {2nd ser., 106},
+  series = 	 {Hakluyt Society Publications},
+  location =  {London},
+  annotation = 	 {A \textsf{Book} entry with a \textsf{series} and a
+                  \textsf{number}.  In all book-like entries (as
+                  opposed to \textsf{Article}, \textsf{Periodical},
+                  and \textsf{Review} entries, for example) the
+                  \textsf{series} field will be a name, as here, while
+                  the \textsf{number} field may contain such
+                  information as \enquote{2nd ser.} or
+                  \enquote{vol. 3,} or just a plain number.  Putting
+                  \enquote{2nd ser.} in the \textsf{number} field may
+                  seem counter-intuitive, but it's necessary for
+                  getting the punctuation to work out right.}
+}
+
+@Article{brown:bremer,
+  title = 	 {A {Swedish} Traveler in Early {Wisconsin}},
+  subtitle = 	 {The Observations of {Frederika Bremer}},
+  titleaddon = 	 {pts.\ 1 and 2},
+  journaltitle = {Wisconsin Magazine of History},
+  year = 	 1978,
+  issue = 	 {Summer},
+  volume = 	 61,
+  pages = 	 {300--318\addsemicolon\space 62 (Autumn):
+                  41\bibrangedash 56},
+  editor = 	 {Brown, George~C.},
+  annotation = 	 {An unusual Article entry, combining into one
+                  reference a two-part article using both the
+                  titleaddon field and the pages field.  This is a
+                  kludge, and at some point I hope to implement a
+                  better system.  You could, also, simply refer to
+                  each part separately.  Note also the issue field,
+                  with the name of a season, and the lowercase letter
+                  starting the titleaddon field, which will
+                  automatically capitalize the data depending on the
+                  context within an entry.}
+}
+
+@Book{browning:aurora,
+  title =	 {{Aurora Leigh}},
+  subtitle =	 {Authoritative Text, Backgrounds and Contexts,
+                  Criticism},
+  year =	 1996,
+  author =	 {Browning, Elizabeth Barrett},
+  editor =	 {Reynolds, Margaret},
+  publisher =	 {Norton},
+  series =	 {Norton Critical Editions},
+  location =	 {New York},
+  annotation = 	 {A \textsf{Book} entry with a \textsf{series} field,
+                  but no \textsf{number}.}
+}
+
+@Collection{brush:ornithology,
+  date = 	 1983,
+  title = 	 {Perspectives in Ornithology},
+  booktitle = 	 {Perspectives in Ornithology},
+  editor = 	 {Brush, A.~H. and Clark, Jr., G.~A.},
+  publisher = cup,
+  address = 	 {Cambridge},
+  annotation = 	 {A collection, cited along with one of its component
+                  essays.  The latter, wiens:avian, will be
+                  abbreviated when printed in the reference list.
+                  Note the provision of a booktitle for the use of
+                  child references.}}
+
+@Manual{bsi:abbreviation,
+  title = 	 {Specification for Abbreviation of Title Words and
+                  Titles of Publications},
+  date = 	 1985,
+  organization = {British Standards Institute},
+  sortname = 	 {BSI},
+  address = 	 {Linford Woods, Milton Keynes, UK},
+  shorthand = 	 {BSI},
+  annotation = 	 {A \textsf{Manual} entry providing an author in the
+                  \textsf{organization} field and a \textsf{shorthand}
+                  field for in-text citations.  By default, the
+                  \textsf{shorthand} will be printed at the head of
+                  the entry, followed by the expansion in parentheses.
+                  The \textsf{sortname} field ensures that the entry
+                  is correctly alphabetized by the first thing you see
+                  in the entry, i.e., the \textsf{shorthand}.}
+}
+
+@Manual{bsi:abbreviation:15,
+  title = 	 {Specification for Abbreviation of Title Words and
+                  Titles of Publications},
+  date = 	 1985,
+  organization = {British Standards Institute},
+  userc = 	 {abbrev:BSI},
+  sortkey = 	 {British},
+  address = 	 {Linford Woods, Milton Keynes, UK},
+  shorthand = 	 {BSI},
+  annotation = 	 {A Manual entry providing an organizational author
+                  and a shorthand field for in-text citations.  For
+                  the 15th edition, the userc field points to a
+                  CustomC entry which provides the expansion of the
+                  shorthand inside the reference list, rather than in
+                  a list of shorthands.  Using the field in this way
+                  ensures that the expansion will be printed if this
+                  entry is cited.}
+}
+
+@Review{bundy:macneil,
+  journaltitle = {MacNeil/Lehrer NewsHour},
+  usera = 	 {PBS},
+  entrysubtype = {magazine},
+  date = 	 {1990-02-07},
+  author = 	 {Bundy, McGeorge},
+  title = 	 {interview by {Robert MacNeil}},
+  annotation = 	 {A television interview presented in a Review entry,
+                  with "magazine" entrysubtype.  In the 15th edition,
+                  you could use an Article entry. Note that the
+                  interviewee is presented as the author, and that the
+                  broadcast network is given in the usera field. Note
+                  also the use of a lowercase letter to start the
+                  title, which would be necessary for automatic
+                  contextual capitalization of a generic title in a
+                  Review entry for the notes + bibliography style.
+                  Here, though unnecessary, it does no harm.}
+}
+
+@InCollection{centinel:letters,
+  author = 	 {Centinel},
+  nameaddon = 	 {\bibstring{pseudonym}},
+  titleaddon = 	 {letters},
+  booktitle = 	 {The Complete {Anti-Federalist}},
+  publisher = uchp,
+  year = 	 1981,
+  editor = 	 {Storing, Herbert J.},
+  location =  {Chicago},
+  annotation = 	 {A rare example of a generic, unformatted title in an
+                  InCollection entry, it therefore has a titleaddon
+                  field and no title field, though actually in
+                  author-date it works just as well with a title.
+                  Note use of lowercase initial letter in that
+                  titleaddon field.  "Centinel" is a pseudonym and the
+                  actual author isn't known, so the bibstring
+                  pseudonym is put in the nameaddon field.}
+}
+
+@Book{chaucer:alt,
+  title = 	 {Chaucer Life-Records},
+  year = 	 1966,
+  editor = 	 {Crow, Martin~M. and Olson, Clair~C.},
+  namec = 	 {Manly, John~M. and Richert, Edith},
+  publisher = oup,
+  note = 	 {with the assistance of Lilian~J. Redstone
+                  and others},
+  location =  {London},
+  annotation = 	 {In the author-date system, unlike in a bibliography
+                  or note, an entry will generally need some sort of
+                  name to precede the \textsf{date}, so here the
+                  \textsf{editors} provide that name. The compilers go
+                  in \textsf{namec}, and other information in
+                  \textsf{note}.  Cf.\ this entry in
+                  \textsf{notes-test.bib}.}
+}
+
+@CustomC{chicago:comment,
+  title = 	 {the most recent edition},
+  entrysubtype = {classical},
+  options = 	 {skipbib},
+  annotation = 	 {An example of how to use a CustomC entry to insert a
+                  comment inside another parenthetical citation.}
+}
+
+@CustomC{chicago:comment:15,
+  title = 	 {no longer the current edition},
+  options = 	 {skipbib},
+  entrysubtype = {classical},
+  annotation = 	 {An example of how to use a CustomC entry to insert a
+                  comment inside another parenthetical citation.}
+}
+
+@Book{chicago:manual,
+  title = 	 {The {Chicago} Manual of Style},
+  year = 	 2010,
+  author = 	 {{University of Chicago Press}},
+  shortauthor =  {\mkbibemph{CMS}},
+  publisher = uchp,
+  edition = 	 16,
+  location =  {Chicago},
+  annote = 	 {A manual presented in a \textsf{Book} entry.  Note
+                  the extra curly brackets around the corporate
+                  \textsf{author}, which is printed twice, both as
+                  \textsf{author} and \textsf{publisher}.  (I have
+                  also provided an unorthodox \textsf{shortauthor} for
+                  convenience in this package documentation.)  Cf.\
+                  \cmslink{chicago:comment} for an example of how to
+                  use a \textsf{CustomC} entry to provide a comment
+                  inside a parenthesized citation.}
+}
+
+@Book{chicago:manual:15,
+  title = 	 {The {Chicago} Manual of Style},
+  year = 	 2003,
+  author = 	 {{Univ. of Chicago  Press}},
+  publisher = uchp,
+  edition = 	 15,
+  location =  {Chicago},
+  annotation = 	 {A manual presented in a Book entry.  Note curly
+                  brackets around corporate author, which is printed
+                  twice, both as author and publisher.}
+}
+
+@Article{chu:panda,
+  author = 	 {{Chu Ching} and Long Zhi},
+  title = 	 {The Vicissitudes of the Giant Panda,
+                  \mkbibemph{Ailuropoda melanoleuca} {(David)}},
+  journaltitle = {Acta Zoologica Sinica},
+  date = 	 1983,
+  language = 	 {Chinese},
+  volume = 	 20,
+  number = 	 1,
+  pages = 	 {191--200},
+  annotation = 	 {An article with a title translated for a readership
+                  presumed unable to read the original Chinese. The
+                  language field contains the name of the original
+                  language, capitalized here because to this point
+                  Chinese hasn't been included in the usual biblatex
+                  bibstring mechanism.  17.177 (15th ed.) and 14.194
+                  (16th ed.) in the Manual present this entry with
+                  what seems to me to be punctuation inconsistent with
+                  their practice elsewhere, so the processed entries
+                  in cms15-dates-sample.pdf and cms-dates-sample.pdf
+                  don't match it.}
+}
+
+@Book{churchill:letters,
+  title = 	 {The {Churchill-Eisenhower} Correspondence, 1953--1955},
+  date = 	 1990,
+  author = 	 {Churchill, Winston and Eisenhower, Dwight~D.},
+  editor = 	 {Boyle, Peter~G.},
+  publisher =    uncp,
+  address = 	 {Chapel Hill},
+  annotation = 	 {Ordinarily, when citing individual letters in the
+                  author-date system, the reference will be to the
+                  volume as a whole, which will look like this entry.
+                  The Manual suggests that further identifying
+                  information be given in the text itself.}}
+
+@Booklet{clark:mesopot,
+  title = 	 {Mesopotamia},
+  subtitle = 	 {Between Two Rivers},
+  author = 	 {Hazel V. Clark},
+  howpublished = {End of the Commons General Store},
+  year = 	 {\mkbibbrackets{1957?}},
+  location =  {Mesopotamia, OH},
+  annotation = 	 {A standard \textsf{Booklet} entry, though the same
+                  information could be presented in a \textsf{Book}
+                  entry, using \textsf{publisher} instead of
+                  \textsf{howpublished}.  Note the brackets around the
+                  \textsf{year}, as this is obviously a best guess.}
+}
+
+@Video{cleese:holygrail,
+  title = 	 {Commentaries},
+  date = 	 2001,
+  titleaddon = 	 {disc 2},
+  booktitle = 	 {Monty {Python and the Holy Grail}},
+  author = 	 {Cleese, John and Gilliam, Terry and Idle, Eric and
+                  Jones, Terry and Palin, Michael},
+  editor = 	 {Gilliam, Terry and Jones, Terry},
+  editortype = 	 {director},
+  publisher = {Columbia Tristar Home Entertainment},
+  type = 	 {DVD},
+  address = 	 {Culver City, CA},
+  edition = 	 {special \bibstring{edition}},
+  annotation = 	 {This shows some typical features of a Video entry.
+                  It focusses on some of the DVD extras, so the actors
+                  providing the commentary appear in the author field.
+                  The directors go in the editor field, as usual, with
+                  the identifying string in editortype.  The booktitle
+                  provides the film title in this instance -- the
+                  title in this case will appear in the main text font
+                  rather than italicized, because of the presence of a
+                  booktitle.  The titleaddon tells where in the DVD
+                  set the commentaries are to be found, and the type
+                  field gives the medium.  The date field contains the
+                  date the DVD was released, and the original release
+                  date (origdate) isn't needed here, according to the
+                  Manual, because the entry cites the DVD extras
+                  rather than the film itself.}
+}
+
+@Book{cohen:schiff,
+  title =	 {{Jacob H. Schiff}},
+  subtitle =	 {A Study in {American} Leadership},
+  year =	 1999,
+  author =	 {Cohen, Naomi~W.},
+  publisher =	 {University Press of New England and Brandeis
+                  University Press},
+  location =	 {Hanover, NH},
+  annotation = 	 {A Book with two publishers.}
+}
+
+@Article{conley:fifthgrade,
+  author =	 {Conley, Alice},
+  title =	 {Fifth-Grade Boys' Decisions about Participation in
+                  Sports Activities},
+  issuetitle =	 {Non-subject-matter Outcomes
+                  of Schooling},
+  journaltitle = {Elementary School Journal},
+  note = 	 {special issue},
+  year =	 1999,
+  volume =	 99,
+  editor =       {Good, Thomas~L.},
+  number =	 5,
+  pages =	 {131--146},
+  annotation = 	 {An \textsf{Article} that is part of a special issue
+                  of a journal. The \textsf{title} of the issue goes
+                  in \textsf{issuetitle}, the editor of the issue in
+                  \textsf{editor}, and the sort of issue in
+                  \textsf{note}, with a lowercase initial letter.
+                  Cf.\ \texttt{good:wholeissue} for how to refer to
+                  the special issue as a whole, rather than to one
+                  article in it, using a \textsf{Periodical} entry.}
+}
+
+@Article{connell:chronic,
+  author = 	 {Connell, A.~D. and Airey, D.~D.},
+  title = 	 {The Chronic Effects of Fluoride on the Estuarine
+                  Amphipods \mkbibemph{Grandidierella lutosa} and
+                  \mkbibemph{G. lignorum}},
+  journaltitle = {Water Research},
+  date = 	 1982,
+  volume = 	 16,
+  pages = 	 {1313--1317},
+  annotation = 	 {An \textsf{Article} with italicized words in the
+                  \textsf{title}.}
+}
+
+@InCollection{contrib:contrib,
+  author = 	 {Contributor, Anna},
+  title = 	 {Contribution},
+  booktitle = 	 {Edited Volume},
+  publisher = {Publisher},
+  year = 	 {\autocap{f}orthcoming},
+  editor = 	 {Editor, Ellen},
+  location =  {Place},
+  annotation = 	 {A forthcoming essay in an \textsf{InCollection}
+                  entry.  Note the \cmd{autocap} command in the
+                  \textsf{year} field.}
+}
+
+@Article{conway:evolution,
+  author = 	 {Conway, M.~S.},
+  title = 	 {The Evolution of Diversity in Ancient Ecosystems},
+  subtitle = 	 {A Review},
+  journaltitle = {Philosophical Transactions of the Royal Society},
+  date = 	 1998,
+  volume = 	 {B 353},
+  pages = 	 {327--345},
+  annotation = 	 {An \textsf{Article} in a \textsf{journaltitle} which
+                  appears in different series, here \enquote{B} for
+                  Biological, which information can be given in the
+                  \textsf{volume} field.}
+}
+
+@Book{cook:sotweed,
+  title = 	 {Sotweed Redivivus, or The Planter's Looking-Glass},
+  year = 	 1730,
+  author = 	 {Cook, Ebenezer},
+  authortype = 	 {anon?},
+  note = 	 {\bibstring{by} \mkbibquote{E.~C. Gent}},
+  location =  {Annapolis},
+  annotation = 	 {A complicated \textsf{Book} entry.  First, the
+                  \textsf{author} is unknown, but guessed at, hence
+                  the \texttt{anon?} in the \textsf{authortype} field.
+                  The \textsf{note} field gives the author as printed
+                  in the book, presented inside quotation marks. If
+                  you remember to use \cmd{mkbibquote} here, then
+                  appropriate punctuation will automatically be
+                  provided.}
+}
+
+@Online{coolidge:speech,
+  author = 	 {Coolidge, Calvin},
+  title = 	 {Equal Rights},
+  note = 	 {copy of an undated 78 rpm disc},
+  options = 	 {ptitleaddon=space},
+  titleaddon = 	 {(speech)},
+  related = 	 {loc:leaders},
+  year = 	 {[1920?]},
+  relatedstring = {from},
+  annotation = 	 {This is a recording from an online archive, using an
+                  \textsf{Online} entry.  The \textsf{related} field
+                  cites the archive itself using an \textsf{Online}
+                  entry, and the \textsf{relatedstring} links the two
+                  references.  The \textsf{options} field replaces the
+                  period with a space before the parenthesized
+                  \textsf{titleaddon}.  Cp.\ \texttt{weed:flatiron}
+                  and \texttt{loc:city}, which cite a film from an
+                  online archive, both using a \textsf{Video} entry.
+                  Note that if you use the \textsf{Online} type for
+                  this, instead of \textsf{Misc} with an
+                  \textsf{entrysubtype}, it will work just as well in
+                  the \textsf{authordate-trad} style.}
+}
+
+@Misc{coolidge:speech:trad,
+  author = 	 {Coolidge, Calvin},
+  title = 	 {Equal rights (speech)},
+  entrysubtype = {speech},
+  note = 	 {copy of an undated 78 rpm disc},
+  addendum = 	 {from \fullcite{loc:leaders}},
+  year = 	 {[1920?]},
+  annotation = 	 {This is a recording from an online archive, using a
+                  Misc entry with an entrysubtype, and intended for
+                  authordate-trad only.  The addendum cites the
+                  archive itself using an Online entry.
+                  Cp. weed:flatiron and loc:city, which cite a film
+                  from an online archive, both using a Video entry.}}
+
+@Book{cotton:manufacture,
+  title =	 {An Inquiry into the Causes of the Present
+                  Long-Continued Depression in the Cotton Trade, with
+                  Suggestions for Its Improvement},
+  year =	 1869,
+  author =	 {{Cotton Manufacturer}},
+  shortauthor =  {{Cotton Manufac\adddot}},
+  publisher = 	 {Bury, UK},
+  annotation = 	 {A Book with a corporate author.  You can, for the
+                  16th edition, eliminate the indefinite article at
+                  the start of the author's name, which also allows
+                  you to eliminate the sortkey field.  The shortauthor
+                  field may help shorten the in-text citation.}
+}
+
+@Book{creasey:ashe:blast,
+  title = 	 {A Blast of Trumpets},
+  year = 	 1976,
+  userc = 	 {ashe:creasey},
+  author = 	 {Creasey, John},
+  nameaddon = 	 {Gordon Ashe, \bibstring{pseudonym}},
+  publisher = {Holt, Rinehart \& Winston},
+  location =  {New York},
+  annotation = 	 {The first of 3 Books written by the same author
+                  under three different pseudonyms.  You have
+                  considerable latitude in how to present these, but
+                  the method chosen here allows all three to be
+                  grouped together in the bibliography.  Note the
+                  pseudonym in nameaddon, identified with the
+                  bibstring pseudonym. Also note ampersand in
+                  publisher, which prevents the two parts of the
+                  publisher's name from being taken as two different
+                  publishers.  The 16th edition makes it a requirement
+                  in such entries that you also include a cross
+                  reference from the different pseudonyms back to the
+                  author's name, something accomplished using a
+                  CustomC entry and the userc field which
+                  automatically makes sure the cross-reference
+                  prints.}
+}
+
+@Book{creasey:morton:hide,
+  title = 	 {Hide the Baron},
+  year = 	 1978,
+  author = 	 {Creasey, John},
+  userc = 	 {morton:creasey},
+  nameaddon = 	 {Anthony Morton, \bibstring{pseudonym}},
+  publisher = {Walker},
+  location =  {New York},
+  annotation = 	 {Second of three Book entries by same author under
+                  different pseudonyms.}
+}
+
+@Book{creasey:york:death,
+  title = 	 {Death to My Killer},
+  year = 	 1966,
+  author = 	 {Creasey, John},
+  userc = 	 {york:creasey},
+  nameaddon = 	 {Jeremy York, \bibstring{pseudonym}},
+  publisher = {Macmillan},
+  location =  {New York},
+  annotation = 	 {Third of three Book entries by same author under
+                  different pseudonyms.}
+}
+
+@Misc{creel:house,
+  author = 	 {Creel, George},
+  entrysubtype = {letter},
+  title = 	 {George Creel to Colonel House},
+  note = 	 {Edward~M. House Papers},
+  origdate = 	 {1918-09-25},
+  organization =  {Yale University Library},
+  annotation = 	 {An unpublished letter from an archive, presented in
+                  a \textsf{Misc} entry with an \textsf{entrysubtype}.
+                  The \texttt{cmsdate} option is no longer needed in
+                  such an entry.  The manuscript collection is found
+                  in the \textsf{note} and \textsf{organization}
+                  fields -- depending on the entry, you can use
+                  \textsf{note}, \textsf{organization},
+                  \textsf{institution}, and/or \textsf{location}, in
+                  ascending order of generality, though you should
+                  consistently put the most specific collection name
+                  in the \textsf{note} field.  If you are citing
+                  several items from the same collection, then the
+                  \emph{CMS}, 15.49, suggests not having individual
+                  entries but only one for the collection
+                  (\cmslink{house:papers}), with more specific
+                  information forming part of the flow of the text.
+                  If, however, you cite only one item from a
+                  collection, then you can use an entry like this one.
+                  Cf.\ \cmslink{dinkel:agassiz},
+                  \cmslink{spock:interview}.}
+}
+
+@Book{davenport:attention,
+  title =	 {The Attention Economy},
+  subtitle =	 {Understanding the New Currency of Business},
+  year =	 2001,
+  author =	 {Davenport, Thomas~H. and Beck, John~C.},
+  publisher =	 {Harvard Business School Press},
+  addendum =	 {TK3 Reader e-book},
+  location =	 {Cambridge, MA},
+  annotation = 	 {An example of the use of an \textsf{addendum} in a
+                  \textsf{Book} entry, in this case to identify that
+                  the work is an e-book.}
+}
+
+@Misc{dinkel:agassiz,
+  author = 	 {Dinkel, Joseph},
+  title = 	 {description of Louis Agassiz written at the request
+                  of Elizabeth Cary Agassiz},
+  year = 	 {\bibstring{nodate}},
+  entrysubtype = {yes},
+  note = 	 {Agassiz Papers},
+  location =  {Harvard University},
+  organization =  {Houghton Library},
+  annotation = 	 {A manuscript presented in a \textsf{Misc} entry with
+                  a randomly-selected \textsf{entrysubtype} to
+                  distinguish it from a traditional \textsf{Misc}
+                  entry. The \textsf{title} begins with a generic
+                  term, hence the initial lowercase letter.  This
+                  entry uses three fields to locate the manuscript,
+                  starting with \textsf{note} and ascending in
+                  generality through \textsf{organization} to
+                  \textsf{location}.  If you are citing several items
+                  from the same collection, then the \emph{CMS},
+                  15.49, suggests not having individual entries but
+                  only one for the collection, with specific
+                  information forming part of the flow of the text.
+                  If, however, you cite only one item from a
+                  collection, then you can use an entry like this one.
+                  Note that, in \textsf{Misc} entries and a few
+                  others, an empty \textsf{year} field will not
+                  automatically produce a no date
+                  (\enquote{n.d\adddot} in English) abbreviation, so
+                  if you want one to be present you'll have to provide
+                  it yourself, as here.  Cf.\ \cmslink{creel:house}
+                  and \cmslink{house:papers}.}
+}
+
+@Book{donne:var,
+  author =	 {Donne, John},
+  editor =	 {Stringer, Gary~A.},
+  title =	 {The \mkbibquote{Anniversaries} and the
+                  \mkbibquote{Epicedes and Obsequies}},
+  namea =	 {Stringer, Gary~A. and Pebworth, Ted-Larry},
+  publisher =	 {Indiana Univ. Press},
+  maintitle =	 {The Variorum Edition of the Poetry of {John Donne}},
+  year =	 1995,
+  volume =	 6,
+  location =	 {Bloomington},
+  annote = 	 {A \textsf{Book} entry with a \textsf{maintitle}
+                  editor (\textsf{editor} field) and a \textsf{title}
+                  editor (\textsf{namea} field).  Also, inside an
+                  italicized title, all other titles are put in
+                  quotation marks, and using \cmd{mkbibquote} will
+                  automatically move appropriate punctuation inside
+                  the closing quotation mark.  It also, however, means
+                  that this entry won't be correctly presented for the
+                  \textsf{authordate-trad} style.}
+}
+
+@Book{donne:var:15,
+  author =	 {Donne, John},
+  editor =	 {Stringer, Gary~A.},
+  title =	 {The \mkbibquote{Anniversaries} and the
+                  \mkbibquote{Epicedes and obsequies}},
+  namea =	 {Stringer, Gary~A. and Pebworth, Ted-Larry},
+  publisher =	 {Indiana Univ. Press},
+  maintitle =	 {The Variorum Edition of the Poetry of {John Donne}},
+  year =	 1995,
+  volume =	 6,
+  location =	 {Bloomington},
+  annotation = 	 {A \textsf{Book} entry with a \textsf{maintitle}
+                  editor (\textsf{editor} field) and a \textsf{title}
+                  editor (\textsf{namea} field).  Also, inside an
+                  italicized title, all other titles are put in
+                  quotation marks, and using \cmd{mkbibquote} will
+                  automatically move appropriate punctuation inside
+                  the closing quotation mark.  In the \texttt{trad}
+                  style, you need to provide the sentence-style
+                  capitalization yourself inside the \cmd{mkbibquote}
+                  command.}
+}
+
+@Book{dunn:revolutions,
+  title = 	 {Sister Revolutions},
+  subtitle = 	 {French Lightning, {American} Light},
+  year = 	 1999,
+  author = 	 {Dunn, Susan},
+  publisher = {Faber \& Faber and Farrar, Straus \& Giroux},
+  location =  {New York},
+  annotation = 	 {A \textsf{Book} with two \textsf{publishers},
+                  showing ampersands to prevent them being treated as
+                  four.}
+}
+
+@Manual{dyna:browser,
+  title = 	 {Dynatext, Electronic Book Indexer/Browser},
+  organization = {Electronic Book Technology Inc.},
+  address = 	 {Providence, RI},
+  year = 	 1991,
+  annotation = 	 {A technical manual presented in a \textsf{Manual}
+                  entry.  In absence of a named author the
+                  \textsf{organization} is printed twice, as author
+                  and as publisher. Note that you no longer need a
+                  \textsf{sortkey} when using the default sorting
+                  scheme.}
+}
+
+@Book{eliot:pound,
+  title = 	 {Literary Essays},
+  options = {useauthor=false},
+  year = 	 1953,
+  author = 	 {Pound, Ezra},
+  editor =  {Eliot, T.~S.},
+  publisher = {New Directions},
+  location =  {New York},
+  annotation = 	 {A \textsf{Book} listed by its (famous)
+                  \textsf{editor} rather than by its (equally-famous)
+                  \textsf{author}.  The \textsf{options} field allows
+                  such presentation.}
+}
+
+@InCollection{ellet:galena,
+  author = 	 {Ellet, Elizabeth~F.~L.},
+  title = 	 {By Rail and Stage to {Galena}},
+  crossref =  {prairie:state},
+  pages = 	 {271--279},
+  annotation = 	 {First of three InCollection entries
+                  cross-referencing the same Collection.
+                  Cf. keating:dearborn and lippincott:chicago.  All
+                  three entries will have an abbreviated form in the
+                  list of references.  If you don't want this
+                  space-saving measure, you can, for example, set
+                  longcrossref=true in the options field.  With Biber,
+                  an empty subtitle field is no longer necessary to
+                  prevent inheritance from a parent entry.}
+}
+
+@Article{ellis:blog,
+  author = 	 {Ellis, Rhian},
+  title = 	 {Squatters' Rights},
+  journaltitle = {Ward Six},
+  location = 	 {blog},
+  date = 	 {2008-06-30},
+  url = 	 {http://wardsix.blogspot.com/2008/06/squatters-rights.html},
+  entrysubtype = {magazine},
+  annotation = 	 {The 16th edition specifies an Article-like
+                  presentation for blogs, the main peculiarity being
+                  the identification of the material as a blog using
+                  the location field, which is usually reserved for
+                  identifying the place of publication of obscure
+                  journals.  See ac:comment, a Review entry, for how
+                  to reference comments on such online material.}
+}
+
+@Book{emerson:nature,
+  title =	 {Nature},
+  year =	 1985,
+  origdate =	 1836,
+  location = 	 {Boston},
+  options = 	 {cmsdate=old},
+  author =	 {Emerson, Ralph Waldo},
+  publisher = 	 {Beacon},
+  note = 	 {a facsimile of the first \bibstring{edition} with an
+                  \bibstring{introduction} by Jaroslav Pelikan},
+  annotation = 	 {A reprinted \textsf{Book}, in this case a facsimile,
+                  with the \textsf{note} field giving the relevant
+                  information.  The \textsf{origdate} field gives the
+                  date of original publication.  Note the use of a
+                  lowercase letter to start the \textsf{note} field.
+                  With the amount of information given in the note
+                  field, it may be less awkward to use a
+                  \texttt{cmsdate} option rather than to put
+                  \texttt{reprint} into a \textsf{pubstate} field.
+                  This \texttt{cmsdate} option will print both dates,
+                  in the format (1836) 1985.}
+}
+
+@InReference{ency:britannica,
+  title = 	 {Encyclopaedia Britannica},
+  shorttitle = 	 {Ency. {Brit}., \mkbibemph{15th ed}\adddot},
+  keywords = 	 {nosample},
+  edition = 	 {15},
+  annotation = 	 {An \textsf{InReference} entry, citing a well-known
+                  reference work, and therefore generally not to
+                  appear in the list of references, but for
+                  demonstration purposes I here allow it to do so.
+                  With an \textsf{options} field set to
+                  \texttt{skipbib}, you'd only need the
+                  \textsf{shorttitle} for citations.  The \emph{CMS}
+                  is not altogether clear about how to present such
+                  information in the author-date style, so this should
+                  be looked upon as a possible style of presentation
+                  only.}
+}
+
+@Video{episode:tv,
+  title = 	 {Episode Title},
+  booktitleaddon = 	 {series 5, episode 2},
+  options = 	 {cmsdate=on},
+  entrysubtype = {tv},
+  editor = 	 {{Production Company}},
+  editortype = 	 {producer},
+  date = 	 {2000/2007},
+  origdate = 	 2004,
+  pubstate = 	 {reprint},
+  booktitle = 	 {Series Title},
+  publisher = {Production Company},
+  type = 	 {DVD},
+  annotation = 	 {The 15th edition of the Manual doesn't, that I can
+                  find, provide guidance for citing television
+                  programs, so I guessed, using the analogy of films,
+                  at how to present one using the Video entry type.
+                  (The 16th edition does give an example -- see
+                  friends:leia -- but I have retained this entry only
+                  for the 15th edition, as there are significant
+                  structural changes between the two editions when
+                  presenting audio-visual material.)  The title of the
+                  episode will be presented in the main text font, as
+                  there is a booktitle presenting the name of the TV
+                  series.  The booktitleaddon -- in a slight change
+                  from previous releases -- gives details about the
+                  episode, and the type gives the medium, as usual.
+                  The origdate is the year of original transmission,
+                  while the date provides the year range for the whole
+                  series, though it would perhaps make more sense in
+                  this situation to provide the date the DVD was
+                  released, instead.  The entrysubtype isn't
+                  necessary, but may be of some use in the author-date
+                  style if you want the origdate to appear in
+                  parentheses after the main part of the entry, for
+                  which you would also require the pubstate field as
+                  shown.  Repeating the publisher as the editor, and
+                  giving an editortype, may help to present this entry
+                  in the list of references and, possibly, in textual
+                  citatons, as well.}
+}
+
+@BookInBook{euripides:orestes,
+  title = 	 {Orestes},
+  year = 	 1958,
+  booktitle = 	 {Euripides},
+  maintitle = 	 {The Complete {Greek} Tragedies},
+  nameb = 	 {Arrowsmith, William},
+  volume = 	 4,
+  author = 	 {Euripides},
+  editor = 	 {Grene, David and Lattimore, Richmond},
+  publisher = uchp,
+  pages = 	 {185--288},
+  location =  {Chicago},
+  annotation = 	 {A work from antiquity, cited by pages in a modern
+                  edition, hence not needing \texttt{classical} in
+                  \textsf{entrysubtype}.  Since the titles of such
+                  works are uniformly italicized, we need to use a
+                  \textsf{BookInBook} entry with a \textsf{title} and
+                  a \textsf{booktitle} (\enquote{book within a book}),
+                  and in this case also a \textsf{maintitle}. Note the
+                  editors of the \textsf{maintitle} (\textsf{editor}
+                  field), and the translator of the \textsf{title}
+                  (\textsf{nameb} field).}
+}
+
+@Online{evanston:library,
+  author = 	 {{Evanston Public Library Board of Trustees}},
+  shortauthor = {{Evanston Public Library}},
+  title = 	 {Evanston Public Library Strategic Plan, 2000--2010},
+  subtitle = 	 {A Decade of Outreach},
+  organization = {Evanston Public Library},
+  url = 	 {http://www.epl.org/library/strategic-plan-00.html},
+  urldate = 	 {2002-07-18},
+  annotation = 	 {An \textsf{Online} entry, with a corporate author,
+                  hence extra curly braces in \textsf{author} and
+                  \textsf{shortauthor}. The \textsf{title} field holds
+                  the title of the specific web page, while the
+                  \textsf{organization} field holds the title or owner
+                  of the site as a whole.}
+}
+
+@Book{feydeau:farces,
+  title = 	 {Four Farces by {Georges Feydeau}},
+  publisher = 	 uchp,
+  year = 	 1970,
+  translator = 	 {Shapiro, Norman R.},
+  author = 	 {Feydeau, Georges},
+  location =  {Chicago},
+  annotation = 	 {A standard Book entry, with a translator.}
+}
+
+@Music{floyd:atom,
+  title = 	 {Atom Heart Mother},
+  date = 	 1990,
+  origdate = 	 1970,
+  author = 	 {{Pink Floyd}},
+  pubstate = 	 {reprint},
+  number = 	 {CDP 7 46381 2},
+  publisher = {Capitol},
+  type = 	 {compact disc},
+  annotation = 	 {16th edition only An example of a re-released
+                  album.  The original release date will appear in
+                  citations and at the head of the reference list
+                  entry, while the CD re-release date appears later.
+                  Because the origdate is used at the head of the
+                  entry, the pubstate field here has no effect, though
+                  in other circumstances, and in the notes and
+                  bibliography style, it will print a notice at the
+                  end of the entry clarifying that it is indeed a
+                  re-release.}
+}
+
+@inproceedings{frede:inproc,
+    keywords={secondary},
+    author = {Dorothea Frede}, 
+    title = {\mkbibemph{Nicomachean Ethics} VII. 11--12},
+    subtitle = {Pleasure},
+    booktitle = {Aristotle},
+    booksubtitle = {\mkbibquote{Nicomachean Ethics}, Book VII},
+    series = {Symposium Aristotelicum},
+    editor = {Carlo Natali},
+    publisher = {Oxford University Press},
+    address  = {Oxford},
+    year = {2009},
+    pages = {183-207},
+  annotation = 	 {A standard inproceedings entry.}
+}
+
+@SuppBook{friedman:intro,
+  author = 	 {Friedman, Milton},
+  title = 	 {The Road to Serfdom},
+  bookauthor = 	 {Hayek, F.~A.},
+  introduction = {yes},
+  date = 	 1994,
+  pages = 	 {ix--xx},
+  publisher = 	 uchp,
+  note = 	 {Anniversary ed.},
+  location =  {Chicago},
+  annotation = 	 {An introduction to a work by someone else, presented
+                  in a SuppBook entry.  Note that for an introduction,
+                  afterword or foreword you need only define the
+                  relevant field, and leave the others undefined, and
+                  the style will provide the rest automatically.  The
+                  16th edition now requires page numbers in the list
+                  of references for this sort of entry.}
+}
+
+@Article{friedman:learning,
+  author = 	 {Friedman, James~W. and Mezzetti, Claudio},
+  title = 	 {Learning in Games by Random Sampling},
+  journaltitle = {Journal of Economic Theory},
+  date = 	 {2001-05},
+  volume = 	 98,
+  number = 	 1,
+  doi = 	 {10.1006/jeth.2000.2694},
+  url = 	 {http://www.idealibrary.com/links/doi/10.1006/jeth.2000.2694},
+  annotation = 	 {Standard Article entry with a DOI and a URL
+                  provided.  The 16th edition prefers a DOI if one is
+                  available.}
+}
+
+@Video{friends:leia,
+  title = 	 {The One with the {Princess Leia} Fantasy},
+  date = 	 2003,
+  booktitle = 	 {Friends},
+  booktitleaddon = 	 {season~3, episode~1},
+  author = 	 {Curtis, Michael and Malins, Gregory~S.},
+  eventdate = 	 {1996-09-19},
+  editor = 	 {Mancuso, Gail},
+  editortype = 	 {director},
+  publisher = {Warner Home Video},
+  type = 	 {DVD},
+  address = 	 {Burbank, CA},
+  annotation = 	 {This is a template for citing television shows.  The
+                  \textsf{eventdate} is the original broadcast date,
+                  while the \textsf{date} applies to the
+                  \vadjust{\eject}medium you are citing.  As in other
+                  audiovisual entries, the earliest date automatically
+                  goes at the head of the entry.  Note that
+                  information about the season and episode numbers
+                  goes in \textsf{booktitleaddon}.}
+}
+
+@Book{furet:passing:eng,
+  title = 	 {The Passing of an Illusion},
+  year = 	 1999,
+  author = 	 {Furet, François},
+  translator = 	 {Furet, Deborah},
+  publisher = uchp,
+  location =  {Chicago},
+  annotation = 	 {A translation, with the original presented in a
+                  separate entry (furet:passing:fr).  In that entry, a
+                  related field refers to this entry, which will be
+                  printed after its parent in the list of references,
+                  connected by the default strings associated with the
+                  bytranslator relatedtype.  By default, this entry
+                  will not appear separately in the reference list
+                  unless you cite it directly.}
+}
+
+@Book{furet:passing:fr,
+  title = 	 {Le passé d'une illusion},
+  year = 	 1995,
+  related = 	 {furet:passing:eng},
+  relatedtype =  {bytranslator},
+  author = 	 {Furet, François},
+  publisher = {Éditions Robert Laffont},
+  location =  {Paris},
+  annotation = 	 {The original of the previous entry. The related
+                  field calls that entry, and the relatedtype
+                  determines how that entry will be presented.  In
+                  citations this is all ignored, but in the list of
+                  references the original and translation are
+                  presented in the same entry, connected by bibstrings
+                  and the name of the translator.  These two entries
+                  show one of the two options suggested by the Manual
+                  for presenting an original and a translation in the
+                  same reference list entry.}
+}
+
+@Article{garaud:gatine,
+  author =	 {Garaud, Marcel},
+  title =	 {Recherches sur les défrichements dans la Gâtine
+                  poitevine aux XIe et XIIe siècles},
+  journaltitle = {Bulletin de la Société des antiquaires de l'Ouest},
+  year =	 1967,
+  volume =	 9,
+  langid =  {french},
+  series =	 4,
+  pages =	 {11--27},
+  annotation = 	 {An Article in a journaltitle which is into its 4th
+                  series.  This entry illustrates several
+                  language-related issues.  The Manual recommends
+                  preserving sentence-style capitalization in
+                  languages that ordinarily use it, as here in both
+                  title and journaltitle.  Because of the way the
+                  capitalization code works for the title field in the
+                  authordate-trad style, you would need to use extra
+                  curly braces around words you wished to remain
+                  capitalized in the output.  However, because I've
+                  identified the language of the entry as French using
+                  the langid field, the code, independently of any
+                  "otherlang" setting, leaves the title as presented
+                  here, which is correct without needing to use extra
+                  braces.  The journaltitle field is always exempt
+                  from the sentence capitalization code, so you
+                  needn't worry about extra braces there.}
+}
+
+@Article{garrett,
+  author =	 {Garrett, Marvin~P.},
+  title =	 {Language and Design in \mkbibemph{Pippa Passes}},
+  journaltitle = {Victorian Poetry},
+  year =	 1975,
+  volume =	 13,
+  number =	 1,
+  pages =	 {47--60},
+  location =	 {West Virginia University},
+  annote = 	 {An Article from a journaltitle that may not be
+                  immediately recognizable to your readership, or
+                  indeed that may be shared by a number of different
+                  journals, so you add a location field to tell where
+                  the journaltitle originates.  Also note formatting
+                  in the title field.}
+}
+
+@Article{garrett:15,
+  author =	 {Garrett, Marvin~P.},
+  title =	 {Language and Design in \mkbibemph{Pippa passes}},
+  journaltitle = {Victorian Poetry},
+  year =	 1975,
+  volume =	 13,
+  number =	 1,
+  pages =	 {47--60},
+  location =	 {West Virginia University},
+  annotation = 	 {An Article from a journaltitle that may not be
+                  immediately recognizable to your readership, or
+                  indeed that may be shared by a number of different
+                  journals, so you add a location field to tell where
+                  the journaltitle originates.  Also note formatting
+                  in the title field, where you need sentence-style
+                  capitalization for the 15th edition.}
+}
+
+@Misc{genesis,
+  shorttitle = 	 {Gen\adddot},
+  entrysubtype = {classical},
+  keywords = 	 {nosample},
+  title = 	 {Genesis},
+  annotation = 	 {A simple \textsf{Misc} entry (w/
+                  \textsf{entrysubtype} \texttt{classical}) that would
+                  allow you easily to cite the Qur'an or individual
+                  books of the Bible.  Ordinarily it wouldn't appear
+                  in the list of references, but it does here for
+                  demonstration purposes.  Some other sacred works may
+                  need italicized titles.  Cf.\ \emph{CMS},
+                  14.253-255.}
+}
+
+@Article{gibbard,
+  author =	 {Gibbard, Allan},
+  title =	 {Morality in Living},
+  subtitle =	 {Korsgaard's {Kantian} Lectures},
+  journaltitle = {Ethics},
+  year =	 1999,
+  volume =	 110,
+  number =	 1,
+  pages =	 {140--164},
+  titleaddon =	 {\bibstring{reviewof} \mkbibemph{The Sources of
+                  Normativity}, \bibstring{by} {Christine M. Korsgaard}},
+  annote = 	 {A book review as an Article.  It has a specific
+                  title (title field) as well as a generic one
+                  (titleaddon field).  Note bibstring macro and
+                  formatting in the titleaddon.}
+}
+
+@Article{gibbard:15,
+  author =	 {Gibbard, Allan},
+  title =	 {Morality in Living},
+  subtitle =	 {Korsgaard's {Kantian} Lectures},
+  journaltitle = {Ethics},
+  year =	 1999,
+  volume =	 110,
+  number =	 1,
+  pages =	 {140--64},
+  titleaddon =	 {\bibstring{reviewof} \mkbibemph{The sources of
+                  normativity}, \bibstring{by} {Christine M. Korsgaard}},
+  annotation = 	 {A book review as an Article.  It has a specific
+                  title (title field) as well as a generic one
+                  (titleaddon field).  Note bibstring macro and
+                  formatting in the titleaddon, with sentence-style
+                  capitalization for the 15th ed.}
+}
+
+@Periodical{good:wholeissue,
+  issuetitle = 	 {Non-subject-matter Outcomes of Schooling},
+  title = {Elementary School Journal},
+  date = 	 {1999},
+  volume = 	 99,
+  number = 	 5,
+  editor = 	 {Good, Thomas~L.},
+  note = 	 {special issue},
+  annotation = 	 {A reference to an entire special issue of a journal,
+                  using a Periodical entry. The issue's title here
+                  goes in the issuetitle field, while the name of the
+                  journal goes in title rather than journaltitle. The
+                  nature of the issue once again goes in the note
+                  field, with an initial lowercase letter.
+                  Cf. conley:fifthgrade for an example of an Article
+                  entry presenting one article from this special
+                  issue.}
+}
+
+@Review{gourmet:052006,
+  journaltitle = {Gourmet},
+  entrysubtype = {magazine},
+  date = 	 {2000-05},
+  title =        {Kitchen {Notebook}},
+  annotation = 	 {A regular column in a magazine, presented in a
+                  \textsf{Review} entry (with \texttt{magazine}
+                  \textsf{entrysubtype}).  This name is capitalized
+                  headline style.  Since there is no \textsf{author},
+                  the \textsf{journaltitle} will be used instead;
+                  there is no longer any need for a \textsf{sortkey}.}
+}
+
+@Audio{greek:filmstrip,
+  title = 	 {The {Greek} and {Roman} World},
+  date = 	 1977,
+  publisher = {Society for Visual Education},
+  type = 	 {filmstrip, 44 min\adddot},
+  address = 	 {Chicago},
+  sortkey = 	 {Greek and Roman},
+  annotation = 	 {For the 16th edition only, the title will
+                  automatically appear at the head of such an entry,
+                  and in citations, as well.  The sortkey is needed
+                  because of the definite article in the title.}
+}
+
+@Audio{greek:filmstrip:15,
+  title = 	 {The {Greek} and {Roman} World},
+  date = 	 1977,
+  publisher = 	 {Society for Visual Education},
+  author = 	 {{Society for Visual Education}},
+  type = 	 {filmstrip},
+  address = 	 {Chicago},
+  annotation = 	 {An Audio entry for a filmstrip, the medium being
+                  given in the type field.  For the author-date style,
+                  it probably makes sense to give the publisher as the
+                  author, also, so that the entry in the reference
+                  list doesn't start with the date. 15th edition
+                  only}
+}
+
+@InReference{grove:sibelius,
+  title = 	 {The New {Grove} Dictionary of Music and Musicians},
+  author = 	 {Hepokoski, James},
+  shorttitle = 	 {New {Grove} Dict\adddot},
+  lista = {Sibelius, Jean},
+  url = 	 {http://www.grovemusic.com/},
+  urldate = 	 {2002-01-03},
+  sortkey = 	 {New Grove},
+  annotation = 	 {An example of an online \textsf{InReference} entry,
+                  which I have allowed, as an example, to appear in
+                  the list of references.  The \textsf{author} field
+                  refers to the author of the specific entry in
+                  \textsf{lista}, and will be printed after the name
+                  of that entry, set off by a comma.  If you need to
+                  provide the author or editor of a reference work as
+                  a whole, then you should probably use a
+                  \textsf{Book} entry.  (Cf.\
+                  \texttt{schellinger:novel}.)  Note the
+                  \textsf{sortkey}, needed because otherwise the
+                  author's name will be used for sorting in the list
+                  of references.  Note also that in citations of
+                  \textsf{InReference} entries, you can put an
+                  alphabetized article title in the \textsf{postnote}
+                  field, and it will be formatted for you
+                  automatically.}
+}
+
+@Video{handel:messiah,
+  title = 	 {Messiah},
+  date = 	 {1988},
+  eventdate = 	 {1987-12-19},
+  userd = 	 {performed},
+  type = 	 {videocassette (VHS), 141 min\adddot},
+  editor = 	 {{Atlanta Symphony Orchestra and Chamber Chorus}},
+  editortype = 	 {none},
+  editora = 	 {Shaw, Robert},
+  editoratype =  {none},
+  author = 	 {Handel, George Frederic},
+  publisher = {Video Artists International},
+  address = 	 {Ansonia Station, NY},
+  annotation = 	 {This is a videotape of a performance, presented
+                  therefore as a \textsf{Video} entry rather than as
+                  \textsf{Music}.  The composer goes in
+                  \textsf{author}, the performers and conductor in
+                  \textsf{editor} and \textsf{editora}.  Note the
+                  \texttt{none} in both \textsf{editortypes}, as the
+                  context presumably makes it clear what role Shaw is
+                  playing.  The usual \textsf{type} field identifies
+                  the medium. The \textsf{eventdate}, which will
+                  provide the date for the head of the entry and for
+                  citations, identifies when the performance took
+                  place, and the \textsf{userd} field allows you to
+                  specify just what sort of \textsf{eventdate} it is.}
+}
+
+@Video{handel:messiah:15,
+  title = 	 {Messiah},
+  date = 	 1988,
+  titleaddon = 	 {selections},
+  type = 	 {VHS},
+  editor = 	 {{Atlanta Symphony Orchestra and Chamber Chorus}},
+  editortype = 	 {none},
+  editora = 	 {Shaw, Robert},
+  editoratype =  {none},
+  author = 	 {Handel, George Frederic},
+  publisher = {Video Treasures},
+  address = 	 {Batavia, OH},
+  annotation = 	 {15th edition only This is a videotape of an
+                  oratorio, presented therefore as a Video entry
+                  rather than as Music.  The composer goes in author,
+                  the performers and conductor in editor and editora.
+                  Note the "none" in both editortypes, as the context
+                  presumably makes it clear what role Shaw is playing.
+                  The usual type field identifies the medium.}
+}
+
+@Collection{harley:ancient:cart,
+  title = 	 {Cartography in Prehistoric, Ancient, and Medieval
+                  {Europe} and the {Mediterranean}},
+  crossref = 	 {harley:hoc},
+  date = 	 {1987},
+  volume = 	 1,
+  annotation = 	 {A Collection entry, with the maintitle coming from
+                  the MVCollection entry cited in the crossref field.
+                  With the booklongxref option set properly, and not
+                  by default, this and the next entry will now produce
+                  abbreviated references in the list of references.
+                  Cf. lach:asia.},
+}
+
+@Collection{harley:cartography,
+  title =	 {Cartography in the Traditional {East and Southeast
+                  Asian} Societies},
+  crossref = 	 {harley:hoc},
+  year =	 1994,
+  volume =	 {2},
+  part = 	 {2},
+  annotation = 	 {A Collection entry, with its maintitle's logical
+                  volumes published in separate physical parts, hence
+                  a volume and a part number.  The maintitle itself
+                  comes from the MVCollection entry cited in the
+                  crossref field.  With the booklongxref option set
+                  properly, and not by default, this and the previous
+                  entry will now produce abbreviated references in the
+                  list of references.  Cf. lach:asia.}
+}
+
+@MVCollection{harley:hoc,
+  title = 	 {The History of Cartography},
+  date = 	 {1987/},
+  editor = 	 {Harley, J.~B. and Woodward, David},
+  volumes = 	 {3},
+  publisher = uchp,
+  location =  {Chicago},
+  annotation = 	 {This entry shows the new MVCollection type used as
+                  the parent to two child Collection entries --
+                  harley:ancient:cart and harley:cartography.  It will
+                  be presented in the list of references when more
+                  than one of its children are cited, and those
+                  children's entries will be abbreviated in the list
+                  as well, assuming the option booklongxref is set
+                  properly (it won't be by default).  Biber
+                  automatically transforms the title of this entry
+                  into a maintitle for the children.  Please note that
+                  this treatment isn't explicitly allowed in the
+                  Chicago specification.}
+}
+
+@Online{harwood:biden,
+  author = 	 {Harwood, John},
+  title = 	 {The Pros and Cons of {Biden}},
+  organization = {\mkbibemph{New York Times} video, 2:00},
+  date = 	 {2008-08-23},
+  url = 	 {http://video.on.nytimes.com/?fr_story=a425c9aca92f51bd19f2a621fd93b5e266507191},
+  annotation = 	 {An online video using an Online entry.  Note the
+                  formatting in the organization field.
+                  Cf. horowitz:youtube.}
+}
+
+@TechReport{herwign:office,
+  options = 	 {useprefix=true},
+  author = 	 {{van} Herwijnen, Eric},
+  sortname = 	 {Van},
+  title = 	 {Future Office Systems Requirements},
+  institution =  {CERN DD internal note},
+  date = 	 {1988-11},
+  annotation = 	 {A Report entry, the type already set by using the
+                  TechReport alias instead of Report. The institution
+                  field identifies the issuer of the report.}
+}
+
+@Video{hitchcock:nbynw,
+  title = 	 {Crop Duster Attack},
+  booktitle = 	 {North by Northwest},
+  date = 	 2000,
+  origdate = 	 1959,
+  editor = 	 {Hitchcock, Alfred},
+  editortype = 	 {director},
+  publisher = {Warner Home Video},
+  type = 	 {DVD},
+  pubstate = 	 {reprint},
+  address = 	 {Burbank, CA},
+  annotation = 	 {This Video entry cites one scene (title) from a film
+                  (booktitle).  By contrast with the notes &
+                  bibliography style, we don't need an options field
+                  here, as we allow the director to appear at the head
+                  of the entry.  The editortype field identifies the
+                  directorial role, while the origdate and date give
+                  the original year of release and the year of DVD
+                  release, respectively.  In the 15th edition, the
+                  pubstate field means that the origdate will be
+                  printed in parentheses after the main part of the
+                  entry, with a bibstring identifying it as the year
+                  of original release.  In the 16th edition, by
+                  contrast, the origdate will appear automatically at
+                  the head of the entry and in citations, and
+                  therefore the pubstate field will be ignored}
+}
+
+@Article{hlatky:hrt,
+  author =	 {Hlatky, Mark~A. and Boothroyd, Derek and
+                  Vittinghoff, Eric and Sharp, Penny and Whooley,
+                  Mary~A.},
+  title =	 {Quality-of-Life and Depressive Symptoms in
+                  Postmenopausal Women after Receiving Hormone
+                  Therapy},
+  subtitle =	 {Results from the {Heart and Estrogen/Progestin
+                  Replacement Study (HERS)} Trial},
+  journaltitle = {Journal of the American Medical Association},
+  date = 	 {2002-02-06},
+  volume =	 287,
+  number =	 5,
+  url =   {http://jama.ama-assn.org/issues/v287n5/rfull/joc10108.html#aainfo},
+  urldate =	 {2002-01-07},
+  annotation = 	 {A standard \textsf{Article} entry with a
+                  \textsf{url} provided. The presence of 5 authors
+                  provokes use of \enquote{et al\adddot} in text
+                  citations, though not in the list of references,
+                  because the settings for \texttt{maxbibnames} and
+                  \texttt{minbibnames} have been changed in
+                  \textsf{biblatex-chicago.sty}.}
+}
+
+@Music{holiday:fool,
+  title = 	 {I'm a Fool to Want You},
+  eventdate = 	 {1958-02-20},
+  date = 	 {1960},
+  booktitle = 	 {Lady in Satin},
+  author = 	 {Herron, Joel and Sinatra, Frank and Wolf, Jack},
+  editor = 	 {Holiday, Billie},
+  editortype = 	 {none},
+  number = 	 {CL 1157},
+  publisher = {Columbia},
+  type = 	 {33\onethird\ rpm},
+  note = 	 {with Ray Ellis},
+  options = 	 {useauthor=false},
+  annotation = 	 {This entry illustrates how to cite a song
+                  (\textsf{title}) from an album (\textsf{booktitle}).
+                  The writers of the song go in \textsf{author}, while
+                  the \textsf{options} field prevents these writers
+                  from appearing in citations or at the head of the
+                  entry in the list of references.  The performer goes
+                  in \textsf{editor}, with the \textsf{editortype}
+                  ensuring that no identifying string appears.  The
+                  \textsf{eventdate} gives the recording date of a
+                  song -- you would use \textsf{origdate} if the
+                  recording date applied to the album as a whole.  The
+                  \textsf{date} gives the release date of the album.}
+}
+
+@Book{hopp:attalid,
+  title = 	 {Untersuchungen zur Geschichte der letzten Attaliden},
+  date = 	 1977,
+  author = 	 {Hopp, Joachim},
+  publisher = {C.~H. Beck'sche Verlagsbuchhandlung},
+  number = 	 25,
+  series = 	 {Vestigia: Beitr\"age zur alten Geschichte},
+  hyphenation =  {german},
+  address = 	 {Munich},
+  annotation = 	 {A book in a series.  The latter is given in the
+                  series field, and the volume within the series in
+                  the number field.  Note also the hyphenation field
+                  to preserve German capitalization in the title,
+                  which therefore doesn't require extra curly braces.}
+}
+
+@Online{horowitz:youtube,
+  title = 	 {{HOROWITZ AT CARNEGIE HALL} 2-{Chopin Nocturne} in Fm Op.55},
+  organization = {YouTube video, 5:53},
+  sortkey = 	 {Horowitz},
+  url = 	 {http://www.youtube.com/watch?v=cDVBtuWkMS8},
+  urldate = 	 {2009-01-09},
+  userd = 	 {posted by \mkbibquote{hubanj,}},
+  note = 	 {from a performance televised by CBS on\nopunct},
+  date = 	 {1968-09-22},
+  shorttitle = {HOROWITZ},
+  annotation = 	 {A YouTube video, presented in an \textsf{Online}
+                  entry.  The \textsf{userd} field allows you to
+                  modify what is printed before the \textsf{urldate},
+                  while the \textsf{note} field here is used for a
+                  similar purpose, to clarify the \textsf{date} field.
+                  The \textsf{shorttitle} abbreviates what will appear
+                  in citations of this author-less entry, and the
+                  \textsf{sortkey} is required because, in this corner
+                  case, the \textsf{organization} would otherwise be
+                  used for alphabetization, an arrangement that works
+                  for many entries, but not this one.}
+}
+
+@Book{horsley:prosodies,
+  title =	 {On the Prosodies of the {Greek and Latin} Languages},
+  year =	 1796,
+  author =	 {Horsley, Samuel},
+  authortype =	 {anon},
+  annotation = 	 {An anonymous \textsf{Book}, with the \textsf{author}
+                  known, though not named on the title page.  The
+                  string \texttt{anon} goes in the \textsf{authortype}
+                  field.}
+}
+
+@Misc{house:papers,
+  author = 	 {House, Edward~M\adddot\addcomma},
+  title = 	 {Papers},
+  note = 	 {Yale University Library},
+  entrysubtype = {classical},
+  annotation = 	 {An example of a \textsf{Misc} entry (with an
+                  \textsf{entrysubtype}) specifically for a reference
+                  list, assuming that more than one item has been
+                  cited from this same collection.  If you cite just
+                  one item from such a collection, then the entry
+                  might look like \cmslink{creel:house}.  In this
+                  entry type the absence of a \textsf{date} field does
+                  not trigger the automatic provision of the
+                  \enquote{n.d\adddot} \cmd{bibstring}, which means
+                  that the reference list entry will not contain one
+                  if it isn't wanted.  The \textsf{entrysubtype}
+                  \texttt{classical} makes the in-text citations
+                  provide name + title instead of just name, which may
+                  help clarify the reference in some circumstances.
+                  This entry also illustrates the use of a comma in a
+                  reference list to set off a middle initial from a
+                  following plain-text title, only used when the
+                  period alone might lead to ambiguity.  Cf.\
+                  \emph{CMS}, 14.241.  The \cmd{adddot} and
+                  \cmd{addcomma} commands you see here are the most
+                  effective way of doing this.}
+}
+
+@Book{howell:marriage,
+  title = 	 {The Marriage Exchange},
+  subtitle = 	 {Property, Social Place, and Gender in the Cities of
+                  the {Low Countries}},
+  date = 	 1998,
+  author = 	 {Howell, M.~C.},
+  number = 	 {\partedit C.~R. Stimpson},
+  publisher = uchp,
+  series = 	 {Women in Culture and Society},
+  address = 	 {Chicago},
+  annotation = 	 {A book in a series, providing also the series editor
+                  in the number field, which is the only way to get
+                  the name to follow the series.  Note also the
+                  partedit macro, though in the author-date style you
+                  could just provide the correct string ("ed." in the
+                  15th edition, "edited by" in the 16th) if you're
+                  sure you know it.}
+}
+
+@Book{iso:electrodoc,
+  title = 	 {Electronic Documents or Parts thereof.  {Excerpts}
+                  from {International Standard ISO} 690-2},
+  part = 	 {part 2},
+  date = 	 2001,
+  maintitle = 	 {Information and Documentation},
+  mainsubtitle = {Bibliographic References},
+  author = 	 {{International Organization for Standardization}},
+  shorthand =  {ISO},
+  publisher = {National Library of Canada},
+  sortname = 	 {ISO},
+  address = 	 {Ottawa},
+  url = 	 {http://www.nlc-bnc.ca/iso/tc46sc9/standard/690-2e.htm},
+  annote = 	 {A \textsf{Book} with a \textsf{maintitle} and an
+                  organizational \textsf{author}.  You can use the
+                  \textsf{part} field on its own to define how the
+                  \textsf{title} relates to the \textsf{maintitle},
+                  assuming that the usual \textsf{volume} and
+                  \textsf{part} fields don't provide an appropriate
+                  solution.  Any non-numeric \textsf{part} field will
+                  be printed as-is.  The \textsf{shorthand} for
+                  \vadjust{\eject}the organization will appear in the
+                  in-text citations, and at the head of the reference
+                  list entry, followed by its expansion (the
+                  \textsf{author}) in parentheses.  The
+                  \textsf{sortname} ensures that the entry is
+                  alphabetized by the first thing that appears there,
+                  that is, the \textsf{shorthand}.}
+}
+
+@Book{iso:electrodoc:15,
+  title = 	 {Electronic Documents or Parts thereof.  {Excerpts}
+                  from {International Standard ISO} 690-2},
+  titleaddon = 	 {Part 2 of\nopunct},
+  date = 	 2001,
+  maintitle = 	 {Information and Documentation},
+  userc = 	 {abbrev:ISO},
+  mainsubtitle = {Bibliographic References},
+  shorthand = 	 {ISO},
+  author = 	 {{International Organization for Standardization}},
+  publisher = {National Library of Canada},
+  address = 	 {Ottawa},
+  url = 	 {http://www.nlc-bnc.ca/iso/tc46sc9/standard/690-2e.htm},
+  annotation = 	 {A book with a maintitle and an organizational
+                  author.  You can use the titleaddon field to
+                  identify how the title relates to the maintitle,
+                  assuming that the usual volume and part fields don't
+                  provide an appropriate solution.  The nopunct
+                  command suppresses the following punctuation.  The
+                  shorthand for the organization will appear in the
+                  in-text citations.  For the 15th edition, the userc
+                  field points to a CustomC entry which provides the
+                  expansion of the shorthand inside the reference
+                  list, rather than in a list of shorthands.  Using
+                  the field in this way ensures that the expansion
+                  will be printed if this entry is cited.}}
+
+@Book{james:ambassadors,
+  title = 	 {The Ambassadors},
+  year = 	 1996,
+  origdate = 	 1909,
+  options = 	 {cmsdate=on},
+  author = 	 {James, Henry},
+  publisher = {Project Gutenberg},
+  url = 	 {ftp://ibiblio.org/pub/docs/books/gutenberg/etext96/ambas10.txt},
+  annotation = 	 {This entry presents an online edition of a book
+                  which, not being inherently an online text, still
+                  uses a \textsf{Book} entry.  The \textsf{origyear}
+                  field is the date of the print publication of the
+                  text that is now online, and the \texttt{cmsdate=on}
+                  option tells the style to use the \textsf{origdate}
+                  in both reference list and citations, something that
+                  isn't part of the specification for the 16th
+                  edition, which would probably recommend
+                  \texttt{both} here.}
+}
+
+@Collection{kamrany:economic,
+  title = 	 {Economic Issues of the Eighties},
+  date = 	 1980,
+  editor = 	 {Kamrany, Nake~M. and Day, Richard~H.},
+  publisher = {Johns Hopkins Univ. Press},
+  address = 	 {Baltimore},
+  annotation = 	 {Collection entry with two editors}}
+
+@InCollection{keating:dearborn,
+  author = 	 {Keating, William~H.},
+  title = 	 {{Fort Dearborn and Chicago}},
+  crossref =  {prairie:state},
+  pages = 	 {84--87},
+  annotation = 	 {Second of three InCollection pieces from the same
+                  Collection, using the crossref field.  The entry in
+                  the list of references will be shortened.}
+}
+
+@Article{kern,
+  author = 	 {Kern, W.},
+  title = 	 {Waar verzamelde Pigafetta zijn Maleise woorden?},
+  usere = 	 {Where did Pigafetta collect his Malaysian words?},
+  journaltitle = {Tijdschrift voor Indische taal-, land- en volkenkunde},
+  year = 	 1938,
+  volume = 	 78,
+  hyphenation =  {dutch},
+  pages = 	 {271--273},
+  annotation = 	 {An Article with a Dutch title that may need
+                  translating for a significant portion of your
+                  readership.  You give the translation in the usere
+                  field, using sentence-style capitalization.  The
+                  hyphenation field allows you not to use extra curly
+                  braces in the title.}
+}
+
+@Article{kimluu:diethyl,
+  author =	 {Kim Luu, Diane-Dinh},
+  title =	 {Diethylstilbestrol and Media Coverage of the
+                  \mkbibquote{Morning After} Pill},
+  journaltitle = {Lost in Thought: Undergraduate Research Journal},
+  year =	 1999,
+  volume =	 2,
+  pages =	 {65--70},
+  location =	 {Indiana University South Bend},
+  annote = 	 {Another Article from a journaltitle that may need
+                  further specification for your readership, hence the
+                  use of the location field. For the 16th edition
+                  only, Note also the quoted phrase inside the title,
+                  with headline-style capitalization.}
+}
+
+@Article{kimluu:diethyl:15,
+  author =	 {Kim Luu, Diane-Dinh},
+  title =	 {Diethylstilbestrol and Media Coverage of the
+                  \mkbibquote{morning after} Pill},
+  journaltitle = {Lost in Thought: Undergraduate Research Journal},
+  year =	 1999,
+  volume =	 2,
+  pages =	 {65--70},
+  location =	 {Indiana University South Bend},
+  annotation = 	 {Another Article from a journaltitle that may need
+                  further specification for your readership, hence the
+                  use of the location field.  For the 15th edition
+                  only, note also the quoted phrase inside the title,
+                  with sentence-style capitalization you need to
+                  provide yourself.}
+}
+
+@Review{kozinn:review,
+  journaltitle = {New York Times},
+  date = 	 {2000-04-21},
+  author =	 {Kozinn, Allan},
+  entrysubtype = {magazine},
+  title =	 {\bibstring{reviewof} concert performance
+                  \bibstring{by} {Timothy Fain} (violin) and {Steven Beck}
+                  (piano), 92nd {Street Y, New York}},
+  pages =	 {Weekend section},
+  annotation = 	 {A Review entry presenting a review in a newspaper,
+                  with "magazine" in entrysubtype.  Note the use of
+                  the bibstrings in title, which help but do not
+                  complete the internationalization of the entry.
+                  Beginning the field without a bibstring and with
+                  lower-case letters in a chosen language
+                  (e.g. "review of") is possibly a better alternative.
+                  Note also the pages field, which gives a more
+                  general reference than page number, as sometimes the
+                  latter might change between editions.}
+}
+
+@Book{lach:asia,
+  title = 	 {The Scholarly Disciplines},
+  maintitle = 	 {Asia in the Making of {Europe}},
+  year = 	 1977,
+  volume = 	 {2},
+  part = 	 {3},
+  author = 	 {Lach, Donald},
+  publisher = uchp,
+  location =  {Chicago},
+  annotation = 	 {A Book with a maintitle, its logical volumes
+                  published in several physical parts, hence both a
+                  volume and part number. Cf. harley:cartography.}
+}
+
+@Article{lakeforester:pushcarts,
+  journaltitle = {Lake Forester},
+  date = 	 {2000-03-23},
+  entrysubtype = {magazine},
+  title = 	 {Pushcarts Evolve to Trendy Kiosks},
+  options = 	 {cmsdate=full},
+  location =  {Lake Forest, IL},
+  annotation = 	 {An \textsf{Article} entry from a newspaper, using a
+                  \texttt{magazine} \textsf{entrysubtype}.  The
+                  article doesn't have an author, so the
+                  \textsf{journaltitle} will be used at the head of
+                  the entry and in citations.  The newspaper might not
+                  be well known, so the \textsf{location} field helps
+                  your readers out in this case.  There is no longer
+                  any need for a \textsf{sortkey}.  Finally, note the
+                  \texttt{full} key for the \texttt{cmsdate} option,
+                  which prints a full date specification in citations
+                  and means you wouldn't need this entry to appear in
+                  the reference list, though I have allowed it to
+                  appear here as an example.}
+}
+
+@Book{lecarre:quest,
+  title = 	 {The Quest for {Karla}},
+  publisher = 	 {Knopf},
+  year = 	 1982,
+  author = 	 {Le Carr{\'e}, John},
+  nameaddon = 	 {David John Moore Cornwell},
+  location =  {New York},
+  options =   {useprefix=true},
+  annotation = 	 {A fairly standard Book entry, with, however, the
+                  pseudonym in the author field and the real name in
+                  nameaddon.  This isn't strictly necessary in this
+                  case, as one normally refers to this author by the
+                  pseudonym, but if it is of particular interest this
+                  is how you would present such information.}
+}
+
+@Artwork{leo:madonna,
+  author = 	 {{Leonardo da Vinci}},
+  shortauthor =  {Leonardo},
+  title = 	 {Madonna of the Rocks},
+  type = 	 {oil on canvas},
+  note = 	 {78 x 48.5 in\adddot},
+  year = 	 {1480s},
+  institution =  {Louvre},
+  location =  {Paris},
+  annotation = 	 {A typical Artwork entry.  Note the type field and
+                  the fact that it begins with a lowercase letter,
+                  allowing biblatex to capitalize it contextually when
+                  needed, though this isn't strictly necessary for
+                  author-date.}
+}
+
+@Book{levistrauss:savage,
+  title = 	 {The Savage Mind},
+  year = 	 1962,
+  author = 	 {Lévi-Strauss, Claude},
+  publisher = {Weidenfeld \& Nicolson},
+  location =  {Chicago: University of Chicago Press; London},
+  annotation = 	 {A standard Book entry, showing a kludge in the
+                  location field for including two publishers in two
+                  different countries.  The simplest thing to do in
+                  such a situation is to pick the one nearest to you
+                  and just use it, but this may be necessary
+                  sometimes.}
+}
+
+@Article{lewis,
+  author =	 {Lewis, Judith},
+  title =	 {\mkbibquote{'Tis a Misfortune to
+                  Be a Great Ladie}},
+  subtitle =	 {Maternal Mortality in the {British} Aristocracy,
+                  1558--1959},
+  journaltitle = {Journal of British Studies},
+  year =	 1998,
+  volume =	 37,
+  pages =	 {26--53},
+  annote = 	 {16th edition only An Article entry showing a
+                  quotation inside a title.  Note the headline-style
+                  capitalization inside the formatting.}
+}
+
+@Article{lewis:15,
+  author =	 {Lewis, Judith},
+  title =	 {\mkbibquote{'Tis a misfortune to
+                  be a great ladie}},
+  subtitle =	 {Maternal Mortality in the {British} Aristocracy,
+                  1558--1959},
+  journaltitle = {Journal of British Studies},
+  year =	 1998,
+  volume =	 37,
+  pages =	 {26--53},
+  annotation = 	 {15th edition only An Article entry showing a
+                  quotation inside a title.  Note the sentence-style
+                  capitalization inside the formatting.}
+}
+
+@InCollection{lippincott:chicago,
+  author = 	 {Lippincott, Sarah Clarke},
+  title = 	 {Chicago},
+  crossref =  {prairie:state},
+  pages = 	 {362--370},
+  annotation = 	 {Third and last of the InCollection entries referring
+                  to the same Collection.  The reference list entries
+                  of all three are abbreviated. Cf. ellet:galena
+                  and keating:dearborn.}
+}
+
+@Video{loc:city,
+  title = 	 {The Life of a City},
+  subtitle = 	 {Early Films of {New York}, 1898--1906},
+  author = 	 {{Library of Congress}},
+  type = 	 {MPEG},
+  url = 	 {http://lcweb2.loc.gov/ammem/papr/nychome.html},
+  urldate = 	 {2001-08-14},
+  annotation = 	 {This Video entry gives the online location of the
+                  weed:flatiron film, providing an MPEG file for
+                  download.  As the parent entry calls this using a
+                  related field, you no longer need a skipbib option
+                  to keep it from appearing in the reference list, nor
+                  do you need a kludge in the year field to keep the
+                  urldate where it should be.}
+}
+
+@Online{loc:leaders,
+  author = 	 {Library of Congress},
+  title = 	 {American Leaders Speak},
+  subtitle = 	 {Recordings from {World War I} and the 1920 Election,
+                  1918--1920},
+  url = 	 {http://memory.loc.gov/ammem/nfhtml/nforSpeakers01.html},
+  note = 	 {RealAudio and WAV formats},
+  annotation = 	 {This \textsf{Online} entry provides the online
+                  location of the \cmslink{coolidge:speech} entry.  As
+                  the parent entry calls this using a \textsf{related}
+                  field, you no longer need a \texttt{skipbib} option
+                  to keep it from appearing in the reference list, nor
+                  do you need a kludge in the \textsf{year} field to
+                  keep a spurious \enquote{n.d.}  from appearing.}
+}
+
+@Article{loften:hamlet,
+  author = 	 {Loften, Peter},
+  title = 	 {Reverberations between Wordplay and Swordplay in
+                  \mkbibemph{Hamlet}},
+  journaltitle = {Aeolian Studies},
+  year = 	 1989,
+  volume = 	 2,
+  pages = 	 {12--29},
+  annotation = 	 {An Article entry with a formatted title within its
+                  title.}
+}
+
+@Article{loomis:structure,
+  author = 	 {Loomis, Jr., C.~C.},
+  title = 	 {Structure and Sympathy in {Joyce's} \mkbibquote{The Dead}},
+  journaltitle = {PMLA},
+  date = 	 1960,
+  volume = 	 75,
+  pages = 	 {149--151},
+  annote = 	 {16th edition only An article entry with a quoted
+                  title within its title}
+}
+
+@Article{loomis:structure:15,
+  author = 	 {Loomis, Jr., C.~C.},
+  title = 	 {Structure and Sympathy in {Joyce's} \mkbibquote{The dead}},
+  journaltitle = {PMLA},
+  date = 	 1960,
+  volume = 	 75,
+  pages = 	 {149--51},
+  annotation = 	 {15th edition only An article entry with a quoted
+                  title within its title}
+}
+
+@Book{lynch:webstyle,
+  title = 	 {Web Style Guide},
+  subtitle = 	 {Basic Design Principles for Creating {Web} Sites},
+  date = 	 1999,
+  author = 	 {Lynch, Patrick~J. and Horton, Sarah},
+  publisher = {Yale Univ. Press},
+  address = 	 {New Haven},
+  annotation = 	 {A plain book with a subtitle}}
+
+@Book{maisonneuve:relations,
+  title =	 {Les relations publiques},
+  subtitle =	 {Dans une société en mouvance},
+  year =	 1998,
+  author =	 {Maisonneuve, Danielle and Lamarche, Jean-François and
+                  St-Amand, Yves},
+  publisher =	 {Presses de l'Université de Québec},
+  location =	 {Sainte-Foy, QC},
+  annotation = 	 {Standard Book entry, maintaining French
+                  sentence-style capitalization.}
+}
+
+@Book{maitland:canon,
+  title = 	 {Roman canon law in the {Church of England}},
+  date = 	 1998,
+  origdate = 	 1898,
+  author = 	 {Maitland, Frederic W.},
+  publisher = {Lawbook Exchange},
+  address = 	 {Union, NJ},
+  options = 	 {cmsdate=new},
+  pubstate = 	 {reprint},
+  annotation = 	 {A reprint edition.  The \emph{CMS} gives many
+                  options for presenting this information.  This
+                  example provides both dates at the head of the entry
+                  in the reference list and in citations, using
+                  \texttt{cmsdate=new} in the \textsf{options} field.
+                  It is identified as a reprint with the
+                  \textsf{pubstate} field.  Cf.\
+                  \cmslink{james:ambassadors} and
+                  \cmslink{maitland:equity} for other alternatives.}
+}
+
+@Book{maitland:equity,
+  title = 	 {Equity, also the Forms of Action at Common Law},
+  subtitle = 	 {Two Courses of Lectures},
+  date = 	 1926,
+  origdate = 	 1909,
+  author = 	 {Maitland, Frederic W.},
+  editor = 	 {Chaytor, A.~H. and others},
+  publisher = cup,
+  address = 	 {Cambridge},
+  pubstate = 	 {reprint},
+  sortyear = 	 {2010},
+  annotation = 	 {Another reprint edition, showing an alternative way
+                  of presenting the information.  This example
+                  provides just the \textsf{date} of the reprint at
+                  the head of the reference list and in the citation
+                  -- there's no \texttt{cmsdate} option, which means
+                  \texttt{cmsdate=off} -- and then gives the date of
+                  the original, identified as such by a string, after
+                  the publication data.  The string \texttt{reprint}
+                  in the \textsf{pubstate} field, even though it isn't
+                  printed in the entry, is necessary to make this
+                  original publication information appear (unless you
+                  decide to use the \textsf{relatedtype}
+                  \texttt{origpubin}).  Also, the \textsf{sortyear}
+                  field is necessary here because \textsf{biblatex}
+                  sorts automatically by the \textsf{year} rather than
+                  the \textsf{origyear}, and this entry from 1926
+                  should come after \cmslink{maitland:canon} which
+                  prints its \textsf{origdate} (1898) first.  Cf.\
+                  \cmslink{james:ambassadors}}
+}
+
+@Book{mchugh:wake,
+  title = 	 {Annotations to \mkbibquote{Finnegans Wake}},
+  year = 	 1980,
+  author = 	 {McHugh, Roland},
+  publisher = {Johns Hopkins University Press},
+  location =  {Baltimore},
+  type = 	 {plain},
+  annote = 	 {16th edition only A Book with a quoted title
+                  inside an italicized one.  Remember to use
+                  \mkbibquote.  See next entry.}
+}
+
+@Book{mchugh:wake:15,
+  title = 	 {Annotations to \mkbibquote{Finnegans wake}},
+  year = 	 1980,
+  author = 	 {McHugh, Roland},
+  publisher = {Johns Hopkins Univ.\ Press},
+  location =  {Baltimore},
+  type = 	 {plain},
+  annotation = 	 {15th edition only A Book with a quoted title
+                  inside an italicized one.  Remember to use
+                  \mkbibquote, and to provide sentence-style
+                  capitalization inside the formatting.}
+}
+
+@Book{menchu:crossing,
+  title = 	 {Crossing Borders},
+  date = 	 1999,
+  author = 	 {Mench\'u, Rigoberta},
+  editor = 	 {Wright, Ann},
+  translator = 	 {Wright, Ann},
+  publisher = {Verso},
+  address = 	 {New York},
+  annotation = 	 {Book with translator and editor, who are the same}}
+
+@Book{meredith:letters,
+  title = 	 {The Letters of {George Meredith}},
+  publisher = 	 {Clarendon Press},
+  year = 	 1970,
+  author = 	 {Meredith, George},
+  editor = 	 {Cline, C.~L.},
+  volumes = 	 3,
+  location =  {Oxford},
+  annotation = 	 {A published collection of letters referred to by
+                  page rather than by individual letter, hence using a
+                  Book entry rather than Letter.  You should be aware
+                  that, because there are three volumes of letters,
+                  the postnote field of any cite command should
+                  contain both volume and page references, as in
+                  "2:234".  For the author-date style the Manual
+                  recommends using entries of this sort for all
+                  published letters, giving references to the dates of
+                  individual letters in the text itself (15th
+                  ed. 17.77, 16th ed. 15.40).}
+}
+
+@Book{michelangelo:poems,
+  title = 	 {The Complete Poems of {Michelangelo}},
+  date = 	 1999,
+  author = 	 {Michelangelo},
+  publisher = uchp,
+  address = 	 {Chicago},
+  translator = 	 {Nims, J.~F.},
+  annotation = 	 {Plain book entry with translator}}
+
+@Book{mla:style,
+  title = 	 {{MLA} Style Manual and Guide to Scholarly Publishing},
+  editor = 	 {Gibaldi, Joseph},
+  year = 	 1998,
+  publisher = {Modern Language Association of America},
+  edition = 	 2,
+  location =  {New York},
+  annotation =       {In the notes + bibliography style I used a Reference
+                  entry to present this data, with useeditor=false in
+                  the options field to allow the work to be
+                  alphabetized by the title in the bibliography.
+                  Given the nature of the author-date style, it seems
+                  preferable just to use a book entry, allowing it to
+                  be sorted under the editor's name in the reference
+                  list.}
+}
+
+@Article{morgenson:market,
+  journaltitle = {New York Times},
+  entrysubtype = {magazine},
+  pages = 	 {sec.~3},
+  date = 	 {2000-04-23},
+  author = 	 {Morgenson, Gretchen},
+  title = 	 {Applying a Discount to Good Earnings News},
+  titleaddon = {Market Watch},
+  annotation = 	 {An Article entry (entrysubtype "magazine")
+                  presenting a regular column in a newspaper, which
+                  column also has an individual, specific title. The
+                  latter goes in the title field and the former in the
+                  titleaddon field.  Note also the reference to the
+                  section in the pages field.}
+}
+
+@CustomC{morton:creasey,
+  author = 	 {Morton, Anthony},
+  title = 	 {Creasey, John},
+  annotation = 	 {This CustomC entry provides a cross-reference from
+                  the pseudonym in the author field to the real name
+                  in the title field, allowing your readers to find
+                  the cited work under the author's real name.  The
+                  entry for that work, creasey:morton:hide, contains a
+                  userc field which refers to this entry, ensuring
+                  that this cross-reference will be printed if the
+                  main entry itself is cited.}
+}
+
+@Music{mozart:figaro,
+  title = 	 {Le nozze di {Figaro}},
+  howpublished = {\textsf{\small\textcircledP}},
+  date = 	 {1987},
+  author = 	 {Mozart, Wolfgang Amadeus},
+  editor = 	 {{Vienna Philharmonic}},
+  editortype = 	 {none},
+  editora = 	 {Muti, Riccardo},
+  editoratype =  {conductor},
+  number = 	 {CDS~7~47978~8},
+  publisher = {EMI Records Ltd.},
+  type = 	 {3 compact discs},
+  note = 	 {with Thomas Allen, Margaret Price, Jorma Hynninen,
+                  Ann Murray, Kurt Rydl, and the Konzertvereinigung
+                  Wiener Staatsopernchor},
+  annotation = 	 {This Music entry shows how a single such entry can
+                  work in both the 15th and 16th editions of the
+                  author-date style.  Because the 16th edition ignores
+                  the howpublished field, if you use it to provide
+                  copyright details for the 15th edition it won't get
+                  in the way of the 16th.  The other fields are the
+                  same for both specifications.}
+}
+
+@PhdThesis{murphy:silent,
+  author = 	 {Murphy, Priscilla Coit},
+  title = 	 {What a Book Can Do},
+  subtitle = 	 {\mkbibemph{Silent Spring} and Media-Borne Public Debate},
+  school = 	 {University of North Carolina},
+  year = 	 2000,
+  annote = 	 {16th edition only A Thesis entry, using the
+                  PhdThesis alias to define the type field.  The
+                  school field is an alias for biblatex's institution.
+                  Note also the formatting of a title within a quoted
+                  title.}
+}
+
+@PhdThesis{murphy:silent:15,
+  author = 	 {Murphy, Priscilla Coit},
+  title = 	 {What a Book Can Do},
+  subtitle = 	 {\mkbibemph{Silent spring} and Media-Borne Public Debate},
+  school = 	 {University of North Carolina},
+  year = 	 2000,
+  annotation = 	 {15th edition only A Thesis entry, using the
+                  PhdThesis alias to define the type field.  The
+                  school field is an alias for biblatex's institution.
+                  Note also the formatting of a title within a quoted
+                  title.}
+}
+
+@Unpublished{nass:address,
+  author = 	 {Nass, Clifford},
+  title = 	 {Why Researchers Treat On-Line Journals Like Real People},
+  note = 	 {keynote address, annual meeting of the Council of
+                  Science Editors},
+  location = 	 {San Antonio, TX},
+  date = 	 {2000-05-06/2000-05-09},
+  annotation = 	 {A typical Unpublished entry, presenting an
+                  unpublished piece that isn't part of a formal
+                  archive, which would usually require a Misc entry.
+                  The note field provides the details of what sort of
+                  piece it is, and whence it came.  The date field
+                  gives the range for the whole meeting, which will be
+                  printed at the end of the entry, while the year
+                  alone will appear at the head and in citations.}
+}
+
+@Book{natrecoff:camera,
+  title =	 {The {KH-4B} Camera System},
+  year =	 1967,
+  author =	 {{National Reconnaissance Office}},
+  publisher =	 {National Photographic Interpretation Center},
+  addendum =	 {now declassified and also available online},
+  location = 	 {Washington, DC},
+  url =
+                  {http://www.fas.org/spp/military/program/imint/kh-4%20camera%20system.htm},
+  annotation = 	 {A technical manual presented in a Book entry. The
+                  addendum gives extra details, and there's a url for
+                  easier access.  Note initial lowercase letter in
+                  addendum, and corporate author with extra curly
+                  braces.  If you're going to be citing this text
+                  frequently, you might want to use a shorthand field
+                  to save space in the body of your text.}
+}
+
+@Review{nyt:trevorobit,
+  journaltitle = {New York Times},
+  entrysubtype = {magazine},
+  date = 	 {2000-04-10},
+  title = {obituary of {Claire Trevor}},
+  options = 	 {cmsdate=full},
+  pages = 	 {national edition},
+  annotation = 	 {An obituary in a \textsf{Review} entry
+                  (\textsf{entrysubtype} \texttt{magazine}).  Without
+                  an author, the \textsf{journaltitle} will head the
+                  entry and appear in citations.  The lowercase letter
+                  beginning the \textsf{title} field isn't
+                  \vadjust{\eject}strictly necessary in the
+                  author-date style, but does no harm and maintains
+                  compatibility with the notes + bibliography style,
+                  just in case.  The \textsf{sortkey} field is no
+                  longer needed.  Note also the \texttt{full} key for
+                  the \texttt{cmsdate} option, which prints a full
+                  date specification in citations and means you
+                  wouldn't need this entry to appear in the reference
+                  list, though I have allowed it to appear here as an
+                  example.}
+}
+
+@Music{nytrumpet:art,
+  title = 	 {Art of the Trumpet},
+  date = 	 1982,
+  origdate = 	 {1981-06-01/1981-06-02},
+  author = 	 {{The New York Trumpet Ensemble, with Edward Carroll
+                  (trumpet) and Edward Brewer (organ)}},
+  shortauthor =  {{New York Trumpet Ensemble}},
+  number = 	 {PVT 7183},
+  series = 	 {Vox/Turnabout},
+  userd = 	 {recorded at the Madeira Festival,},
+  sortkey = 	 {New York Trumpet},
+  type = 	 {compact disc},
+  annotation = 	 {A well-populated \textsf{Music} entry.  The
+                  \textsf{title}, \textsf{date}, \textsf{author},
+                  \textsf{shortauthor}, \textsf{number},
+                  \textsf{series}, \textsf{sortkey}, and \textsf{type}
+                  fields are fairly standard, and you can also specify
+                  the recording date of the album, which goes in the
+                  \textsf{origdate} field.  The \textsf{userd} field
+                  acts as a sort of date type field.  In this example,
+                  the \textsf{origdate} would by default be preceded
+                  by the \cmd{bibstring} \texttt{recorded}, but the
+                  \textsf{userd} field allows you to provide your own
+                  here.}
+}
+
+@Music{nytrumpet:art:15,
+  title = 	 {Art of the Trumpet},
+  date = 	 1982,
+  author = 	 {{The New York Trumpet Ensemble, with Edward Carroll
+                  (trumpet) and Edward Brewer (organ)}},
+  shortauthor =  {{New York Trumpet Ensemble}},
+  number = 	 {PVT 7183},
+  series = 	 {Vox/Turnabout},
+  publisher =    {The Moss Music Group},
+  howpublished = {\textsf{\small\textcircledP}\ and
+                  \textsf{\small\textcopyright}},
+  sortkey = 	 {New York Trumpet},
+  type = 	 {compact disc},
+  annotation = 	 {15th edition only This can be considered an
+                  example of a satisfyingly full Music entry,
+                  providing nearly all pertinent information, although
+                  the composers are missing on what is presumably a
+                  compilation CD.  The performers take the composers'
+                  place in the author field, the series and number
+                  field give the label information, and the type field
+                  gives the medium.  The publisher of the label is
+                  also present, along with the date and the
+                  howpublished field, presenting, as the Manual
+                  suggests, the nature of the copyrights asserted by
+                  the publisher.  (The pubstate field, only in this
+                  entry type, could serve as a synonym for
+                  howpublished.)}
+}
+
+@InReference{oed:cdrom,
+  title = 	 {Oxford {English} Dictionary},
+  publisher = oup,
+  edition = 	 2,
+  shorttitle = 	 {{OED}, \mkbibemph{2nd ed}\adddot},
+  note = 	 {CD-ROM, version 2.0},
+  annotation = 	 {An example of a reference work on CD-ROM, presented
+                  in an InReference entry.  The shorttitle is for
+                  in-text citations.}
+}
+
+@Article{osborne:poison,
+  journaltitle = {Salon},
+  entrysubtype = {magazine},
+  date = 	 {2000-03-29},
+  author =	 {Osborne, Lawrence},
+  title =	 {Poison Pen},
+  titleaddon =	 {\bibstring{reviewof} \emph{The Collaborator: The
+                  Trial and Execution of Robert Brasillach},
+                  \bibstring{by} Alice Kaplan},
+  url =   {http://www.salon.com/books/it/2000/03/29/kaplan/index.html},
+  urldate =	 {2001-07-10},
+  annote = 	 {16th edition only A review from a magazine, but
+                  with both specific (title field) and generic
+                  (titleaddon field) titles, presented in an Article
+                  entry, entrysubtype "magazine."  Note formatting in
+                  the titleaddon, where you provide the headline-style
+                  capitalization yourself.  The entry also gives a url
+                  to the online version.  See next entry.}
+}
+
+@Article{osborne:poison:15,
+  journaltitle = {Salon},
+  entrysubtype = {magazine},
+  date = 	 {2000-03-29},
+  author =	 {Osborne, Lawrence},
+  title =	 {Poison Pen},
+  titleaddon =	 {\bibstring{reviewof} \emph{The collaborator: The
+                  trial and execution of Robert Brasillach},
+                  \bibstring{by} Alice Kaplan},
+  url =   {http://www.salon.com/books/it/2000/03/29/kaplan/index.html},
+  urldate =	 {2001-07-10},
+  annotation = 	 {15th edition only A review from a magazine, but
+                  with both specific (title field) and generic
+                  (titleaddon field) titles, presented in an Article
+                  entry, entrysubtype "magazine."  Note formatting in
+                  the titleaddon, where you need to provide
+                  sentence-style capitalization yourself, as this
+                  field doesn't take advantage of the package's
+                  automatic routines for doing so.  The entry also
+                  gives a url to the online version.}
+}
+
+@Book{palmatary:pottery,
+  title =	 {The Pottery of {Marajó Island, Brazil}},
+  year =	 1950,
+  author =	 {Palmatary, Helen~C.},
+  series =	 {Transactions of the American Philosophical Society},
+  number = 	 {\bibstring{newseries}, 39, pt. 3},
+  location =	 {Philadelphia},
+  annotation = 	 {A Book entry, with series and number fields. The
+                  name of the series alone goes in that field, with
+                  any other information (like the bibstring
+                  "newseries") going in the number field.}
+}
+
+@Book{pelikan:christian,
+  title =	 {The Emergence of the {Catholic} Tradition},
+  year =	 1971,
+  maintitle =	 {The {Christian} Tradition},
+  mainsubtitle = {A History of the Development of Doctrine},
+  volume =	 1,
+  author =	 {Pelikan, Jaroslav},
+  publisher =	 uchp,
+  location =	 {Chicago},
+  annotation = 	 {A Book entry showing one volume of a multi-volume
+                  maintitle.}
+}
+
+@Patent{petroff:impurity,
+  title = 	 {Blocked impurity band detectors},
+  author = 	 {Petroff, M.~D. and Stapelbroek, M.~G.},
+  origdate = 	 {1980-10-23},
+  date = 	 {1986-02-04},
+  number = 	 {4,586,960},
+  type = 	 {patentus},
+  annotation = 	 {A Patent entry, with the patent number in the number
+                  field, a bibstring in the type field, the filing
+                  date in origdate, and the issue date in date. Note
+                  the sentence-style capitalization of the title of
+                  Patent entries, which you now have to provide
+                  yourself, as the 16th edition style doesn't do it
+                  automatically.  Note also that the bibstring in the
+                  type field is not identified as such -- the
+                  formatting macros, in this instance, detect that it
+                  is a bibstring and treat it accordingly. This
+                  functionality isn't widespread, so you shouldn't
+                  always count on it being present elsewhere.}
+}
+
+@InBook{phibbs:diary,
+  author = 	 {Phibbs, Brendan},
+  title = 	 {Herrlisheim},
+  subtitle = 	 {Diary of a Battle},
+  booktitle = 	 {The Other Side of Time},
+  booksubtitle = {A Combat Surgeon in {World War II}\@},
+  pages = 	 {117--163},
+  publisher = {Little, Brown},
+  year = 	 1987,
+  address = 	 {Boston},
+  annotation = 	 {A named part of a larger book, hence we use the
+                  InBook entry type. You can provide either a page
+                  range in a pages field or a chapter number in a
+                  chapter field.}
+}
+
+@Book{pirumova,
+  author =	 {Pirumova, N.~M.},
+  title =	 {The Zemstvo Liberal Movement},
+  subtitle =	 {Its Social Roots and Evolution to the Beginning of
+                  the Twentieth Century},
+  publisher =	 {Izdatel'stvo \mkbibquote{Nauka}},
+  year =	 1977,
+  language =	 {russian},
+  location =	 {Moscow},
+  annotation = 	 {A \textsf{Book} entry presenting a Russian work, but
+                  giving the English translation of the \textsf{title}
+                  rather than the original, making it easier for a
+                  readership assumed to be without Russian to parse.
+                  In such a case, the language of the original goes in
+                  the \textsf{language} field.  Also note the
+                  quotation marks around part of the
+                  \textsf{publisher's} name, with \textsf{biblatex}
+                  providing the punctuation.}
+}
+
+@Book{pirumova:russian,
+  title = 	 {Zemskoe liberal'noe dvizhenie},
+  subtitle = 	 {Sotsial'nye korni i evoliutsiia do nachala XX veka},
+  date = 	 1977,
+  usere = 	 {The zemstvo liberal movement: Its social roots and
+                  evolution to the beginning of the twentieth century},
+  langid =  {russian},
+  author = 	 {Pirumova, N.~M.},
+  publisher = {Izdatel'stvo \mkbibquote{Nauka}},
+  address = 	 {Moscow},
+  annotation = 	 {The same work as the preceding entry, but giving the
+                  transliteration of the Russian \textsf{title} rather
+                  than the translation.  In such a case, the
+                  translation of the \textsf{title} goes in the
+                  \textsf{usere} field.  The \textsf{langid} field
+                  means that the \textsf{subtitle} doesn't require any
+                  additional curly braces in the \texttt{trad} style.}
+}
+
+@BookInBook{plato:republic:gr,
+  title = 	 {Republic},
+  shorttitle = 	 {Resp\adddot},
+  entrysubtype = {classical},
+  year = 	 1902,
+  volume = 	 4,
+  author = 	 {Plato},
+  editor = 	 {Burnet, J.},
+  shortauthor =  {Pl\adddot},
+  booktitle = 	 {{Clitophon, Republic, Timaeus, Critias}},
+  maintitle = 	 {Opera},
+  publisher = {Clarendon Press},
+  series = {Oxford Classical Texts},
+  pages = 	 {327--621},
+  location =  {Oxford},
+  annotation = 	 {A work from antiquity, which will be cited by the
+                  traditional divisions, and which therefore requires
+                  the \texttt{classical} \textsf{entrysubtype}.  The
+                  \textsf{title} of such a work being italicized, it
+                  needs a \textsf{BookInBook} entry, and it has all
+                  three sorts of title, plus a \textsf{series} to
+                  boot.  The \textsf{shortauthor} and
+                  \textsf{shorttitle} fields provide the
+                  officially-sanctioned abbreviations for use in
+                  citations.}
+}
+
+@SuppBook{polakow:afterw,
+  author =	 {Polakow, Valerie},
+  title =	 {Lives on the Edge},
+  subtitle =	 {Single Mothers and Their Children in the Other
+                  {America}},
+  afterword =	 {yes},
+  year =	 1993,
+  pages = 	 {175--184},
+  publisher =	 uchp,
+  location =	 {Chicago},
+  annotation = 	 {A standard example of a SuppBook entry, specifically
+                  citing an afterword written by the main author of
+                  the book.  Note that you need only put something in
+                  the afterword field (and not define a foreword or
+                  introduction field) to make the reference work.  The
+                  16th edition requires, for the entry in the list of
+                  references, a page range for the part being cited.}
+}
+
+@Online{pollan:plant,
+  author = 	 {Pollan, Michael},
+  title = 	 {Michael {Pollan} Gives a Plant's-Eye View},
+  organization = {TED video, 17:31},
+  url = 	 {http://www.ted.com/index.php/talks/michael_pollan_gives_a_plant_s_eye_view.html},
+  urldate = 	 {2008-02},
+  date = 	 {2007-03},
+  userd = 	 {posted},
+  annotation = 	 {Another online video, presented in an
+                  \textsf{Online} entry.  Note the \textsf{userd}
+                  field to modify the string printed before the
+                  \textsf{urldate}.  Cf.\ \texttt{harwood:biden},
+                  \cmslink{horowitz:youtube}.}
+}
+
+@Online{powell:email,
+  author = 	 {Powell, John},
+  date = 	 {1998-04-23},
+  titleaddon = {e-mail to {Grapevine} mailing list},
+  url = 	 {http://www.electriceditors.net/grapevine/issues/83.txt},
+  annotation = 	 {An Online entry showing how in the 16th edition of
+                  the author-date style a generic title should go into
+                  a titleaddon field, rather than into title, so that
+                  it won't be placed inside quotation marks.  This
+                  works just fine in the 15th edition as well.  Note
+                  also the absence of any organization or owner of the
+                  site as whole.}
+}
+
+@Collection{prairie:state,
+  booktitle =	 {Prairie State},
+  title =	 {Prairie State},
+  booksubtitle = {Impressions of {Illinois}, 1673--1967, by Travelers
+                  and Other Observers},
+  subtitle =	 {Impressions of {Illinois}, 1673--1967, by Travelers
+                  and Other Observers},
+  year =	 1968,
+  editor =	 {Angle, Paul~M.},
+  publisher =	 uchp,
+  location =	 {Chicago},
+  annotation = 	 {A Collection entry, the one that has been
+                  cross-referenced by three other entries in this
+                  bibliography.  Note the usual duplication of title
+                  and booktitle in a parent entry when the children
+                  use crossref, and note the editor instead of an
+                  author.  If more than one child cross-references the
+                  parent, the parent will be printed in the
+                  bibliography even if not independently cited.}
+}
+
+@SuppBook{prose:intro,
+  author =	 {Prose, Francine},
+  bookauthor =	 {Wallraff, Barbara},
+  title =	 {Word Court},
+  subtitle =	 {Wherein Verbal Virtue is Rewarded, Crimes against
+                  the Language Are Punished, and Poetic Justice Is
+                  Done},
+  year =	 2000,
+  location =	 {New York},
+  pages = 	 {xvii--xxxviii},
+  introduction = {yes},
+  publisher =	 {Harcourt},
+  annotation = 	 {A typical SuppBook entry, with an author providing
+                  an introduction to someone else's book. That someone
+                  else goes in bookauthor.  The introduction field
+                  just needs defining any which way, with afterword
+                  and foreword not defined at all.  The 16th edition
+                  requires, for the entry in the list of references, a
+                  page range for the part being cited.}
+}
+
+@Review{ratliff:review,
+  author =	 {Ratliff, Ben},
+  title =	 {\bibstring{reviewof} \mkbibemph{The Mystery of
+                  Samba: Popular Music and National Identity in
+                  Brazil}, \bibstring{by} {Hermano Vianna},
+                  \parteditandtrans {John Charles Chasteen}},
+  journaltitle = {Lingua Franca},
+  date = 	 {1999-04},
+  volume =	 9,
+  pages =	 {B13--B14},
+  annote = 	 {16th edition only A Review entry presenting a
+                  review from a scholarly journaltitle, hence no
+                  entrysubtype needed.  Note the bibstrings in the
+                  title of the review, and the formatting of the title
+                  of the book reviewed there.  Also note the use of
+                  parteditandtrans.  The author-date system doesn't
+                  absolutely require the use of these mechanisms,
+                  which were invented to cope with the differences
+                  between notes and bibliography in the other Chicago
+                  style.  Still, although simply writing "edited and
+                  translated by" yourself will suffice, using these
+                  mechanisms will make your .bib file work across
+                  multiple languages, and will also allow it to work,
+                  with fewer modifications, in the notes \&
+                  bibliography style, should that be needed.  See next
+                  entry.}
+}
+
+@Article{ratliff:review:15,
+  author =	 {Ratliff, Ben},
+  title =	 {\bibstring{reviewof} \mkbibemph{The mystery of
+                  samba: Popular music and national identity in
+                  Brazil}, \bibstring{by} {Hermano Vianna},
+                  \parteditandtrans {John Charles Chasteen}},
+  journaltitle = {Lingua Franca},
+  date = 	 {1999-04},
+  volume =	 9,
+  pages =	 {B13--B14},
+  annotation = 	 {15th edition only An Article entry presenting a
+                  review from a scholarly journaltitle, hence no
+                  entrysubtype needed.  Note the bibstrings in the
+                  title of the review, and the formatting of the title
+                  of the book reviewed there.  Also note the use of
+                  parteditandtrans.  The author-date system doesn't
+                  absolutely require the use of these mechanisms,
+                  which were invented to cope with the differences
+                  between notes and bibliography in the other Chicago
+                  style.  Still, although simply writing "ed. and
+                  trans." yourself will suffice, using these
+                  mechanisms will make your .bib file work across
+                  multiple languages, and will also allow it to work,
+                  with fewer modifications, in the notes \&
+                  bibliography style, should that be needed.}
+}
+
+@Article{reaves:rosen,
+  journaltitle = {Time},
+  entrysubtype = {magazine},
+  date = 	 {2001-03-14},
+  author = 	 {Reaves, Jessica},
+  title = 	 {A Weighty Issue},
+  subtitle = 	 {Ever-Fatter Kids},
+  titleaddon = {interview with James Rosen},
+  url =  {http://www.time.com/time/nation/article/0,8599,102443,00.html},
+  annotation = 	 {A magazine interview with its own, specific title,
+                  presented in an Article entry with "magazine"
+                  entrysubtype.  The generic title goes in titleaddon,
+                  with the style taking care of capitalization of the
+                  first word.  The author of this article is different
+                  from the interviewee, which suggests a certain
+                  flexibility in the Manual's requirements for such
+                  things.  The url field gives the online location.}
+}
+
+@Book{rodman:walk,
+  title = 	 {Walk on the Wild Side},
+  publisher = 	 {Delacorte Press},
+  year = 	 1997,
+  author = 	 {Rodman, Dennis},
+  note = 	 {with Michael Silver},
+  location =  {New York},
+  annotation = 	 {A Book entry with a named ghostwriter, given in the
+                  note field.}
+}
+
+@Misc{roosevelt:speech,
+  author = 	 {Roosevelt, Eleanor},
+  title = 	 {\mkbibquote{Is America Facing World Leadership?}},
+  entrysubtype = {speech},
+  note = 	 {radio broadcast, Windows Media Audio, 47:46},
+  titleaddon = {convocation speech, Ball State Teacher's College},
+  url = 	 {http://libx.bsu.edu/cdm4/item_viewer.php?CISOROOT=/ElRoos&CISOPTR=0&CISOBOX=1&REC=2},
+  date = 	 {1959-05-06},
+  annotation = 	 {Another speech from an online archive, presented in
+                  a Misc entry with an entrysubtype.  Note the
+                  formatting of the title.  Cp. coolidge:speech.}
+}
+
+@Misc{roosevelt:speech:trad,
+  author = 	 {Roosevelt, Eleanor},
+  title = 	 {Is {America} facing world leadership?},
+  entrysubtype = {speech},
+  note = 	 {radio broadcast, Windows Media Audio, 47:46},
+  titleaddon = {convocation speech, Ball State Teacher's College},
+  url = 	 {http://libx.bsu.edu/cdm4/item_viewer.php?CISOROOT=/ElRoos&CISOPTR=0&CISOBOX=1&REC=2},
+  date = 	 {1959-05-06},
+  annotation = 	 {Another speech from an online archive, presented in
+                  a Misc entry with an entrysubtype, and intended for
+                  authordate-trad only.  Note the formatting of the
+                  title.  Cp. coolidge:speech.}
+}
+
+@MastersThesis{ross:thesis,
+  author = 	 {Ross, Dorothy},
+  title = 	 {The {Irish-Catholic} Immigrant, 1880--1900},
+  subtitle = 	 {A Study in Social Mobility},
+  school = 	 {Columbia University},
+  year = 	 {\bibstring{nodate}},
+  annotation = 	 {A \textsf{Thesis} entry with its \textsf{type}
+                  pre-defined by the alias \textsf{MastersThesis}.
+                  The \texttt{nodate} \cmd{bibstring} (which gives
+                  \enquote{n.d\adddot} in English) may be used in
+                  almost any entry type if you can't find a date,
+                  though the author-date style automatically provides
+                  it in most types if you don't.}
+}
+
+@Article{rozner:liberation,
+  journaltitle = {Voprosy istorii},
+  year = 	 1979,
+  author = 	 {Rozner, I.~G.},
+  title = 	 {The War of Liberation of the {Ukrainian} People in
+                  1648--1654 and {Russia}},
+  number = 	 4,
+  language = 	 {russian},
+  pages = 	 {51--64},
+  annotation = 	 {This is a Russian journal, and its journaltitle is
+                  in transliterated Russian, while its article title
+                  is translated into English, hence the original
+                  language provided in the language field.}
+}
+
+@Music{rubinstein:chopin,
+  title = 	 {The {Chopin} Collection},
+  date = 	 1991,
+  author = 	 {Rubinstein, Artur},
+  publisher = {RCA Victor/BMG},
+  number = 	 {60822-2-RG},
+  type = 	 {11 compact discs},
+  origdate = 	 {1946/1967},
+  annotation = 	 {16 edition only.  A Music entry giving the
+                  original recording dates of a later compilation.  In
+                  the author-date style, you don't see the "recorded"
+                  bibstring, so there may be some ambiguity as to what
+                  the origdate represents.  Cf. floyd:atom.}
+}
+
+@Book{schellinger:novel,
+  title = 	 {Encyclopedia of the Novel},
+  publisher = 	 {Fitzroy Dearborn},
+  year = 	 1998,
+  editor = {Schellinger, Paul and Hudson, Christopher and Rijsberman, Marijk},
+  location =  {Chicago},
+  annotation = 	 {As this isn't one of the universally-known reference
+                  works, its entry will have (in the absence of an
+                  author) the editors at its head, hence the choice of
+                  Book rather than Reference.}
+}
+
+@Article{schneider:mittelpleistozaene,
+  author = 	 {Schneider, B.},
+  title = 	 {Eine mittelpleistoz\"ane Herpetofauna von der Insel
+                  Chios, \"Ag\"ais},
+  journaltitle = {Senckenbergiana Biologica},
+  hyphenation =  {german},
+  date = 	 1975,
+  volume = 	 56,
+  pages = 	 {191--198},
+  annotation = 	 {An article in German with the title left
+                  untranslated.  The hyphenation field means you don't
+                  need additional curly braces in the title to
+                  preserve the capitalization.  Cf. pirumova:russian.}
+}
+
+@Audio{schubert:muellerin,
+  title = 	 {{Das Wandern (Wandering)}},
+  date = 	 1895,
+  booktitle = 	 {{Die sch\"one M\"ullerin} ({The} Maid of the Mill)},
+  maintitleaddon = {(for high voice)},
+  maintitle = 	 {First Vocal Album},
+  options = 	 {ctitleaddon=space},
+  author = 	 {Schubert, Franz},
+  publisher = {G.~Schirmer},
+  address = 	 {New York},
+  annotation = 	 {An \textsf{Audio} entry presenting a published
+                  musical score.  Note the presence of all three sorts
+                  of \textsf{title}, and the \textsf{options} field
+                  providing a space in place of a comma before the
+                  parenthesized \textsf{maintitleaddon}.}
+}
+
+@Book{schweitzer:bach,
+  title = 	 {{J. S. Bach}},
+  origdate = 	 1966,
+  date = 	 1911,
+  author = 	 {Schweitzer, Albert},
+  origlocation = {London},
+  origpublisher = {Breitkopf \&\ Härtel},
+  addendum = 	 {Citations refer to the Dover edition},
+  options = 	 {cmsdate=both},
+  translator = 	 {Newman, Ernest},
+  publisher = {Dover},
+  pubstate = 	 {reprint},
+  location =  {New York},
+  annotation = 	 {A reprinted \textsf{Book}, showing how to present
+                  this information by putting \texttt{reprint} in the
+                  \textsf{pubstate} field, the origdate into the
+                  \textsf{date} field, and the date into
+                  \textsf{origdate}.  The style notices that the years
+                  have been switched with a simple numerical test, and
+                  prints them in their proper places.  This would
+                  allow you to present several reprinted works from
+                  the same year by the same author, and have the years
+                  suffixed with a,b,c, etc. as required by the spec.
+                  The \texttt{cmsdate=both} option prints both dates.
+                  The \textsf{origlocation} and \textsf{origpublisher}
+                  fields allow you to present further information
+                  about the original edition, if you should so wish,
+                  and the \textsf{addendum} clarifies which edition
+                  will be providing the page references for
+                  citations.}
+}
+
+@Book{sechzer:women,
+  title =	 {Women and Mental Health},
+  publisher =	 {Johns Hopkins Univ. Press},
+  year =	 1996,
+  editor =	 {Sechzer, Jeri A. and Pfaffilin, S.~M. and Denmark,
+                  F.~L. and Griffin, A. and Blumenthal, S.~J.},
+  location =	 {Baltimore},
+  annotation = 	 {A Book without an author, but with more than 3
+                  editors, hence the "et al." mechanism comes into
+                  play in citations, though not in the reference
+                  list.}
+}
+
+@Book{sereny:cries,
+  title = 	 {Cries Unheard},
+  subtitle = 	 {Why Children Kill; {The} Story of {Mary Bell}},
+  year = 	 1999,
+  author = 	 {Sereny, Gitta},
+  publisher = {Metropolitan Books and Henry Holt},
+  location =  {New York},
+  annotation = 	 {A Book with two subtitles, the second separated by a
+                  semicolon, according to the spec.}
+}
+
+@Article{sewall:letter,
+  author =	 {Sewall, Jonathan},
+  title =	 {Letter of {Jonathan Sewall}},
+  journaltitle = {Proceedings of the Massachusetts Historical Society},
+  date = 	 {1896-01},
+  volume =	 10,
+  pages =	 {412--415},
+  series =	 2,
+  annotation = 	 {A letter presented as an article in a scholarly
+                  journal, hence the Article entry.  Note plain number
+                  in series field of an Article entry.}
+}
+
+@Misc{shapey:partita,
+  author = 	 {Shapey, Ralph},
+  title = 	 {\mkbibquote{Partita for Violin and Thirteen Players}},
+  titleaddon = 	 {score},
+  entrysubtype = {music},
+  date = 	 1966,
+  note = 	 {Special Collections},
+  organization = {Joseph Regenstein Library},
+  institution =  {University of Chicago},
+  annotation = 	 {An example of an unpublished musical score,
+                  presented in a \textsf{Misc} (with
+                  \textsf{entrysubtype}) rather than an \textsf{Audio}
+                  entry.  Note that, having a non-generic title, you
+                  need to provide quotation marks in the
+                  \textsf{title} in the author-date style, which means
+                  that the entry is incorrect for the \texttt{trad}
+                  style.}
+}
+
+@Misc{shapey:partita:15,
+  author = 	 {Shapey, Ralph},
+  title = 	 {Partita for violin and thirteen players},
+  titleaddon = 	 {score},
+  entrysubtype = {music},
+  date = 	 1966,
+  note = 	 {Special Collections},
+  organization = {Joseph Regenstein Library},
+  institution =  {University of Chicago},
+  annotation = 	 {An example of an unpublished musical score,
+                  presented in a \textsf{Misc} entry (with
+                  \textsf{entrysubtype}) rather than an \textsf{Audio}
+                  entry, which is what you would use for a published
+                  score.  Because \textsf{Misc} entries with an
+                  \textsf{entrysubtype} don't provide any formatting
+                  of the \textsf{title} at all, when you use the
+                  \texttt{trad} style you may need to pay special
+                  attention to them, as here, where no quotation
+                  marks are necessary in the \textsf{title}}
+}
+
+@Book{silver:gawain,
+  title = 	 {Sir {Gawain} and the {Green Knight}},
+  publisher = 	 uchp,
+  year = 	 1974,
+  translator = 	 {Silverstein, Theodore},
+  location =  {Chicago},
+  annotation = 	 {Here, neither \textsf{author} nor \textsf{editor}
+                  are available, so the reference list entry and
+                  citations will start with the \textsf{translator}.}
+}
+
+@InCollection{sirosh:visualcortex,
+  author =	 {Sirosh, J. and Miikkulainen, R. and Bednar, J.~A.},
+  title =	 {Self-Organization of Orientation Maps, Lateral
+                  Connections, and Dynamic Receptive Fields in the
+                  Primary Visual Cortex},
+  booktitle =	 {Lateral Interactions in the Cortex},
+  booksubtitle = {Structure and Function},
+  publisher =	 {UTCS Neural Networks Research Group},
+  year =	 1996,
+  editor =	 {Sirosh, J. and Miikkulainen, R. and Choe, Y.},
+  url =   {http://www.cs.utexas.edu/users/nn/web-pubs/htmlbook96/},
+  urldate =	 {2001-08-27},
+  location =	 {Austin, TX},
+  annotation = 	 {Part of a collection with its own title, hence
+                  requiring an InCollection entry.}
+}
+
+@Book{soltes:georgia,
+  title = 	 {Georgia},
+  subtitle = 	 {Art and Civilization through the Ages},
+  publisher = 	 {Philip Wilson},
+  year = 	 1999,
+  editor = 	 {Soltes, Ori Z.},
+  location =  {London},
+  annotation = 	 {A Book entry without an author, hence with the
+                  editor at the head of citations.}
+}
+
+@Misc{spock:interview,
+  author = 	 {Spock, Benjamin},
+  entrysubtype = {letter},
+  title = 	 {interview by Milton J. E. Senn},
+  date = 	 {1974-11-20},
+  note = 	 {interview 67A, transcript},
+  organization = {Senn Oral History Collection},
+  institution =  {National Library of Medicine},
+  location =  {Bethesda, MD},
+  annotation = 	 {An unpublished interview from an archive, hence
+                  requiring the \textsf{Misc} entry type with an
+                  \textsf{entrysubtype}.  The interview is dated, but
+                  isn't letter-like, so you put the date in the
+                  \textsf{date} field.  The interviewee is the
+                  \textsf{author}, and the \textsf{title}, with its
+                  initial lowercase letter, names the interviewer.
+                  This \textsf{Misc} entry has all 4 locating fields
+                  in increasing generality: \textsf{note},
+                  \textsf{organization}, \textsf{institution}, and
+                  \textsf{location}.  The first of these also starts
+                  with a lowercase letter.  The \emph{CMS} suggests
+                  that if you refer to more than one piece from such
+                  an archive, that you include only the archive in the
+                  reference list, with more specific information
+                  forming part of the flow of text.  Cf.\
+                  \cmslink{creel:house} and \cmslink{house:papers}.}
+}
+
+@Book{stendhal:parma,
+  title = 	 {The Charterhouse of {Parma}},
+  date = 	 1925,
+  author = 	 {Stendhal},
+  nameaddon = 	 {Marie Henri Beyle},
+  publisher = {Boni \& Liveright},
+  address = 	 {New York},
+  translator = 	 {Scott-Moncrieff, C.~K.},
+  annotation = 	 {A \textsf{Book} entry with the real name of the
+                  author given, in the \textsf{nameaddon} field, after
+                  the pseudonym, in the \textsf{author} field.}
+}
+
+@Article{stenger:privacy,
+  journaltitle = {CNN.com},
+  entrysubtype = {magazine},
+  date = 	 {1999-12-20},
+  author = 	 {Stenger, Richard},
+  title = 	 {Tiny Human-Borne Monitoring Device Sparks Privacy Fears},
+  url = 	 {http://www.cnn.com/1999/TECH/ptech/12/20/implant.device/},
+  annotation = 	 {This is an intrinsically-online source, but is
+                  structured like a newspaper, so we use the Article
+                  entry type and "magazine" entrysubtype. The Manual
+                  is specific about this, and it limits the range of
+                  things you might put into an Online entry.}
+}
+
+@Book{suangtho:tectona,
+  title = 	 {Flowering and Seed Production in \mkbibemph{Tectona
+                  grandis} {L.f\adddot}},
+  subtitle = 	 {Report on the {DANIDA Training Course on Tree
+                  Improvement Program}},
+  date = 	 1990,
+  author = 	 {Suangtho, V. and Lauridson, E.~B.},
+  address = 	 {Chiang Mai, Thailand},
+  annotation = 	 {A book title showing "reverse italics," where a
+                  normally italicized term is in roman inside an
+                  italicized title.  Note the formatting of the
+                  species name.}
+}
+
+@Article{terborgh:preservation,
+  author = 	 {Terborgh, J.},
+  title = 	 {Preservation of Natural Diversity},
+  subtitle = 	 {The Problem of Extinction-Prone species},
+  journaltitle = {BioScience},
+  date = 	 1974,
+  volume = 	 24,
+  pages = 	 {715--722},
+  annotation = 	 {A standard Article entry.}}
+
+@Book{thompson:making,
+  title = 	 {The Making of the {English} Working Class},
+  date = 	 1964,
+  author = 	 {Thompson, E.~P.},
+  publisher = {Pantheon},
+  address = 	 {New York},
+  addendum = 	 {(Published in UK in 1963.)},
+  annotation = 	 {A book published in different years in the US and
+                  the UK.  It's possible you may want to remove the
+                  parentheses in the addendum for the 16th edition.}
+}
+
+@Book{tillich:system,
+  title = 	 {Systematic Theology},
+  year = 	 {1951\bibdatedash 63},
+  author = 	 {Tillich, Paul},
+  publisher = uchp,
+  volumes = 	 3,
+  location =  {Chicago},
+  annotation = 	 {A Book entry with 3 volumes published over time.
+                  Any postnote fields in citation commands should
+                  provide volume and page, like so: "2:157."}
+}
+
+@Book{times:guide,
+  title = 	 {The {Times} Guide to {English} Style and Usage},
+  edition = 	 {\bibstring{revisededition}},
+  lista = {police ranks and postal addresses},
+  namec = 	 {Austin, Tim},
+  year = 	 1999,
+  publisher = 	 {Times Books},
+  location =  {London},
+  annotation =   {In the notes+bibliography style, I presented this
+                  text as an InReference entry, so that citations
+                  started with the title and and you could use a
+                  postnote field to cite other alphabetized articles
+                  without having to provide the "s.v." string
+                  yourself.  In the author-date style you may
+                  sometimes want to choose the book type, allowing the
+                  reference-list entry to begin with the compiler's
+                  name.  The disadvantage to this is that in text
+                  citations you'll have to provide that "s.v." string
+                  yourself in the postnote field.  Perhaps the
+                  simplest solution is the one I've used in
+                  ency:britannica and grove:sibelius, providing a
+                  shorttitle for the in-text citations and
+                  automatically producing "s.v." for you when you have
+                  a postnote.}
+}
+
+@Book{turabian:manual,
+  title = 	 {A Manual for Writers of Term Papers, Theses, and
+                  Dissertations},
+  date = 	 1996,
+  author = 	 {Turabian, Kate~L.},
+  publisher = uchp,
+  address = 	 {Chicago},
+  edition = 	 6,
+  note = 	 {Rev. John Grossman and Alice Bennett},
+  annotation = 	 {A book with edition information included in the note
+                  field.  For the 16th edition you might want to
+                  include the full string "revised by."}
+}
+
+@Audio{twain:audio,
+  title = 	 {The Humor of {Mark Twain}},
+  author = 	 {Twain, Mark},
+  series = 	 {Commuters' Library},
+  publisher = {Entertainment Software},
+  type = 	 {6 cassettes},
+  address = 	 {Arlington, TX},
+  annotation = 	 {An Audio entry presenting an audiobook, which means
+                  the publishing information will be presented as it
+                  would be in the standard book-like entries.  The
+                  Manual sometimes presents this sort of material
+                  somewhat differently, requiring a Music entry --
+                  cf. auden:reading.  Here, the type field gives the
+                  medium.}
+}
+
+@Review{unsigned:ranke,
+  journaltitle = {Ergänzungsblätter zur Allgemeinen Literatur-Zeitung},
+  entrysubtype = {magazine},
+  date = 	 {1828-02},
+  title =	 {unsigned review of \mkbibemph{Geschichten der
+                  romanischen und germanischen Völker}, by {Leopold von
+                  Ranke}},
+  number =	 {23--24},
+  sortkey = 	 {Erg},
+  shortjournal =  {Erg\"anzungsbl\"atter z. Allg. Lit.-Ztg.},
+  annotation = 	 {A rather unusual \textsf{Review} entry
+                  (\textsf{entrysubtype} \texttt{magazine}), without
+                  an author.  In the author-date style we allow the
+                  \textsf{journaltitle} to come first in the
+                  reference-list entry and provide an abbreviated
+                  \textsf{shortjournal} for citations.  Note the
+                  formatting of the reviewed title in the
+                  \textsf{title} field.  The \textsf{number} field
+                  provides the consecutive numbers of the magazine in
+                  which the review appeared, and the style
+                  automatically provides the correct (plural)
+                  bibstring.}
+}
+
+@Audio{verdi:corsaro,
+  title = 	 {Il corsaro (melodramma tragico \mkbibemph{in three acts})},
+  titleaddon = 	 {libretto by Francesco Maria Piave},
+  date = 	 1998,
+  author = 	 {Verdi, Giuseppe},
+  editor = 	 {Hudson, Elizabeth},
+  number = 	 {\bibstring{jourser} 1, Operas},
+  series = 	 {The Works of Giuseppe Verdi},
+  publisher = {University of Chicago Press; Milan: G.\ Ricordi},
+  volumes = 	 2,
+  address = 	 {Chicago},
+  annotation = 	 {An \textsf{Audio} entry presenting a published
+                  operatic score.  Note the \enquote{reverse italics}
+                  in the \textsf{title}, and also the
+                  \textsf{titleaddon}, which identifies the
+                  librettist.  Note also the two publishers, and two
+                  places of publication, presented in a modified
+                  \textsf{publisher} field.}
+}
+
+@Book{virginia:plantation,
+  title =	 {A True and Sincere Declaration of the Purpose and
+                  Ends of the Plantation Begun in {Virginia}, of the
+                  Degrees Which It Hath Received, and Means by Which
+                  It Hath Been Advanced},
+  location = 	 {London},
+  sorttitle = 	 {True and Sincere},
+  shorttitle = 	 {True and Sincere Declaration},
+  year = 	 1610,
+  annote = 	 {An anonymous \textsf{Book} entry with a very long
+                  \textsf{title}.  The \emph{CMS} prefers such entries
+                  generally to appear under their titles rather than
+                  under \enquote{Anon.}  Here, the \textsf{shorttitle}
+                  removes the indefinite article, and the
+                  \textsf{sorttitle} does the same.}
+}
+
+@Book{virginia:plantation:15,
+  title =	 {A True and Sincere Declaration of the Purpose and
+                  Ends of the Plantation Begun in {Virginia}, of the
+                  Degrees Which It Hath Received, and Means by Which
+                  It Hath Been Advanced},
+  author = 	 {Anon\adddot},
+  year = 	 1610,
+  annotation = 	 {An anonymous Book entry with a very long title.
+                  Providing the author "Anon." simplifies the
+                  presentation in the author-date style.  15th
+                  edition only}
+}
+
+@Book{walker:columbia,
+  title = 	 {The {Columbia} Guide to Online Style},
+  date = 	 1998,
+  author = 	 {Walker, J.~R. and Taylor, T.},
+  publisher = {Columbia Univ. Press},
+  address = 	 {New York},
+  annotation = 	 {A plain book entry with two authors}}
+
+@Article{wall:radio,
+  author = 	 {Wall, J.~V.},
+  title = 	 {2700 {MHz} Observations of {4C} Radio Sources in the
+                  Declination Zone +4 to -4},
+  journaltitle = {Australian J. Phys. Astrophys.},
+  date = 	 1971,
+  volume = 	 {Suppl. no. 20},
+  annotation = 	 {A supplement volume to a journal, showing one way of
+                  providing this information using the volume field.
+                  Also note the abbreviated journal title, which is
+                  sometimes recommended in reference lists.}
+}
+
+@Review{wallraff:word,
+  journaltitle = {Atlantic Monthly},
+  entrysubtype = {magazine},
+  author = 	 {Wallraff, Barbara},
+  date = 	 {2000-04},
+  title = {Word {Court}},
+  annotation = 	 {A regular column in a magazine, without an
+                  individual title, hence the use of a Review entry
+                  type, entrysubtype "magazine," with a title and no
+                  titleaddon.  In the 15th edition, you can use the
+                  Article type, but Review works just as well.}
+}
+
+@Article{warr:ellison,
+  author = 	 {Warr, Mark and Ellison, Christopher~G.},
+  title = 	 {Rethinking Social Reactions to Crime},
+  subtitle = 	 {Personal and Altruistic Fear in Family Households},
+  journaltitle = {American Journal of Sociology},
+  date = 	 {2000-11},
+  volume = 	 106,
+  number = 	 3,
+  pages = 	 {551--578},
+  url = 	 {http://www.journals.uchicago.edu/AJS/journal/issues/v106n3/050125/050125.html},
+  annotation = 	 {An Article with an online version.}
+}
+
+@Book{wauchope:ceramics,
+  title =	 {A Tentative Sequence of Pre-Classic Ceramics in
+                  {Middle America}},
+  year =	 1950,
+  author =	 {Wauchope, Robert},
+  publisher =	 {Tulane University},
+  series =	 {Middle American Research Records},
+  number = 	 {\bibstring{volume} 1, \bibstring{number} 14},
+  location =	 {New Orleans, LA},
+  annotation = 	 {A Book with a series and number.  The name of the
+                  series alone goes in series, the rest in number.}
+}
+
+@Book{weber:saugetiere,
+  title = 	 {Die S\"augetiere},
+  date = 	 1928,
+  author = 	 {Weber, M. and de Burlet, H.~M. and Abel, O.},
+  volumes = 	 2,
+  publisher = {Gustav Fischer},
+  hyphenation =  {german},
+  address = 	 {Jena},
+  edition = 	 2,
+  annotation = 	 {A multi-volume work, in its second edition.  The
+                  hyphenation field tells the style to leave the
+                  title's capitalization alone, hence the absence of
+                  extra curly braces.}
+}
+
+@Video{weed:flatiron,
+  title = 	 {At the Foot of the {Flatiron}},
+  date = 	 1903,
+  related = 	 {loc:city},
+  relatedstring = {from},
+  author = 	 {Weed, A.~E.},
+  publisher = {American Mutoscope {and} Biograph Company},
+  type = 	 {35~mm; 2 min., 19 sec.},
+  annotation = 	 {This complete film taken from an online archive uses
+                  a Video entry.  The creator of the film goes in the
+                  author field, and the medium w/ running length in
+                  the type field.  The related field cites another
+                  (Video) entry, containing information about the
+                  online location of the MPEG version of the original
+                  35mm film.  Linked by the relatedstring field, these
+                  two entries will be presented together in the
+                  reference list, as suggested by the Manual 14.280.}
+}
+
+@Book{weresz,
+  author = 	 {Wereszycki, Henryk},
+  title = 	 {Koniec sojuszu trzech cesarzy},
+  usere = 	 {The end of the Three Emperors' League},
+  publisher = 	 {PWN},
+  year = 	 1977,
+  location =  {Warsaw},
+  annotation = 	 {A Book in Polish, with the title given in Polish
+                  (though lacking diacritics) and a translation given
+                  for a readership who might not know that language.
+                  The translation, in the usere field, is capitalized
+                  sentence style.}
+}
+
+@Article{white:callimachus,
+  author = 	 {White, Stephen~A.},
+  title = 	 {Callimachus {Battiades} (\mkbibemph{Epigr.} 35)},
+  journaltitle = {Classical Philology},
+  date = 	 {1999-04},
+  volume = 	 94,
+  pages = 	 {168--181},
+  annotation = 	 {A standard Article entry with a formatted title
+                  quoted in the title field.}
+}
+
+@Letter{white:ross:memo,
+  author = 	 {White, E.~B.},
+  title = 	 {EBW to Harold Ross},
+  titleaddon = 	 {memorandum},
+  xref = 	 {white:total},
+  pages = 	 273,
+  origdate = 	 {1946-05-02},
+  annotation = 	 {In the author-date style, the \emph{CMS} (15.40)
+                  recommends that the list of references contain only
+                  the whole collection of published letters
+                  (\cmslink{white:total}, below), with any further
+                  information being provided as part of the running
+                  text.  (If you follow this method, then the
+                  \textsf{Letter} entry type needn't ever be used.)
+                  If, for some reason, you still want to cite
+                  individual letters in the list of references, this
+                  and the \cmslink{white:russ} entry demonstrate how
+                  to do so.  Chicago's mechanism for shortened
+                  cross-references is operative in \textsf{Letter}
+                  entries using \textsf{crossref} or \textsf{xref} (as
+                  in \textsf{InCollection} and \textsf{InProceedings}
+                  entries), so the information printed in the list of
+                  references will be abbreviated.  You can simply use
+                  the \textsf{origdate} field for the date of the
+                  letter, and you'll get separate letters, ordered by
+                  date, and with a,b,c, etc. appended to differentiate
+                  letters from the same year.}
+}
+
+@Letter{white:russ,
+  author = 	 {White, E.~B.},
+  title = 	 {EBW to B.~Russell},
+  xref =  {white:total},
+  pages = 	 283,
+  origdate = 	 {1946-09-02},
+  annotation = 	 {This is a spurious entry I've just made up to show
+                  the cross-referencing mechanism at work in
+                  \textsf{Letter} entries.  See
+                  \cmslink{white:ross:memo} for the details.}
+}
+
+@Book{white:total,
+  title = 	 {{Letters of E.~B. White}},
+  year = 	 1976,
+  author = 	 {White, E.~B.},
+  editor = 	 {Guth, Dorothy Lobrano},
+  publisher = {Harper \&\ Row},
+  location =  {New York},
+  annotation = 	 {The parent entry of the two preceding child entries.
+                  Note that it is a \textsf{Book} entry, and will
+                  appear in the reference list if more than one child
+                  inherits from it, even though it isn't cited
+                  itself.}
+}
+
+@Periodical{whittington:water,
+  title = 	 {World Development},
+  date = 	 1991,
+  editor = 	 {Whittington, D. and others},
+  issuetitle = {A Study of Water Vending and Willingness to Pay for
+                  Water in {Onitsha, Nigeria}},
+  note = 	 {special issue},
+  volume = 	 19,
+  number = 	 {2--3},
+  annotation = 	 {A special issue of a journal, cited as a whole,
+                  hence the use of the Periodical entry type.  The
+                  type of issue goes in the note field.}}
+
+@InCollection{wiens:avian,
+  author = 	 {Wiens, J.~A.},
+  title = 	 {Avian Community Ecology},
+  subtitle = 	 {An Iconoclastic View},
+  crossref =  {brush:ornithology},
+  pages = 	 {355--403},
+  annotation = 	 {An essay in a collection, the child entry of the
+                  parent given in the crossref field.  The presence of
+                  this field means that the entry in the list of
+                  references will be abbreviated, and include a
+                  shortened reference to the parent.
+                  Cf. ellet:galena, lippincott:chicago, and
+                  keating:dearborn.}
+}
+
+@InReference{wikiped:bibtex,
+  title = 	 {Wikipedia},
+  lista = {BibTeX},
+  userd = 	 {last modified},
+  url = 	 {http://en.wikipedia.org/wiki/BibTeX},
+  urldate = 	 {2012-05-18},
+  annotation =   {An online \textsf{InReference} entry, usually not
+                  presented in a list of references.  Here is how you
+                  might do so, with the \textsf{urldate}, in the
+                  absence of the other three kinds of date, providing
+                  the year for citations and the list of references.
+                  It is strongly recommended that you at least have a
+                  \textsf{urldate} field, as such sources change
+                  rather rapidly, though the \emph{CMS} would prefer
+                  that you use a revision date or the like instead of
+                  an access date.  Here, the \textsf{userd} field
+                  identifies which sort of date is at stake.}
+}
+
+@InBook{will:cohere,
+  author = 	 {Williams, Joseph~M. and Colomb, Gregory~C.},
+  title = 	 {Coherence {II}},
+  booktitle = 	 {Style},
+  booksubtitle = {Toward Clarity and Grace},
+  bookauthor = 	 {Williams, Joseph~M.},
+  pages = 	 {81--95},
+  publisher = uchp,
+  year = 	 1990,
+  location =  {Chicago},
+  annotation = 	 {A chapter in a book that has a different authorship
+                  from the book as a whole.  In such a case, you can
+                  use an InBook entry, with the author(s) of the
+                  chapter in the author field, and the author(s) of
+                  the whole book in the bookauthor field.}
+}
+
+@Book{wright:evolution,
+  title = 	 {Evolution and the Genetics of Populations},
+  year = 	 {1968--78},
+  author = 	 {Wright, Sewell},
+  publisher = uchp,
+  address = 	 {Chicago},
+  volumes = 	 4,
+  annotation = 	 {A multi-volume work published over several years, so
+                  the year field provides the range.}}
+
+@Book{wright:theory,
+  title = 	 {Theory of Gene Frequencies},
+  date = 	 1969,
+  maintitle = 	 {Evolution and the Genetics of Populations},
+  volume = 	 2,
+  author = 	 {Wright, Sewell},
+  publisher = uchp,
+  address = 	 {Chicago},
+  annotation = 	 {One volume of the multi-volume work from the
+                  previous entry.}}
+
+@CustomC{york:creasey,
+  author = 	 {York, Jeremy},
+  title = 	 {Creasey, John},
+  annotation = 	 {This CustomC entry provides a cross-reference from
+                  the pseudonym in the author field to the real name
+                  in the title field, allowing your readers to find
+                  the cited work under the author's real name.  The
+                  entry for that work, creasey:york:death, contains a
+                  userc field which refers to this entry, ensuring
+                  that this cross-reference will be printed if the
+                  main entry itself is cited.}
+}
+
+@Collection{zukowsky:chicago,
+  title =	 {Chicago Architecture, 1872--1922},
+  subtitle =	 {Birth of a Metropolis},
+  year =	 1987,
+  editor =	 {Zukowsky, John},
+  publisher =	 {Prestel-Verlag in association with the Art Institute
+                  of Chicago},
+  location =	 {Munich},
+  annotation = 	 {A standard Collection entry, with an editor instead
+                  of an author. Note extra information in publisher
+                  field.}
+}
+

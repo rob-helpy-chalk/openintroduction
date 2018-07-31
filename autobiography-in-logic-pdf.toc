@@ -1,0 +1,26 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Note to Instructors}{1}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {2}Note to Students}{3}
+\contentsline {chapter}{\numberline {3}Biographical Information}{4}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {4}Interests}{7}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {5}GOAL OR ASPIRATION}{11}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {6}Fallacy}{14}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {7}A CHALLENGE}{17}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
+\vskip 5pt

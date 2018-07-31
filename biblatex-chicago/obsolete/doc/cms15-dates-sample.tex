@@ -1,0 +1,450 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage{endnotes}
+\usepackage[latin1]{inputenc}
+\usepackage[german,french,american]{babel}
+\usepackage[autostyle]{csquotes}
+%\usepackage[document]{ragged2e}
+\usepackage[authordate15,backend=biber,autolang=hyphen,%
+bibencoding=latin1,strict]{biblatex-chicago}
+% \usepackage[style=chicago-authordate,backend=biber,usecompiler=true,%
+% babel=hyphen,bibencoding=auto,sorting=nyt,cmslos,autocite=inline]{biblatex}
+%\renewcommand*{\rmdefault}{fgn}% The font (gentium) used for pdf
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{vmargin} \setpapersize{A4}
+\setmarginsrb{1in}{20pt}{1in}{.5in}{1pt}{2pt}{0pt}{2mm}
+% \renewcommand*{\biburlsetup}{%
+%   \Urlmuskip=0mu plus 2mu\relax
+%   \mathchardef\UrlBreakPenalty=200\relax
+%   \mathchardef\UrlBigBreakPenalty=100\relax
+%   \mathchardef\UrlEmergencyPenalty=9000\relax
+%   \appto\UrlSpecials{%
+%     \do\0{\mathchar`\0\penalty\UrlEmergencyPenalty}%
+%     \do\1{\mathchar`\1\penalty\UrlEmergencyPenalty}%
+%     \do\2{\mathchar`\2\penalty\UrlEmergencyPenalty}%
+%     \do\3{\mathchar`\3\penalty\UrlEmergencyPenalty}%
+%     \do\4{\mathchar`\4\penalty\UrlEmergencyPenalty}%
+%     \do\5{\mathchar`\5\penalty\UrlEmergencyPenalty}%
+%     \do\6{\mathchar`\6\penalty\UrlEmergencyPenalty}%
+%     \do\7{\mathchar`\7\penalty\UrlEmergencyPenalty}%
+%     \do\8{\mathchar`\8\penalty\UrlEmergencyPenalty}%
+%     \do\9{\mathchar`\9\penalty\UrlEmergencyPenalty}}%
+%   \def\UrlBreaks{%
+%     \do\.\do\@\do\/\do\\\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\}%
+%     \do\,\do\?\do\'\do\+\do\=\do\#\do\$\do\&\do\*\do\^\do\"}%
+%   \def\UrlBigBreaks{\do\:\do\-}}
+\usepackage{url}
+\urlstyle{rm}
+\appto\bibsetup{\sloppy}
+\hyphenation{evans-ton clem-ens}
+\setlength{\dimen\footins}{9.5in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburlucpenalty}{9000}
+\setcounter{biburllcpenalty}{9000}
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\usepackage[colorlinks,urlcolor=blue,citecolor=black,
+plainpages=false,breaklinks=true]{hyperref}
+\bibliography{dates-test}
+%%\onehalfspacing
+\begin{document}
+
+\section*{The Chicago Author-Date Specification, 15th Edition}
+\label{sec:spec}
+
+\subsection*{Important Note}
+\label{bibernote}
+
+Starting with \textsf{biblatex} version 1.5, in order to adhere to the
+author-date specification you will need to use \textsf{Biber} to
+process your .bib files, as \textsc{Bib}\TeX\ (and its more recent
+variants) will no longer provide all the features you need.  I highly
+recommend, therefore, that you upgrade either to \textsf{Biber} 0.9.9
+and to \textsf{biblatex} 1.7, which are designed to work together, or
+to \textsf{Biber} 1.9 and \textsf{biblatex} 2.9a, which latter two are
+the newest releases and are likewise designed to work as a matched
+pair.  The advice that follows in this document assumes that you are
+using \textsf{Biber}; if you wish to continue using \textsc{Bib}\TeX\
+then you need \textsf{biblatex} version 1.4c and
+\textsf{biblatex-chicago} 0.9.7a.
+
+\subsection*{Usage}
+\label{usage}
+
+As a general rule, you'll probably want to use the \cmd{autocite}
+command for most citations.  For most sources, the result will be
+exactly as you expect it to be.  A few examples:
+\autocite{adorno:benj}; \autocite{ashbrook:brain};
+\autocite{babb:peru}; \autocite{barcott:review:15}.  Any page
+references should also appear as you expect: \autocite[338]{batson};
+\autocite[79]{beattie:crime}; \autocite[36]{boxer:china}.
+
+\subsection*{Repeated citations}
+\label{sec:ibidem}
+
+Repeated citations are somewhat complicated.  The Chicago author-date
+style doesn't use \enquote{\emph{Ibid},} but in general a repeated
+citation on the same page will print only the page reference:
+\autocite{browning:aurora}; \autocite[45]{browning:aurora}.
+Technically, this should only occur when a source is cited
+\enquote{more than once in one paragraph}
+\autocite[16.114]{chicago:manual:15}, so you can use the
+\cmd{citereset} command from \textsf{biblatex} to achieve the greatest
+compliance, as the package only offers automatic resetting on part,
+chapter, section, and subsection boundaries, while
+\textsf{biblatex-chicago} automatically resets the tracker at page
+breaks:
+
+\citereset\cmd{citereset}\ \autocite[16.115]{chicago:manual:15}.  If
+you are going to repeat a source, make sure that the cite command
+provides a postnote --- if you don't need to cite a specific page,
+then it's better only to use one citation rather than two, as
+otherwise, in the current state of the code, you'll get empty
+parentheses, like so: \autocite{chicago:manual:15}.
+
+\subsection*{Other citation commands}
+\label{sec:other}
+
+The other citation commands from \textsf{biblatex} also work fine:
+
+\cmd{textcite}: \textcite{conley:fifthgrade}; \cmd{autocite*}:
+\autocite*{connell:chronic}; \cmd{cite}: \cite{conway:evolution};
+\cmd{cite*}: \cite*{davenport:attention}; \cmd{foot\-note} with
+\cmd{autocite};\footnote{\autocite{donne:var:15}.}\ \cmd{footcite}
+(=\cmd{cite} inside a \cmd{footnote}).  \footcite{dunn:revolutions}
+
+Multicites should work as you expect, too:
+
+\cmd{autocites}: \autocites{dyna:browser}{eliot:pound};
+\cmd{autocites} by the same author:
+\autocites{pirumova}{pirumova:russian}; \cmd{autocites} by the same
+author with postnotes: \autocites{pirumova}[14]{pirumova:russian};
+\cmd{textcites} by the same author with postnotes:
+\textcites[37]{pirumova}{pirumova:russian}.
+
+\subsection*{Shorthands}
+\label{sec:shorthands}
+
+Chicago's author-date style only seems to recommend the use of
+shorthands as abbreviations for long authors' names, particularly
+institutional names \autocite[17.47]{chicago:manual:15}.  By default, I
+have followed this recommendation: \cmd{autocites}:
+\autocites{bsi:abbreviation:15}{iso:electrodoc:15}; \cmd{textcites}:
+\textcites{bsi:abbreviation:15}{iso:electrodoc:15}.  It suggests
+placing the expansion of the abbreviation into an alphabetized
+cross-reference inside the reference list itself, a procedure that I
+have now implemented for \textsf{biblatex-chicago}.  To use this, you
+need a \textsf{CustomC} entry containing the expansion, and either a
+\textsf{userc} field in the parent entry or a \cmd{nocite} command to
+make sure it is printed in the reference list.  If you use a
+\cmd{printshorthands} command, the list of shorthands will still be
+printed, so you now have a variety of options available for presenting
+the expansions depending on your specific requirements.  Please note,
+also, that you can get back something approaching the
+\enquote{standard} behavior of shorthands if you give the
+\texttt{cmslos=false} option to \textsf{biblatex-chicago} in your
+document preamble.
+
+\subsection*{Mildly problematic entries}
+\label{sec:problematic}
+
+In most entries, the absence of an author can be supplied by, e.g., an
+editor or a translator: \autocite{chaucer:alt};
+\autocite{silver:gawain}.  Sometimes an anonymous work's author is
+known or can be guessed: \autocite{horsley:prosodies};
+\autocite{cook:sotweed}.  Alternatively, in some cases the use of
+\enquote{\texttt{Anon.}}\ as author may be the simplest option:
+\autocite{anon:stanze:15}; \autocite{virginia:plantation:15}.
+
+With \textsf{Biber}, an absent \textsf{date} will automatically
+provoke it into searching for other sorts of dates in the entry, in
+the order \textsf{year, eventyear, origyear, urlyear}: e.g.,
+\autocite{evanston:library}, which only has a \textsf{urlyear}.  (You
+can eliminate some of these dates from the running, or change the
+search order, using the \cmd{DeclareLabelyear} command in your
+preamble, but please be aware that I have hard-coded this order into
+the author-date style in order to cope with some tricky corners of the
+specification.  If you reorder these dates, and your references enter
+these tricky corners, the results might be surprising.  Cf.\
+section~4.5.2 in \textsf{biblatex.pdf} and section~5.2, s.v.\
+\enquote{date} in \textsf{biblatex-chicago15.pdf} for the details.)
+In most entry types, the absence of all four possible dates will
+automatically produce \enquote{\texttt{n.d.}\hspace{-2pt}} instead:
+\autocite{bernstein:shostakovich}.  You can also give it yourself in
+the form \cmd{bibstring\{nodate\}}: \autocite{ross:thesis}.  A date
+that can be guessed should appear within square brackets:
+\autocite{clark:mesopot}.  Forthcoming works are straightforward,
+assuming you remember to use the \cmd{autocap} macro so that the word
+appears correctly in both citations and the list of references:
+\autocite{author:forthcoming}; \autocite{contrib:contrib}.
+
+The \emph{Manual} outlines a series of options for entries with more
+than one date \autocite[17.124--27]{chicago:manual:15}.  All of these
+possibilities are available in \textsf{biblatex-chicago} using the
+\texttt{cmsdate} entry option: \texttt{cmsdate=off} (the default):
+\autocite{maitland:equity}; \texttt{cmsdate=on}:
+\autocite{james:ambassadors}; \texttt{cmsdate=old}:
+\autocite{emerson:nature}; \texttt{cmsdate=new}:
+\autocite{maitland:canon}.  These options, in combination with others
+available in your .bib files, can cover a wide range of difficult
+cases.  Please see the next section below, the documentation in
+\textsf{biblatex-chicago15.pdf}, and also the following entries in
+\textsf{dates-test.bib}:
+\autocites{schweitzer:bach}{white:russ}{white:ross:memo}.
+
+\subsection*{Corners of the specification}
+\label{sec:corners}
+
+In some cases, the \emph{Manual} isn't altogether clear about how to
+present entries in the author-date style.  I'm pretty certain about
+most of what follows, but if you interpret the specification
+differently please let me know.
+
+\subsubsection*{InReference entries}
+\label{sec:inref}
+
+These present several peculiarities: the title of the work should
+always take the place of any author, no
+\enquote{\texttt{n.d.}\hspace{-2pt}} will be automatically provided,
+and any postnote field will be enclosed in quotation marks preceded by
+\enquote{\texttt{s.v.}\hspace{-2pt}} for \enquote{\emph{sub verbo}.}
+This allows you to refer to alphabetized articles in well-known
+reference works: \autocite[Hume, David]{ency:britannica};
+\autocite[Sibelius, Jean]{grove:sibelius};
+\autocite[BibTeX]{wikiped:bibtex}.
+
+\subsubsection*{Author-less Article (and Manual) entries}
+\label{sec:authless:art}
+
+In article entries with the \texttt{magazine} entrysubtype, the
+absence of an author automatically places the title of the periodical
+in citations and at the head of the entry in the list of references:
+\autocite{gourmet:052006}.  You can also use the new
+\texttt{cmsdate=full} switch in the \textsf{options} field to produce
+complete date references in such entries, thereby obviating any need
+to present them in the list of references at all:
+\autocite{lakeforester:pushcarts}; \autocite{nyt:trevorobit}.  In
+\textsf{manual} entries, the \textsf{organization} field can take the
+place of a missing \textsf{author}: \autocite{dyna:browser}.  If you
+wish to present an abbreviated form of the journal (or organization)
+name only in citations, then the \textsf{shortauthor} field --- or in
+other cases the \textsf{shorthand} field --- is the place for it,
+making sure to include formatting: \autocite{unsigned:ranke};
+\autocite{bsi:abbreviation:15}.
+
+\subsubsection*{Misc entries with an entrysubtype}
+\label{sec:misc}
+
+When citing individual letter-like pieces from an unpublished archive
+where only an \textsf{origdate} is present, you no longer need to set
+the \texttt{cmsdate} option in your .bib entry, as \textsf{Biber} and
+\textsf{biblatex-chicago} now handle this automatically:
+\autocite{creel:house}.  Non-letters, e.g., interviews, use the
+\textsf{date} field, so you don't need \texttt{cmsdate} there, either:
+\autocite{spock:interview}.  For undated pieces you can put
+\cmd{bibstring\{nodate\}} in the \textsf{year} field:
+\autocite{dinkel:agassiz}.  For citing whole collections, see the next
+section.
+
+\subsubsection*{entrysubtype = \{classical\}}
+\label{sec:classical}
+
+This option's name derives from its use for citing texts from
+classical antiquity, though in the author-date style especially it can
+be put to use in several other contexts.  In a nutshell, any entry
+with such an \textsf{entrysubtype} will be treated, in citations only,
+not as author-date but as author-title.  (Entries in the list of
+references, e.g., a particular edition of Aristotle, will still appear
+in standard author-date format.)  A \cmd{cite*} or \cmd{autocite*}
+command will, in such a case, produce the title rather than the year.
+Some examples should make this clearer:
+
+Classical works: without abbreviation:
+\autocite{aristotle:metaphy:trans}; with abbreviation:
+\autocite{aristotle:metaphy:gr}; \autocite{plato:republic:gr}; using
+standard pagination: \autocite*[3.2.996b5--8]{aristotle:metaphy:gr};
+\autocite*[420e]{plato:republic:gr}; work cited by page of a modern
+edition, i.e., without \textsf{entrysubtype}:
+\autocite[198]{euripides:orestes}.
+
+Sacred works, e.g., the Bible and the Qur'an:
+\autocite[25:19--36:43]{genesis}.
+
+An unpublished archive, from which more than one work has been cited:
+\autocite[file 12]{house:papers}.  (Both this and the previous example
+use a Misc entry with \texttt{classical} \textsf{entrysubtype}.)
+
+\subsubsection*{Comments inside citations}
+\label{sec:comments}
+
+If you wish to include a comment inside the parentheses of a citation,
+it will need to be separated by a semicolon
+\autocite[16.111]{chicago:manual:15}.  If you have a
+\textsf{postnote}, then you can manually provide the punctuation and
+comment in that field, e.g., \autocite[4; the unrevised
+trans.]{stendhal:parma}.  Without a \textsf{postnote}, you'll need a
+separate Misc or CustomC entry containing just the text of the comment
+in the \textsf{title} field, \textsf{entrysubtype} \texttt{classical},
+and \textsf{options} \texttt{skipbib}.  An \cmd{autocites} command
+calling both the main text and the comment will do the trick, e.g.,
+\autocites{chicago:manual:15}{chicago:comment:15}.
+
+\subsubsection*{Multiple authors}
+\label{sec:multiple}
+
+The default settings in \textsf{biblatex-chicago} are
+\texttt{maxnames=3,minnames=1} in citations and
+\texttt{max\-bibnames=10,minbibnames=7} in the list of references
+(these latter parameters set in \textsf{biblatex-chicago.sty}).  In
+practice, this means that an entry like hlatky:hrt, with 5 authors,
+will present all of them in the list of references but will truncate
+to one in citations, like so: \autocite{hlatky:hrt}.  For the vast
+majority of circumstances, these settings are exactly right for the
+Chicago author-date specification.  However, if \enquote{a reference
+  list includes another work \emph{of the same date} that would also
+  be abbreviated as [\enquote{Hlatky et al.}] but whose coauthors are
+  different persons or listed in a different order, the text citations
+  must distinguish between them} \autocite[16.118]{chicago:manual:15}.
+The new (\textsf{Biber}-only) \textsf{biblatex} option
+\texttt{uniquelist}, set for you in \textsf{biblatex-chicago.sty},
+will automatically handle many of these situations for you, but it is
+as well to understand that it does so by temporarily suspending the
+limits, listed above, on how many names to print in a citation.
+Without \texttt{uniquelist}, \textsf{biblatex} would present such a
+work as, e.g., (Hlatky et al. 2002b), while hlatky:hrt would be
+(Hlatky et al. 2002a).  This does distinguish between them, but
+inaccurately, as it suggests that the two different author lists are
+exactly the same.  With \texttt{uniquelist}, the two citations might
+look like (Hlatky, Boothroyd et al.\ 2002) and (Hlatky, Smith et al.\
+2002), which is what the specification requires.
+
+If, however, the distinguishing name occurs further down the author
+list --- in fourth or fifth position in our examples --- then the
+default settings would produce citations with all 4 or 5 names
+printed, which can become awkwardly long.  In such a situation, you
+can provide \textsf{shortauthor} fields that look like this:
+\{\{Hlatky et al., \textbackslash mkbibquote\{Quality of Life,\}\}\}
+and \{\{Hlatky et al., \textbackslash mkbibquote\{Depressive
+Symptoms,\}\}\}, using a shortened title to distinguish the
+references.  This would produce (Hlatky et al., \enquote{Quality of
+  Life,} 2002) and (Hlatky et al., \enquote{Depressive Symptoms,}
+2002), as the spec recommends.  There is, unfortunately, no simpler
+way that I know of to deal with this situation.
+
+\subsubsection*{Audiovisual entries}
+\label{sec:audiovisual}
+
+According to the \emph{Manual}, \enquote{the author-date system is
+  inappropriate for most audiovisual materials\ldots\ Such materials
+  are best mentioned in running text and grouped in the reference list
+  under a subhead\ldots} \autocite[17.265]{chicago:manual:15}.  Some
+entries work perfectly well: \autocite{auden:reading:15};
+\autocite{hitchcock:nbynw}; \autocite{handel:messiah:15}.  Others
+perhaps require further information in the entry or genuinely are
+better suited to presentation in running text:
+\autocite{beethoven:sonata29}; \autocite{nytrumpet:art:15}.  Published
+(\textsf{Audio}) and unpublished (\textsf{Misc}) scores, for their
+part, are no problem at all: \autocite{schubert:muellerin};
+\autocite{verdi:corsaro}; \autocite{shapey:partita:15}.  The standard
+\textsf{biblatex} tools for subdividing reference lists are all
+available if you want to follow the \emph{Manual's} recommendations on
+that front.
+
+\subsection*{Further examples (mainly for testing purposes)}
+\label{testing}
+
+Article: \autocite{assocpress:gun}; \autocite{brown:bremer};
+\autocite{bundy:macneil}; \autocite{chu:panda};
+\autocite{Clemens:letter}; \autocite{conley:fifthgrade};
+\autocite{connell:chronic}; \autocite{friedman:learning};
+\autocite{garaud:gatine}; \autocite{garrett:15};
+\autocite{gibbard:15}; \autocite{kern}; \autocite{kimluu:diethyl:15};
+\autocite{kozinn:review}; \autocite{lewis:15};
+\autocite{loften:hamlet}; \autocite{loomis:structure:15};
+\autocite{morgenson:market}; \autocite{osborne:poison:15};
+\autocite{ratliff:review:15}; \autocite{reaves:rosen};
+\autocite{rozner:liberation}; \autocite{schneider:mittelpleistozaene};
+\autocite{sewall:letter}; \autocite{stenger:privacy};
+\autocite{terborgh:preservation}; \autocite{wall:radio};
+\autocite{wallraff:word}; \autocite{warr:ellison};
+\autocite{white:callimachus}.
+
+Artwork: \autocite{leo:madonna}.
+
+Audio: \autocite{greek:filmstrip:15}; \autocite{twain:audio};
+\autocite{weed:flatiron}.
+
+Book: \autocite{barrows:reading}; \autocite{churchill:letters};
+\autocite{cohen:schiff}; \autocite{cotton:manufacture};
+\autocite{creasey:ashe:blast}; \autocite{creasey:morton:hide};
+\autocite{creasey:york:death}; \autocite{davenport:attention};
+\autocite{feydeau:farces}; \autocite{furet:passing:eng};
+\autocite{furet:passing:fr}; \autocite{harley:cartography};
+\autocite{hopp:attalid}; \autocite{howell:marriage};
+\autocite{lach:asia}; \autocite{lecarre:quest};
+\autocite{levistrauss:savage}; \autocite{lynch:webstyle};
+\autocite{maisonneuve:relations}; \autocite{mchugh:wake:15};
+\autocite{menchu:crossing}; \autocite{meredith:letters};
+\autocite{michelangelo:poems}; \autocite{mla:style};
+\autocite{natrecoff:camera}; \autocite{palmatary:pottery};
+\autocite{pelikan:christian}; \autocite{rodman:walk};
+\autocite{schellinger:novel}; \autocite{sechzer:women};
+\autocite{sereny:cries}; \autocite{soltes:georgia};
+\autocite{stendhal:parma}; \autocite{suangtho:tectona};
+\autocite{thompson:making}; \autocite{tillich:system};
+\autocite{times:guide}; \autocite{turabian:manual};
+\autocite{walker:columbia}; \autocite{wauchope:ceramics};
+\autocite{weber:saugetiere}; \autocite{weresz};
+\autocite{white:total}; \autocite{wright:evolution};
+\autocite{wright:theory}.
+
+BookInBook: \autocite{bernhard:boris}.
+
+Collection: \autocite{brush:ornithology}; \autocite{kamrany:economic};
+\autocite{prairie:state}; \autocite{zukowsky:chicago}.
+
+Image: \autocite{bedford:photo}.
+
+InBook: \autocite{ashbrook:brain}; \autocite{phibbs:diary};
+\autocite{will:cohere}.
+
+InCollection: \autocite{centinel:letters}; \autocite{ellet:galena};
+\autocite{keating:dearborn}; \autocite{lippincott:chicago};
+\autocite{sirosh:visualcortex}; \autocite{wiens:avian}.
+
+InProceedings: \autocite{frede:inproc}.
+
+InReference: \autocite[absolute]{oed:cdrom}.
+
+Manual: \autocite{dyna:browser}.
+
+Online: \autocite{powell:email}.
+
+Patent: \autocite{petroff:impurity}.
+
+Periodical: \autocite{good:wholeissue}; \autocite{whittington:water}.
+
+Report: \autocite{herwign:office}.
+
+SuppBook: \autocite{friedman:intro}; \autocite{polakow:afterw};
+\autocite{prose:intro}.
+
+Thesis: \autocite{murphy:silent:15}.
+
+Unpublished: \autocite{nass:address}.
+
+Video: \autocite{cleese:holygrail}; \autocite{episode:tv}.
+
+
+% \printshorthands % No longer necessary in author-date.
+%\nocite{*}
+\printbibliography[title=References]
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

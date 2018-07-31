@@ -1,0 +1,129 @@
+IMPORTANT NOTE:
+
+This is the package formerly known as biblatex-chicago-notes-df.  It
+is designed for use with the latest version (3.7) of biblatex.  The
+package still contains both the 15th- and 16th-edition Chicago style
+files, though I have marked the 15th-edition styles as "obsolete" and
+have moved them into a separate subdirectory, and I am concentrating
+all of my development time on the 16th edition.  If you have used the
+package before, then you should be sure to consult the RELEASE file to
+find out what alterations you may need to make to your .bib files and
+document preambles to bring them up to date.  Most particularly please
+note that Biber is now required for the author-date styles, and very
+strongly advised for the notes & bibliography style (version 2.7 is
+designed for use with the latest biblatex).
+
+README (version 1.0rc4, 2017-05-02):
+
+Biblatex-chicago contains three biblatex styles implementing the
+specifications of the Chicago Manual of Style, 16th edition.  The
+"notes & bibliography" style was formerly available in the package
+biblatex-chicago-notes-df, and is intended primarily for writers in
+the humanities.  The "author-date" style, generally favored by writers
+in the sciences and social sciences, comes in two flavors.  The 16th
+edition of the Manual has brought the presentation of sources in this
+style much more into line with the notes & bibliography specification,
+especially regarding the formatting of titles.  If you still require
+titles to be capitalized sentence style, and article titles, for
+example, not to be enclosed in quotation marks, then you may now use
+the traditional author-date style ("authordate-trad"), which provides
+these features while in all other respects following the 16th-edition
+specifications.  I encourage all users to choose one of these three
+up-to-date styles, which should now cater to nearly all needs.  The
+15th-edition styles have received no fixes or updates, and won't
+compile with the latest biblatex.  If you absolutely must continue
+using them, you'll need to specify "notes15" or "authordate15" in the
+options when loading biblatex-chicago, and downgrade biblatex itself,
+perhaps to version 2.9a.
+
+This is a beta release, but its feature set is already fairly
+extensive.  If you have used the package before you may, after
+perusing the RELEASE file, want to look at the changelog at the end of
+biblatex-chicago.pdf, which contains cross-references to more detailed
+explanations about how this update will affect parts of your .bib
+file.  If you are just getting started, the best way to learn the
+system is to read the Quickstart section in that same file, then read
+either cms-notes-intro.pdf or cms-dates-intro.pdf, each of which are
+fully cross-referenced and contain links to the complete reference
+guide to both styles in sections 4 or 5 of biblatex-chicago.pdf.  The
+package also contains annotated .bib files (notes-test.bib and
+dates-test.bib) which each offer over 100 entries demonstrating how to
+present a wide range of sources, nearly all of them taken from the
+Chicago Manual of Style itself, so that you can compare the output of
+your system (cms-notes-sample.tex, cms-dates-sample.tex,
+cms-trad-sample.tex) or my system (cms-notes-sample.pdf,
+cms-dates-sample.pdf, cms-trad-sample.pdf) with the actual examples in
+the Manual.
+
+I have, wherever possible, attempted to maintain backward
+compatibility with the standard biblatex styles, but there are a
+significant number of situations where I have been unable to do so,
+which means that switching among various styles while using the same
+bibliography database will not be as simple and painless as it could
+be.  If you can see ways better to preserve this compatibility, or
+indeed to improve the package in any way whatsoever, please let me
+know, or better yet, send a patch.  If the styles don't behave as you
+expect or if you discover a bug, I'd be very happy to hear about it,
+but do please read biblatex-chicago.pdf first, as you may find that
+your question has already been answered there.  If you do find a bug,
+please send me the .bib entry, your LaTeX preamble, and your output
+.log, so that I can try to reproduce it here.  My email address is at
+the head of biblatex-chicago.pdf.
+
+Installation:
+
+With the recent proliferation of files, I have adopted the directory
+structure found in biblatex.zip, so if you want to place these files
+in your TeX directory tree instead of in your working directory, I
+recommend the following, which should be familiar from the main
+biblatex package:
+
+ - The twenty-one files biblatex-chicago.sty, chicago-notes.cbx,
+   chicago-notes.bbx, chicago-authordate.cbx, chicago-authordate.bbx,
+   chicago-authordate-trad.cbx, chicago-authordate-trad.bbx,
+   chicago-dates-common.cbx, cms-american.lbx, cms-british.lbx,
+   cms-finnish.lbx, cms-french.lbx, cms-german.lbx, cms-icelandic.lbx,
+   cms-ngerman.lbx, cms-norsk.lbx, cms-norwegian.lbx, cms-nynorsk.lbx,
+   and cms-swedish.lbx are located in the latex/ subdirectory, itself
+   further subdivided into bbx/, cbx/, and lbx/.  The entire contents
+   of this latex/ directory, including its subdirectories, can go in
+   <TEXMFLOCAL>/tex/latex/biblatex-contrib/biblatex-chicago, where
+   <TEXMFLOCAL> is the root of your local TeX installation -- for
+   example, and depending on your system, /usr/share/texmf-local,
+   /usr/local/texmf, or C:\Local TeX Files\.  You may need to create
+   this directory first, and after copying the files there please
+   remember to update your TeX file name database so that TeX can find
+   them.
+
+ - The seventeen files biblatex-chicago.tex, biblatex-chicago.pdf,
+   cms-notes-intro.tex, cms-notes-intro.pdf, cms-dates-intro.tex,
+   cms-dates-intro.pdf, cms-trad-appendix.tex, cms-trad-appendix.pdf,
+   cms-notes-sample.tex, cms-dates-sample.tex, cms-trad-sample.tex,
+   cms-notes-sample.pdf, cms-dates.sample.pdf, cms-trad-sample.pdf,
+   notes-test.bib, dates-test.bib, and cmsdocs.sty can all be found in
+   the doc/ directory in the package archive, the last 15 in the
+   examples/ subdirectory.  You can place all of this in
+   <TEXMFLOCAL>/doc/latex/biblatex-contrib/biblatex-chicago.
+
+ - The ten files chicago-notes15.bbx, chicago-notes15.cbx,
+   chicago-authordate15.bbx, chicago-authordate15.cbx,
+   biblatex-chicago15.tex, biblatex-chicago15.pdf,
+   cms15-notes-sample.tex, cms15-dates-sample.tex,
+   cms15-notes-sample.pdf, and cms15-dates.sample.pdf can all be found
+   in the obsolete/ subdirectory in the package archive.  You can
+   place that directory in
+   <TEXMFLOCAL>/tex/latex/biblatex-contrib/biblatex-chicago.
+
+Changelog: See the RELEASE file, and also the end of
+biblatex-chicago.pdf.
+
+Copyright (c) 2008-2017 David Fussner.  This package is
+author-maintained.  This work may be copied, distributed and/or
+modified under the conditions of the LaTeX Project Public License,
+either version 1.3 of this license or (at your option) any later
+version.  The latest version of this license is in
+http://www.latex-project.org/lppl.txt and version 1.3 or later is part
+of all distributions of LaTeX version 2005/12/01 or later.  This
+software is provided "as is," without warranty of any kind, either
+expressed or implied, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose.

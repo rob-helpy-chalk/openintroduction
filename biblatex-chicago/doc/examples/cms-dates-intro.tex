@@ -1,0 +1,1334 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage{endnotes}
+\usepackage[latin1]{inputenc}
+\usepackage[german,french,american]{babel}
+\usepackage[autostyle]{csquotes}
+%\usepackage[document]{ragged2e}
+\usepackage[authordate,backend=biber,autolang=none,booklongxref=false,%
+bibencoding=latin1,postnotepunct,compresspages,strict,%
+annotation]{biblatex-chicago}
+% \usepackage[style=chicago-authordate,backend=biber,usecompiler=true,%
+% babel=hyphen,bibencoding=auto,sorting=nyt,cmslos,autocite=inline]{biblatex}
+\usepackage{lmodern}
+\usepackage{gentium}
+%\renewcommand*{\rmdefault}{fgn}% The font (gentium) used for pdf
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{vmargin} \setpapersize{A4}
+\setmarginsrb{1in}{20pt}{1in}{.5in}{1pt}{2pt}{0pt}{13pt}
+\usepackage{url}
+\urlstyle{rm}
+\appto\bibsetup{\sloppy}
+\hyphenation{evans-ton clem-ens mc-hugh}
+\setlength{\dimen\footins}{9.5in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\providecommand{\theendnote}{}
+\protected\def\onethird{{\scriptsize\raisebox{.7ex}{1}%
+    \hspace{-0.1em}\raisebox{.2ex}{/}\hspace{-0.03em}3}}
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\newcommand{\mycolor}{}%[1]{\textcolor[HTML]{228B22}{#1}}
+\usepackage{xr-hyper}
+\externaldocument[cms-]{../../Docs/biblatex-chicago}%
+\externaldocument[trad-]{cms-trad-appendix}
+\usepackage[pdftex,hyperref,svgnames]{xcolor}
+\usepackage[pdftex,colorlinks,urlcolor=DarkSlateGrey,citecolor=MidnightBlue,
+plainpages=false,breaklinks=true,linkcolor=DarkSlateGrey,filecolor=Teal,
+baseurl=biblatex-chicago.pdf\#]{hyperref}
+\usepackage{cmsdocs}
+\bibliography{dates-test}
+%%\onehalfspacing
+%\tracingstats=2
+\begin{document}
+
+\section*{The Chicago Author-Date Specification}
+\label{sec:spec}
+
+This file is intended as a brief introduction to the Chicago
+author-date specification (16th ed.) \autocite{chicago:manual} as
+implemented by \textsf{biblatex-chicago}, and falls somewhere in
+between the \enquote{Quickstart} section of
+\textsf{biblatex-chicago.pdf} and the full documentation as presented
+in section~5 \cmssecref{cms-sec:authdate} of that same document.  I've
+attempted to design this introduction for ease of cross-reference, so
+clicking on citations should bring you to the reference list entry,
+whence clicking on the entry key in the annotations should present you
+with the entry as it appears in the .bib file, where clicking on the
+entry type should return you to the reference list.  If you have
+questions beyond the scope of this introduction, then the full
+documentation is the place to look next --- marginal notes here refer
+to section or page numbers there, and if you've installed the package
+using the standard \TeX\ Live method then clicking on these marginal
+notes should take you to the other document.  If you can't find
+answers there, please write to me at the email address in
+\textsf{biblatex-chicago.pdf}.
+
+\subsection*{Important Note}
+\label{bibernote}
+
+Starting with \textsf{biblatex} version 1.5, in order to adhere to the
+author-date specification you will need to use \textsf{Biber} to
+process your .bib files, as \textsc{Bib}\TeX\ (and its more recent
+variants) will no longer provide all the features the style requires.
+For this release, you really need the current versions of
+\textsf{Biber} (2.7) and \textsf{biblatex} (3.7), which contain
+features and bug-fixes on which my own code relies.  The advice that
+follows in this document assumes that you are using \textsf{Biber}; if
+you wish to continue using \textsc{Bib}\TeX\ then you need
+\textsf{biblatex} version 1.4c and \textsf{biblatex-chicago} 0.9.7a.
+
+\subsection*{Editions}
+\label{editions}
+
+The 16th edition of \emph{The Chicago Manual of Style} implements
+significant changes to what the author-date specification has,
+historically, recommended, and there are certain to be users who
+prefer the older format with titles capitalized sentence-style and
+not, in the case of most un-book-like entries, enclosed in quotation
+marks.  For such users, the \textsf{authordate-trad} style, as
+envisaged by the \textcite[15.45]{chicago:manual}, grafts the
+traditional Chicago author-date title formatting onto the current
+recommendations for the remainder of the reference apparatus.  Please
+consult
+\href{file:cms-trad-appendix.pdf}{\textsf{cms-trad-appendix.pdf}}
+for notes on the few .bib entries from this introduction that would
+require modification for the \texttt{trad} style; for the remainder,
+you'll notice a few extra sets of curly braces in various
+\textsf{title} fields to make the entry usable in both author-date
+styles.  The 15th-edition styles are still in the package, but they
+have not been updated in some time, and are now officially obsolete.
+I would strongly encourage all users to switch to one of the
+16th-edition styles as soon as possible, as I am concentrating all of
+my development time there.
+
+\subsection*{Usage}
+\label{usage}
+
+As a general rule, you'll probably want to use the \cmd{autocite}
+command for most citations.  For most sources, the result will be
+exactly as you expect it to be.  A few examples:
+\autocite{adorno:benj}; \autocite{ashbrook:brain};
+\autocite{babb:peru}; \autocite{barcott:review}.  Any page references
+should also appear as you expect: \autocite[338]{batson};
+\autocite[79]{beattie:crime}; \autocite[36]{boxer:china}.
+
+\subsection*{Repeated citations}
+\label{sec:ibidem}
+
+Repeated citations are somewhat complicated.  The Chicago author-date
+style doesn't use \enquote{\emph{Ibid},} but in general a repeated
+citation on the same page will print only the page reference:
+\autocite{browning:aurora}; \autocite[45]{browning:aurora}.
+Technically, this should only occur when a source is cited
+\enquote{more than once in one paragraph}
+\autocite[15.26]{chicago:manual}, so you can use the \cmd{citereset}
+command from \textsf{biblatex} to achieve the greatest compliance, as
+the package only offers automatic resetting on part, chapter, section,
+and subsection boundaries, while \textsf{biblatex-chicago}
+automatically resets the tracker at page breaks:
+
+\citereset\cmd{citereset}\ \autocite[15.27]{chicago:manual}.  If you
+are going to repeat a source, make sure that the cite command provides
+a postnote --- when using \textsf{biblatex-chicago} you'll no longer
+get any annoying empty parentheses, but you will get another standard
+citation, which may add too much clutter: \autocite{chicago:manual}.
+If you don't need to cite a specific page, then it may be better, or
+at least more concise, only to use one citation command rather than
+two.
+
+\subsection*{Other citation commands}
+\label{sec:other}
+
+The other \cmssecref{cms-sec:cite:authordate} citation commands from
+\textsf{biblatex} also work fine:
+
+\cmd{textcite}: \textcite{conley:fifthgrade}; \cmd{autocite*}:
+\autocite*{connell:chronic}; \cmd{cite}: \cite{conway:evolution};
+\cmd{cite*}: \cite*{davenport:attention}; \cmd{foot\-note} with
+\cmd{autocite};\footnote{\autocite{donne:var}.}\ \cmd{footcite}
+(=\cmd{cite} inside a \cmd{footnote}).  \footcite{dunn:revolutions}
+
+Multicites should work as you expect, too:
+
+\cmd{autocites}: \autocites{dyna:browser}{eliot:pound};
+\cmd{autocites} by the same author:
+\autocites{pirumova}{pirumova:russian}; \cmd{autocites} by the same
+author with postnotes: \autocites{pirumova}[14]{pirumova:russian};
+\cmd{textcites} by the same author with postnotes:
+\textcites[37]{pirumova}{pirumova:russian}.
+
+\textsf{Biblatex-chicago} now also provides a \cmd{gentextcite}
+command, which prints an \gentextcite{author:forthcoming} name in the
+genitive case in what is otherwise a standard \cmd{textcite}.  If you
+want to change the default -- \textbf{'s} -- printed there you can
+specify whatever text you wish like so:
+\cmd{gentextcite[<ending>][][]\{entry:key\}}.  There is also a
+\cmd{gentextcites} command, modified thus:
+\cmd{gentextcites[<ending>]()()[][]\{key1\}\{key2\}}.
+
+\subsection*{Shorthands}
+\label{sec:shorthands}
+
+Chicago's author-date style
+\cmssecref[shorthand]{cms-sec:ad:shorthand} only seems to recommend
+the use of shorthands as abbreviations for long authors' names,
+particularly institutional names \autocite[15.36]{chicago:manual}.  By
+default, I have followed this recommendation: \cmd{autocites}:
+\autocites{bsi:abbreviation}{iso:electrodoc}; \cmd{textcites}:
+\textcites{bsi:abbreviation}{iso:electrodoc}.  This \textsf{shorthand}
+will by default appear at the head of the entry in the list of
+references, followed by the parenthesized expansion of the shorthand,
+taken from the \textsf{author} field.  (This is a change from the 15th
+edition.)  You will usually also need a \textsf{sortkey} field to make
+sure that the entry is alphabetized by the \textsf{shorthand} rather
+than by the \textsf{title}.  If you use a
+\cmd{printbiblist\{shorthand\}} command, the list of shorthands will
+still be printed, so you now have a variety of options available for
+presenting the expansions depending on your specific requirements.
+Please note, also, that you can get back something approaching the
+\enquote{standard} behavior of shorthands if you give the
+\texttt{cmslos=false} option to \textsf{biblatex-chicago} in your
+document preamble.
+
+\subsection*{Mildly problematic entries}
+\label{sec:problematic}
+
+In most \cmssecref[author]{cms-sec:ad:author} entries, the absence of
+an author can be supplied by, e.g., an editor or a translator:
+\autocite{chaucer:alt}; \autocite{silver:gawain}.  Sometimes an
+anonymous work's author is known or can be guessed:
+\autocite{horsley:prosodies}; \autocite{cook:sotweed}.  Alternatively,
+in some cases the \textsf{title} may appear in place of the
+\textsf{author}: \autocite{anon:stanze};
+\autocite{virginia:plantation}.  The 16th edition is less than
+enthusiastic about the use of \enquote{\texttt{Anon.}}\ as author.
+
+By default, in most \cmssecref[date]{cms-sec:ad:date} entry types, an
+absent \textsf{date} will automatically provoke \textsf{Biber} into
+searching for other sorts of dates in the entry, in the order
+\textsf{year, eventyear, origyear, urlyear}: e.g.,
+\autocite{evanston:library}, which only has a \textsf{urlyear}.  In
+three entry types --- \textsf{Music}, \textsf{Review}, and
+\textsf{Video} --- this search order is \textsf{eventyear, origyear,
+  year, urlyear}, as in these types the earliest year should take
+precedence (cf.\ page~\pageref{sec:audiovisual}, below).  You can also
+change the default search order, for all but the three types just
+mentioned, by using the \texttt{cmsdate} option in the preamble of
+your document, instead of (or in addition to) using it in the
+\textsf{options} field of individual entries.  Setting that option in
+the preamble either to \enquote{\texttt{both}} or
+\enquote{\texttt{on}} makes the document-wide search order:
+\textsf{origyear, year, eventyear, urlyear}.  This may be useful for
+documents that contain many entries with multiple dates, and where you
+want \emph{always} to present the earlier (i.e., \textsf{orig}) dates
+at the head of reference list entries and in citations.  You can
+eliminate some of these dates from the running, or change the search
+order, using the \cmd{DeclareLabeldate} command in your preamble, but
+please be aware that I have hard-coded the possibilities above into
+the author-date style in order to cope with some tricky corners of the
+specification.  If you reorder these dates, and your references enter
+these tricky corners, the results might be surprising.  (Cf.\
+section~4.5.8 in \textsf{biblatex.pdf}.)
+
+In most entry types, the absence of all four possible dates will
+automatically produce \mbox{\enquote{\texttt{n.d.}\hspace{-2pt}}}
+instead: \autocite{bernstein:shostakovich}.  You can also give it
+yourself in the form \cmd{bibstring\{nodate\}}:
+\autocite{ross:thesis}.  A date that can be guessed should appear
+within square brackets: \autocite{clark:mesopot}.  Forthcoming works
+are straightforward, assuming you remember to use the \cmd{autocap}
+macro and the \textsf{year} (instead of the \textsf{date}) field, so
+that the word appears correctly in both citations and the list of
+references: \autocite{author:forthcoming}; \autocite{contrib:contrib}.
+
+The 16th edition of the \emph{Manual} has changed the rules for
+entries with more than one date \autocite[15.38]{chicago:manual}.
+First, \textsf{Music}, \textsf{Review}, and \textsf{Video} entries
+have their own rules, which are applied automatically.  (Once again,
+see page~\pageref{sec:audiovisual}, below.)  For other entry types,
+there are two options, corresponding to two different states of the
+\texttt{cmsdate} entry (or preamble) option.  The default is
+\texttt{cmsdate=off}: \autocite{maitland:equity}.  Here, setting the
+\textsf{pubstate} field to \texttt{reprint} ensures that a notice of
+the original publication date will be printed at the end of the
+reference list entry.  Alternatively, you can use
+\texttt{cmsdate=both}: \autocite{emerson:nature};
+\autocite{maitland:canon}.  \texttt{cmsdate=new} and
+\texttt{cmsdate=old} are both now synonyms of \texttt{both}, while
+\texttt{cmsdate=on} is still available even though it falls outside
+the specification: \autocite{james:ambassadors}.  These options, in
+combination with others available in your .bib files, can cover a wide
+range of difficult cases.  Please see the next section below, and also
+the following entries in \textsf{dates-test.bib}:
+\autocites{schweitzer:bach}{white:russ}{white:ross:memo}.
+
+\subsection*{Corners of the specification}
+\label{sec:corners}
+
+In some cases, the \emph{Manual} isn't altogether clear about how to
+present entries in the author-date style.  By following up on
+suggestions from the notes \&\ bibliography style, one can be
+reasonably certain about most of what follows, but if you interpret
+the specification differently please let me know.
+
+\subsubsection*{InReference entries}
+\label{sec:inref}
+
+These present \cmssecref[inreference]{cms-sec:ad:inreference} several
+peculiarities: the title of the work should always take the place of
+any author, no \enquote{\texttt{n.d.}\hspace{-2pt}} will automatically
+be provided, and any postnote field will be enclosed in quotation
+marks preceded by \enquote{\texttt{s.v.}\hspace{-2pt}} for
+\enquote{\emph{sub verbo}.}  This allows you to refer to alphabetized
+articles in well-known reference works: \autocite[Hume,
+David]{ency:britannica}; \autocite[Sibelius, Jean]{grove:sibelius};
+\autocite[BibTeX]{wikiped:bibtex}.
+
+\subsubsection*{Author-less Article, Review, and Manual entries}
+\label{sec:authless:art}
+
+In \textsf{Article} and \textsf{Review} entries
+\cmssecref[article]{cms-sec:ad:article} with the \texttt{magazine}
+entrysubtype, the absence of an author automatically places the
+\textsf{journaltitle} of the periodical in citations and at the head
+of the entry in the list of references: \autocite{gourmet:052006}.
+(Without the entrysubtype, you'll get the \textsf{title} at the head
+rather than the \textsf{journaltitle}.)  You can cite newspaper and
+magazine articles entirely within the text, i.e., without them
+appearing in the reference list \autocite[15.47]{chicago:manual}, if
+you set the \texttt{cmsdate=full} entry option:
+\autocite{lakeforester:pushcarts}; \autocite{nyt:trevorobit}.  In
+\textsf{Manual} entries, the \textsf{organization} field does the
+same: \autocite{dyna:browser}.  If you wish to present an abbreviated
+form of the organization name in citations only, then the
+\textsf{shortauthor} field --- or in other cases the
+\textsf{shorthand} field --- is the place for it:
+\autocite{bsi:abbreviation}.  For abbreviated \textsf{journaltitles},
+you can use \textsf{shortjournal}, which also allows you, should you
+wish, to provide a list of abbreviated journal names with their
+expansions using \cmd{printbiblist\{shortjournal\}}:
+\autocite{unsigned:ranke}.
+
+\subsubsection*{Misc entries with an entrysubtype}
+\label{sec:misc}
+
+When \cmssecref[misc]{cms-sec:ad:misc} citing individual letter-like
+pieces from an unpublished archive where only an \textsf{origdate} is
+present, you no longer need to set the \texttt{cmsdate} option in your
+.bib entry, as \textsf{Biber} and \textsf{biblatex-chicago} now handle
+this automatically: \autocite{creel:house}.  Non-letters, e.g.,
+interviews, use the \textsf{date} field, so you don't need
+\texttt{cmsdate} there, either: \autocite{spock:interview}.  For
+undated pieces you can put \cmd{bibstring\{nodate\}} in the
+\textsf{year} field: \autocite{dinkel:agassiz}.  For citing whole
+collections, see the next section.
+
+\subsubsection*{entrysubtype = \{classical\}}
+\label{sec:classical}
+
+This option's \cmssecref[entrysubtype]{cms-sec:ad:entrysubtype} name
+derives from its use for citing texts from classical antiquity, though
+in the author-date style especially it can be put to use in several
+other contexts.  In a nutshell, any entry with such an
+\textsf{entrysubtype} will be treated, in citations only, not as
+author-date but as author-title.  (Entries in the list of references,
+e.g., a particular edition of Aristotle, will still appear in standard
+author-date format.)  A \cmd{cite*} or \cmd{autocite*} command will,
+in such a case, produce the title rather than the year.  Some examples
+should make this clearer:
+
+%\enlargethispage{-\baselineskip}
+
+Classical works: without abbreviation:
+\autocite{aristotle:metaphy:trans}; with abbreviation:
+\autocite{aristotle:metaphy:gr}; \autocite{plato:republic:gr}; using
+standard pagination: \autocite*[3.2.996b5--8]{aristotle:metaphy:gr};
+\autocite*[420e]{plato:republic:gr}; work cited by page of a modern
+edition, i.e., without \textsf{entrysubtype}:
+\autocite[198]{euripides:orestes}.
+
+Sacred works, e.g., the Bible and the Qur'an:
+\autocite[25:19--36:43]{genesis}.
+
+An unpublished archive, from which more than one work has been cited:
+\autocite[file 12]{house:papers}.  (Both this and the previous example
+use a Misc entry with \texttt{classical} \textsf{entrysubtype}.)
+
+\subsubsection*{Comments inside citations}
+\label{sec:comments}
+
+If you wish to include a comment inside the parentheses of a citation,
+it will need to be separated by a semicolon
+\autocite[15.23]{chicago:manual}.  If you have a \textsf{postnote},
+then you can manually provide the punctuation and comment in that
+field, e.g., \autocite[4; the unrevised trans.]{stendhal:parma}.
+Without a \textsf{postnote}, you have two choices.  You can enable the
+\texttt{postnotepunct} package option, which allows you simply to type
+\cmd{autocite[; the unrevised trans.]\{stendhal:\\parma\}}
+\citereset\autocite[; the unrevised trans.]{stendhal:parma}, or you
+can continue to use a separate \textsf{Misc} or \textsf{CustomC} entry
+containing just the text of the comment in the \textsf{title} field,
+\textsf{entrysubtype} \texttt{classical}, and \textsf{options}
+\texttt{skipbib}.  An \cmd{autocites} command calling both the main
+text and the comment will then do the trick, e.g.,
+\autocites{chicago:manual}{chicago:comment}.
+
+\subsubsection*{Multiple authors}
+\label{sec:multiple}
+
+The default settings in \textsf{biblatex-chicago} are
+\texttt{maxnames=3,minnames=1} in citations and
+\texttt{max\-bibnames=10,minbibnames=7} in the list of references
+(these latter parameters set in \textsf{biblatex-chicago.sty}).  In
+practice, this means that an entry like hlatky:hrt, with 5 authors,
+will present all of them in the list of references but will truncate
+to one in citations, like so: \autocite{hlatky:hrt}.  For the vast
+majority of circumstances, these settings are exactly right for the
+Chicago author-date specification.  However, if \enquote{a reference
+  list includes another work \emph{of the same date} that would also
+  be abbreviated as [\enquote{Hlatky et al.}] but whose coauthors are
+  different persons or listed in a different order, the text citations
+  must distinguish between them} \autocite[15.28]{chicago:manual}.
+The (\textsf{Biber}-only) \textsf{biblatex} option
+\texttt{uniquelist}, set for you in \textsf{biblatex-chicago.sty},
+will automatically handle many of these situations for you, but it is
+as well to understand that it does so by temporarily suspending the
+limits, listed above, on how many names to print in a citation.
+Without \texttt{uniquelist}, \textsf{biblatex} would present such a
+work as, e.g., (Hlatky et al. 2002b), while hlatky:hrt would be
+(Hlatky et al. 2002a).  This does distinguish between them, but
+inaccurately, as it suggests that the two different author lists are
+exactly the same.  With \texttt{uniquelist}, the two citations might
+look like (Hlatky, Boothroyd et al.\ 2002) and (Hlatky, Smith et al.\
+2002), which is what the specification requires.
+
+If, however, the distinguishing name occurs further down the author
+list --- in fourth or fifth position in our examples --- then the
+default settings would produce citations with all 4 or 5 names
+printed, which can become awkwardly long.  In such a situation, you
+can provide \textsf{shortauthor} fields that look like this:
+\{\{Hlatky et al., \textbackslash mkbibquote\{Quality of Life,\}\}\}
+and \{\{Hlatky et al., \textbackslash mkbibquote\{Depressive
+Symptoms,\}\}\}, using a shortened title to distinguish the
+references.  This would produce (Hlatky et al., \enquote{Quality of
+  Life,} 2002) and (Hlatky et al., \enquote{Depressive Symptoms,}
+2002), as the spec recommends.  There is, unfortunately, no simpler
+way that I know of to deal with this situation.
+
+\subsubsection*{Audiovisual entries}
+\label{sec:audiovisual}
+
+According \cmssecref{cms-sec:ad:avdate} to the \emph{Manual},
+\enquote{Chicago recommends a more comprehensive approach to dating
+  audiovisual materials than in previous editions.}  This means, for
+instance, that, even when consulting a digital copy, \enquote{it is
+  generally useful to give information about the original source.}
+Also, \enquote{the date of the original recording should be privileged
+  in the citation} \autocite[15.53]{chicago:manual}.  The rather more
+book-like entries are generally unaffected by these changes, so
+published (\textsf{Audio}) and unpublished (\textsf{Misc}) scores are
+no problem at all: \autocite{schubert:muellerin};
+\autocite{verdi:corsaro}; \autocite{shapey:partita}.  The dating of
+online materials has been enhanced: \autocite{coolidge:speech};
+\autocite{horowitz:youtube}; \autocite{pollan:plant}.  The most
+significant changes, however, appear in \textsf{Music} and
+\textsf{Video} entries, where every effort should be made to find
+date(s) for sources: \autocite{auden:reading};
+\autocite{friends:leia}; \autocite{handel:messiah};
+\autocite{holiday:fool}; \autocite{nytrumpet:art}.  Others perhaps
+require further information in the entry or genuinely are better
+suited to presentation in running text: \autocite{beethoven:sonata29}.
+The standard \textsf{biblatex} tools for subdividing reference lists
+are all available if you want to follow the \emph{Manual's}
+recommendations on presenting this kind of material separately from
+other sources.
+
+\subsubsection*{Related entries}
+\label{sec:related}
+
+\textsf{Biblatex} provides \cmssecref{cms-sec:authrelated} a powerful
+mechanism, using the \textsf{related} field, for grouping two (or
+more) works together in a single entry in the list of references,
+while \textsf{biblatex-chicago} offers both this functionality and
+some Chicago-specific variants which employ different means.  You can
+find a full discussion of this in \textsf{biblatex-chicago.pdf}, but a
+few of the entries already cited in this introduction show some of the
+possibilities: \autocite{aristotle:metaphy:trans};
+\autocite{coolidge:speech}; \autocite{emerson:nature};
+\autocite{schweitzer:bach}.
+
+\subsection*{In conclusion}
+\label{sec:conclude}
+
+Allow me, finally, to emphasize just how multifarious are the sources
+illustrated in the \emph{CMS}, only a small selection of which have
+appeared in this introduction.  You will find significantly fuller
+guidance in \textsf{biblatex.pdf} and \textsf{biblatex-chicago.pdf},
+but the \emph{CMS} itself defines the specification and shall
+arbitrate all disputes.  If you see something in
+\textsf{biblatex-chicago} that looks wrong to you, or if the
+documentation has left you perplexed, please let me know.
+
+
+\printbibliography[title=References]
+\setlength{\textheight}{10.5in}
+\twocolumn[\Large \texttt{The Database File}]
+\vspace*{-6pt}
+\begin{lstlisting}[language=BibTeX,label=prologue]
+%% Database entries used to produce
+%% citations in this file, taken
+%% from dates-test.bib. I have
+%% removed the annotations to save
+%% room -- you can click on
+%% the entry type to return to the
+%% reference list entry, where you'll
+%% also find the annotations. You can
+%% click on text with a grey back-
+%% ground to switch to that entry
+%% within this .bib listing. Through-
+%% out this listing you'll see curly
+%% braces around parts of titles and
+%% subtitles, which allow the entry
+%% to work equally well in authordate
+%% and authordate-trad.
+
+@String{cup = {Cambridge University Press}}
+@String{hup = {Harvard University Press}}
+@String{uchp = {University of Chicago Press}}
+@String{oup = {Oxford University Press}}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=adorno:benj]
+*\adlnbackref{Book}{adorno:benj}*,
+  title = 	 {The Complete Correspondence, 1928--1940},
+  publisher = 	 hup,
+  year = 	 1999,
+  author = 	 {Adorno, Theodor~W. and Benjamin, Walter},
+  editor = 	 {Lonitz, Henri},
+  translator = 	 {Nicholas Walker},
+  location =  {Cambridge, MA}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=anon:stanze]
+*\adlnbackref{Book}{anon:stanze}*,
+  title = 	 {Stanze in lode della donna brutta},
+  date = 	 1547,
+  address = 	 {Florence},
+  shorttitle = 	 {Stanze}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=aristotle:metaphy:gr]
+*\adlnbackref{Book}{aristotle:metaphy:gr}[aristotle:metaphy:trans]*,
+  shorttitle = 	 {Metaph\adddot},
+  title = 	 {Metaphysics},
+  options = 	 {skipbib},
+  entrysubtype = {classical},
+  origdate = 	 1924,
+  date = 1997,
+  author = 	 {Aristotle},
+  editor = 	 {Ross, W.~D.},
+  publisher = {Oxford Univ.\ Press and Sandpiper Books},
+  pubstate = 	 {reprint},
+  volumes = 	 2,
+  location =  {Oxford}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=aristotle:metaphy:trans]
+*\adlnbackref{Book}{aristotle:metaphy:trans}*,
+  title = 	 {Metaphysica},
+  entrysubtype = {classical},
+  year = 	 1928,
+  volume = 	 8,
+  author = 	 {Aristotle},
+  editor = 	 {Ross, W.~D.},
+  nameb = 	 {Ross, W.~D.},
+  origlanguage = {greek},
+  userf = 	 {*\hyperlink{\getrefbykeydefault%
+{aristotle:metaphy:gr}{anchor}{}}%
+{\{\colorbox{Gainsboro}{aristotle:metaphy:gr}\}}*},
+  maintitle = 	 {The Works of {Aristotle}, Translated into {English}},
+  publisher = {Clarendon Press},
+  edition = 	 2,
+  location =  {Oxford}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=ashbrook:brain]
+*\adlnbackref{InBook}{ashbrook:brain}*,
+  author = 	 {Ashbrook, James~B. and Albright, Carol Rausch},
+  title = 	 {The Frontal Lobes, Intending, and a Purposeful God},
+  booktitle = 	 {The Humanizing Brain},
+  publisher = {Pilgrim Press},
+  year = 	 1997,
+  chapter = 	 7,
+  location =  {Cleveland, OH},
+  shorttitle = {The Frontal Lobes}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=auden:reading]
+*\adlnbackref{Music}{auden:reading}*,
+  title = 	 {Selected Poems},
+  author = 	 {Auden, W. H.},
+  date = 	 {1991},
+  number = 	 7137,
+  series = 	 {Spoken Arts},
+  type = 	 {audiocassette},
+  note = 	 {read by the author}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=author:forthcoming]
+*\adlnbackref{Article}{author:forthcoming}*,
+  author = 	 {Author, Margaret~M.},
+  title = 	 {Article Title},
+  journaltitle = {Journal Name},
+  year = 	 {\autocap{f}orthcoming},
+  volume = 	 98
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=babb:peru]
+*\adlnbackref{Book}{babb:peru}*,
+  title = 	 {Between Field and Cooking Pot},
+  subtitle = 	 {The Political Economy of Marketwomen in {Peru}},
+  year = 	 1989,
+  author = 	 {Babb, Florence},
+  publisher = {University of Texas Press},
+  edition = 	 {\bibstring{revisededition}},
+  location =  {Austin}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=barcott:review]
+*\adlnbackref{Review}{barcott:review}*,
+  journaltitle = {New York Times Book Review},
+  author =	 {Barcott, Bruce},
+  date = 	 {2000-04-16},
+  entrysubtype = {magazine},
+  title =	 {\bibstring{reviewof} \mkbibemph{The Last Marlin: The Story of a Family at Sea}, \bibstring{by} Fred Waitzkin},
+  pages =	 7
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=batson]
+*\adlnbackref{Article}{batson}*,
+  author =	 {Batson, C.~Daniel},
+  title =	 {How Social Is the Animal? {The} Human Capacity for Caring},
+  journaltitle = {American Psychologist},
+  volume =	 45,
+  date = 	 {1990-03},
+  pages =	 {336--346}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=beattie:crime]
+*\adlnbackref{Article}{beattie:crime}*,
+  author = 	 {Beattie, J.~M.},
+  title = 	 {The Pattern of Crime in {England}, 1660--1800},
+  journaltitle = {Past and Present},
+  year = 	 1974,
+  number = 	 62,
+  pages = 	 {47--95}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=beethoven:sonata29]
+*\adlnbackref{Music}{beethoven:sonata29}*,
+  title = 	 {Piano Sonata \bibstring{number} 29 \mkbibquote{Hammerklavier}},
+  author = 	 {Beethoven},
+  editor = 	 {Peter Serkin},
+  editortype = 	 {none},
+  number = 	 {CDD 270},
+  series = 	 {Proarte Digital}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=bernstein:shostakovich]
+*\adlnbackref{Music}{bernstein:shostakovich}*,
+  title = 	 {Symphony \bibstring{number} 5},
+  author = 	 {Shostakovich, Dmitri},
+  editor = 	 {Bernstein, Leonard},
+  editortype = 	 {conductor},
+  editora = 	 {{New York Philharmonic}},
+  editoratype =  {none},
+  number = 	 {IM 35854},
+  series = 	 {CBS},
+  options = 	 {useauthor=false}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=boxer:china]
+*\adlnbackref{Book}{boxer:china}*,
+  title = 	 {South {China} in the Sixteenth Century},
+  year = 	 1953,
+  editor = 	 {Boxer, Charles~R.},
+  number = 	 {2nd ser., 106},
+  series = 	 {Hakluyt Society Publications},
+  location =  {London}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=browning:aurora]
+*\adlnbackref{Book}{browning:aurora}*,
+  title =	 {{Aurora Leigh}},
+  subtitle =	 {Authoritative Text, Backgrounds and Contexts, Criticism},
+  year =	 1996,
+  author =	 {Browning, Elizabeth Barrett},
+  editor =	 {Reynolds, Margaret},
+  publisher =	 {Norton},
+  series =	 {Norton Critical Editions},
+  location =	 {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=bsi:abbreviation]
+*\adlnbackref{Manual}{bsi:abbreviation}*,
+  title = 	 {Specification for Abbreviation of Title Words and Titles of Publications},
+  date = 	 1985,
+  organization = {British Standards Institute},
+  sortname = 	 {BSI},
+  address = 	 {Linford Woods, Milton Keynes, UK},
+  shorthand = 	 {BSI}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=chaucer:alt]
+*\adlnbackref{Book}{chaucer:alt}*,
+  title = 	 {Chaucer Life-Records},
+  year = 	 1966,
+  editor = 	 {Crow, Martin~M. and Olson, Clair~C.},
+  namec = 	 {Manly, John~M. and Richert, Edith},
+  publisher = oup,
+  note = 	 {with the assistance of Lilian~J. Redstone and others},
+  location =  {London}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=chicago:comment]
+*\adlnbackref{CustomC}{chicago:comment}[chicago:manual]*,
+  title = 	 {the most recent edition},
+  entrysubtype = {classical},
+  options = 	 {skipbib},
+  annotation = 	 {An example of how to use a CustomC entry to insert a comment inside another parenthetical citation.}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=chicago:manual]
+*\adlnbackref{Book}{chicago:manual}*,
+  title = 	 {The {Chicago} Manual of Style},
+  year = 	 2010,
+  author = 	 {{University of Chicago Press}},
+  publisher = uchp,
+  edition = 	 16,
+  location =  {Chicago}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=clark:mesopot]
+*\adlnbackref{Booklet}{clark:mesopot}*,
+  title = 	 {Mesopotamia},
+  subtitle = 	 {Between Two Rivers},
+  author = 	 {Hazel V. Clark},
+  howpublished = {End of the Commons General Store},
+  year = 	 {\mkbibbrackets{1957?}},
+  location =  {Mesopotamia, OH}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=conley:fifthgrade]
+*\adlnbackref{Article}{conley:fifthgrade}*,
+  author =	 {Conley, Alice},
+  title =	 {Fifth-Grade Boys' Decisions about Participation in Sports Activities},
+  issuetitle =	 {Non-subject-matter Outcomes of Schooling},
+  journaltitle = {Elementary School Journal},
+  note = 	 {special issue},
+  year =	 1999,
+  volume =	 99,
+  editor =       {Good, Thomas~L.},
+  number =	 5,
+  pages =	 {131--146}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=connell:chronic]
+*\adlnbackref{Article}{connell:chronic}*,
+  author = 	 {Connell, A.~D. and Airey, D.~D.},
+  title = 	 {The Chronic Effects of Fluoride on the Estuarine Amphipods \mkbibemph{Grandidierella lutosa} and \mkbibemph{G. lignorum}},
+  journaltitle = {Water Research},
+  date = 	 1982,
+  volume = 	 16,
+  pages = 	 {1313--1317}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=contrib:contrib]
+*\adlnbackref{InCollection}{contrib:contrib}*,
+  author = 	 {Contributor, Anna},
+  title = 	 {Contribution},
+  booktitle = 	 {Edited Volume},
+  publisher = {Publisher},
+  year = 	 {\autocap{f}orthcoming},
+  editor = 	 {Editor, Ellen},
+  location =  {Place}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=conway:evolution]
+*\adlnbackref{Article}{conway:evolution}*,
+  author = 	 {Conway, M.~S.},
+  title = 	 {The Evolution of Diversity in Ancient Ecosystems},
+  subtitle = 	 {A Review},
+  journaltitle = {Philosophical Transactions of the Royal Society},
+  date = 	 1998,
+  volume = 	 {B 353},
+  pages = 	 {327--345}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=cook:sotweed]
+*\adlnbackref{Book}{cook:sotweed}*,
+  title = 	 {Sotweed Redivivus, or The Planter's Looking-Glass},
+  year = 	 1730,
+  author = 	 {Cook, Ebenezer},
+  authortype = 	 {anon?},
+  note = 	 {\bibstring{by} \mkbibquote{E.~C. Gent}},
+  location =  {Annapolis}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=coolidge:speech]
+*\adlnbackref{Online}{coolidge:speech}*,
+  author = 	 {Coolidge, Calvin},
+  title = 	 {Equal Rights},
+  note = 	 {copy of an undated 78 rpm disc},
+  options = 	 {ptitleaddon=space},
+  titleaddon = 	 {(speech)},
+  related = 	 {*\hyperlink{\getrefbykeydefault%
+{loc:leaders}{anchor}{}}{\{\colorbox{Gainsboro}{loc:leaders}\}}*},
+  year = 	 {[1920?]},
+  relatedstring = {from}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=creel:house]
+*\adlnbackref{Misc}{creel:house}*,
+  author = 	 {Creel, George},
+  entrysubtype = {letter},
+  title = 	 {George Creel to Colonel House},
+  note = 	 {Edward~M. House Papers},
+  origdate = 	 {1918-09-25},
+  organization =  {Yale University Library}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=davenport:attention]
+*\adlnbackref{Book}{davenport:attention}*,
+  title =	 {The Attention Economy},
+  subtitle =	 {Understanding the New Currency of Business},
+  year =	 2001,
+  author =	 {Davenport, Thomas~H. and Beck, John~C.},
+  publisher =	 {Harvard Business School Press},
+  addendum =	 {TK3 Reader e-book},
+  location =	 {Cambridge, MA}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=dinkel:agassiz]
+*\adlnbackref{Misc}{dinkel:agassiz}*,
+  author = 	 {Dinkel, Joseph},
+  title = 	 {description of Louis Agassiz written at the request of Elizabeth Cary Agassiz},
+  year = 	 {\bibstring{nodate}},
+  entrysubtype = {yes},
+  note = 	 {Agassiz Papers},
+  location =  {Harvard University},
+  organization =  {Houghton Library}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=donne:var]
+*\adlnbackref{Book}{donne:var}*,
+  author =	 {Donne, John},
+  editor =	 {Stringer, Gary~A.},
+  title =	 {The \mkbibquote{Anniversaries} and the \mkbibquote{Epicedes and Obsequies}},
+  namea =	 {Stringer, Gary~A. and Pebworth, Ted-Larry},
+  publisher =	 {Indiana Univ. Press},
+  maintitle =	 {The Variorum Edition of the Poetry of {John Donne}},
+  year =	 1995,
+  volume =	 6,
+  location =	 {Bloomington}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=dunn:revolutions]
+*\adlnbackref{Book}{dunn:revolutions}*,
+  title = 	 {Sister Revolutions},
+  subtitle = 	 {French Lightning, {American} Light},
+  year = 	 1999,
+  author = 	 {Dunn, Susan},
+  publisher = {Faber \& Faber and Farrar, Straus \& Giroux},
+  location =  {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=dyna:browser]
+*\adlnbackref{Manual}{dyna:browser}*,
+  title = 	 {Dynatext, Electronic Book Indexer/Browser},
+  organization = {Electronic Book Technology Inc.},
+  address = 	 {Providence, RI},
+  year = 	 1991
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=eliot:pound]
+*\adlnbackref{Book}{eliot:pound}*,
+  title = 	 {Literary Essays},
+  options = {useauthor=false},
+  year = 	 1953,
+  author = 	 {Pound, Ezra},
+  editor =  {Eliot, T.~S.},
+  publisher = {New Directions},
+  location =  {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=emerson:nature]
+*\adlnbackref{Book}{emerson:nature}*,
+  title =	 {Nature},
+  year =	 1985,
+  origdate =	 1836,
+  location = 	 {Boston},
+  options = 	 {cmsdate=old},
+  author =	 {Emerson, Ralph Waldo},
+  publisher = 	 {Beacon},
+  note = 	 {a facsimile of the first \bibstring{edition} with an \bibstring{introduction} by Jaroslav Pelikan}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=ency:britannica]
+*\adlnbackref{InReference}{ency:britannica}*,
+  title =        {Encyclopaedia Britannica},
+  edition =      {15},
+  shorttitle = 	 {Ency. {Brit}., \mkbibemph{15th ed}\adddot},
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=euripides:orestes]
+*\adlnbackref{BookInBook}{euripides:orestes}*,
+  title = 	 {Orestes},
+  year = 	 1958,
+  booktitle = 	 {Euripides},
+  maintitle = 	 {The Complete {Greek} Tragedies},
+  nameb = 	 {Arrowsmith, William},
+  volume = 	 4,
+  author = 	 {Euripides},
+  editor = 	 {Grene, David and Lattimore, Richmond},
+  publisher = uchp,
+  pages = 	 {185--288},
+  location =  {Chicago},
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=evanston:library]
+*\adlnbackref{Online}{evanston:library}*,
+  author = 	 {{Evanston Public Library Board of Trustees}},
+  shortauthor = {{Evanston Public Library}},
+  title = 	 {Evanston Public Library Strategic Plan, 2000--2010},
+  subtitle = 	 {A Decade of Outreach},
+  organization = {Evanston Public Library},
+  url = 	 {http://www.epl.org/library/ strategic-plan-00.html},
+  urldate = 	 {2002-07-18}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=friends:leia]
+*\adlnbackref{Video}{friends:leia}*,
+  title = 	 {The One with the {Princess Leia} Fantasy},
+  date = 	 2003,
+  booktitle = 	 {Friends},
+  booktitleaddon = 	 {season~3, episode~1},
+  author = 	 {Curtis, Michael and Malins, Gregory~S.},
+  eventdate = 	 {1996-09-19},
+  editor = 	 {Mancuso, Gail},
+  editortype = 	 {director},
+  publisher = {Warner Home Video},
+  type = 	 {DVD},
+  address = 	 {Burbank, CA}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=genesis]
+*\adlnbackref{Misc}{genesis}*,
+  shorttitle = 	 {Gen\adddot},
+  entrysubtype = {classical},
+  keywords = 	 {nosample},
+  title = 	 {Genesis},
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=gourmet:052006]
+*\adlnbackref{Review}{gourmet:052006}*,
+  journaltitle = {Gourmet},
+  entrysubtype = {magazine},
+  date = 	 {2000-05},
+  title =        {Kitchen {Notebook}}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=grove:sibelius]
+*\adlnbackref{InReference}{grove:sibelius}*,
+  title = 	 {The New {Grove} Dictionary of Music and Musicians},
+  author = 	 {Hepokoski, James},
+  shorttitle = 	 {New {Grove} Dict\adddot},
+  lista = {Sibelius, Jean},
+  url = 	 {http://www.grovemusic.com/},
+  urldate = 	 {2002-01-03},
+  sortkey = 	 {New Grove}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=handel:messiah]
+*\adlnbackref{Video}{handel:messiah}*,
+  title = 	 {Messiah},
+  date = 	 {1988},
+  eventdate = 	 {1987-12-19},
+  userd = 	 {performed},
+  type = 	 {videocassette (VHS), 141 min\adddot},
+  editor = 	 {{Atlanta Symphony Orchestra and Chamber Chorus}},
+  editortype = 	 {none},
+  editora = 	 {Shaw, Robert},
+  editoratype =  {none},
+  author = 	 {Handel, George Frederic},
+  publisher = {Video Artists International},
+  address = 	 {Ansonia Station, NY}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=hlatky:hrt]
+*\adlnbackref{Article}{hlatky:hrt}*,
+  author =	 {Hlatky, Mark~A. and Boothroyd, Derek and Vittinghoff, Eric and Sharp, Penny and Whooley, Mary~A.},
+  title =	 {Quality-of-Life and Depressive Symptoms in Postmenopausal Women after Receiving Hormone Therapy},
+  subtitle =	 {Results from the {Heart and Estrogen/Progestin Replacement Study (HERS)} Trial},
+  journaltitle = {Journal of the American Medical Association},
+  date = 	 {2002-02-06},
+  volume =	 287,
+  number =	 5,
+  url =   {http://jama.ama-assn.org/issues/ v287n5/rfull/joc10108.html#aainfo},
+  urldate =	 {2002-01-07}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=holiday:fool]
+*\adlnbackref{Music}{holiday:fool}*,
+  title = 	 {I'm a Fool to Want You},
+  eventdate = 	 {1958-02-20},
+  date = 	 {1960},
+  booktitle = 	 {Lady in Satin},
+  author = 	 {Herron, Joel and Sinatra, Frank and Wolf, Jack},
+  editor = 	 {Holiday, Billie},
+  editortype = 	 {none},
+  number = 	 {CL 1157},
+  publisher = {Columbia},
+  type = 	 {33\onethird\ rpm},
+  note = 	 {with Ray Ellis},
+  options = 	 {useauthor=false}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=horowitz:youtube]
+*\adlnbackref{Online}{horowitz:youtube}*,
+  title = 	 {{HOROWITZ AT CARNEGIE HALL} 2-{Chopin Nocturne} in Fm Op.55},
+  organization = {YouTube video, 5:53},
+  sortkey = 	 {Horowitz},
+  url = 	 {http://www.youtube.com/watch? v=cDVBtuWkMS8},
+  urldate = 	 {2009-01-09},
+  userd = 	 {posted by \mkbibquote{hubanj,}},
+  note = 	 {from a performance televised by CBS on\nopunct},
+  date = 	 {1968-09-22},
+  shorttitle = {HOROWITZ}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=horsley:prosodies]
+*\adlnbackref{Book}{horsley:prosodies}*,
+  title =	 {On the Prosodies of the {Greek and Latin} Languages},
+  year =	 1796,
+  author =	 {Horsley, Samuel},
+  authortype =	 {anon}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=house:papers]
+*\adlnbackref{Misc}{house:papers}*,
+  author = 	 {House, Edward~M\adddot\addcomma},
+  title = 	 {Papers},
+  note = 	 {Yale University Library},
+  entrysubtype = {classical}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=iso:electrodoc]
+*\adlnbackref{Book}{iso:electrodoc}*,
+  title = 	 {Electronic Documents or Parts thereof. {Excerpts} from {International Standard ISO} 690-2},
+  part = 	 {part 2},
+  date = 	 2001,
+  maintitle = 	 {Information and Documentation},
+  mainsubtitle = {Bibliographic References},
+  author = 	 {{International Organization for Standardization}},
+  shorthand =  {ISO},
+  publisher = {National Library of Canada},
+  sortname = 	 {ISO},
+  address = 	 {Ottawa},
+  url = 	 {http://www.nlc-bnc.ca/iso/ tc46sc9/standard/690-2e.htm}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=james:ambassadors]
+*\adlnbackref{Book}{james:ambassadors}*,
+  title = 	 {The Ambassadors},
+  year = 	 1996,
+  origdate = 	 1909,
+  options = 	 {cmsdate=on},
+  author = 	 {James, Henry},
+  publisher = {Project Gutenberg},
+  url = 	 {ftp://ibiblio.org/pub/docs/ books/gutenberg/etext96/ambas10.txt}
+}
+\end{lstlisting}\clearpage
+\begin{lstlisting}[language=BibTeX,label=lakeforester:pushcarts]
+*\adlnbackref{Article}{lakeforester:pushcarts}*,
+  journaltitle = {Lake Forester},
+  date = 	 {2000-03-23},
+  entrysubtype = {magazine},
+  title = 	 {Pushcarts Evolve to Trendy Kiosks},
+  options = 	 {cmsdate=full},
+  location =  {Lake Forest, IL}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=loc:leaders]
+*\adlnbackref{Online}{loc:leaders}[coolidge:speech]*,
+  author = 	 {Library of Congress},
+  title = 	 {American Leaders Speak},
+  subtitle = 	 {Recordings from {World War I} and the 1920 Election, 1918--1920},
+  url = 	 {http://memory.loc.gov/ammem/ nfhtml/nforSpeakers01.html},
+  note = 	 {RealAudio and WAV formats}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=maitland:canon]
+*\adlnbackref{Book}{maitland:canon}*,
+  title = 	 {Roman canon law in the {Church of England}},
+  date = 	 1998,
+  origdate = 	 1898,
+  author = 	 {Maitland, Frederic W.},
+  publisher = {Lawbook Exchange},
+  address = 	 {Union, NJ},
+  options = 	 {cmsdate=new},
+  pubstate = 	 {reprint}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=maitland:equity]
+*\adlnbackref{Book}{maitland:equity}*,
+  title = 	 {Equity, also the Forms of Action at Common Law},
+  subtitle = 	 {Two Courses of Lectures},
+  date = 	 1926,
+  origdate = 	 1909,
+  author = 	 {Maitland, Frederic W.},
+  editor = 	 {Chaytor, A.~H. and others},
+  publisher = cup,
+  address = 	 {Cambridge},
+  pubstate = 	 {reprint},
+  sortyear = 	 {2010}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=nytrumpet:art]
+*\adlnbackref{Music}{nytrumpet:art}*,
+  title = 	 {Art of the Trumpet},
+  date = 	 1982,
+  origdate = 	 {1981-06-01/1981-06-02},
+  author = 	 {{The New York Trumpet Ensemble, with Edward Carroll (trumpet) and Edward Brewer (organ)}},
+  shortauthor =  {{New York Trumpet Ensemble}},
+  number = 	 {PVT 7183},
+  series = 	 {Vox/Turnabout},
+  userd = 	 {recorded at the Madeira Festival,},
+  sortkey = 	 {New York Trumpet},
+  type = 	 {compact disc}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=nyt:trevorobit]
+*\adlnbackref{Review}{nyt:trevorobit}*,
+  journaltitle = {New York Times},
+  entrysubtype = {magazine},
+  date = 	 {2000-04-10},
+  title = {obituary of {Claire Trevor}},
+  options = 	 {cmsdate=full},
+  pages = 	 {national edition}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=pirumova]
+*\adlnbackref{Book}{pirumova}*,
+  author =	 {Pirumova, N.~M.},
+  title =	 {The Zemstvo Liberal Movement},
+  subtitle =	 {Its Social Roots and Evolution to the Beginning of the Twentieth Century},
+  publisher =	 {Izdatel'stvo \mkbibquote{Nauka}},
+  year =	 1977,
+  language =	 {russian},
+  location =	 {Moscow}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=pirumova:russian]
+*\adlnbackref{Book}{pirumova:russian}*,
+  title = 	 {Zemskoe liberal'noe dvizhenie},
+  subtitle = 	 {Sotsial'nye korni i evoliutsiia do nachala XX veka},
+  date = 	 1977,
+  usere = 	 {The zemstvo liberal movement: Its social roots and evolution to the beginning of the twentieth century},
+  langid =       {russian},
+  author = 	 {Pirumova, N.~M.},
+  publisher = {Izdatel'stvo \mkbibquote{Nauka}},
+  address = 	 {Moscow}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=plato:republic:gr]
+*\adlnbackref{BookInBook}{plato:republic:gr}*,
+  title = 	 {Republic},
+  shorttitle = 	 {Resp\adddot},
+  entrysubtype = {classical},
+  year = 	 1902,
+  volume = 	 4,
+  author = 	 {Plato},
+  editor = 	 {Burnet, J.},
+  shortauthor =  {Pl\adddot},
+  booktitle = 	 {{Clitophon, Republic, Timaeus, Critias}},
+  maintitle = 	 {Opera},
+  publisher = {Clarendon Press},
+  series = {Oxford Classical Texts},
+  pages = 	 {327--621},
+  location =  {Oxford}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=pollan:plant]
+*\adlnbackref{Online}{pollan:plant}*,
+  author = 	 {Pollan, Michael},
+  title = 	 {Michael {Pollan} Gives a Plant's-Eye View},
+  organization = {TED video, 17:31},
+  url = 	 {http://www.ted.com/index.php/ talks/michael_pollan_gives_a_ plant_s_eye_view.html},
+  urldate = 	 {2008-02},
+  date = 	 {2007-03},
+  userd = 	 {posted}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=ross:thesis]
+*\adlnbackref{MastersThesis}{ross:thesis}*,
+  author = 	 {Ross, Dorothy},
+  title = 	 {The {Irish-Catholic} Immigrant, 1880--1900},
+  subtitle = 	 {A Study in Social Mobility},
+  school = 	 {Columbia University},
+  year = 	 {\bibstring{nodate}}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=schubert:muellerin]
+*\adlnbackref{Audio}{schubert:muellerin}*,
+  title = 	 {{Das Wandern (Wandering)}},
+  date = 	 1895,
+  booktitle = 	 {{Die sch\"one M\"ullerin} ({The} Maid of the Mill)},
+  maintitleaddon = {(for high voice)},
+  maintitle = 	 {First Vocal Album},
+  options = 	 {ctitleaddon=space},
+  author = 	 {Schubert, Franz},
+  publisher = {G.~Schirmer},
+  address = 	 {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=schweitzer:bach]
+*\adlnbackref{Book}{schweitzer:bach}*,
+  title = 	 {{J. S. Bach}},
+  origdate = 	 1966,
+  date = 	 1911,
+  author = 	 {Schweitzer, Albert},
+  origlocation = {London},
+  origpublisher = {Breitkopf \&\ Härtel},
+  addendum = 	 {Citations refer to the Dover edition},
+  options = 	 {cmsdate=both},
+  translator = 	 {Newman, Ernest},
+  publisher = {Dover},
+  pubstate = 	 {reprint},
+  location =  {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=shapey:partita]
+*\adlnbackref{Misc}{shapey:partita}*,
+  author = 	 {Shapey, Ralph},
+  title = 	 {\mkbibquote{Partita for Violin and Thirteen Players}},
+  titleaddon = 	 {score},
+  entrysubtype = {music},
+  date = 	 1966,
+  note = 	 {Special Collections},
+  organization = {Joseph Regenstein Library},
+  institution =  {University of Chicago}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=silver:gawain]
+*\adlnbackref{Book}{silver:gawain}*,
+  title = 	 {Sir {Gawain} and the {Green Knight}},
+  publisher = 	 uchp,
+  year = 	 1974,
+  translator = 	 {Silverstein, Theodore},
+  location =  {Chicago}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=spock:interview]
+*\adlnbackref{Misc}{spock:interview}*,
+  author = 	 {Spock, Benjamin},
+  entrysubtype = {letter},
+  title = 	 {interview by Milton J. E. Senn},
+  date = 	 {1974-11-20},
+  note = 	 {interview 67A, transcript},
+  organization = {Senn Oral History Collection},
+  institution =  {National Library of Medicine},
+  location =  {Bethesda, MD}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=stendhal:parma]
+*\adlnbackref{Book}{stendhal:parma}*,
+  title = 	 {The Charterhouse of {Parma}},
+  date = 	 1925,
+  author = 	 {Stendhal},
+  nameaddon = 	 {Marie Henri Beyle},
+  publisher = {Boni \& Liveright},
+  address = 	 {New York},
+  translator = 	 {Scott-Moncrieff, C.~K.}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=unsigned:ranke]
+*\adlnbackref{Review}{unsigned:ranke}*,
+  journaltitle = {Ergänzungsblätter zur Allgemeinen Literatur-Zeitung},
+  entrysubtype = {magazine},
+  date = 	 {1828-02},
+  title =	 {unsigned review of \mkbibemph{Geschichten der romanischen und germanischen Völker}, by {Leopold von Ranke}},
+  number =	 {23--24},
+  sortkey = 	 {Erg},
+  shortjournal =  {Erg\"anzungsbl\"atter z. Allg. Lit.-Ztg.}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=verdi:corsaro]
+*\adlnbackref{Audio}{verdi:corsaro}*,
+  title = 	 {Il corsaro (melodramma tragico \mkbibemph{in three acts})},
+  titleaddon = 	 {libretto by Francesco Maria Piave},
+  date = 	 1998,
+  author = 	 {Verdi, Giuseppe},
+  editor = 	 {Hudson, Elizabeth},
+  number = 	 {\bibstring{jourser} 1, Operas},
+  series = 	 {The Works of Giuseppe Verdi},
+  publisher = {University of Chicago Press; Milan: G.\ Ricordi},
+  volumes = 	 2,
+  address = 	 {Chicago}
+}
+\end{lstlisting}\clearpage
+\begin{lstlisting}[language=BibTeX,label=virginia:plantation]
+*\adlnbackref{Book}{virginia:plantation}*,
+  title =	 {A True and Sincere Declaration of the Purpose and Ends of the Plantation Begun in {Virginia}, of the Degrees Which It Hath Received, and Means by Which It Hath Been Advanced},
+  location = 	 {London},
+  sorttitle = 	 {True and Sincere},
+  shorttitle = 	 {True and Sincere Declaration},
+  year = 	 1610
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=white:ross:memo]
+*\adlnbackref{Letter}{white:ross:memo}*,
+  author = 	 {White, E.~B.},
+  title = 	 {EBW to Harold Ross},
+  titleaddon = 	 {memorandum},
+  xref = 	 {*\hyperlink{\getrefbykeydefault%
+{white:total}{anchor}{}}{\{\colorbox{Gainsboro}{white:total}\}}*},
+  pages = 	 273,
+  origdate = 	 {1946-05-02}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=white:russ]
+*\adlnbackref{Letter}{white:russ}*,
+  author = 	 {White, E.~B.},
+  title = 	 {EBW to B.~Russell},
+  xref =  {*\hyperlink{\getrefbykeydefault%
+{white:total}{anchor}{}}{\{\colorbox{Gainsboro}{white:total}\}}*},
+  pages = 	 283,
+  origdate = 	 {1946-09-02}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=white:total]
+*\adlnbackref{Book}{white:total}*,
+  title = 	 {{Letters of E.~B. White}},
+  year = 	 1976,
+  author = 	 {White, E.~B.},
+  editor = 	 {Guth, Dorothy Lobrano},
+  publisher = {Harper \&\ Row},
+  location =  {New York}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=wikiped:bibtex]
+*\adlnbackref{InReference}{wikiped:bibtex}*,
+  title = 	 {Wikipedia},
+  lista =        {BibTeX},
+  userd = 	 {last modified},
+  url = 	 {http://en.wikipedia.org/wiki/ BibTeX},
+  urldate = 	 {2012-05-18}
+}
+\end{lstlisting}
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

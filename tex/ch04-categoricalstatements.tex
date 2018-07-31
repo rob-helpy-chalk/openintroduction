@@ -362,14 +362,7 @@ name=mood-O statement,
 description={A quantified categorical statement of the form ``Some $S$ are not $P$.''}
 }
 
-
-
-In addition to talking about the quantity of statements, we will talk about their \textsc{\gls{quality}}. \label{defQuality} The quality of a statement refers to whether the statement is negated. Statements that include the words ``no'' or ``not'' are \textsc{\gls{negative}}, and other statements are \textsc{\gls{affirmative}}. Combining quantity and quality gives us four basic types of quantified categorical statements, which we call the \textsc{\glspl{statement mood}} or just ``moods.'' The four moods are labeled with the letters A, E, I, and O. Statements that are universal and affirmative are \textsc{\glspl{mood-A statement}}. Statements that are universal and negative are \textsc{\glspl{mood-E statement}}. Particular and affirmative statements are \textsc{\glspl{mood-I statement}}, and particular and negative statements are \textsc{\glspl{mood-O statement}}. (See Table \ref{tab:moods}.)
-
-
-Aristotle didn't actually use those letters to name the kinds of categorical propositions. His later followers writing in Latin came up with the idea. They remembered the labels because the ``A'' and the ``I'' were in the Latin word ``\textbf{a}ff\textbf{i}rmo,'' (``I affirm'') and the ``E'' and the ``O'' were in the Latin word ``n\textbf{e}g\textbf{o}'' (``I deny''). 
-
-\begin{table}[t]
+\begin{table}
 \begin{mdframed}[style=mytablebox]
 \begin{tabu}{p{.1\linewidth}p{.3\linewidth}p{.3\linewidth}}
   \underline{Mood}& \underline{Form} & \underline{Example} \\ 
@@ -382,19 +375,53 @@ O & Some $S$ are not $P$ & Some birds cannot fly.\\
 \caption{The four moods of a categorical statement} \label{tab:moods}
 \end{table}
 
+
+In addition to talking about the quantity of statements, we will talk about their \textsc{\gls{quality}}. \label{defQuality} The quality of a statement refers to whether the statement is negated. Statements that include the words ``no'' or ``not'' are \textsc{\gls{negative}}, and other statements are \textsc{\gls{affirmative}}. Combining quantity and quality gives us four basic types of quantified categorical statements, which we call the \textsc{\glspl{statement mood}} or just ``moods.'' The four moods are labeled with the letters A, E, I, and O. Statements that are universal and affirmative are \textsc{\glspl{mood-A statement}}. Statements that are universal and negative are \textsc{\glspl{mood-E statement}}. Particular and affirmative statements are \textsc{\glspl{mood-I statement}}, and particular and negative statements are \textsc{\glspl{mood-O statement}}. (See Table \ref{tab:moods}.)
+
+
+Aristotle didn't actually use those letters to name the kinds of categorical propositions. His later followers writing in Latin came up with the idea. They remembered the labels because the ``A'' and the ``I'' were in the Latin word ``\textbf{a}ff\textbf{i}rmo,'' (``I affirm'') and the ``E'' and the ``O'' were in the Latin word ``n\textbf{e}g\textbf{o}'' (``I deny''). 
+
+
 \newglossaryentry{distribution}
 {
 name=distribution,
-description={A property of the terms of a categorical statement that is present when the statement makes a claim about the whole term.}
+description={A property of a term in a statement that is present when the statement makes a claim about the whole term.}
 }
 
 The \textsc{\gls{distribution}} of a categorical statement refers to how the statement describes its subject and predicate class. A term in a sentence is said to be distributed \label{def:Distribution} if a claim is being made about the whole class. In the sentence ``All dogs are mammals,'' the subject class, dogs, is distributed, because the quantifier ``All'' refers to the subject. The sentence is asserting that every dog out there is a mammal. On the other hand, the predicate class, mammals, is not distributed, because the sentence isn't making a claim about all the mammals. We can infer that at least some of them are dogs, but we can't infer that all of them are dogs. So in mood-A statements, only the subject is distributed. 
+
+\begin{figure}[t]
+\begin{mdframed}[style=mytableclearbox]
+\begin{center} %for things like sample ads
+\begin{tikzpicture}[>=stealth]
+\node (A) at (0,0) {\Large A};
+\node (E) at (2,0) {\Large E};
+\node (I) at (0,-2) {\Large I};
+\node (O) at (2,-2) {\Large O};
+\draw[gray] (1,0) ellipse (2 and .5);
+\node[gray, above=1cm] at (1,0) {Distribute the subject term};
+\draw[->, gray] (1,1.1) -- (1,.5);
+\draw[gray] (2,-1) ellipse (.5 and 2);
+\node[gray, below=1cm] at (1,-2) {Distribute the predicate term};
+\draw[->, gray](1,-3.1) -- (1.6,-2.25);
+\end{tikzpicture}
+\end{center} %for things like sample ads
+% \textbf{Heading:} Heading \\ %for things like sample ads
+% \textbf{Caption}: Caption %for things like sample ads
+\end{mdframed}
+\caption{Universal statements distribute the subject. Negative statements distribute the predicate.}
+\label{fig:distribution}
+\end{figure}
+
 
 On the other hand, in an I sentence like ``Some birds can fly'' the subject is not distributed. The quantifier ``some'' refers to the subject, and indicates that we are not saying something about all of that subject. We also aren't saying anything about all flying things, either. So in mood-I statements, neither subject nor predicate is distributed. 
 
 Even though the quantifier always refers to the subject, the predicate class can be distributed as well. This happens when the statement is negative. The sentence ``No dogs are reptiles'' is making a claim about all dogs: they are all not reptiles. It is also making a claim about all reptiles: they are all not dogs. So mood-E statements distribute both subject and predicate. Finally, negative particular statements (mood-O) have only the predicate class distributed. The statement ``some birds cannot fly'' does not say anything about all birds. It does, however say something about all flying things: the class of all flying things excludes some birds. 
 
-The quantity, quality, and distribution of the four forms of a categorical statement are given in Table \ref{tab:quantity}. The general rule to remember here is that universal statements distribute the subject, and negative statements distribute the predicate. 
+The general rule to remember here is that universal statements distribute the subject, and negative statements distribute the predicate, as is shown in figure \ref{fig:distribution}. The quantity, quality, and distribution of the four forms of a categorical statement are given in Table \ref{tab:quantity}. 
+
+
+
 
 
 \begin{table}[b]
@@ -606,7 +633,7 @@ Finally, notice that so far, we have only been talking about categorical stateme
 
 \begin{longtabu}{p{.1\linewidth}p{.9\linewidth}}
 \textbf{Example}: & Some dinosaurs are not herbivores \\
-\textbf{Answer}: & Form: O\\
+\textbf{Answer}: & Mood: O\\
 &Quantity: particular \\
 &Quality: negative \\
 &Terms distributed: $P$ \\
@@ -628,7 +655,7 @@ Finally, notice that so far, we have only been talking about categorical stateme
 \item All gerbils are rodents.
 
 \answer{
-Form: A\\
+Mood: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
 Terms distributed: $S$ \\
@@ -652,7 +679,7 @@ $P$: Rodents
 \item Some planets do not have life.
 
 \answer{
-Form: O\\
+Mood: O\\
 Quantity: Particular \\
 Quality: Negative \\
 Terms distributed: $P$ \\
@@ -671,7 +698,7 @@ Terms distributed: $P$ \\
 \item Some manatees are not rappers.
 
 \answer{
-Form: O\\
+Mood: O\\
 Quantity: Particular \\
 Quality: Negative \\
 Terms distributed: $P$ \\
@@ -691,7 +718,7 @@ Terms distributed: $P$ \\
 \item All rooms have televisions.
 
 \answer{
-Form: A\\
+Mood: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
 Terms distributed: $S$ \\
@@ -716,7 +743,7 @@ $P$: Things that have televisions
 \item All stores are closed.
 
 \answer{
-Form: A\\
+Mood: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
 Terms distributed: $S$ \\
@@ -741,7 +768,7 @@ $P$: Things that are closed
 \item Some dancers are graceful. 
 
 \answer{
-Form: I\\
+Mood: I\\
 Quantity: Particular \\
 Quality: Affirmative\\
 Terms distributed: None \\
@@ -767,7 +794,7 @@ $P$: Things that are graceful
 \item No extraterrestrials are in Cleveland. 
 
 \answer{
-Form: E\\
+Mood: E\\
 Quantity: Universal \\
 Quality: Negative\\
 Terms distributed: Both \\
@@ -796,7 +823,7 @@ $P$: Things in Cleveland
 \item Some crates are empty.
 
 \answer{
-Form: I\\
+Mood: I\\
 Quantity: Particular \\
 Quality: Affirmative\\
 Terms distributed: None \\
@@ -828,7 +855,7 @@ $P$: Things that are empty
 
 
 \answer{
-Form: E\\
+Mood: E\\
 Quantity: Universal \\
 Quality: Negative\\
 Terms distributed: Both\\
@@ -857,7 +884,7 @@ $P$: Things that are mistaken}
 \item All cats love catnip.
 
 \answer{
-Form: A\\
+Mood: A\\
 Quantity: Universal \\
 Quality: Affirmative\\
 Terms distributed: $S$ \\
@@ -920,12 +947,28 @@ $P$: Things that love catnip
 \textbf{Answer}: All dogs have fleas.
 
 \begin{exercises}
-\item Some trees are not evergreen. \answer{ No trees are evergreen}
-\item All smurfs are blue. \answer{ Some smurfs are blue}
-\item Some swords are sharp. \answer{ All swords are sharp}
-\item Some sweaters are not soft. \answer{ No sweaters are soft}
-\item All snails are invertebrates. \answer{Some snails are invertebrates}
+\item Some trees are not evergreen. 
+
+\answer{ No trees are evergreen}
+
+\item All smurfs are blue. 
+
+\answer{ Some smurfs are blue}
+
+\item Some swords are sharp. 
+
+\answer{ All swords are sharp}
+
+\item Some sweaters are not soft. 
+
+\answer{ No sweaters are soft}
+
+\item All snails are invertebrates. 
+
+\answer{Some snails are invertebrates}
+
 \end{exercises}
+
 
 \noindent\problempart Transform the following sentences by switching their quantity, but not their quality.
 
@@ -1003,9 +1046,11 @@ name=logically structured English,
 description={English that has been regimented into a standard form to make its logical structure clear and to remove ambiguity. A stepping stone to full-fledged formal languages.}
 }
 
-Because the four basic forms are stated using variables, they have a great deal of generality. We can expand on that generality by showing how many different kinds of English sentences can be represented as sentences in our four basic forms. We already touched on this a little in section \ref{sec:qcatstatements}, when we look at sentences like ``Thirty percent of Canadians speak French.'' There we saw that the predicate was not explicitly a class. We needed to change ``speak French'' to ``people who speak French.'' In this section, we are going to expand on that to show how ordinary English sentences can be transformed into something we will call ``logically structured English.'' \textsc{\gls{logically structured English}} \label{def:LSE} is English that has been put into a standardized form that allows us to see its logical structure more clearly and removes ambiguity.  Doing this is a step towards the creation of formal languages, which we will start doing in Chapter \ref{chap:SL}. 
+Because the four basic moods are stated using variables, they have a great deal of generality. We can expand on that generality by showing how many different kinds of English sentences can be represented as sentences in our four basic forms. We already touched on this a little in section \ref{sec:qcatstatements}, when we look at sentences like ``Thirty percent of Canadians speak French.'' There we saw that the predicate was not explicitly a class. We needed to change ``speak French'' to ``people who speak French.'' In this section, we are going to expand on that to show how ordinary English sentences can be transformed into something we will call ``logically structured English.'' \textsc{\gls{logically structured English}} \label{def:LSE} is English that has been put into a standardized form that allows us to see its logical structure more clearly and removes ambiguity.  
 
-Transforming English sentences into logically structured English is fundamentally a matter of understanding the meaning of the English sentence and then finding the logically structured English statements with the same or similar meaning. Sometimes this will require judgment calls. English, like any natural  language, is fraught with ambiguity. One of our goals with logically structured English is to reduce the amount of ambiguity. Clarifying ambiguous sentences will always require making judgments that can be questioned. Things will only get harder when we start using full blown formal languages in Chapter \ref{chap:SL}, which are supposed to be completely free of ambiguity.
+Translating statements into logically structured English is a way of making the language more formal. Back in Chapter \ref{chap:whatisformallogic} we drew on the research of Catarina Dutilh Novaes (\cite{DutilhNovaes2011}) to say that the word ``formal'' has been used in a couple of different ways in the history of logic. For ancient and medieval logicians, logic was formal in the sense that it referred to the form or structure of things. As logicians moved to create more completely formal languages, however, the meaning of ``formal'' shifted to mean something more like ``strictly following rules'' or ``something that could be implemented by a machine.'' Translating statements into logically structured English makes them more formal in both of these senses. When we put statements into one of our four basic forms, we are bringing out their form or structure. All these statements really just have one of these four structures. We are also making statements more formal in the sense that they can be manipulated by a machine. As we shall see in Sections \ref{sec:conv_obv_cont} and \ref{sec:trad_square} once we have statements in logically structured English, there are a variety of machine-like transformations we can perform on them. All of this is a step towards the creation of fully formal languages, which we will start doing in Chapter \ref{chap:SL}. 
+
+Transforming English sentences into logically structured English is fundamentally a matter of understanding the meaning of the English sentence and then finding the logically structured English statements with the same or similar meaning. Sometimes this will require judgment calls. English, like any natural  language, is filled  with ambiguity. One of our goals with logically structured English is to reduce the amount of ambiguity. Clarifying ambiguous sentences will always require making judgments that can be questioned. Things will only get harder when we start using full blown formal languages in Chapter \ref{chap:SL}, which are supposed to be completely free of ambiguity.
 
 \newglossaryentry{standard form for a categorical statement}
 {
@@ -1014,7 +1059,7 @@ description={A categorical statement that has been put into logically structured
 }
 
 
-To transform a quantified categorical statement into logically structured English, we have to put all of its elements in a fixed order and be sure they are all of the right type. All statements must begin with the quantifies ``All'' or ``Some'' or the negated quantifier ``No.'' Next comes the subject term, which must be a plural noun, a noun phrase, or a variable that stands for any plural noun or noun phrase. Then comes the copula ``are'' or the negated copula ``are not.'' Last is the predicate term, which must also be a plural noun or noun phrase. We also specify that you can only say ``are not'' with the quantifier ``some,'' that way the universal negative statement is always phrased ``No $S$ are $P$,'' not ``All S are not $P$.'' Taken together, these criteria define the \textsc{\gls{standard form for a categorical statement}} in logically structured English. \label{def:standard_form_cat_statement}
+To transform a quantified categorical statement into logically structured English, we have to put all of its elements in a fixed order and be sure they are all of the right type. All statements must begin with the quantifies ``All'' or ``Some'' or the negated quantifier ``No.'' Next comes the subject term, which must be a plural noun, a noun phrase, or a variable that stands for any plural noun or noun phrase. Then comes the copula ``are'' or the negated copula ``are not.'' Last is the predicate term, which must also be a plural noun, noun phrase, or variable. We also specify that you can only say ``are not'' with the quantifier ``some,'' that way the universal negative statement is always phrased ``No $S$ are $P$,'' not ``All S are not $P$.'' Taken together, these criteria define the \textsc{\gls{standard form for a categorical statement}} in logically structured English. \label{def:standard_form_cat_statement}
 
 The subsections below identify different kinds of changes you might need to make to put a statement into logically structured English. Sometimes translating a sentence will require using multiple changes.
 
@@ -1207,7 +1252,7 @@ Another kind of statement that can be transformed into a universal statement is 
 \underline{English} &
 \underline{Logically Structured English} \\
 \endhead 
-If something is a cat, then it is a felines. &
+If something is a cat, then it is a feline. &
 All cats are feline.\\
 
 If something is a dog, then it's not a cat. &
@@ -2809,7 +2854,7 @@ Obversion--always valid.
 % ***********************************
 
 \section{The Traditional Square of Opposition}
-
+\label{sec:trad_square}
 We have seen that conversion, obversion, and contraposition allow us to identify some valid one-premise arguments. There are actually more we can find out there, but investigating them is a bit more complicated. The original investigation made by the Aristotelian philosophers made an assumption that logicians no longer make.  To help you understand all sides of the issue, we will begin by looking at things in the traditional Aristotelian fashion, and then in the next section move on to the modern way of looking at things. 
 
 When Aristotle was first investigating these four kinds of categorical statements, he noticed they they conflicted with each other in different ways. If you are just thinking casually about it, you might say that ``No $S$ is $P$'' is somehow ``the opposite'' of ``All $S$ is $P$.'' But isn't the real ``opposite'' of ``All $S$ is $P$'' actually ``Some $S$ is not $P$''?  
@@ -3142,7 +3187,7 @@ All hastags are symbols. (A)}
 
 \begin{exercises}
 \item No $S$ are $P$. Therefore, it is false that some $S$ are $P$.
-\answer{\\Valid. If a mood-E statement is true, then its contradictory, the corresponding mood-E statement, must be false. }
+\answer{\\Valid. If a mood-E statement is true, then its contradictory, the corresponding mood-I statement, must be false. }
 
 \item It is false that no $S$ are $P$. Therefore, it is false that all $S$ are $P$.
 \answer{\\Invalid. The statements are contraries, so they can both be false, but they don't have to be. \\
@@ -3223,7 +3268,7 @@ The problem comes when you start to consider categorical statements about things
 \newglossaryentry{existential import}
 {
 name=existential import,
-description={An aspect of the meaning of a statement that which is present if the statement can only be true when the objects it describes exist.}
+description={An aspect of the meaning of a statement that is present if the statement can only be true when the objects it describes exist.}
 }
 
 \newglossaryentry{vacuous truth}

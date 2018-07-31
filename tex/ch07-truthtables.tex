@@ -137,7 +137,7 @@ The column of Ts underneath the conditional tells us that the sentence $(H \eand
 In this example, the script letters over the table have just been there to indicate how the columns get filled in. We won't need them in the final product. Also, the reference columns are redundant with the columns under the individual sentence letters, so we can eliminate those as well. Most of the time, when you see truth tables, we will just write them out this way:
 \begin{center}
 \begin{tabu}{ccccc}
-$(H$	&	\eand	&	$I)$	& \eif	\tikz[overlay, shift={(-1ex,-27pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 44pt);			&$H$\\
+$(H$	&	\eand	&	$I)$	& \eif	\tikz[overlay, shift={(-1.25ex,-33pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 48pt);			&$H$\\
 \hline
 T 		& 	{T} 	& 	T 		& T 	& T\\
 T 		& 	{F} 	& 	F 		& T 	& T\\
@@ -146,12 +146,9 @@ F 		& 	{F} 	& 	F 		& T 	& F
 \end{tabu}
 \end{center}
 \label{tautology3.1} 
-
-%\begin{tikzpicture}[remember picture, overlay]
-%\end{tikzpicture}
+%Whether the elipise is drawn correctly depends on whether you are typsetting just the chapter or the full book, because it shifts where the table falls on the page. As of 5/23/18 \tikz[overlay, shift={(-1ex,-27pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 44pt); gives the right size when you are just typsetting the chapter, but to get the size for the full book  -27pt --> -33pt. and  44pt --> 50pt
 
 
-%\markcells[gray]{1 em}{66 pt}
 
 The truth value of the sentence on each row is just the column underneath the \emph{main connective} (see p. \pageref{def:main_connective}) of the sentence, in this case, the column underneath the conditional.
 
@@ -164,13 +161,15 @@ description={A table that gives all the possible interpretations for a sentence 
 A \textsc{\gls{complete truth table}} \label{def:complete_truth_table} is a table that gives all the possible interpretations for a sentence or set of sentences in SL. It has a row for each possible assignment of T and F to all of the sentence letters. The size of the complete truth table depends on the number of different sentence letters in the table. A sentence that contains only one sentence letter requires only two rows, as in the characteristic truth table for negation. This is true even if the same letter is repeated many times, as in this sentence: $$[(C\eiff C) \eif C] \eand \enot(C \eif C).$$ The complete truth table requires only two lines because there are only two possibilities: $C$ can be true, or it can be false. A single sentence letter can never be marked both T and F on the same row. The truth table for this sentence looks like this:
 \begin{center}
 \begin{tabu}{cccccccccc}%{c@{\TTon}*{13}{c}@{\TToff}}
-[($C$	&\eiff	&	$C)$	&	\eif	&	$C]$	&	\eand	\tikz[overlay, shift={(-1ex,-12pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 27pt);		&\enot	&	$(C$	&	\eif	&	$C)$\\
+[($C$	&\eiff	&	$C)$	&	\eif	&	$C]$	&	\eand	\tikz[overlay, shift={(-1.25ex,-14pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 27pt);		&\enot	&	$(C$	&	\eif	&	$C)$\\
 \hline
 	T 	&  T  	& 	T 		&  T  		& 	T 		&	F	&  F		& T 		&  T 		& T   \\
 	F 	&  T  	& 	F		&  F  		&	 F 		&	F	&  F		& F 		&  T  		& F  
 \end{tabu}
 \end{center}
 \label{contradiction3.1}
+%Whether the elipise is drawn correctly depends on whether you are typsetting just the chapter or the full book, because it shifts where the table falls on the page.
+
 Looking at the column underneath the main connective, we see that the sentence is false on both rows of the table; i.e., it is false regardless of whether $C$ is true or false.
 
 A sentence that contains two sentence letters requires four lines for a complete truth table, as we saw above in the table for $(H \eand I)\eif I$.
@@ -179,7 +178,7 @@ A sentence that contains three sentence letters requires eight lines, as in this
 
 \begin{center}
 \begin{tabu}{c|c|c|@{\TTon}*{5}{c}@{\TToff}}
-$M$	&	$N$	&	$P$	&	$M$	&	\eand	\tikz[overlay, shift={(-1.25ex,-52pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 66pt);			&	$(N$	&	\eor	&	$P)$\\
+$M$	&	$N$	&	$P$	&	$M$	&	\eand	\tikz[overlay, shift={(-1.33ex,-68pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 85pt);			&	$(N$	&	\eor	&	$P)$\\
 \hline
 %           M        &     N   v   P
 T		& T 		& T 		& T 		& T & T & T & T\\
@@ -819,8 +818,6 @@ F	&	F		&	F	&	&		T	&	F	&	F		&	F	&	\\
 A 	 \tikz[overlay, shift={(-1.25ex,-24pt)}, red] \draw (0pt,0pt) ellipse (2ex and 36pt);	 & 	  	 	 & 	 \enot \tikz[overlay, shift={(-.75ex,-24pt)}, red] \draw (0pt,0pt) ellipse (2ex and 36pt);	 	 & 	 A 	 	 & 	 Not logically equivalent \\ 
 \cline{1-1} \cline{3-4}
 T 	 	 & 	   	 	 & 	 F 	 	 & 	 T 	 	 & 	  \\ 
-T 	 	 & 	   	 	 & 	 F 	 	 & 	 T 	 	 & 	  \\ 
-F 	 	 & 	   	 	 & 	 T 	 	 & 	 F 	 	 & 	  \\ 
 F 	 	 & 	   	 	 & 	 T 	 	 & 	 F 	 	 & 	  \\ 
 \end{longtabu}
 }
@@ -1130,7 +1127,7 @@ Consider, for example, the sentence $(U \eand T) \eif (S \eand W)$. We want to s
 
 \begin{center}
 \begin{tabu}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
-$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1.25ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
 \hline
    &   &   &   &    &    &    &F&    &    &   
 \end{tabu}
@@ -1140,7 +1137,7 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-6pt)}, gray] 
 
 \begin{center}
 \begin{tabu}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
-$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1.25ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
 \hline
    &   &   &   &    &  T  &    &F&    &   F &   
 \end{tabu}
@@ -1150,7 +1147,7 @@ In order for the $(U\eand T)$ to be true, both $U$ and $T$ must be true.
 
 \begin{center}
 \begin{tabu}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
-$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1.25ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
 \hline
    & T & T &   &  T &  T  & T  &F&    &   F &   
 \end{tabu}
@@ -1160,7 +1157,7 @@ Now we just need to make $(S\eand W)$ false. To do this, we need to make at leas
 
 \begin{center}
 \begin{tabu}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
-$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1.25ex,-6pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 18pt);  &$(S$&\eand&$W)$\\
 \hline
  F & T & T & F &  T &  T  & T  &F&  F &   F & F  
 \end{tabu}
@@ -1171,7 +1168,7 @@ Showing that something is a contradiction requires a complete truth table. Showi
 A sentence is contingent if it is neither a tautology nor a contradiction. So showing that a sentence is contingent requires a \emph{two-line} partial truth table: The sentence must be true on one line and false on the other. For example, we can show that the sentence above is contingent with this truth table:
 \begin{center}
 \begin{tabu}{c|c|c|c|@{\TTon}*{7}{c}@{\TToff}}
-$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1ex,-12pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 24pt);  &$(S$&\eand&$W)$\\
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif  \tikz[overlay, shift={(-1.25ex,-14pt)}, gray] \draw (0pt,0pt) ellipse (2ex and 28pt);  &$(S$&\eand&$W)$\\
 \hline
  F & T & T & F &  T &  T  & T  &F&  F &   F & F\\
  F & T & F & F &  F &  F  & T  &T&  F &   F & F
@@ -1718,13 +1715,13 @@ Answer each of the questions below and justify your answer.
 \begin{exercises}
 \item Suppose that \script{A} and \script{B} are logically equivalent. What can you say about $\script{A}\eiff\script{B}$?
 %\script{A} and \script{B} have the same truth value on every line of a complete truth table, so $\script{A}\eiff\script{B}$ is true on every line. It is a tautology.
-\item Suppose that $(\script{A}\eand\script{B})\eif\script{C}$ is contingent. What can you say about the argument ``\script{A}, \script{B}, $\therefore$\ \script{C}''?
+\item Suppose that $(\script{A}\eand\script{B})\eif\script{C}$ is contingent. What can you say about the argument \script{A}, \script{B}, $\sdtstile{}{}$ \script{C}?
 %The sentence is false on some line of a complete truth table. On that line, \script{A} and \script{B} are true and \script{C} is false. So the argument is invalid.
 \item Suppose that $\{\script{A},\script{B}, \script{C}\}$ is inconsistent. What can you say about $(\script{A}\eand\script{B}\eand\script{C})$?
 %Since there is no line of a complete truth table on which all three sentences are true, the conjunction is false on every line. So it is a contradiction.
 \item Suppose that \script{A} is a contradiction. What can you say about the argument \{\script{A}, \script{B}\} $\sdtstile{}{}$  \script{C}?
 %Since \script{A} is false on every line of a complete truth table, there is no line on which \script{A} and \script{B} are true and \script{C} is false. So the argument is valid.
-\item Suppose that \script{C} is a tautology. What can you say about the argument \{\script{A}, \script{B}\} $\sdtstile{}{}$ \script{C}''?
+\item Suppose that \script{C} is a tautology. What can you say about the argument \{\script{A}, \script{B}\} $\sdtstile{}{}$ \script{C}?
 %Since \script{C} is true on every line of a complete truth table, there is no line on which \script{A} and \script{B} are true and \script{C} is false. So the argument is valid.
 %\item Suppose that \script{A} and \script{B} are logically equivalent. What can you say about $(\script{A}\eor\script{B})$?
 %Not much. $(\script{A}\eor\script{B})$ is a tautology if \script{A} and \script{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.

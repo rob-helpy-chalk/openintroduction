@@ -1,0 +1,1589 @@
+Release notes for version 1.0rc4 [2017-05-02]:
+
+Another bug-fix release.
+
+ - Marko Wenzel reported, and helped to fix, a fairly major problem
+   with the date handling in the author-date styles, an issue I hadn't
+   spotted when doing the date-related updates for 1.0rc2.
+
+ - I've also fixed a long-standing inaccuracy in the date-handling
+   code of Patent entries in the author-date styles.  Such entries now
+   behave as the documentation claims they do.
+
+Release notes for version 1.0rc3 [2017-04-20]:
+
+This is a minor bug-fix release.
+
+ - Charles Schaum reported a whitespace bug that appeared when using
+   multiple languages with Babel.  This was introduced in the last
+   release by some careless editing by me, and should be fixed now.
+
+ - Charles also pointed me to a discussion about a problem using
+   BibTeX with biblatex-chicago.  Ulrike Fischer very kindly suggested
+   an elegant solution, and I have integrated it into this release.
+
+Release notes for version 1.0rc2 [2017-03-26]:
+
+This is an interim release designed mainly to fix a number of subtle
+issues, pointed out by several users, that appear when you use the
+newest version of biblatex (3.7).  These were mostly concentrated in
+the date-handling code, which I believe now behaves correctly, and
+should do both with the newest biblatex and with somewhat older
+releases.  A much larger set of new features is still pending, but I
+have fixed some other bugs and added a few new options:
+
+ - J. P. E. Harper-Scott pointed out that, in ordinary British usage,
+   day numbers are presented as plain cardinals rather than ordinals.
+   The Manual itself also prefers this format, not only for
+   American-style dates but also for British ones, so I think the
+   previous behavior of the package was a bug.  I have in both styles
+   set the default presentation of British day numerals to be plain
+   cardinals, providing a new preamble option "ordinalgb" restoring
+   the previous default and printing ordinal dates when using the
+   "british" language with Babel.
+
+ - I have, in both styles, attempted to provide an improved \partedit
+   macro, the old one being inconvenient for users writing in French.
+   The new macro should work now without manual intervention to
+   provide the correct form of the preposition (de or d').  If you are
+   using the "french" option to Babel, please take care to remove any
+   hand-formatting you might have provided in these contexts.
+
+ - Jan David Hauck has both reported a bug in the \gentextcite code in
+   the author-date styles and also pointed me to its solution, as
+   provided by moewe on Stackexchange.  It turned out there were other
+   bugs in that code, now also fixed.
+
+ - User laudecir requested a way to present a "shorthand" even in the
+   first citation of a given work.  The new "shorthandfirst" option in
+   the notes & bibliography style can be set to "true" either in the
+   preamble or in individual entries, and should make this
+   functionality simpler to activate than the \shorthandcite command.
+
+ - Also in the notes & bibliography style, Stefan Björk requested a
+   way to turn off the printing of "url," "doi," and "eprint"
+   information in notes but not in the bibliography.  The new
+   "urlnotes" option, which you can set to "false" in the preamble or
+   in individual entries, provides this.  Please note that it does not
+   apply to Online entries.
+
+ - Several users pointed out the presence of warnings in .log files
+   caused by deprecated grammar in the default Sorting Schemes of both
+   styles.  These should now be fixed.
+
+Release notes for version 1.0rc1 [2016-06-07]:
+
+ - The 15th-edition styles are now obsolete, and have been moved to a
+   new obsolete/ subdirectory.  You can still use them as they stand,
+   but they won't compile against the newest biblatex, so you'll have
+   to make sure that you have an older version (2.9a, perhaps).  If
+   you are still using them, I strongly urge you to consider switching
+   to the the 16th-edition styles, which contain many new features and
+   bug-fixes.
+
+ - The old Chicago-specific option "usecompiler" is deprecated, and
+   has been replaced by the standard biblatex "usenamec".  If you have
+   been using the former in your preamble or in your .bib entries,
+   please replace it with the latter, which works better across the
+   board.  "Usecompiler" still "works," just not very well.
+
+ - Stefan Björk has very generously provided a Swedish localization
+   file for the package -- cms-swedish.lbx -- which can be loaded and
+   used with babel just like the other localizations.
+
+ - I have added support for "related" functionality to all the Chicago
+   styles, including all the standard biblatex "relatedtypes".  It is
+   turned on by default in all styles, but you can turn it off, or
+   alter where the information is printed, using the "related" option
+   in the preamble or in individual entries.  In the notes &
+   bibliography style, "related" information is printed by default
+   only in the bibliography, but you can change that by setting the
+   option.  In the author-date styles, it will only ever print in the
+   list of references, depending on the option's setting.  Please see
+   sections 4.2.1 and 5.2.1 of biblatex-chicago.pdf for the details.
+
+ - I have improved the name-handling code in all styles, regularizing
+   the functioning of the "namea", "nameb", and "namec" fields with
+   respect to the other, standard biblatex names.  The former two in
+   particular are newly available in the Collection and Periodical
+   entry types, and biblatex-chicago now recognizes the standard
+   "usenamea", "usenameb", and "usenamec" toggles, the last replacing
+   the deprecated "usecompiler" (as above).  You can also now use the
+   "nameatype" field just as you would an "editortype", extending the
+   possibilities for identifying certain roles attached specifically
+   to "titles" as opposed to "booktitles" or "maintitles".
+
+ - After a request by user BenVB, I have added support for the
+   biblatex "shortjournal" field, which allows you to present
+   abbreviated "journaltitles" in all the styles.  You can use the
+   "journalabbrev" option to control where in your document these
+   abbreviated forms will appear.  By default, the field is ignored in
+   the notes & bibliography style, and appears only in citations in
+   the author-date styles.  You can also print a list of journal
+   abbreviations, rather in the manner of a list of shorthands, using
+   a command like: \printbiblist{shortjournal}.  Even though the
+   Periodical entry type uses the "title" and "shorttitle" fields in
+   place of "journaltitle" and "shortjournal", these entries are
+   included in this functionality, and controlled by the same
+   "journalabbrev" option.  Please see s.v. "shortjournal" in sections
+   4.2 and 5.2 of biblatex-chicago.pdf.
+
+ - Following a request by Arne Skjærholt, and his generous provision
+   of some code to get me started, I have implemented a new
+   \gentextcite citation command in all styles.  The "gen" part of the
+   name refers to the genitive case, and it adds a possessive ending
+   -- 's by default -- to the author's name in what is otherwise an
+   ordinary \textcite.  You can change the added ending however you
+   want, using a third optional field to the citation command, and you
+   can control to which names the ending is added in a \gentextcites
+   multicite command by using the "genallnames" preamble and entry
+   option.  Please see sections 4.3.2 and 5.3.2 for the details.
+
+ - Stefan Björk pointed out that "url", "doi", and "eprint"
+   information could be totally ignored in some entries when you used
+   the abbreviated cross-referencing functionality accessed through
+   the "crossref" and "xref" fields.  At his request, I have provided
+   a new "xrefurl" entry and preamble option for all the styles to
+   control the printing of this information in abbreviated notes or
+   bibliography (reference list) entries.  Please see sections 4.4.3
+   and 5.4.3 for the details.
+
+ - In a related change, I have stopped child entries inheriting "url",
+   "doi", and "eprint" fields from their cross-ref'd parents, so if
+   your documents rely on this behavior please note that you'll have
+   to provide such fields manually in the child entries.
+
+ - Roger Hart long ago requested a way to control the punctuation
+   before "book-", "main-", or plain "titleaddon" fields, and I have
+   finally added it in this release in the form of two entry and
+   preamble options, "ptitleaddon" and "ctitleaddon", available in all
+   styles.  By default, the former prints \addperiod\addspace, hence
+   its name, and the latter \addcomma\addspace, but you can change
+   either or both depending on which field you are using and which
+   sort of entry it appears in -- the default output can be your guide
+   to which option(s) to change.  Please see the available valid
+   option keys in sections 4.4.2 and 5.4.2.
+
+ - The same user also long ago requested that the notes & bibliography
+   style make it possible to use "Idem" when two consecutive notes
+   cite different works by the same author.  You can now use the
+   standard biblatex option "idemtracker=constrict" in your preamble
+   to activate this in your documents, but please be aware, first,
+   that the Manual doesn't exactly approve of this and, second, that
+   you'll only see "Idem" in short notes, never in full ones, which
+   seems to be the standard biblatex way of implementing this.
+
+ - Also only in the notes & bibliography style, I have added a
+   "shorthandpunct" option to control the punctuation that appears
+   before the first appearance of a "shorthand" and/or a
+   "shorthandintro" in a long note.  The default is \addspace, but you
+   can change it in your preamble or in individual entries.  Please
+   see the available valid option keys in section 4.4.2 of
+   biblatex-chicago.pdf.
+
+ - After reading a discussion started by Ryo Furue at github, I have
+   added, in the author-date styles only, a test to some spacing
+   commands to prevent line breaks immediately after abbreviation
+   dots.  These tests apply only in running text, never in the list of
+   references, where good line breaks are already hard enough to find.
+
+ - In addition to moving the 15th-edition styles into an obsolete/
+   subdirectory, I have also reorganized the author-date style files,
+   adding chicago-dates-common.cbx, which contains the code that is
+   common to the "trad" and the standard "authordate" styles.  Nothing
+   has changed in terms of loading the styles, the changes being
+   designed primarily to ease maintenance.
+
+ - I have created two new documentation files (and an appendix) to
+   provide short introductions to the Chicago styles, introductions
+   which attempt to fill the gap between the Quickstart section of
+   biblatex-chicago.pdf and the fuller documentation contained in
+   sections 4 and 5 of that file.  Both cms-notes-intro.pdf and
+   cms-dates-intro.pdf are fully hyperlinked so you can move easily
+   from formatted citations and (annotated) references to .bib entries
+   and back, with marginal references to the fuller discussions in
+   biblatex-chicago.pdf.  There is also a short cms-trad-appendix.pdf
+   file to discuss a few entries that would need special treatment for
+   the "trad" style.  The sample files for each style still exist, but
+   I intend them mainly for testing purposes, while many more
+   (annotated) entries are still available for consultation in
+   notes-test.bib and dates-test.bib.
+
+ - I have made a number of other small enhancements to and fixed
+   numerous bugs in all the styles, including some subtle inaccuracies
+   in author-date citations spotted by Arne Skjærholt and some macros
+   in InProceedings entries that had been missing for years.  I have
+   provided some default values for counters in biblatex-chicago.sty
+   that aid in breaking long urls across lines, but I make no pretense
+   that these fully adhere to the Manual's specifications.  I have
+   added a few \bibstrings, currently missing in standard biblatex, to
+   cms-german.lbx for use with the "related" functionality.
+   Recommendations for better ones would be gratefully received.
+
+Release notes for version 0.9.9i [2016-05-16]:
+
+ - This is another interim release, allowing the use of biblatex 3.4
+   for those who want to try it.  I have also fixed one old formatting
+   error when "n.d." appears in author-date citations.  A full
+   feature-release based on 3.4 is imminent.
+
+Release notes for version 0.9.9h [2016-03-22]:
+
+ - This is an interim bug-fix release, updating the styles so that
+   they will work with biblatex 3.3.  The notes & bibliography style,
+   as pointed out by several users, wouldn't compile at all with the
+   newest biblatex version, and all styles had inaccuracies in the
+   presentation of names due to changes in the name-handling code in
+   biblatex.  I've done some testing against biblatex 3.3, and fixed
+   all the errors I've spotted, but there may still be parts of my
+   code that need updating to work well with the current version, so
+   you can still downgrade to an earlier biblatex -- I recommend 2.9a
+   -- if 3.3 doesn't work for you.  The next release will be a feature
+   release, so if you've made a request, it should be fulfilled then.
+
+ - I've also fixed a couple of long-standing bugs, one in the entry
+   options controlling abbreviated cross-references and another in the
+   formatting of the "prenote" field, the latter identified (ages ago)
+   by Bernd Rellermeyer.
+
+Release notes for version 0.9.9g [2014-08-21]:
+
+ - Alexandre Roberts found a showstopper in the functionality related
+   to the new "inheritshorthand" option in the notes & bibliography
+   style, and I found an unpleasant bug in the formatting of
+   abbreviated cross-references in the same style.  This release, I
+   hope, fixes both, but is in all other respects identical to 0.9.9f.
+
+Release notes for version 0.9.9f [2014-08-15]:
+
+ - I've made the alterations needed to bring the styles into line with
+   the latest version of biblatex (2.9a).  This is the version that
+   has been tested most thoroughly with biblatex-chicago, so I
+   strongly recommend using it.
+
+ - I fixed several inaccuracies in the presentation of abbreviated
+   cross-references in all the Chicago styles, and while I was working
+   on that portion of the code it seemed an opportune moment to
+   fulfill some feature requests bearing on the same area of
+   functionality.
+
+ - First, following a request from Alexandre Roberts, I have added the
+   "inheritshorthand" option to the notes & bibliography style, which
+   allows child entries to inherit the "shorthand" field from their
+   parents.  This in turn allows the shorthand itself to appear in
+   place of the usual abbreviated citation of parent entries
+   cross-referenced by several different child entries, thereby saving
+   some space.  (This behavior was already available in the
+   author-date styles, so the option is unnecessary there.)  You'll
+   need to use "skipbiblist" in the "options" field of child entries
+   to make the list of shorthands work correctly.  Please see the
+   documentation of the "shorthand" field for the full explanation.
+
+ - Second, following a request from Kenneth Pearce, I have added to
+   all Chicago styles the capacity to combine abbreviated
+   cross-references with the presentation of the original text of
+   translations (via the "userf" field) or of the original publication
+   details of an essay or chapter you are citing from a subsequent
+   reprint (via the "reprinttitle" field).  See the documentation of
+   those fields, and also of "crossref," and note that you can now,
+   taking certain precautions as outlined in the "shorthand" docs,
+   combine the "userf," "crossref," and "shorthand" fields.  This
+   mechanism contains a great many moving parts, so please report any
+   problems you might have with it.
+
+ - Third, and finally, following a bug report by Mark van Atten I have
+   fixed all Chicago styles so that the biblatex "backref" mechanism
+   works properly in biblatex-chicago, including in those entries that
+   use abbreviated cross-references, and in those that use the "userf"
+   or "reprinttitle" fields.  I can't see any instructions concerning
+   this in the Manual, so I've left the formatting of "backref" lists
+   in the hands of biblatex itself.  If the default behavior doesn't
+   match your needs, let me know, as it's possible I could add some
+   further options for modifying it.
+
+ - I have added a new "compresspages" option to all the Chicago
+   styles.  If set to "true" it automatically compresses page ranges
+   in the "pages" and "postnote" fields, allowing you to type ranges
+   naturally, e.g., 101--109, and letting the package follow the
+   Manual's rules for you.  (In this case, it would yield 101-9 in the
+   document.)  Thanks are due to David Gohlke who brought to my
+   attention a discussion that took place a couple of years ago on
+   Stack Exchange regarding the automatic compression of page ranges.
+   Biblatex has long had the facilities for providing this, and though
+   the Manual's rules (9.60) are fairly complicated, Audrey Boruvka
+   fortunately provided in that discussion code that implements the
+   specifications.  As some users may well be accustomed to
+   compressing page ranges themselves in their .bib files, and in
+   their "postnote" fields, I have made the activation of this code a
+   package option.
+
+ - Several users, most recently David Gohlke, have requested a way to
+   alter the punctuation that appears just before the "postnote"
+   argument of citation commands.  This allows, in the notes &
+   bibliography style, citations to fit better into the flow of text,
+   while in the author-date styles it allows you very easily to insert
+   comments, which follow a semi-colon, inside parenthetical text
+   citations.  This punctuation is a complex issue in the Manual, but
+   as a first stab at enabling this greater flexibility, I have
+   introduced the "postnotepunct" package option.  Set to "true," it
+   allows you to start the "postnote" field with a punctuation mark
+   (. , ; :) and have it appear as the \postnotedelim in place of
+   whatever the package might otherwise automatically have chosen.
+   Please note that this functionality relies on a very nifty macro by
+   Philipp Lehman which I haven't extensively tested, so I'm labeling
+   this option "experimental."  Note also that the option only affects
+   the "postnote" field of citation commands, not the "pages" field in
+   your .bib file.  Note, finally, that if you are using the new
+   "compresspages" option then any "postnote" field starting with a
+   punctuation mark will require you to do the compression of page
+   ranges yourself.
+
+ - I've added a new inheritance declaration so that InCollection
+   entries can inherit from Book entries the same way they inherit
+   from MVBook.
+
+ - I've fixed a fair number of other bugs, including two in the Ibidem
+   mechanism pointed out by Bernd Rellermeyer, one in the printing of
+   dates, and one in the \textcite command in the notes & bibliography
+   style, these last two pointed out by Kenneth Beesley.  The
+   presentation of all the periodical entry types (without an
+   "entrysubtype") has also been made more accurate.
+
+Release notes for version 0.9.9e [2014-01-29]:
+
+ - This minor release fixes a regression in the Ibidem mechanism in
+   the notes & bibliography style, spotted by Harold Bellemare, and
+   present in the package since version 0.9.9c.  In all other respects
+   this release is identical to 0.9.9d.
+
+Release notes for version 0.9.9d [2013-10-30]:
+
+ - I am marking the 15th-edition styles as "strongly deprecated."  I
+   recommend that you switch to one of the 16th-edition styles as soon
+   as is practicable.  The older styles still work, but in the next
+   major release I shall mark them as "obsolete," and cease updating
+   them.
+
+There are four changes in this release that may, depending on various
+factors, require alterations in your documents or .bib files:
+
+ - Following requests by Kenneth L. Pearce and Bertold Schweitzer, I
+   have modified and extended the mechanism for creating abbreviated
+   citations when several parts of the same collection are included in
+   a reference apparatus.  To the InCollection, InProceedings, and
+   Letter entries of previous releases, I have added InBook, Book,
+   BookInBook, Collection, and Proceedings entries.  Only InBook
+   entries join the former three in having this functionality turned
+   on by default --- if you don't want this, it will require
+   intervention either in the preamble or in the "options" field of
+   individual entries.  This intervention will be via the new
+   "longcrossref" option, which controls the behavior of the four
+   essay-like entry types and defaults to "false," while the new
+   "booklongxref" option controls the four book-like types and
+   defaults to "true."  The useful settings for the options differ
+   slightly between the author-date and the notes & bibliography
+   specifications, so please see all the details in the docs of the
+   "crossref" field in sections 4.2 and 5.2 of biblatex-chicago.pdf.
+
+ - On the same subject, in the notes & bibliography style, I should
+   mention that in the first, full citation of one part of a
+   collection in a note, the code no longer uses a separate citation
+   of the parent entry to supply parts of what you see printed.  (This
+   led to numerous inaccuracies.)  If your setup uses a side-effect of
+   the old code to print data that hasn't even been inherited by the
+   child, you may find that you need to change some "xref" fields to
+   "crossref" fields to make it work correctly now.  This situation
+   will, I imagine, be very rare, but you can look at white:ross:memo
+   in notes-test.bib to see an example.
+
+ - In the author-date styles, several users have been frustrated by
+   the lack of an approved way of setting the "cmsdate" option in the
+   preambles of their documents, and Kenneth L. Pearce requested that
+   I attempt to ease the burden on users by looking at this again.
+   With this release, you can now set "cmsdate" either to "both" or
+   "on" in the preamble, and it will affect all entries (except Music,
+   Review, and Video) with multiple dates.  You can still change this
+   setting in the "options" field of individual entries, but what you
+   won't be able to change there is the new call to \DeclareLabeldate
+   which puts the "origdate" first in the list of dates when Biber
+   searches for a "labelyear" to use in citations and in the list of
+   references.  If you have been using the "switchdates" mechanism to
+   get the "origdate" as the "labeldate," your .bib files may need
+   some editing in order to use the new preamble options.  Please see
+   the documentation of the "date" field in section 5.2 of
+   biblatex-chicago.pdf for all the (voluminous) details.
+
+ - Following a request by Rasmus Pank Rouland, I adapted new biblatex
+   code in the \textcite(s) commands in all styles to make them fit
+   more elegantly in the flow of text.  Upon reconsideration of the
+   commands in the notes & bibliography style, I slightly modified
+   them, but _only_ when used inside a foot- or endnote.  In this
+   context, by default, for both \textcite and \textcites, you'll now
+   get the author's name(s) followed by a headless _short_ citation
+   (or citations) placed within parentheses.  You can use
+   \renewcommand in the preamble of your document to redefine the new
+   \foottextcite and \foottextcites commands to change this
+   formatting.  See section 4.3.1 of biblatex-chicago.pdf.
+
+Other New Features:
+
+ - This release includes support, in all styles, for biblatex's
+   multi-volume entry types: MVBook, MVCollection, MVProceedings, and
+   MVReference.
+
+ - If you use Biber, I have added several new inheritance schemes to
+   all styles to make cross-referenced entries work more smoothly:
+   InCollection entries can now inherit from MVBook just as they do
+   from MVCollection entries; Letter entries now inherit from Book,
+   Collection, MVBook, and MVCollection entries the same way an InBook
+   or an InCollection entry would; the "namea," "nameb," "sortname,"
+   "sorttitle," and "sortyear" fields, all highly single-entry
+   specific, are no longer inheritable; and the "date" and "origdate"
+   fields of any MV* entry will _not_ be inherited by any other entry
+   type.
+
+ - Following a bug report by Henry D. Hollithron, I've added to
+   Unpublished entries in all styles the possibility of including an
+   "editor," "translator," etc.
+
+ - Thanks to bug reports from Denis Maier and Bertold Schweitzer, I
+   corrected inaccuracies and outright bugs in many entry types in all
+   Chicago styles that appeared when there was a "booktitle" and not a
+   "maintitle" or vice versa.  This also involved another rewrite of
+   the code handling the "volume" field and other related fields in
+   all non-periodical entry types that use them.
+
+ - On the subject of the "volume" field, I added a new preamble and
+   entry option, "delayvolume," to the notes & bibliography style.  In
+   long notes where this data isn't printed before a "maintitle," this
+   option allows you to print it _after_ the publication information
+   rather than _before_ it, as may sometimes help clarify things,
+   according to the Manual.  This applies to the non-periodical entry
+   types only.
+
+ - On the same subject, in all styles, I have added a new preamble and
+   entry option, "hidevolumes."  This controls whether, in entries
+   where a "volume" has been printed before a "maintitle," any
+   "volumes" field present will also be printed, in this case _after_
+   the "maintitle."  By default, this is set to "true," so that the
+   "volumes" field won't appear in such circumstances.
+
+ - On the same subject, I have modified, in all styles, the field
+   format for the "part" field, so that if the field contains
+   something other than a number, biblatex-chicago will print it as
+   is, capitalizing it if necessary, rather than supplying the usual
+   bibstring, thus providing a mechanism for altering the string to
+   your liking.  I have also decoupled the "part" field from the
+   "volume" field, allowing it to be printed even in the absence of
+   the latter, thereby providing a means to refer to segments of a
+   larger work that don't easily fit the established schemes.  The
+   iso:electrodoc entry in dates-test.bib shows an example of how this
+   might work.
+
+ - There is a new "omitxrefdate" preamble and entry option in the
+   notes & bibliography style.  It turns off the printing of the
+   child's "date" next to its "title" in abbreviated book-like entries
+   _only_, in both notes and bibliography.
+
+ - Clea F. Rees requested a way to customize the punctuation when a
+   volume and a page number appear together like so: "2:204."  You can
+   use \renewcommand in your preamble to redefine the new
+   \postvolpunct command to achieve this, in all styles.  If your
+   document language is French, cms-french.lbx redefines this already
+   and prints something like "2 : 204."
+
+ - I extended, in all styles, the functions of the "userd" field,
+   allowing it to modify a "date" field if it hasn't already been
+   captured by another date specification in the entry.
+
+ - A bug report from Mathias Legrand helped clear up inaccuracies in
+   the presentation of ordinal numbers in all styles.
+
+ - For the author-date styles, another bug report by Kenneth Pearce
+   resulted in the addition of the "labelyear" to the default "cms"
+   sorting scheme so that more entries in the reference list are
+   sorted properly without further user intervention.
+
+ - George Pigman found an odd punctuation-tracking bug in the
+   author-date styles.  This has been fixed.
+
+ - Marc Sommer found a bug in the presentation of the "prenote" field
+   in the author-date styles.  This has been fixed.
+
+ - In the notes & bibliography style, I improved the behavior of
+   abbreviated foot- and endnotes when using the hyperref package.
+
+ - I modified the date-presentation code in all the language files
+   (cms-*.lbx) provided by the package.  Now, if an entry contains a
+   "(*)year" and an "(*)endyear" that are exactly the same, and there
+   aren't any further month or day specifications, then the "(*)year"
+   alone will be printed.  This allows for the clearing of spurious
+   "(*)endyears" inherited from parent entries.
+
+ - I discovered some unpleasant side effects of my arrangement of the
+   .lbx files devoted to Norwegian, and reverted to the arrangement as
+   originally provided by Håkon Malmedal.
+
+Release notes for version 0.9.9c [2013-03-15]:
+
+ - I am marking the 15th-edition styles as "deprecated."  I recommend
+   that you switch to one of the 16th-edition styles as soon as is
+   practicable.  The older styles still work, but haven't received any
+   updates or bug fixes for this release.
+
+ - Antti-Juhani Kaijahano has very kindly provided a new Finnish
+   localization for biblatex-chicago, called cms-finnish.lbx.  As you
+   will see if you look through it, it is still something of a work in
+   progress.  If you would like to fill some of its lacunae, please do
+   let me know.
+
+ - Following a report by Bertold Schweitzer, I have added the "namea"
+   and "nameb" fields to Article and Review entries in all three
+   16th-edition Chicago styles.  As in all the book-like entry types,
+   they allow you to associate an editor or a translator specifically
+   with a "title" rather than, in these cases, with an "issuetitle."
+   See the docs on these entry types in sections 4.1 and 5.1 in
+   biblatex-chicago.pdf.
+
+ - Thanks to another report by Bertold I have, in all three
+   16th-edition Chicago styles, corrected inaccuracies in the
+   presentation of the Report entry type.  The "number" now appears
+   immediately after the "type," and the "type" itself is now
+   capitalized properly depending on its context in an entry.
+
+ - A third report by Bertold, detailing inaccuracies in the treatment
+   of the "volume" and "volumes" fields in certain contexts, has
+   resulted in a complete rewrite of the presentation of these (and
+   several related) fields in all non-periodical entry types in all
+   three 16th-edition Chicago styles.  This won't require any changes
+   to your .bib files, but the output you see may, in some reasonably
+   unusual situations, change.  Please let me know if something
+   doesn't look right to you.
+
+ - A fourth report by Bertold revealed some inadequacies with multiple
+   date presentation in the two 16th-edition author-date styles,
+   issues that particularly involved cross-referenced entries.  In
+   addition to some general fixes in the code, I have also slightly
+   changed the functioning of the "cmsdate=both" and "cmsdate=on"
+   switches.  If, and only if, a work has only one date, and there is
+   no "switchdates" in the "options" field, then "cmsdate=on" and
+   "cmsdate=both" will both result in the suppression of the
+   "extrayear" field in that entry.  See the "date" field docs in
+   section 5.2 of biblatex-chicago.pdf.
+
+ - Following a report by Antti-Juhani Kaijahano, I have modified the
+   presentation of author-less Article and Review entries in the
+   reference list of both 16th-edition author-date styles.  If such a
+   source had a "magazine" "entrysubtype," the styles would already
+   use the "journaltitle" at the head of the entry in the list of
+   references, but if there was no "entrysubtype" the entry would
+   appear in the list "date" first.  Now, in keeping with the Manual
+   (14.175), the "title" will appear first, in both reference lists
+   and in-text citations.  See especially under Article in section 5.1
+   of biblatex-chicago.pdf.
+
+ - Several users have pointed out annoying formatting errors in the
+   16th-edition styles.  Evan Cortens spotted two bugs in the notes &
+   bibliography style, one of which, under various circumstances,
+   introduced extra spaces into long notes and the other of which
+   affected the formatting of the "type" field in Thesis entries.  I
+   have fixed both, also applying the latter fix to several other
+   entry types that use the "type" field.  Bertold Schweitzer pointed
+   out a formatting bug with the "issuesubtitle" field in the
+   author-date style, now fixed.  Mark Sprevak reported some spurious
+   spaces appearing in headers and footers when using the titleps
+   package; the culprits were errors in the cms-*.lbx files, now
+   cleaned up.
+
+ - I have rectified a number of other errors, in particular making the
+   automatic provision of abbreviated cross-references more robust in
+   InCollection, InProceedings, and Letter entries, improving the
+   behavior of the "postnote" field in certain corner cases, fixing
+   bugs in the handling of "pagination" and "bookpagination" fields,
+   and slightly altering the placement of the "addendum" field in
+   book-like entries to bring it closer to the Manual's specification.
+   A number of other, smaller improvements should also bring the
+   styles into closer conformity with the specification.
+
+Release notes for version 0.9.9b [2012-12-06]:
+
+ - This release contains a new variant of the author-date style,
+   available as the "authordate-trad" option when loading
+   biblatex-chicago.  This provides the traditional, plain,
+   pre-16th-edition Chicago title handling -- sentence-style
+   capitalization, absence of quotation marks in Article titles and
+   the like -- but in all other respects follows the 16th-edition
+   specification, as suggested by the Manual (15.45).  Remember that
+   the "headline" package option can be used to turn off the automatic
+   sentence-style capitalization, meaning that titles will appear as
+   presented in the .bib file, at least as far as capitalization is
+   concerned.  Please see especially the documentation under "title"
+   in section 5.2 of biblatex-chicago.pdf for the details.
+
+ - I have updated calls to \DeclareLabelname and \DeclareLabelyear in
+   several .cbx files so that the package works correctly with the
+   most recent version (2.4) of biblatex.
+
+ - Following a request by Norman Gray, and adapting code by Audrey
+   Boruvka, I have included a \textcite (and a \textcites) command in
+   the notes & bibliography style for the first time.
+
+ - Following a request by Daniel Possenriede, I have added in all
+   three 16th-edition styles a new switch, "only", to the "doi"
+   option, which prints the "doi" field when present and the "url"
+   field only when there is no "doi."  The package default remains,
+   however, "true".
+
+ - I am grateful to Baldur Kristinsson for providing an Icelandic
+   localization file for biblatex-chicago, called cms-icelandic.lbx.
+   You'll see if you look through it that it is still something of a
+   work in progress, but it should cover most needs in that language
+   very well.  If you would like to fill in some of the gaps please
+   let me know.
+
+ - I am also grateful to Håkon Malmedal for providing Norwegian
+   localizations for biblatex-chicago, contained in the files
+   cms-norsk.lbx, cms-norwegian.lbx, and cms-nynorsk.lbx.
+
+ - I have added a new British localization, cms-british.lbx.  The
+   "british" option to babel should now work without further
+   intervention.  For further details on the usage of all these
+   localizations please see section 6 of biblatex-chicago.pdf.
+
+ - Several users have reported a bug that resulted in doubled
+   bibstrings in certain contexts.  This happened only when using
+   localizations for which biblatex-chicago didn't have explicit
+   support, and it should now be fixed.
+
+ - I have changed the way the 16th-edition author-date styles handle
+   the Ibidem mechanism.  In the absence of a "postnote" field you no
+   longer get empty parentheses, but rather a standard in-text
+   citation.  If you do have a "postnote" field, then only that will
+   appear.
+
+Release notes for version 0.9.9a [2012-07-30]:
+
+ - I have made a few changes to biblatex-chicago.sty to allow the
+   package to work with the latest version (2.0) of biblatex.  In all
+   other respects this release is identical to 0.9.9.  If you do use
+   the package with biblatex 2.0, please let me know if there are
+   issues I need to address.  Thanks to Charles Schaum for alerting me
+   to some of them.
+
+Release notes for version 0.9.9 [2012-07-05]:
+
+This release contains, for the first time, the style files for the
+16th edition of the Chicago Manual of Style.  If you wish to begin
+using the newest specification, then there are some changes you'll
+have to make to your .bib files, which I summarize here.  First, I
+consider the notes & bibliography style, then author-date.  After
+that, you can find a listing of more general changes to the package,
+followed by the changes I've made to the 15th-edition styles.
+
+Notes & Bibliography:
+
+ - The specification for Music entries has been significantly altered
+   for the new edition.  You no longer need to worry about the
+   \textcircledP and \textcopyright signs in the "howpublished" field,
+   which will be silently ignored, and the "pubstate" field now
+   reverts to its usual function of identifying reprints or, in this
+   case, reissues.  The spec really only requires a record label
+   ("series") and catalog number ("number"), though "publisher" is
+   still available if you need it.  There is a new emphasis, finally,
+   on the dating of musical recordings, so that the "eventdate" gives
+   the recording date of a particular song or other portion of a
+   recording, the "origdate" the recording date of an entire album,
+   and the "date" the publishing date of that album.  Please see the
+   full documentation in biblatex.pdf.
+
+ - The specification for Video entries has also been clarified.  For
+   television series, the episode and series numbers go in
+   "booktitleaddon" instead of "titleaddon" and, as with Music
+   entries, the "eventdate" will hold the original broadcast date of
+   such an episode, or perhaps the recording/performance date of,
+   e.g., an opera on DVD.  The "origdate" will still hold the original
+   release date of a film, and the "date" the publishing or copyright
+   date of the medium you are referencing.  Please see the full
+   documentation in biblatex.pdf.
+
+ - You should add CustomC entries to provide bibliographical
+   cross-references from multiple pseudonyms back to the author's
+   name.
+
+ - In SuppBook entries, the Manual now requires you to provide the
+   page range (in the "pages" field) for the specific part you are
+   citing, e.g., an introduction, foreword, or afterword.
+
+ - In Patent entries, the Manual now prefers sentence-style
+   capitalization for titles, which you'll need to provide yourself by
+   hand.
+
+ - When a descriptive phrase is used as an "author," you can now omit
+   an initial definite or indefinite article, which will help with
+   alphabetization in the bibliography.
+
+ - A DOI is now preferred to a URL, if both are available.
+
+ - On the same subject, a revision date (or similar) is preferred to
+   an access date for online material.  You can use the new "userd"
+   field to change the string introducing the "urldate," which
+   defaults to being an access date.
+
+ - Special imprints are now separated from their parent press by a
+   forward slash rather than a comma, so can just be added to the
+   "publisher" field with the usual keyword "and".
+
+ - I have implemented a reasonable, less-flexible facsimile of the
+   Biber-only command \DeclareLabelname which should work for those
+   using any backend.  It allows biblatex to find a name for short
+   notes outside the standard name fields, including, notably, in the
+   "name[a-c]" fields.  This should reduce the instances where you
+   need a "shortauthor" field to provide such a name.
+
+ - The Chicago-specific setting of another Biber-only command,
+   \DeclareSortingScheme=cms, allows non-standard fields to be
+   considered by biblatex's sorting algorithms, which should reduce
+   the instances where you need a "sortkey" or the like in your
+   entries.  If you aren't using Biber, the package reverts to the
+   standard "nty" sorting scheme.
+
+Author-Date:
+
+ - All title fields now follow the rules for the notes & bibliography
+   style as far as punctuation, formatting, and capitalization are
+   concerned.  Biblatex-chicago-authordate will deal with most of this
+   automatically, but if you have any hand formatting of lowercase
+   letters within curly braces in your .bib file, you will need to
+   restore the headline-style capitalization there.  Also, you'll need
+   to be more careful when you provide quotation marks inside titles,
+   remembering to use \mkbibquote so that punctuation can be brought
+   inside nested quotation marks.  These revisions will apply
+   particularly to "title," "booktitle," and "maintitle" fields.
+
+ - The one exception to these rules is in Patent entries, where
+   sentence-style capitalization of the "title" is now specified.
+   You'll have to provide this by hand yourself, as in the notes &
+   bibliography style.
+
+ - Because of these changes to title formatting, you'll need to
+   observe the difference between Article and Review entries, where
+   the latter contain generic, "Review of ..." titles and the former
+   standard, specific titles.
+
+ - The presentation of "shorthand" fields has changed.  You no longer
+   need to use the CustomC entry type to include cross-references from
+   shorthands to expansions in the list of references.  Now, simply
+   using a "shorthand" field in an entry places that "shorthand" in
+   citations and at the head of the entry in the list of references,
+   where it will be followed by its expansion within parentheses.  The
+   new system will require help with sorting in the reference list --
+   placing the "shorthand" also in a "sortkey" should do the trick.
+
+ - On the subject of CustomC entries, the Manual now recommends using
+   cross-references in several contexts, particularly when a single
+   author uses more than one pseudonym.  Adding CustomC entries makes
+   this happen.
+
+ - There have been significant changes when presenting book-like
+   entries with more than one date.  If you are using the "cmsdate=on"
+   option, or indeed simply placing the earlier date in the "date"
+   field and the later one in "origdate," the presentation will be the
+   same as before, but you should understand that the Manual no longer
+   recommends this "origdate"-only style.  It prefers, instead, to
+   present either the "date" alone or both dates in citations and at
+   the head of reference list entries.  When presenting both dates,
+   there is now no longer a choice between the "old" and "new" options
+   for "cmsdate," but only the "both" option.  If you have "old" or
+   "new" in your .bib files, they will be treated as synonyms of
+   "both".
+
+ - The specification for Music entries has been significantly altered
+   for the new edition.  You no longer need to worry about the
+   \textcircledP and \textcopyright signs in the "howpublished" field,
+   which will be silently ignored, and the "pubstate" field reverts to
+   its more usual function of identifying reprints or, in this case,
+   reissues.  The spec really only requires a record label ("series")
+   and catalog number ("number"), though "publisher" is still
+   available if you need it.  There is a new emphasis, finally, on the
+   dating of musical recordings, which means that such entries will
+   fit better with the author-date style.  It also means that I have
+   had to redefine the various date fields.  The "eventdate" gives the
+   recording date of a particular song or other portion of a
+   recording, the "origdate" the recording date of an entire album,
+   and the "date" the publishing date of that album.  The earlier date
+   is the one that will appear in citations and at the head of
+   reference list entries.  Please see the full documentation in
+   biblatex-chicago.pdf.
+
+ - The specification for Video entries has also been clarified.  For
+   television series, the episode and series numbers go in
+   "booktitleaddon" instead of "titleaddon" and, as with Music
+   entries, the "eventdate" will hold the original broadcast date of
+   such an episode, or perhaps the recording/performance date of,
+   e.g., an opera on DVD.  The "origdate" will still hold the original
+   release date of a film, and the "date" the publishing or copyright
+   date of the medium you are referencing.  The earlier date, once
+   again, is the one that will appear in citations and at the head of
+   reference list entries.  Please see the full documentation in
+   biblatex-chicago.pdf.
+
+ - In SuppBook entries, the Manual now requires you to provide the
+   page range (in the "pages" field) for the specific part you are
+   citing, e.g., an introduction, foreword, or afterword.
+
+ - The author-date style now prefers longer bibstrings in the list of
+   references, bringing it into line with the notes & bibliography
+   style.  Generally, the package will take care of this for you, but
+   if you've been using abbreviated strings in "note" fields, for
+   example, you may want to change them so that they conform with the
+   strings the package provides.  In some circumstances the \partedit
+   macro, and its relatives, may help.
+
+ - When a descriptive phrase is used as an "author," you can now omit
+   an initial definite or indefinite article, which will help with
+   alphabetization in the bibliography.
+
+ - A DOI is now preferred to a URL, if both are available.
+
+ - On the same subject, a revision date (or similar) is preferred to
+   an access date for online material.  You can use the new "userd"
+   field to change the string introducing the "urldate," which
+   defaults to being an access date.
+
+ - Special imprints are now separated from their parent press by a
+   forward slash rather than a comma, so can just be added to the
+   "publisher" field with the usual keyword "and".
+
+ - The 16th edition of the Manual is less than enthusiastic about the
+   use of "Anon." as the "author," preferring instead that the "title"
+   or the "journaltitle" take its place.  If you do decide to get rid
+   of "Anon.," new facilities provided by Biber -- see next entry --
+   should mean that biblatex no longer requires assistance when
+   alphabetizing such author-less entries.
+
+ - The Chicago-specific setting of the Biber-only command,
+   \DeclareSortingScheme=cms, allows non-standard fields to be
+   considered by biblatex's sorting algorithms, which should reduce
+   the instances where you need a "sortkey" or the like in your
+   entries.
+
+ - The Chicago-specific setting of the Biber-only command
+   \DeclareLabelname allows biblatex to find a name ("label") for
+   citations outside the standard name fields, including, notably, in
+   the "name[a-c]" fields.  This should reduce the instances where you
+   need a "shortauthor" field to provide such a name.
+
+Other New Features:
+
+ - For reprinted books, you can now present more detailed publishing
+   information about the original edition using the new "origlocation"
+   and "origpublisher" fields.  You can also use the "origlocation" in
+   Letter or Misc (with "entrysubtype") entries to identify where a
+   published or unpublished letter was written.  These uses apply to
+   both Chicago styles.
+
+ - Thanks to a patch sent by Kazuo Teramoto, you can now take
+   advantage of biblatex's facilities for citing "eprint" resources.
+   There is also a new "eprint" option, set to "true" by default,
+   which controls the printing of this field in both Chicago styles.
+   You can set the option both in the preamble and in the "options"
+   field of individual entries.  The field will always print in Online
+   entries.
+
+ - I have added a new citation command, \citejournal, to the notes &
+   bibliography style to allow you to present journal articles using
+   an alternative short note form, which may be a clearer form of
+   reference in certain circumstances.  Such short notes will present
+   the name of the "author," the "journaltitle," and the "volume"
+   information.
+
+ - I have included a very slightly modified version of the standard
+   biblatex \citeauthor command, which may be useful for references to
+   works from classical antiquity.
+
+ - I have added a new "cmsdate=full" switch to the author-date style,
+   which only affects citations in the text, and means that a full
+   date specification will appear there, rather than just the year.
+   If you follow the Manual's recommendations concerning newspaper and
+   magazine articles only appearing in running text and not in the
+   reference list, this option will help.
+
+ - I have added a new "avdate" option to the author-date style, set to
+   "true" by default in biblatex-chicago.sty.  This changes the
+   default setting of \DeclareLabelyear in Music, Review, and Video
+   entries to take account of specialized instructions in the Manual
+   for finding dates to appear in citations and at the head of
+   reference list entries.  Setting "avdate=false" in the options when
+   you load biblatex-chicago restores the default settings for all
+   entry types.
+
+ - The Manual has added recommendations for citing blogs, which
+   generally will need an Article entry with "magazine"
+   "entrysubtype."  You can identify a blog as such by placing "blog"
+   in the "location" field.  If you want to cite a comment to a blog
+   or to other online material, the Review entry type, "entrysubtype"
+   "magazine" will serve.  The "eventdate" dates the comment, and any
+   timestamp that is required can go in "nameaddon."  These
+   instructions work in both styles.
+
+ - Photographs are no longer presented differently from other sorts of
+   artworks so, in effect, in both styles, the Image type is now a
+   clone of Artwork, though retained for backward compatibility.
+
+ - Following a request by Kenneth Pearce, I have added new facilities
+   for presenting "shorthands" in both Chicago styles.  In both, there
+   are two new "bibenvironments" which you can set using the "env"
+   option to the \printshorthands command: "losnotes" formats the list
+   of shorthands so that it can be presented in a footnote, while
+   "losendnotes" does the same for endnotes.  In both styles, there is
+   a new preamble option, "shorthandfull", which prints the full
+   bibliographical information of each entry inside the list of
+   shorthands, allowing such a list effectively to replace a
+   bibliography or list of references.  In the author-date style, you
+   need to set the "cmslos=false" option as well, in order for this to
+   work.  In the notes & bibliography style, I have added a new
+   citation command, \shorthandcite, which prints the "shorthand" even
+   for the first citation of a given work.
+
+ - Following suggestions by Roger Hart, I have implemented three new
+   field-exclusion options in the notes & bibliography style.  In all
+   three cases, the field in question will always appear in the
+   bibliography, but not in long notes, which may help to save space.
+   The fields at stake are "addendum," "note," and "series,"
+   controlled respectively by the new "addendum", "notefield", and
+   "bookseries" options.  All of these are set to "true" using the new
+   "completenotes" option in chicago-notes.cbx, but you can change the
+   settings either in the preamble or in the "options" field of
+   individual entries.  Please see the documentation of these options
+   in biblatex-chicago.pdf for details on which entry types are
+   excluded from their scope.
+
+ - Thanks to a coding suggestion from Gildas Hamel, I have redefined
+   the \bibnamedash in biblatex-chicago.sty, which should now by
+   default look a little better in a wider variety of fonts.
+
+ - At the request of Baldur Kristinsson, I have added
+   \DeclareLanguageMapping commands to biblatex-chicago.sty for all
+   the languages biblatex-chicago provides.  If you load the style in
+   the standard way, you no longer need to provide these mappings
+   manually yourself.
+
+ - I have improved the date handling in both styles, particularly with
+   regard to date ranges.
+
+Changes to the 15th-edition styles:
+
+ - To continue using the 15th-edition styles, for whatever reason,
+   please remember to specify either "notes15" or "authordate15" when
+   loading biblatex-chicago in your preamble.
+
+ - For reprinted books, you can now present more detailed information
+   about the original edition using the new "origlocation" and
+   "origpublisher" fields.  You can also use this field in Letter or
+   Misc (with "entrysubtype") entries to give the place where a
+   published or unpublished letter was written.  These uses apply to
+   both styles.
+
+ - Thanks to a patch sent by Kazuo Teramoto, you can now take
+   advantage of biblatex's facilities for citing "eprint" resources,
+   but only in the author-date style.  There is also a new "eprint"
+   option, set to "true" by default, which controls the printing of
+   this field.  You can set the option both in the preamble and in the
+   "options" field of individual entries.  The field will always print
+   in Online entries.
+
+ - I have added a new citation command, \citejournal, to the notes &
+   bibliography style to allow you to present journal articles using
+   an alternative short note form, which may be a clearer form of
+   reference in certain circumstances.  Such short notes will present
+   the name of the "author," the "journaltitle," and the "volume"
+   information.
+
+ - I have included a very slightly modified version of the standard
+   biblatex \citeauthor command, which may be useful for references to
+   works from classical antiquity.
+
+ - I have added a new "cmsdate=full" switch to the author-date style,
+   which only affects citations in the text, and means that a full
+   date specification will appear there, rather than just the year.
+   If you follow the Manual's recommendations concerning newspaper and
+   magazine articles only appearing in running text and not in the
+   reference list, this option will help.
+
+ - I have provided a new option, "headline", which turns off the
+   automatic transformations that produce sentence-style
+   capitalization in the title fields of the author-date style.  If
+   you set this option, the word case in your title fields will not be
+   changed in any way, that is, this doesn't automatically transform
+   your titles into headline-style, but rather allows the .bib file to
+   determine capitalization.
+
+ - Following a request by Kenneth Pearce, I have added new facilities
+   for presenting "shorthands" in the author-date style.  There are
+   two new "bibenvironments" which you can set using the "env" option
+   to the \printshorthands command: "losnotes" formats the list of
+   shorthands so that it can be presented in a footnote, while
+   "losendnotes" does the same for endnotes.  There is also a new
+   preamble option, "shorthandfull", which prints the full
+   bibliographical information of each entry inside the list of
+   shorthands, allowing such a list effectively to replace a list of
+   references.  You need to set the "cmslos=false" option as well in
+   order for this to work.
+
+ - Thanks to a coding suggestion from Gildas Hamel, I have redefined
+   the \bibnamedash in biblatex-chicago.sty, which should now by
+   default look a little better in a wider variety of fonts.
+
+ - At the request of Baldur Kristinsson, I have added
+   \DeclareLanguageMapping commands to biblatex-chicago.sty for all
+   the languages biblatex-chicago provides.  If you load the style in
+   the standard way, you no longer need to provide these mappings
+   manually yourself.
+
+ - I have improved the date handling in both styles, particularly with
+   regard to date ranges.
+
+Release notes for version 0.9.8d [2011-11-15]:
+
+ - Some minor fixes to both styles for compatibility with biblatex
+   1.7.
+
+ - Kenneth Pearce found an error in the formatting of BookInBook
+   titles in the author-date style's list of shorthands.  This should
+   work properly now.
+
+ - Jonathan Robinson spotted some inconsistencies in the way the notes
+   & bibliography style interacts with the hyperref package.
+   Following his suggestion, short notes now point to long notes when
+   the latter are available, but to bibliography entries instead when
+   you have given the "short" option to biblatex-chicago.
+
+Release notes for version 0.9.8c [2011-10-12]:
+
+ - Emil Salim pointed out some rather basic errors in the presentation
+   of InProceedings and Proceedings entries, errors that have been
+   present from the first release of the style(s).  These should now,
+   belatedly, have been put right.  This doesn't require any changes
+   to your .bib files.
+
+Release notes for version 0.9.8b [2011-09-29]:
+
+ - Christian Boesch alerted me to some bad date-formatting errors
+   produced when using the styles with the "german" option to babel.
+   A little further investigation revealed similar problems with
+   "french," and before long it became clear that date handling in
+   biblatex-chicago was generally, and significantly, sub-optimal.
+   The whole system should now be more robust and more accurate.
+
+ - The new date-handling code shouldn't require any changes to your
+   .bib files, but users of the author-date style may want to have a
+   look at the documentation of the Letter and Misc entry types, and
+   of the four date fields, for some information about how the changes
+   could simplify the creation of their databases.
+
+Release notes for version 0.9.8a [2011-09-21]:
+
+ - Fixed a series of unsightly errors in the author-date style,
+   discovered while working on the pending update to the 16th edition.
+
+ - Fixed bugs uncovered in both the author-date and the notes &
+   bibliography styles thanks to Charles Schaum's adventurous use of
+   the "origyear" field.
+
+ - Added two new bibstrings to the cms-*.lbx files to fix potential
+   bugs in some of the audiovisual entry types.
+
+Release notes for version 0.9.8 [2011-08-31]:
+
+ - Starting with biblatex version 1.5, in order to adhere to the
+   author-date specification you will need to use Biber to process
+   your .bib files, as BibTeX (and its more recent variants) will no
+   longer provide all the required features.  Unfortunately, however,
+   the current release of Biber (0.9.5) contains bugs that make it
+   tricky to use with biblatex-chicago.  These bugs have been
+   addressed in 0.9.6 beta, which is available for various operating
+   systems in the development subdirectory of your SourceForge mirror,
+   e.g., ... b/project/bi/biblatex-biber/biblatex-biber/development.
+   (If, by the time you read this, Biber 0.9.6 has already been
+   released, then so much the better.)  Please see the start of
+   cms-dates-sample.pdf for more details.
+
+ - The switch to Biber for the author-date specification means that
+   biblatex now provides considerably enhanced handling of the various
+   date fields.  I have attempted to document the relevant changes in
+   cms-dates-sample.pdf and in the "date" discussion in
+   biblatex-chicago.pdf, but in my testing the only alterations I've
+   so far had to make to my .bib files involve adhering more closely
+   to the instructions for specifying date ranges.  Biber doesn't like
+   {1968/75}, and will ignore it.  Either use {1968/1975} or put
+   {1968--75} in the "year" field.
+
+ - In the notes & bibliography style, and mainly in Article, Letter,
+   Misc, and Review entries, previous releases of biblatex-chicago
+   recommended using the \isdot macro when you needed both to define a
+   field and not have it appear in the printed output.  This mechanism
+   no longer works in biblatex 1.6, and while addressing the problem I
+   realized that relying on it covered over some inconsistencies and
+   bugs in my code, so from this release forward you will need to
+   modify your .bib and .tex files to use other, more standard
+   mechanisms to achieve the same ends, in particular the
+   \headlesscite commands and declaring "useauthor=false" in the
+   "options" field.  Please consult the documentation in
+   biblatex-chicago.pdf section 4.3.1, s.v. "isdot," for a list of
+   example entries where you can see these changes at work.
+
+ - The 16th-edition files are well under way, but still a work in
+   progress.
+
+Other changes in 0.9.8:
+
+ - Fixed the \smartcite citation command in, and added a \smartcites
+   command to, chicago-notes.cbx, so that the notes & bibliography
+   style no longer prints parentheses around citations produced using
+   \autocite(s) commands inside \footnote commands.  Many thanks to
+   Louis-Dominique Dubeau for pointing out this error.
+
+ - Fixed a problem with the \lbx@fromlang command, which biblatex 1.6
+   no longer defines.  Many thanks to Rembrandt Wolpert and Aaron
+   Lambert for pointing this out, and to Charles Schaum for posting a
+   temporary workaround in a newsgroup post.
+
+ - Version 1.6 of biblatex no longer allows you to redefine the
+   "minnames" and "maxnames" options in the \printbibliography
+   command, so I've defined "minbibnames" and "maxbibnames" in
+   biblatex-chicago.sty, instead.  These parameters have been
+   available since version 1.1, so this is now the earliest version of
+   biblatex that will work with the Chicago styles.  Of course, if the
+   (Chicago-recommended) values of these options don't suit your
+   needs, you can redefine them in your document preamble.
+
+Release notes for version 0.9.7a [2011-03-17]:
+
+ - Added the \smartcite citation command to chicago-notes.cbx so that
+   the notes & bibliography style will work with biblatex 1.3.
+
+ - Added bibstrings "byconductor" and "cbyconductor" to the .lbx
+   files, mistakenly omitted in version 0.9.7.
+
+ - Minor fixes to the docs.
+
+Release notes for version 0.9.7 [2011-02-15]:
+
+ - The CustomA and CustomB entry types are now obsolete.  Any such
+   entry in your .bib files will be ignored.  Please use Letter and
+   BookInBook, respectively.
+
+ - If you still have any CustomC entries containing introductions,
+   afterwords, or the like, please change them to SuppBook, as I have
+   reclaimed CustomC in order to provide alphabetized cross-references
+   to other, separate entries in a bibliography or list of references.
+
+ - The directory structure of the package archive has changed.  I've
+   copied that used by the biblatex package, so now you will find a
+   latex/ directory with further bbx/, cbx/, and lbx/ subdirectories,
+   and a doc/ directory with an examples/ subdirectory.  The files are
+   the same as in the previous release, merely organized differently.
+
+Other changes in 0.9.7:
+
+ - I have added three new audiovisual entry types to both styles,
+   Audio, Music, and Video.  The documentation of Audio in sections
+   4.1 and 5.1 of biblatex-chicago.pdf contains an overview of the
+   three, and the details for each type are to be found under their
+   individual headings.
+
+ - I have added several new bibstrings to the cms-*.lbx files for
+   these new audiovisual entry types.  This means that the
+   "editortype" fields can now be set to "director," "producer," or
+   "conductor," depending on your needs.  You can also set the fields
+   to "none," which eliminates all identifying strings, and which is
+   useful for identifying performers of various sorts.
+
+ - I have transformed the CustomC entry type to enable alphabetized
+   cross-references -- the "c" is meant to be mnemonic -- to other,
+   separate entries in a reference list or bibliography.  In
+   particular, this facilitates cross-references to other names in a
+   list, rather than to other works.  In author-date, in a procedure
+   recommended by the Manual, this now allows you to expand shorthands
+   inside the reference list rather than in a list of shorthands.  In
+   both styles, you can now provide a pointer to the main entry if a
+   reader is looking an author up under, e.g., a pseudonym or other
+   alternative name.
+
+ - I have introduced the "userc" field, intended to simplify the
+   printing of the cross-references provided by CustomC entries.  The
+   standard \nocite command works as well, but the additional
+   mechanism may be more convenient in some circumstances.
+
+ - You can now provide an "eventdate" field in Music entries to
+   identify, e.g., a particular recording session.  It will be printed
+   just after the "title."
+
+ - In the notes & bibliography style, I have now implemented the
+   "shorthandintro" field, which allows you to change the string
+   introducing a shorthand in the first, long note.  It works just as
+   it does in the standard biblatex styles.
+
+ - I have added six new field-exclusion options to both styles, all of
+   which can be set both in the document preamble and/or in the
+   "options" field of individual .bib entries.  Three of these --
+   "doi," "isbn," and "url" -- are standard biblatex options, the
+   others -- "bookpages," "includeall," and "numbermonth" -- are
+   chicago-specific.
+
+ - I've added the "juniorcomma" option to both styles, which can be
+   set in the document preamble and/or in the "options" field of
+   individual entries.  It allows you get the traditional comma
+   between a surname and "Jr." or "Sr."
+
+ - I fixed some old inaccuracies in the syntax of shortened notes and
+   bibliography entries presenting multiple contributions to one
+   multi-author (or single-author) volume.  For the most part the
+   changes won't affect your .bib files, but there may be cases where
+   you need to choose your entry types carefully in order to get the
+   results you want.  For the details, please consult the "crossref"
+   docs in section 4.2 of biblatex-chicago.pdf.
+
+ - Several other bug fixes -- see biblatex-chicago.pdf for details.
+
+Release notes for version 0.9.5a [2010-09-07]:
+
+ - This fixes an elementary and show-stopping mistake in
+   biblatex-chicago.sty, a mistake disguised if you use the csquotes
+   package, which I do in all my test files.  Many thanks to Israel
+   Jacques and Emil Salim for pointing this out to me.
+
+ - These files have now been tested with biblatex 0.9c and 0.9d, which
+   both work fine.
+
+Release notes for version 0.9.5 [2010-09-03]:
+
+Users upgrading from biblatex-chicago-notes-df may need to alter a few
+things in their .bib files and in their document preambles.
+
+ - If you used \usepackage{biblatex-chicago} to load the package, now
+   you need \usepackage[notes]{biblatex-chicago} instead.  (The
+   default if you don't choose between "notes" and "authordate" is, in
+   fact, "notes," so even if you don't make this change it should all
+   still work.)
+
+ - If you used \usepackage[style=chicago-notes-df]{biblatex} to load
+   the package, then be aware that you now need style=chicago-notes
+   (or style=chicago-authordate) instead.
+
+ - If you are still, for some reason, using the \custpunctc macro in
+   your .bib files, it is now obsolete.  Its function has been taken
+   by the punctuation-tracking code present in biblatex for a long
+   while now.
+
+ - I have slightly improved the Misc entry type that uses an
+   "entrysubtype."  If you are citing archival letters or other
+   letter-like sources (memoranda, reports, telegrams), then you're
+   already using the "origdate" field, and that's still correct.  If
+   you're citing non-letter-like sources (interviews, wills,
+   contracts, personal communications received by yourself), then
+   putting the date into the "date" field will slightly improve
+   compliance with the specification, at least as I interpret it.
+   Nothing untoward will happen if you don't make this change, and the
+   distinction can be difficult to draw, but it needed mentioning
+   nonetheless.
+
+ - I've improved the "number" field in Article, Periodical, and Review
+   entries.  You can now put a series or range of numbers into the
+   field and the style will print them prefixed by the appropriate
+   bibstring, singular or plural.
+
+ - I've improved author-less Manual, Article, and Review entries (the
+   latter two with magazine "entrysubtype").  In previous releases of
+   biblatex-chicago-notes-df you needed a "shortauthor" field to make
+   sure either the "organization" (in Manual entries) or the
+   "journaltitle" (in Article and Review entries) appeared in short
+   notes.  The style now automatically takes a name for short notes
+   from those fields, though you can still use "shortauthor" if you
+   wish to present it differently, e.g., in an abbreviated form.
+   Again, you probably needn't change anything in your .bib files, but
+   being aware of this may make entries simpler to construct in the
+   future.
+
+ - I've marked the Custom[A-C] entry types as deprecated, in
+   preparation for reusing them for other purposes in the next major
+   release.  Please change CustomA to Letter, CustomB to BookInBook,
+   and CustomC to SuppBook in your .bib files.
+
+Other changes in 0.9.5:
+
+ - The Chicago author-date style is now implemented in the package,
+   and therefore the package name has changed to biblatex-chicago.  A
+   number of the files inside the package also have altered names --
+   the README file and biblatex-chicago.pdf contain the complete list.
+
+ - I've now implemented the biblatex field "pubstate" in both styles.
+   In the author-date style, it is strongly recommended you use it to
+   identify reprints by putting the string "reprint" there.  The
+   requirements for formatting such entries are relatively complex,
+   and the style does the right thing automatically.  In the notes &
+   bibliography style, you can also use the field in the same way to
+   identify reprints, though placing the \reprint macro in the
+   "location" field still works as it always has.  Don't, please, use
+   both methods in the same entry.
+
+ - I've improved the functioning of Patent entries to make them more
+   compliant with the specification.
+
+ - Entries with a classical "entrysubtype" may behave slightly
+   differently now, as I've improved the provision of punctuation
+   before certain kinds of page or location specifiers even when
+   citing works by their traditional divisions.  This should, once
+   again, make the package more compliant.
+
+Release notes for version 0.9a [2010-03-20]:
+
+ - Small, quick fixes for immediate compatibility with biblatex 0.9a.
+
+Release notes for version 0.9 [2010-03-18]:
+
+As I noted in the README file, users will have to modify their .bib
+files somewhat to work properly with this release of biblatex-chicago.
+Some of these changes result from the disappearance of certain fields
+in biblatex itself -- particularly the "day" and "origyear" fields --
+so you should at least skim through Lehman's RELEASE file first to
+familiarize yourself with what it means for your setup.  The changes
+required for Chicago are as follows:
+
+ - In CustomA (Letter) entries, the counter-intuitive reversal of
+   roles between "year" and "origyear" has been eliminated.  In common
+   with other entry types, the "year" (or "date") field now refers to
+   the publication date of the collection.  The new "origdate" field
+   now holds the date the letter was written.  In short, change the
+   "date" (or "year," "month," and "day") to "origdate," and change
+   "origyear" to "year" (or "date").
+
+ - In Misc entries with an "entrysubtype," used to cite unpublished
+   sources from a named archive, exactly the same reversal of roles
+   was in place, and is now eliminated.  The new "origdate" field now
+   holds the date the letter was written or the interview conducted,
+   so change the "date" (or "year," "month," and "day") to "origdate."
+   (Under most circumstances, therefore, such entries won't have a
+   "date" field defined.)  Also, the use of the exact string "letter"
+   in the "entrysubtype" field is no longer required.  Using
+   "origdate" prints the date where you want it, so anything at all in
+   "entrysubtype" will do the trick, with "letter" being as good as
+   anything else, meaning you don't actually have to modify this
+   field.
+
+ - In Patent entries, you need to make similar changes.  The
+   "origdate" field now holds the date the patent was filed, and the
+   "date" field identifies when the patent was granted, if it was
+   granted.  You no longer need a specially-formatted "addendum" field
+   for these entries.  In short, change the "date" (or "year,"
+   "month," and "day") to "origdate," and put the date from the
+   "addendum" field into "date."  Any supplemental information you
+   want printed after the dates of the patent can still be given in
+   the "addendum" field, but most such entries won't require this.
+
+ - The "userd" field is now obsolete.  If by some chance you are still
+   using it, please move any information found there into the
+   "edition" field.
+
+Other changes in 0.9:
+
+ - Added the files cms-german.lbx (with its clone cms-ngerman.lbx) and
+   cms-french.lbx, which allow the creation of Chicago-like references
+   in those languages.
+
+ - Added the package option "annotation" to allow the creation of
+   annotated bibliographies.
+
+ - Added the new biblatex BookInBook entry type, which functions as an
+   alias to CustomB.
+
+ - Following biblatex's example, using the editortype field now turns
+   off the package's usual string concatenation mechanisms.
+
+ - Added support for the new editor[a-c] and editor[a-c]type fields,
+   which function as they do in the standard biblatex styles.
+
+ - My modified csquotes.cfg file is now obsolete, and has been removed
+   from the package.  Please upgrade to the latest version of
+   csquotes.
+
+ - Added bibstrings to help with internationalization.  The new ones
+   you might use in a .bib file are: pseudonym, nodate,
+   revisededition, numbers, and reviewof.
+
+Changelog for version 0.8.9d [2010-02-16]:
+
+ - Bug fix release, the last in the 0.8.9 series, intended for use
+   with biblatex 0.8i, _not_ with 0.9.  See note above.
+
+Changelog for version 0.8.9c [2009-11-04]:
+
+ - Bug fix release.  The details are in biblatex-chicago-notes-df.pdf.
+
+Changelog for version 0.8.9b [2009-09-09]:
+
+ - Fixed several bugs, both recent and venerable.  Please upgrade to
+   the latest version of biblatex (0.8h at time of writing), though I
+   have attempted to maintain backward compatibility at least with
+   0.8e.
+
+ - Experimental version of the "reprinttitle" field, which allows you
+   to provide original publication details of essays or chapters you
+   are citing from a later reprint.  See the pdf file for all the
+   details.
+
+Changelog for version 0.8.9a [2009-07-05]:
+
+ - Minor fixes to allow compatibility with biblatex 0.8e.  The package
+   still works with 0.8d and 0.8c, as well.
+
+Changelog for version 0.8.9 [2009-07-02]:
+
+ - The default way of loading the package has changed.  Please see the
+   documentation for all the details, but in short, if you used to
+   load it with a command like:
+
+   	\usepackage[style=chicago-notes-df,further-options]{biblatex}
+
+   you should now load it like so:
+
+        \usepackage[further-options]{biblatex-chicago}
+
+ - All single-letter bibstrings are now obsolete.  Please use \autocap
+   instead
+
+ - You should be using at least biblatex version 0.8c.  0.8d would be
+   even better.
+
+ - The package-specific bibstrings have been removed from the .cbx and
+   .bbx files and gathered in a new file, cms-american.lbx.  This
+   changes somewhat the way the package interacts with babel, making
+   it simpler if you want the defaults, but more complicated if you
+   require non-standard features.  In short, assuming you use the
+   default loading option I've just described, then babel's main text
+   language can be american or english, or alternately you can turn
+   off babel altogether, and the strings should be available
+   automatically.
+
+ - Added two new entry types, Artwork and Image.
+
+ - Added a new bibliography and entry option usecompiler, set to true
+   by default in biblatex-chicago.sty.
+
+ - Added the new bibliography option footmarkoff to
+   biblatex-chicago.sty.  This turns off the optional formatting of
+   marks (in-line instead of superscript) on foot- or endnotes,
+   returning you to the LaTeX defaults.
+
+ - Added the new citation command \headlesscite, which works like
+   \headlessfullcite but allows biblatex to decide whether to print
+   the full or the short version of the reference.
+
+ - Adopted biblatex's end-of-entry punctuation system, which fixes
+   issues several users have been seeing with the solution I offered
+   in previous releases.
+
+ - Added a modified csquotes.cfg file (in the XeLaTeX subdirectory) to
+   address issues users were having when using XeLaTeX with
+   biblatex-chicago.  Please see the docs for the details.
+
+ - Added a new shorthandibid option that allows you to print "Ibid."
+   after repeated references to an entry which contains a shorthand
+   field.  Previously, the shorthand itself would always be printed,
+   and this behavior remains the default if you don't set this option.
+
+ - Added a clone of biblatex's natbib option, so that users who use
+   \usepackage{biblatex-chicago} instead of \usepackage{biblatex} can
+   still have access to the biblatex's natbib compatibility code in
+   bibnatex.def.
+
+Changelog for version 0.8.5a [2009-06-14]:
+
+ - Quick and dirty fix to allow compatibility with biblatex 0.8d.
+
+Changelog for version 0.8.5 [2009-01-10]:
+
+ - At least version 0.8b of biblatex now required -- even better, get
+   the latest (0.8c).
+
+ - Adopted the "American" punctuation tracker provided by biblatex,
+   which fixes many small formatting errors and eliminates the need
+   for \custpunct commands, but requires that you use \mkbibquote when
+   quoted material appears inside a bibliography field.
+
+ - Loading babel with "American" as the main text language now
+   _strongly_ recommended.
+
+ - The CustomC entry type now allows referencing any sort of post- or
+   pre-matter via the type field, though the old mechanism remains in
+   place for backward compatibility.  The new SuppBook and
+   SuppCollection entry types are aliased to CustomC, and therefore
+   work in exactly the same way.
+
+ - The new SuppPeriodical entry type is aliased to Review, and Letter
+   to CustomA.
+
+ - For InReference entries the postnote field of a citation command is
+   now automatically treated as an alphabetized encyclopedia entry,
+   that is, it will be placed in quotation marks and prefaced with the
+   string "s.v."  This may allow multiple citations of the same
+   reference work without multiplying .bib entries.
+
+ - The biblatex option "usetranslator" is now set to "true" by
+   default, which means entries will automatically be alphabetized by
+   their translator in the absence of an author or an editor.
+
+ - I've added some color-coding to biblatex-chicago-notes-df.pdf to
+   highlight new or significantly revised sections.
+
+Changelog for version 0.8.2.2 [2008-11-24]:
+
+ - Fixed spurious commas in some bibliography entries.
+
+Changelog for version 0.8.2 [2008-11-03]:
+
+ - Fixed several formatting glitches between citations in multicite
+   commands and also after some prenotes.
+
+Changelog for version 0.8.1 [2008-10-22]:
+
+ - Updated the .bbx and .cbx files to work with biblatex 0.8.  This
+  most recent version of biblatex is now required for
+  biblatex-chicago-notes-df to work.
+
+ - The origlocation field is now obsolete, and has been replaced by
+  lista.  Please update your .bib files accordingly.
+
+ - The single-letter \bibstring commands I provided in version 0.7 are
+  now deprecated.  In most cases, you'll be able to take advantage of
+  the automatic contextual capitalization facilities introduced in
+  this release, but if you still need the single-letter \bibstring
+  functionality then you should switch to \autocap, as I shall be
+  removing the single-letter bibstrings in a future release.  See the
+  \autocap docs for all the details.
+
+ - The userd field is now deprecated, as biblatex 0.8 allows all forms
+  of data to be included in the edition field.  I shall be removing
+  userd in a future release, so please update your .bib files as soon
+  as is convenient.
+
+ - Added the usera field, which holds supplemental information about a
+  journaltitle in article and review entries.  See the documentation
+  of the field for details.
+
+ - Other minor fixes and additions.  See the full changelog for more.
+
+Changelog for version 0.7 [2008-08-18]:
+
+ - First public release 
+
+Copyright (c) 2008-2016 David Fussner.  This package is
+author-maintained.  This work may be copied, distributed and/or
+modified under the conditions of the LaTeX Project Public License,
+either version 1.3 of this license or (at your option) any later
+version.  The latest version of this license is in
+http://www.latex-project.org/lppl.txt and version 1.3 or later is part
+of all distributions of LaTeX version 2005/12/01 or later.  This
+software is provided "as is," without warranty of any kind, either
+expressed or implied, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose.

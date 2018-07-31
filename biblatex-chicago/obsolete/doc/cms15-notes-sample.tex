@@ -1,0 +1,254 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[latin1]{inputenc}
+\usepackage[american]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage[document]{ragged2e}
+\usepackage[notes15,strict,backend=biber,autolang=other,%
+bibencoding=latin1]{biblatex-chicago}
+%%\usepackage[osf]{mathpazo}
+%\renewcommand*{\rmdefault}{fgn}% The font (gentium) used for pdf
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{vmargin} \setpapersize{A4}
+\setmarginsrb{1in}{20pt}{1in}{.5in}{1pt}{2pt}{0pt}{2mm}
+\renewcommand{\sfdefault}{phv}
+%\renewcommand{\ttdefault}{pcr}
+\renewcommand*{\biburlsetup}{%
+  \Urlmuskip=0mu plus 2mu\relax
+  \mathchardef\UrlBreakPenalty=200\relax
+  \mathchardef\UrlBigBreakPenalty=100\relax
+  \mathchardef\UrlEmergencyPenalty=9000\relax
+  \appto\UrlSpecials{%
+    \do\0{\mathchar`\0\penalty\UrlEmergencyPenalty}%
+    \do\1{\mathchar`\1\penalty\UrlEmergencyPenalty}%
+    \do\2{\mathchar`\2\penalty\UrlEmergencyPenalty}%
+    \do\3{\mathchar`\3\penalty\UrlEmergencyPenalty}%
+    \do\4{\mathchar`\4\penalty\UrlEmergencyPenalty}%
+    \do\5{\mathchar`\5\penalty\UrlEmergencyPenalty}%
+    \do\6{\mathchar`\6\penalty\UrlEmergencyPenalty}%
+    \do\7{\mathchar`\7\penalty\UrlEmergencyPenalty}%
+    \do\8{\mathchar`\8\penalty\UrlEmergencyPenalty}%
+    \do\9{\mathchar`\9\penalty\UrlEmergencyPenalty}}%
+  \def\UrlBreaks{%
+    \do\.\do\@\do\/\do\\\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\}%
+    \do\,\do\?\do\'\do\+\do\=\do\#\do\$\do\&\do\*\do\^\do\"}%
+  \def\UrlBigBreaks{\do\:\do\-}}
+\usepackage{url}
+\urlstyle{rm}
+\appto\bibsetup{\sloppy}
+%\appto\biburlsetup{\Urlmuskip=0mu plus 4mu\relax}
+\setlength{\dimen\footins}{9.5in}
+\bibliography{notes-test}
+%%\onehalfspacing
+\begin{document}
+Note\autocite{adorno:benj} note\autocite{aristotle:metaphy:gr}
+note\autocite{adorno:benj} note\autocite[23]{adorno:benj}
+note\autocite{ashbrook:brain}
+note\autocite[3.2.996b5--8]{aristotle:metaphy:gr}
+note\autocite{assocpress:gun} note\autocite{auden:reading}
+note\autocite[149]{ashbrook:brain} note\autocite{author:forthcoming}
+note\autocite{assocpress:gun} note\autocite{babb:peru}
+note\autocite{author:forthcoming} note\autocite{auden:reading}.
+
+Note\autocite{barcott:review} note\autocite{batson}.
+note\autocite{babb:peru} note\autocite{barcott:review}
+note\autocite[339]{batson} note\autocite{beattie:crime}
+note\autocite{bedford:photo} note\autocite{babb:peru}
+note\autocite{beethoven:sonata29} note\autocite{bernhard:boris}
+note\autocite{bernstein:shostakovich} note\autocite{boxer:china}
+note\autocite{beattie:crime}.
+
+Note\autocite{brown:bremer} note\autocite{beethoven:sonata29}
+note\autocite{bernstein:shostakovich} note\autocite{bernhard:boris}
+note\autocite{boxer:china} note\autocite{browning:aurora}
+note\autocite[pt.\ 2:55]{brown:bremer} note\autocite{bundy:macneil}
+note\autocite{centinel:letters} note\autocite{chaucer:liferecords}
+note\autocite{browning:aurora}
+note\autocite[\printdate]{bundy:macneil}
+note\autocite[29]{centinel:letters}.
+
+Note\autocite{chaucer:alt} note\autocite{clark:mesopot}
+note\autocite{chaucer:liferecords}.
+
+%\clearpage
+
+Note\autocite{cleese:holygrail} note\autocite{Clemens:letter}
+note\autocite{cohen:schiff} note\autocite{Clemens:letter}
+note\autocite{clark:mesopot} note\autocite{cleese:holygrail}
+note\autocite{cohen:schiff} note\autocite{chaucer:alt}
+note\autocite{conley:fifthgrade} note\autocite{contrib:contrib}
+note\autocite{conley:fifthgrade} note\autocite{contrib:contrib}
+note\autocite{cook:sotweed}.
+
+Note\autocite{cotton:manufacture:15} note\autocite{cook:sotweed}
+note\autocite{creasey:ashe:blast} note\autocite{creasey:york:death}
+note\autocite{cotton:manufacture:15}
+note\autocite{creasey:morton:hide} note\autocite{creasey:ashe:blast}
+note\footnote{\headlessfullcite{creel:house}.}
+note\autocite{davenport:attention} note\autocite{creasey:york:death}
+note\autocite{creasey:morton:hide}
+note\footnote{\headlesscite[\letterdatelong]{creel:house}.}
+note\autocite{dinkel:agassiz}.
+
+Note\autocite{donne:var} note\autocite{davenport:attention}
+note\autocite{dunn:revolutions} note\autocite{dyna:browser}
+note\autocite{dinkel:agassiz} note\autocite{eliot:pound}
+note\autocite{ellet:galena} note\autocite{donne:var}
+note\autocite{dyna:browser} note\autocite{emerson:nature}
+note\footfullcite{ency:britannica} note\autocite{dunn:revolutions}
+note\autocite{episode:tv}.
+
+Note\autocite{eliot:pound} note\autocite{euripides:orestes}
+note\autocite{ellet:galena} note\autocite{episode:tv}
+note\autocite{emerson:nature}.
+
+%\clearpage
+
+Note\autocite{evanston:library}
+note\footnote{\headlessfullcite[3]{feydeau:farces}.}
+note\autocite{euripides:orestes} note\autocite{friedman:learning}
+note\autocite{evanston:library} note\autocite{feydeau:farces}
+note\autocite{friedman:learning} note\autocite{furet:passing:eng}
+note\autocite{garaud:gatine} note\autocite{garrett}
+note\autocite{gibbard} note\autocite{furet:passing:eng}
+note\autocite{garrett}.
+
+Note\autocite{gourmet:052006} note\autocite{garaud:gatine}
+note\autocite{greek:filmstrip} note\autocite{grove:sibelius}
+note\autocite{handel:messiah} note\autocite{harley:cartography}
+note\autocite{gibbard} note\autocite{hitchcock:nbynw}
+note\autocite{hlatky:hrt} note\autocite{greek:filmstrip}
+note\autocite{gourmet:052006} note\autocite{handel:messiah}.
+
+Note\autocite[Sibelius, Jean]{grove:sibelius}
+note\autocite{hitchcock:nbynw} note\autocite{horsley:prosodies}
+note\autocite{harley:cartography}
+note\autocite{jackson:paulina:letter} note\autocite{hlatky:hrt}
+note\autocite{james:ambassadors} note\autocite{horsley:prosodies}
+note\autocite{keating:dearborn} note\autocite{jackson:paulina:letter}
+note\autocite{kern} note\autocite{james:ambassadors}
+
+Note\autocite{kimluu:diethyl} note\autocite{keating:dearborn}.
+
+%\clearpage
+
+Note\autocite{kozinn:review} note\autocite{kern}
+note\autocite{lach:asia} note\autocite{kimluu:diethyl}
+note\autocite{lakeforester:pushcarts} note\autocite{kozinn:review}
+note\autocite{levistrauss:savage} note\autocite{lach:asia}
+note\autocite{leo:madonna} note\autocite{lewis}
+note\autocite{lakeforester:pushcarts}
+note\autocite{levistrauss:savage}.
+
+Note\autocite{lecarre:quest} note\autocite[29]{lewis}
+note\autocite{lecarre:quest} note\autocite{lippincott:chicago}
+note\autocite{loften:hamlet} note\autocite{maisonneuve:relations}
+note\autocite{lippincott:chicago} note\autocite{loften:hamlet}
+note\autocite{mchugh:wake} note\autocite{mcmillen:antebellum}
+note\autocite{maisonneuve:relations}
+note.\footnote{\headlessfullcite[2:218]{meredith:letters}.}
+
+Note\autocite{mchugh:wake} note\autocite[6.9.4]{mla:style}
+note\autocite{morgenson:market} note\autocite{mozart:figaro}
+note\autocite{murphy:silent} note\autocite{nass:address}
+note\autocite{mcmillen:antebellum} note\autocite{natrecoff:camera}
+note\autocite[2:25]{meredith:letters} note\autocite[6.9.5]{mla:style}
+note\autocite{morgenson:market} note\autocite{mozart:figaro}.
+
+Note\autocite{murphy:silent} note\autocite{nass:address}
+note\autocite{nyt:obittrevor} note\autocite{nyt:trevorobit}
+note\autocite{nytrumpet:art:15} note\autocite{osborne:poison}.
+
+%\clearpage
+
+Note\autocite{oed:cdrom} note\autocite{natrecoff:camera}
+note\autocite{palmatary:pottery} note\autocite{nyt:obittrevor}
+note\autocite{nyt:trevorobit} note\autocite[arithmetical]{oed:cdrom}
+note\autocite{nytrumpet:art:15} note\autocite{pelikan:christian}
+note\autocite{petroff:impurity} note\autocite{osborne:poison}
+note\autocite{phibbs:diary} note\autocite{palmatary:pottery}.
+
+Note\autocite{pirumova} note\autocite{pelikan:christian}
+note\autocite{petroff:impurity} note\autocite{plato:republic:gr}
+note\autocite{polakow:afterw} note\autocite{phibbs:diary}
+note\autocite[360e--361b]{plato:republic:gr} note\autocite{pirumova}
+note\autocite{polakow:afterw} note\autocite{powell:email}
+note\autocite{prose:intro} note\autocite{ratliff:review}.
+
+Note\autocite{reaves:rosen} note\autocite{powell:email}
+note\autocite{prose:intro} note\autocite{rodman:walk}
+note\autocite{ross:thesis} note\autocite{ratliff:review}
+note\autocite{rozner:liberation} note\autocite{schellinger:novel}
+note\autocite{reaves:rosen} note\autocite{schubert:muellerin}
+note\autocite{rodman:walk} note\autocite{schweitzer:bach}.
+
+Note\autocite{ross:thesis} note\autocite{rozner:liberation}
+note\autocite{sechzer:women} note\autocite{schellinger:novel}
+note\autocite{sereny:cries}.
+
+%\clearpage
+
+Note\autocite{schubert:muellerin} note\autocite{schweitzer:bach}
+note\footnote{\headlessfullcite{sewall:letter}.}
+note\autocite{shapey:partita} note\autocite{sechzer:women}
+note\autocite{sirosh:visualcortex} note\autocite{sereny:cries}
+note\autocite{silver:gawain}
+note\footnote{\headlesscite{sewall:letter}.}
+note\autocite{soltes:georgia} note\autocite{sirosh:visualcortex}
+note\autocite{spock:interview}.
+
+Note\autocite{shapey:partita} note\autocite{stenger:privacy}
+note\autocite{silver:gawain} note\autocite{tillich:system}
+note\autocite{soltes:georgia} note\autocite{spock:interview}
+note\autocite{times:guide} note\autocite{twain:audio}
+note\autocite{virginia:plantation} note\autocite{stenger:privacy}
+note\autocite{chicago:manual:15} note\autocite{twain:audio}.
+
+Note\autocite[2:45]{tillich:system} note\autocite[police
+ranks]{times:guide}  note\autocite{virginia:plantation}
+note\autocite{chicago:manual:15} note\autocite{unsigned:ranke:15}
+note\autocite{herwign:office} note\autocite{verdi:corsaro}
+note\autocite{wallraff:word} note\autocite{unsigned:ranke:15}
+note\autocite{warr:ellison} note\autocite{herwign:office}
+note\autocite{wallraff:word}.
+
+Note\autocite{verdi:corsaro} note\autocite{wauchope:ceramics}
+note\autocite{weed:flatiron}.
+
+%\clearpage
+
+Note\autocite{weresz} note\autocite{white:callimachus}
+note\autocite{white:ross:memo} note\autocite{warr:ellison}
+note\autocite{weed:flatiron} note\autocite{wikiped:bibtex}
+note\autocite{will:cohere} note\autocite{wauchope:ceramics}
+note\autocite{zukowsky:chicago} note\autocite{weresz}
+note\autocite{white:russ} note\autocite{white:callimachus}.
+
+Note\autocite{white:ross:memo} note\autocite{white:russ}
+note\autocite[BibTeX]{wikiped:bibtex} note\autocite{will:cohere}
+note\autocite{zukowsky:chicago}
+note\autocites[See][3.2.996b5--8]{aristotle:metaphy:gr}[360e--361b]
+{plato:republic:gr}[and also][for additional
+information]{white:callimachus} note\autocite{aristotle:metaphy:trans}
+note\autocites[See][]{mchugh:wake}[and][569]{warr:ellison}
+note\footnote{\citetitles{warr:ellison}{mchugh:wake}.}
+note\footnote{\Citetitle{powell:email}.}
+note\footnote{\headlessfullcite[3:126]{meredith:letters}.}
+note\autocite[3:126]{meredith:letters}.
+
+Note\footfullcite[2]{weresz} note\autocite[2]{weresz}
+note\footnote{\fullcite{zukowsky:chicago}.}
+note.\footnote{\cite*{zukowsky:chicago}.}
+
+\nocite{furet:passing:fr,good:wholeissue,house:papers,frede:inproc}
+
+\printshorthands
+
+\printbibliography[notkeyword=original]
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

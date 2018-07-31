@@ -1,0 +1,100 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage{endnotes}
+\usepackage[latin1]{inputenc}
+\usepackage[german,french,american]{babel}
+\usepackage[autostyle]{csquotes}
+%\usepackage[document]{ragged2e}
+\usepackage[authordate-trad,backend=biber,autolang=none,booklongxref=false,%
+bibencoding=latin1,postnotepunct,compresspages,strict,%
+annotation]{biblatex-chicago}
+% \usepackage[style=chicago-authordate,backend=biber,usecompiler=true,%
+% babel=hyphen,bibencoding=auto,sorting=nyt,cmslos,autocite=inline]{biblatex}
+\usepackage{lmodern}
+\usepackage{gentium}
+%\renewcommand*{\rmdefault}{fgn}% The font (gentium) used for pdf
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{vmargin} \setpapersize{A4}
+\setmarginsrb{1in}{20pt}{1in}{.5in}{1pt}{2pt}{0pt}{2mm}
+\usepackage{url}
+\urlstyle{rm}
+\appto\bibsetup{\sloppy}
+\setlength{\dimen\footins}{9.5in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\providecommand{\theendnote}{}
+%\usepackage{listings}
+\protected\def\onethird{{\scriptsize\raisebox{.7ex}{1}%
+    \hspace{-0.1em}\raisebox{.2ex}{/}\hspace{-0.03em}3}}
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\usepackage[pdftex,hyperref,svgnames]{xcolor}
+\usepackage[pdftex,colorlinks,urlcolor=DarkSlateGrey,citecolor=black,
+plainpages=false,breaklinks=true,linkcolor=DarkSlateGrey]{hyperref}
+\usepackage{cmsdocs}
+\bibliography{dates-test}
+%%\onehalfspacing
+\begin{document}
+
+\nocite{barcott:review:15,donne:var:15,shapey:partita:15}
+\section*{Appendix: \texttt{authordate-trad} References}
+\label{sec:trad:appendix}
+\printbibliography[heading=none]
+
+\twocolumn%[\Large \texttt{The trad Database File}]
+\vspace*{-6pt}
+\begin{lstlisting}[language=BibTeX,label=prologue]
+%% Database entries used to produce
+%% citations in this file, taken
+%% from dates-test.bib, and designed
+%% to show some of the changes
+%% need to use the authordate-trad
+%% style, with its sentence-style
+%% capitalization of titles. I have
+%% removed the annotations to save
+%% room -- you can click on
+%% the entry type to return to the
+%% reference list entry, where you'll
+%% also find the annotations. 
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=barcott:review:15]
+*\adlnbackref{Article}{barcott:review:15}*,
+  journaltitle = {New York Times Book Review},
+  author =	 {Barcott, Bruce},
+  date = 	 {2000-04-16},
+  entrysubtype = {magazine},
+  title =	 {\bibstring{reviewof} \mkbibemph{The last marlin: The story of a family at sea}, \bibstring{by} {Fred Waitzkin}},
+  pages =	 7
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=donne:var:15]
+*\adlnbackref{Book}{donne:var:15}*,
+  author =	 {Donne, John},
+  editor =	 {Stringer, Gary~A.},
+  title =	 {The \mkbibquote{Anniversaries} and the \mkbibquote{Epicedes and obsequies}},
+  namea =	 {Stringer, Gary~A. and Pebworth, Ted-Larry},
+  publisher =	 {Indiana Univ.\ Press},
+  maintitle =	 {The Variorum Edition of the Poetry of {John Donne}},
+  year =	 1995,
+  volume =	 6,
+  location =	 {Bloomington}
+}
+\end{lstlisting}
+\begin{lstlisting}[language=BibTeX,label=shapey:partita:15]
+*\adlnbackref{Misc}{shapey:partita:15}*,
+  author = 	 {Shapey, Ralph},
+  title = 	 {Partita for violin and thirteen players},
+  titleaddon = 	 {score},
+  entrysubtype = {music},
+  date = 	 1966,
+  note = 	 {Special Collections},
+  organization = {Joseph Regenstein Library},
+  institution =  {University of Chicago}
+}
+\end{lstlisting}
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
