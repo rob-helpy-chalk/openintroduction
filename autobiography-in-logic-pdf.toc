@@ -1,26 +1,35 @@
 \babel@toc {english}{}
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Note to Instructors}{1}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt
-\contentsline {chapter}{\numberline {2}Note to Students}{3}
-\contentsline {chapter}{\numberline {3}Biographical Information}{4}
+\contentsline {chapter}{\numberline {2}Note to Students}{2}
+\contentsline {chapter}{\numberline {3}An argument about yourself}{3}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize J. Robert Loftis}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {4}Valid arguments about you}{4}
+\vskip -10pt
+\contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize J. Robert Loftis}{}{}
+\vskip 5pt
+\contentsline {chapter}{\numberline {5}Interests, part 1}{6}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt
-\contentsline {chapter}{\numberline {4}Interests}{7}
+\contentsline {chapter}{\numberline {6}Interests, part 2}{8}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt
-\contentsline {chapter}{\numberline {5}GOAL OR ASPIRATION}{11}
+\contentsline {chapter}{\numberline {7}Biographical Information, part 1}{10}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt
-\contentsline {chapter}{\numberline {6}Fallacy}{14}
+\contentsline {chapter}{\numberline {8}Biographical Information, part 2}{13}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt
-\contentsline {chapter}{\numberline {7}A CHALLENGE}{17}
+\contentsline {chapter}{\numberline {9}Goal or Aspiration}{15}
 \vskip -10pt
 \contentsline {chapter}{\hskip 1.3em\mdseries \scshape \scriptsize Allyson Mount}{}{}
 \vskip 5pt

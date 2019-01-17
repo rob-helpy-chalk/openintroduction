@@ -18,7 +18,6 @@
 \usepackage{syntonly}
 \usepackage{enumitem}
 \usepackage{turnstile}
-\usepackage{float}
 \usepackage[normalem]{ulem}
 \usepackage{fixltx2e}	
 \usepackage{wasysym}
@@ -39,12 +38,14 @@
 
 %%%  graphics packages %%%
 \usepackage{tikz}
-\usetikzlibrary{shapes,backgrounds,matrix,arrows,decorations,positioning,arrows.new}
+\usetikzlibrary{shapes,backgrounds,matrix,arrows,decorations,positioning}
+\usepgflibrary{arrows.new}
 \usepackage{graphicx}
 \usepackage{xcolor}
 
 
 %%%    Table and figure packages %%%
+\usepackage{float}
 \usepackage[singlelinecheck=false, skip=0pt]{caption} %left aligns captions for tables, moves them closer to table. 
 \usepackage{tabularx}
 \usepackage{longtable}
@@ -57,7 +58,6 @@
 \restylefloat{figure}
 \usepackage[export]{adjustbox}
 \usepackage{multirow}
-\usepackage{openintroduction}
 \usepackage{rotating}
 \usepackage{booktabs}
 	
@@ -67,6 +67,8 @@
 \hypersetup{pdftex,colorlinks=true,allcolors=blue}
 \usepackage{hypcap}	
 	
+
+\usepackage{openintroduction}
 	
 \pdfinfo{
   /Title (An Open Introduction to Logic)
@@ -110,19 +112,19 @@
 \label{full_version} %Include this label to make cross references work right when typesetting full text
 
 
-\part{Basic Concepts} \label{part:basic_concepts}
-\include{tex/ch01-whatislogic}	
-\include{tex/ch02-basicevaluation}
+%\part{Basic Concepts} \label{part:basic_concepts}
+%\include{tex/ch01-whatislogic}	
+%\include{tex/ch02-basicevaluation}
 
-%\part{Formal Logic} \label{part:formal_logic}
-\include{tex/ch03-whatisformallogic}
-\part{Categorical Logic}
-\label{part:cat_logic}
-\include{tex/ch04-categoricalstatements}
-\include{tex/ch05-categoricalsyllogisms} %Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
-\part{Sentential Logic} \label{part:sent_logic}
-\include{tex/ch06-sentential}	
-\include{tex/ch07-truthtables}
+%\part{Formal Logic} 
+%\include{tex/ch03-whatisformallogic} \label{part:formal_logic}
+%\part{Categorical Logic}
+%\label{part:cat_logic}
+%\include{tex/ch04-categoricalstatements}
+%\include{tex/ch05-categoricalsyllogisms} %Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
+%\part{Sentential Logic} \label{part:sent_logic}
+%\include{tex/ch06-sentential}	
+%\include{tex/ch07-truthtables}
 \include{tex/ch08-proofsinsl}%Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
 %\part{Quantificational Logic} \label{part:quant_logic}
 %\include{tex/ch09-predicate}

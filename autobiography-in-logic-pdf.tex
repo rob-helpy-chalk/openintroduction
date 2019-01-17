@@ -9,7 +9,7 @@
 \usepackage[classicReIm]{kpfonts}
 \usepackage[dvips]{graphicx} %%% use 'pdftex' instead of 'dvips' for PDF output
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
+\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}\titlespacing*{\chapter}{0pt}{-50pt}{30pt}
 
 
 \usepackage{suffix}
@@ -33,10 +33,44 @@
 }
 \makeatother
 
+%General packages
+\usepackage{answers}
+\usepackage{textcomp}
+\usepackage{anyfontsize}	
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{changepage}
+\usepackage{syntonly}
+\usepackage{enumitem}
+\usepackage{turnstile}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{fixltx2e}	
+\usepackage{wasysym}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{fancyref}
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
 
 
 
-%\usepackage{openintroduction}
+%%%    Table and figure packages %%%
+\usepackage[singlelinecheck=false, skip=0pt]{caption} %left aligns captions for tables, moves them closer to table. 
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage[framemethod=1]{mdframed} 
+\usepackage{wrapfig} %I used this to put a frame around tables.
+\tabulinesep=.75ex
+\usepackage{colortbl}
+\floatstyle{plain} 
+\restylefloat{figure}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{booktabs}
+
 
 %%% graphics packages %%%
 \usepackage{tikz}
@@ -45,19 +79,24 @@
 \usepackage{xcolor}
 
 
+\usepackage{openintroduction}
 
-% You can include more LaTeX packages here 
+
 
 
 \begin{document}
+\raggedright
 \setlength{\parindent}{1em}
 \setlength{\parskip}{1em}	
+\pagestyle{plain}
+
 
 %\selectlanguage{english} %%% remove comment delimiter ('%') and select language if required
 \titlepage
 \vfill
 
-\noindent{\huge AUTOBIOGRAPHY IN LOGIC}\\ \vspace{6pt}\\
+\noindent{\huge AUTOBIOGRAPHY IN LOGIC}\\ \vspace{6pt}
+
 \noindent\textit{A Multi-Step Assignment for Introductory Logic Courses}
 
 \vfill
@@ -75,34 +114,9 @@
 
 \noindent International License, except where otherwise noted.
 
-
+\pagebreak
 
 \tableofcontents
-
-
-%\begin{tabular}{|p{0.2in}|p{3.0in}|p{1.5in}|} \hline 
-% & Note to Instructors\newline Allyson Mount & 1 \\ \hline 
-% & Note to Students\newline Allyson Mount & iii \\ \hline 
-%\newline 1. & \newline Biographical Information & \newline 4 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 2. & \newline Interests & \newline 7 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 3. & \newline Goal or Aspiration & \newline 10 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 4. & \newline Fallacy & \newline 13 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 5. & \newline A Challenge & \newline 16 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 6. & \newline Academic Integrity and Permissions & \newline 19 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 7. & \newline Final Project Checklist & \newline 20 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\newline 8. & \newline Grading Rubric & \newline 21 \\ \hline 
-% & Allyson Mount & \\ \hline 
-%\end{tabular}
-
-
-
 
 \pagebreak
 
@@ -120,15 +134,15 @@ The assignment is designed to be customizable. Worksheets on different topics ca
 
 In my own course, I used this assignment in conjunction with two free OER texts:
 
-\begin{itemize}
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
 
-\item Craig DeLancy's \textit{A Concise Introduction to Logic }(Open SUNY Textbooks, 2017. Creative Commons Attribution Non-Commercial ShareAlike 4.0 International License), which can be found at http://textbooks.opensuny.org/concise-introduction-to-logic/. Part I covers the skills needed for the propositional logic pages of this assignment.
+\item Craig DeLancy's \textit{A Concise Introduction to Logic }(Open SUNY Textbooks, 2017. Creative Commons Attribution Non-Commercial ShareAlike 4.0 International License), which can be found at http://tinyurl.com/ybdjx5dm/. Part I covers the skills needed for the propositional logic pages of this assignment.
 
-\item Matthew J. Van Cleave's text \textit{Introduction to Logic and Critical Thinking, }Version 1.4. (Creative Commons Attribution 4.0 International License), which can be found at https://www.oercommons.org/courses/introduction-to-logic-and-critical-thinking-2. Sections
+\item Matthew J. Van Cleave's text \textit{Introduction to Logic and Critical Thinking, }Version 1.4. (Creative Commons Attribution 4.0 International License), which can be found at http://tinyurl.com/ychcaoau
 
 \end{itemize}
 
-\noindent 2.14-2.17 and Chapter 4 cover the skills needed for the categorical logic and fallacies pages of this assignment.
+\noindent Sections 2.14-2.17 and Chapter 4 cover the skills needed for the categorical logic and fallacies pages of this assignment.
  
 This assignment was designed with  the support of the University System of New  Hampshire's Academic Technology Institute in summer 2017.  My hope  is that  instructors who  adapt this assignment and develop new sections will share their adaptations freely, expanding the range of possibilities available to others.
 
@@ -167,604 +181,686 @@ This assignment was designed with  the support of the University System of New  
 %
 %\noindent Grading: The final version of this assignment is worth 100 points (10\% of your overall course grade). The rubric that will be used to grade it can be found in a later chapter of this book. It would be wise to check the criteria for each section before you turn it in, to ensure that your project meets all of the requirements.
 
-\chapter{Biographical Information}
+\chapter{An argument about yourself}
+\chapterauthor{J. Robert Loftis}
 
-\chapterauthor{Allyson Mount}
+\noindent\textbf{Autobiographical subject matter:} A single fact about yourself and a generalization people make about that kind of person.
+\vspace{6pt}
 
-\noindent \textbf{Autobiographical subject matter: }This section will focus on basic background information about you.
+\noindent\textbf{Logical skills involved:}
 
-\noindent 
+\begin{itemize}[label=\textbullet, topsep=0pt] 
+\item Organizing ideas into premises and conclusions
+\item Writing arguments in canonical form
+\end{itemize}
+\vspace{6pt}
+\noindent\textbf{Worksheet instructions: } Create a simple argument about yourself beginning with a premise that states an ordinary fact about you. For the second premise write a generalization that people often make based on that fact. For the conclusion, write that the conclusion probably applies to you. The conclusion can be either true or false. It just has to be one someone might draw about you. Write it out in a format like this:
 
-\noindent \textbf{Logical skills involved:}
+\begin{earg*}
+\item {[Fact about you]}
+\item {[Generalization about people that fact is true of]}
+\itemc {[That generalization applied to you.]}
+\end{earg*}
 
-\noindent 
+There isn't a separate worksheet for this. You should just use your own paper.
+\vspace{6pt}
 
-\noindent  Representing factual claims in propositional logic
+\noindent\textbf{Example:}
 
-\noindent 
+\begin{earg*}
+\item I like to garden
+\item People who like to garden generally grow tomatoes
+\itemc I probably grow tomatoes.  
+\end{earg*}
 
-\noindent  Constructing a truth table for a complex claim
+In this case, the ``probably'' is a \textit{confidence indicator}. The author uses it to signal how confident they are in the conclusion. 
 
-\noindent 
-
-\noindent  Identifying which line of a truth table reflects the real-world situation
-
-\noindent 
-
-\noindent 
-
-\noindent \textbf{Worksheet instructions: }Make a key that contains five biographical claims about yourself: three \textit{true }claims, and two \textit{false }claims. Each letter should stand for an atomic sentence of propositional logic. Do not indicate in the key which claims are true and which are false. Mix up the true and false claims in a random order, so that the reader can't tell from the key alone which are which. Make the false ones realistic and believable.
-
-\noindent 
-
-\noindent Please use the given key letters. Include whatever types of biographical claims you consider important about your background, such as where you're from, when you were born, whether you have siblings, what kind of school you went to, etc. There are no specific facts that everyone must include -- so if you would rather not indicate your age, for instance, it is fine to focus on other biographical claims.
-
-\noindent 
-
-\noindent Then, given your key, provide the information requested below. If you have done the key correctly, there will be multiple correct examples you could give for some of these parts. Just give \textit{one }example of each requested type.
-
-\noindent 
-
-\noindent Again, please \textit{don't }indicate which two claims are the false ones on this worksheet itself, even though it can be deduced from your examples.
-
-\noindent 
-
-\noindent 
-
-\noindent \textbf{Advice and things to keep in mind}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent Make sure each letter in your key stands for an atomic sentence -- not just a word or phrase, and not a negation, conditional, conjunction, etc.
-
-\noindent Here and throughout the project, it is fine to use `I' in your key. Alternatively, you can refer to yourself by your name, although that might sound odd in an autobiography.
-
-\noindent Show the work in your truth table. To be complete, it must include a column of values for each logical constant, not just the main column.\textbf{\textit{Biographical Information Worksheet}}
-
-\noindent 
-
-\noindent \underbar{KEY}
-
-\noindent 
-
-\noindent P =
-
-\noindent 
-
-\noindent Q = R = S = T =
-
-\noindent A \textit{negation }that expresses a true claim about me: \underbar{ }
-
-\noindent 
-
-\noindent A \textit{conjunction }that expresses a true claim about me: \underbar{ }
-
-\noindent 
-
-\noindent A \textit{conditional }that expresses a false claim about me: \underbar{ }
-
-\noindent 
-
-\noindent The formula \textbf{($\boldsymbol{\mathrm{\neg}}$Q $\boldsymbol{\mathrm{\to}}$ (P $\boldsymbol{\mathrm{\wedge}}$ S)) }represents the following claim, stated in English:
+\noindent \textbf{Advice and things to keep in mind: } Be sure that each statement is a complete sentence. Do not include any premise and conclusion indicator words, but leave in confidence indicators. 
 
 
-\noindent Overall, this is a   true / false   (circle one) claim about me.
 
+\chapter{Valid arguments about you}
+\chapterauthor{J. Robert Loftis}
+\noindent\textbf{Autobiographical subject matter:} Statements about yourself, either true or false, and generalizations based on those statements, either true or false.
+\vspace{6pt}
 
-\noindent A complex formula involving \textit{three }letters and \textit{at least two }logical constants that represents a true claim about me: \underbar{ }
+\noindent\textbf{Logical skills involved:}
 
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
+\item Writing valid arguments
+\item Recognizing the ways validity relates to truth.
+\end{itemize}
+\vspace{6pt}
 
-\noindent Truth table of that formula:
+\noindent\textbf{Worksheet instructions: } Write three valid argument about yourself illustrating the three combitations of true and false premises and conclusions an argument can have. First, write a valid argument with at least one false premise and one false conclusion. In the example below, I have made the first premise false, but you can do it either way. For the second example write an argument that has at least one false premise, but has a conclusion that happens to be true. For the third argument, write an valid argument about yourself with true premises and a true conclusion.
+\vspace{6pt}
 
-\noindent Which row of the table represents the actual, real-world situation with respect to the truth or falsity of the atomic sentences involved?  \underbar{ }
+\noindent\textbf{Example:}
 
-\noindent 
+\begin{longtabu}{X[1,p,m]X[1,p,m]}
+\begin{earg*}
+\item All people who own a dog also own a cat
+\item I own a dog
+\itemc I own a cat
+\end{earg*}
 
-\noindent 
+&
 
-\noindent 
+\begin{earg*}
+\item All people who own cats also own a dog
+\item I own a cat
+\itemc I own a dog.
+\end{earg*}
 
-\chapter{Interests}
+\\
+
+\begin{earg*}
+\item All people who own a dog own a mammal
+\item I own a dog
+\itemc I own a mammal
+\end{earg*}
+
+\end{longtabu}
+
+\pagebreak
+
+\begin{center}
+{\Large Valid Argument Worksheet}
+\end{center}
+
+\noindent\textbf{1. Write a valid argument about yourself with at least one false premise and a false conclusion.}
+
+\vfill
+
+\noindent\textbf{2. Write a valid argument about yourself with at least one false premise and a true conclusion.}
+
+\vfill
+
+\noindent\textbf{3. Write a valid argument about yourself with all true pemreises and a true conclusion.}
+
+\vfill
+
+\chapter{Your Interests}
 \chapterauthor{Allyson Mount}
 
 \noindent \textbf{Autobiographical subject matter:  }This section will focus on your  extracurricular activities and interests. Choose a small number of non-academic activities that you enjoy pursuing in your free time. They can be hobbies, sports, outdoor activities, or other things of that nature. They do not need to be activities that correspond to an official club or organization, and they do not need to be related to college.
 
-\noindent 
-
 \noindent \textbf{Logical skills involved:}
 
-\noindent 
-
-\noindent  Representing the relationship between groups using Venn diagrams
-
-\noindent 
-
-\noindent  Interpreting the claims represented by Venns
-
-\noindent 
-
-\noindent 
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
+\item Representing the relationship between groups using Venn diagrams
+\item Interpreting the claims represented by Venns
+\end{itemize}
 
 \noindent \textbf{Worksheet instructions:}
 
-\noindent 
-
-\noindent For the 2-circle parts:
-
-\noindent 
-
-\noindent  Choose two different extracurricular activities, interests, or hobbies that you enjoy. Label the \textit{right- hand }circle in each pair with a term that applies to people who engage in that activity. Notice that the \textit{left }circle in each pair is already labeled, so all circles in the top section should be labeled.
-
-\noindent 
-
-\noindent  In the proposition below, fill in the blank with the same term as your right circle label. Then fill in the diagram to represent that proposition, starring or shading where needed.
-
-\noindent 
-
-\noindent For the 3-circle part:
-
-\noindent 
-
-\noindent  Label two of the circles (it doesn't matter which) with the same two group terms as above. Then think of a third interest or activity you enjoy, and label the remaining circle with a term for people who engage in that activity.
-
-\noindent 
-
-\noindent  Given your labels and the diagram content that is already there, interpret the diagram and fill in the blanks below. Each answer should be a categorical propositions. Please write out the actual proposition in English (don't just write A, E, I, O).Using  common sense and your  actual  knowledge of the world, indicate whether each of those categorical propositions is true or false.
-
-\noindent 
-
-\noindent 
+ Choose two different extracurricular activities, interests, or hobbies that you enjoy. Label the blank circle in each pair with a term that names people who engage in that activity. So if the hobby is gardening, the term would be ``people who garden.'' Add the same term to the sentence below the diagram, and then fill in the venn diagram to represent the propsoition, either writing an X or shading as needed. 
 
 \noindent \textbf{Advice and things to keep in mind}
 
-\noindent 
+\noindent It is crucial that your circles are labeled correctly. Each circle should be labeled with a term that applies to people (including you!) who engage in that activity. For example, either ``stamp collectors'' or ``people who collect stamps'' is fine -- but ``stamps'' would not make sense in this context. (If the circle is labeled ``stamps,'' then just stamps themselves fall into the category represented.) Likewise, ``collecting stamps'' is an activity, not a group of people, so it wouldn't be an appropriate label for a circle
 
-\noindent 
+\pagebreak 
 
-\noindent 
 
-\noindent It is crucial that your circles are labeled correctly. Each circle should be labeled with a term that applies to people (including you!) who engage in that activity. For example, either ``stamp collectors'' or ``people who collect stamps'' is fine -- but ``stamps'' would not make sense in this context. (If the circle is labeled ``stamps,'' then just stamps themselves fall into the category represented.) Likewise, ``collecting stamps'' is an activity, not a group of people, so it wouldn't be an appropriate label for a circle.\includegraphics*[width=2.51in, height=1.59in, keepaspectratio=false]{image2}\textit{Interests Worksheet}
+\begin{center}
+{\Large Interests Worksheet, part 1}
+\end{center}
 
-\noindent 
+\begin{exercises}
 
-\noindent 
+\item Fill in the blank with one of your intersts and draw the appropriate diagram.\\
 
-\noindent 
+\vfill 
 
-\noindent \includegraphics*[width=2.51in, height=1.59in, keepaspectratio=false]{image3}
+\begin{tikzpicture}
 
-\noindent 
+\def\subjectcircle{(0,0) circle (1.5cm)}
+\def\predicatecircle{(0:1.5cm) circle (1.5cm)}
 
-\noindent 
 
-\noindent Some college student is a \underbar{ }
+\draw \subjectcircle node[outer sep=1.5cm, above left] {\small \underbar{College Students}};
+\draw \predicatecircle node[outer sep=1.5cm, above right] {\rule[-5pt]{2cm}{.4pt}};
+\end{tikzpicture}
 
-\noindent All \underbar{ }
+\vfill 
 
-\noindent are people who were born before 2016.
+\noindent Some college student is a  \rule[-5pt]{5cm}{.4pt}
 
-\noindent 
+\vfill 
 
-\noindent 
+\item Fill in the blank with one of your intersts and draw the appropriate diagram.\\
 
-\noindent 
+\vfill \begin{tikzpicture}
 
-\noindent \includegraphics*[width=2.44in, height=2.29in, keepaspectratio=false]{image4}
+\def\subjectcircle{(0,0) circle (1.5cm)}
+\def\predicatecircle{(0:1.5cm) circle (1.5cm)}
 
-\noindent 
 
-\noindent 
+\draw \subjectcircle node[outer sep=1.5cm, above left] {\rule[-5pt]{2cm}{.4pt}};
+\draw \predicatecircle node[outer sep=1.5cm, above right] { \small\underbar{People born before 2016}};
+\end{tikzpicture}
 
-\noindent Proposition represented by the shaded region:
+\vfill 
+\noindent All \rule[-5pt]{3cm}{.4pt} are people who were born before 2016
 
-\noindent 
+\vfill 
 
-\noindent 
 
-\noindent 
+\end{exercises}
 
-\noindent 
+\chapter{Interests, part 2}
+\chapterauthor{Allyson Mount}
 
-\noindent This claim is true/false (circle one).
+\noindent \textbf{Autobiographical subject matter and logical skills involved:  } Same as part 1.
 
-\noindent 
+\noindent \textbf{Worksheet instructions:} Label two of the circles (it doesn't matter which) with the same two group terms as above. Then think of a third interest or activity you enjoy, and label the remaining circle with a term for people who engage in that activity.
 
-\noindent 
+Given your labels and the diagram content that is already there, interpret the diagram and fill in the blanks below. Each answer should be a categorical propositions. Please write out the actual proposition in English (don't just write A, E, I, O). Using  common sense and your  actual  knowledge of the world, indicate whether each of those categorical propositions is true or false.
 
-\noindent 
+\pagebreak 
 
-\noindent 
 
-\noindent Proposition represented by the starred region:
+\begin{center}
+{\Large Interests Worksheet, part 2}
+\end{center}
 
-\noindent 
+\vspace{.25cm}
+\begin{center}
+\begin{venns}
 
-\noindent 
+\def\subjectcircle{(0,0) circle (1.5cm)}
+\def\middlecircle{(60:1.5cm) circle (1.5cm)}
+\def\predicatecircle{(0:1.5cm) circle (1.5cm)}
 
-\noindent 
 
-\noindent 
+\draw \subjectcircle node[outer sep=1.5cm, above left] {\rule[-5pt]{2cm}{.4pt}};
+\draw \middlecircle node[outer sep=1.75cm, above] {\rule[-5pt]{2cm}{.4pt}};
+\draw \predicatecircle node[outer sep=1.5cm, above right] {\rule[-5pt]{2cm}{.4pt}};
 
-\noindent This claim is true/false (circle one).
 
-\chapter{GOAL OR ASPIRATION}
+\shadeintersect{\predicatecircle}{\middlecircle}
+\path (S) -- (M) node[midway, above left, yshift=.25cm, xshift=-.05cm](5){\Large X};
+
+\end{venns}
+\end{center}
+
+\vspace{.25cm}
+
+\begin{exercises}
+\setlength\itemsep{2cm}
+\item What is the proposition represented by the shaded region?
+\item Is this claim is true or false?
+\item What is the proposition represented by the starred region:
+\item Is this claim is true or false?
+\end{exercises}
+
+
+
+\chapter{Biographical Information, part 1}
+\chapterauthor{Allyson Mount}
+
+\noindent\textbf{Autobiographical subject matter:}This section will focus on basic background information about you.
+\vspace{6pt}
+
+\noindent\textbf{Logical skills involved:}
+
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
+\item Representing factual claims in propositional logic
+
+\item Constructing complex claims using sentential connectives
+
+\end{itemize}
+\vspace{6pt}
+
+\noindent\textbf{Worksheet instructions: }Make a key that contains five biographical claims about yourself: three \textit{true }claims, and two \textit{false }claims. Each letter should stand for an atomic sentence of propositional logic. Do not indicate in the key which claims are true and which are false. Mix up the true and false claims in a random order, so that the reader can't tell from the key alone which are which. Make the false ones realistic and believable.
+
+Please use the given key letters. Include whatever types of biographical claims you consider important about your background, such as where you're from, when you were born, whether you have siblings, what kind of school you went to, etc. There are no specific facts that everyone must include---so if you would rather not indicate your age, for instance, it is fine to focus on other biographical claims.
+
+Then, given your key, provide the information requested below. If you have done the key correctly, there will be multiple correct examples you could give for some of these parts. Just give \textit{one }example of each requested type.
+
+Again, please \textit{don't }indicate which two claims are the false ones on this worksheet itself, even though it can be deduced from your examples.
+\vspace{6pt}
+
+\noindent\textbf{Advice and things to keep in mind: }Make sure each letter in your key stands for an atomic sentence -- not just a word or phrase, and not a negation, conditional, conjunction, etc.
+\vspace{6pt}
+
+
+\noindent\textbf{Example} (From Rob)
+\begin{longtabu}{X[1,p,m]X[1,p,m]} 
+$P$: I own a dog & $S$: I have a brother \\
+$Q$: I own a cat & $T$: My brother is older than I am \\
+$R$: I have a sister
+\end{longtabu}
+
+\begin{exercises}
+\item Write a \textit{negation }that expresses a true claim about yourself: 
+
+\vspace{6pt}
+I do not own a cat. $\enot Q$ 
+
+\item Write a \textit{conjunction }that expresses a true claim about yourself: 
+
+\vspace{6pt}
+I have a brother and a dog. $S \eand P$
+
+\item Write a \textit{conditional }that expresses a false claim about yourself: 
+
+\vspace{6pt}
+If I had a brother, he would be older than I am. $S \eif T$
+\end{exercises}
+
+
+
+\pagebreak
+
+\begin{center}
+{\Large Biographical information worksheet, part 1}
+\end{center}
+\noindent \underbar{Key}
+
+\begin{ekey}
+\setlength\itemsep{12pt}
+\item[$P$:] 
+\item[$Q$:]
+\item[$R$:]
+\item[$S$:]
+\item[$T$:]
+\end{ekey}
+
+\underbar{Questions}
+\begin{exercises}
+\item Write a \textit{negation }that expresses a true claim about yourself: 
+\vfill
+\item Write a \textit{conjunction }that expresses a true claim about yourself: 
+\vfill
+
+
+\item Write a \textit{conditional }that expresses a false claim about yourself: 
+\vfill
+\end{exercises}
+
+\pagebreak
+
+\chapter{Biographical Information, part 2}
+\chapterauthor{Allyson Mount}
+
+\noindent\textbf{Autobiographical subject matter:}This section will focus on basic background information about you.
+\vspace{6pt}
+
+\noindent\textbf{Logical skills involved:}
+
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
+ 
+ \item Translating complex claims from SL to English.
+ 
+\item Constructing a truth table for a complex claim
+
+\item Identifying which line of a truth table reflects the real-world situation
+
+\end{itemize}
+\vspace{6pt}
+
+\noindent\textbf{Worksheet instructions: } Given the translation key from part 1, write a truth tables for a complex sentences, write those sentences in English, and indicate which line of the truth table corresponds to the real world.
+
+\noindent\textbf{Advice and things to keep in mind: } Show the work in your truth table. To be complete, it must include a column of values for each logical constant, not just the main column.
+
+
+\pagebreak
+
+\begin{center}
+{\Large Biographical information worksheet, part 2}
+\end{center}
+
+\begin{exercises}
+\setlength\itemsep{1.5cm}
+\item What does the formula $\enot Q \eif (P \eand S)$ represent, stated in English?
+
+
+\item Write the truth table for .$\enot Q \eif (P \eand S)$ 
+
+\vspace{2.5cm}
+
+\item Is $\enot Q \eif (P \eand S)$ a true claim about you?
+
+
+\item Write a complex formula involving \textit{three }letters and \textit{at least two }logical constants that represents a true claim about yourself: 
+
+
+\item Write the truth table of that formula:
+\vspace{2.5cm}
+\item Which row of the table represents the actual, real-world situation with respect to the truth or falsity of the atomic sentences involved?  
+\end{exercises}
+
+
+\chapter{Goal or Aspiration}
 \chapterauthor{Allyson Mount}
 
 
 \noindent \textbf{Autobiographical subject matter: }This section will focus on a future goal or aspiration. It can be an educational, professional, or personal goal. Choose a goal you have for at least a year or two in the future.
 
-\noindent 
 
 \noindent \textbf{Logical skills involved:}
 
-\noindent 
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
 
-\noindent  Expressing conditional claims in propositional logic
 
-\noindent 
+\item Expressing conditional claims in propositional logic
 
-\noindent  Using the conditional derivation rule in a proof
 
-\noindent 
+\item Using the conditional derivation rule in a proof
 
-\noindent 
+\end{itemize}
 
-\noindent \textbf{Worksheet instructions: }State your goal as an atomic sentence. Choose a letter to represent it, and add it to the key.
+\noindent \textbf{Worksheet instructions: }State your goal as an atomic sentence. Choose a letter to represent it and create a transation key with that sentence as its first entry.
 
-\noindent 
+Think of sequence of three initial steps or conditions that would help you start making progress toward that goal. Choose a letter to represent it, state it as an atomic sentence, and add it to the key.
 
-\noindent Think of an initial activity or condition that would help you start making progress toward that goal. Choose a letter to represent it, state it as an atomic sentence, and add it to the key.
+Write a chain of three conditionals that expresses a sequence of steps that you anticipate needing to take in order to accomplish the goal. Make a key and give the form of the three conditionals.
 
-\noindent 
 
-\noindent Write a chain of three conditionals that expresses a sequence of steps that you anticipate needing to take in order to accomplish the goal. Make a key and give the form of the three conditionals.
+ \begin{itemize}[label=\textbullet, topsep=0pt] 
+\item The antecedent of the first should be the initial activity that you just identified above.
 
-\noindent 
+\item  The consequent of the first should match the antecedent of the second.
 
-\noindent  The antecedent of the first should be the initial activity that you just identified above.
+\item The consequent of the second should match the antecedent of the third.
 
-\noindent 
+\item The consequent of the third should be the goal that you stated above.
 
-\noindent  The consequent of the first should match the antecedent of the second.
-
-\noindent 
-
-\noindent  The consequent of the second should match the antecedent of the third.
-
-\noindent 
-
-\noindent  The consequent of the third should be the goal that you stated above.
-
-\noindent 
-
-\noindent 
+\end{itemize}
 
 \noindent Making this chain of conditionals will require adding two more atomic sentences to your key. Then give the form of those three conditionals.
 
 \noindent 
 
-\noindent Give a formal proof in which the three conditionals in the chain are premises. The conclusion of your proof should be a conditional stating that \textit{if }the initial activity/condition is met, \textit{then }your goal follows. Derive the conclusion using the conditional derivation rule. No additional premises should be needed.\textbf{Advice and things to keep in mind}
+\noindent Give a formal proof in which the three conditionals in the chain are premises. The conclusion of your proof should be a conditional stating that \textit{if }the initial activity/condition is met, \textit{then }your goal follows. Derive the conclusion using the conditional derivation rule. No additional premises should be needed.
+
+\textbf{Advice and things to keep in mind}: You may find it easier to draft your chain of three conditionals in English first, then put them in symbolic form and fill out the key. Just the key, symbolic forms, and proof are on the worksheet, but be sure your chain of conditionals makes conceptual sense before formalizing it!
+
+\noindent Of course, in life there are often many different steps one could take while aiming to accomplish a certain goal. There is no need to capture all the possibilities; just use the sequence of conditionals that seems most realistic, sensible, or promising to you.
+
+
+\pagebreak
+
+\begin{center}
+{\Large Goal or Aspiration Worksheet}
+\end{center}
+
+\begin{exercises}
+\setlength\itemsep{1.5cm}
+
+\item State a goal you have
+
+
+\item State three activities or steps that will help you toward that goal.
+
+
+\item Write a translation key:
+
+\begin{ekey}
+\setlength\itemsep{12pt}
+\item[$P$:] 
+\item[$Q$:]
+\item[$R$:]
+\item[$S$:]
+\end{ekey}
+
+
+
+\item Write the three conditional sentences in SL and in English.
+
+\vspace{2cm}
+
+\item Write a conditional proof which does that these steps will lead you to the final goal.
+
+\end{exercises}
+
+%\chapter{Fallacy}
+%\chapterauthor{Allyson Mount}
+%
+%
+%\noindent \textbf{Autobiographical subject matter: }This section will focus on a fallacy or mistaken belief that has impacted your life in some way.
+%
+%\noindent 
+%
+%\noindent \textbf{Logical skills involved:}
+%
+%\noindent 
+%
+%\noindent  Identifying and analyzing fallacies
+%
+%\noindent 
+%
+%\noindent  Writing a clear and compelling argument
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent \textbf{Worksheet instructions: }You can either focus on a mistaken belief that someone else had about you \underbar{or} a mistaken belief that you had about someone else. On the worksheet, state the belief \textit{as a single sentence}. It should be a sentence that you think is false, since that's what makes it a mistaken belief! Then check the appropriate box below.
+%
+%\noindent 
+%
+%\noindent Write a paragraph explaining the reasoning behind the mistaken belief, from the perspective of someone who believes it. In other words, try to express how someone who has that belief might attempt to justify it. This paragraph should contain one of the formal or informal fallacies covered in assigned readings for this class, but the error in reasoning should not be so blatant that the argument sounds ridiculous. Remember, someone actually did believe it!
+%
+%\noindent 
+%
+%\noindent Then write a paragraph identifying what the error in reasoning is, and how it most likely came about. Your paragraph should make it clear what fallacy is involved, and exactly where the reasoning in the prior paragraph goes wrong. Make sure to explain \textit{the specific problem with that particular argument, }rather than simply naming the fallacy and explaining the type of fallacy in general.
+%
+%\noindent \textbf{Advice and things to keep in mind}
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent Whichever option you choose, please avoid including personal information \textit{about anyone else }in a way that would make them uncomfortable. For instance, if a friend or teacher made an offensive assumption about you, or if you did so about them, please do not identify the particular person involved. The aim is to identify the fallacy and respond effectively to the mistake in reasoning, not to expose sensitive or potentially embarrassing information.
+%
+%\noindent Likewise, keep in mind that your worksheet should be PG-rated and suitable for a public audience. If the mistaken belief arose based on assumptions that are sexist, racist, homophobic, or otherwise hateful, you can convey the serious nature of the issue without expressing it using obscene or degrading language yourself. Recall that responding effectively to fallacies requires articulating the source of the error in a way that may change people's minds, rather than simply making them defensive.\textit{Fallacy Worksheet}
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent MISTAKEN BELIEF:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent Check one:
+%
+%\noindent 
+%
+%\noindent $\mathrm{\lozenge}$ This is a belief that someone once had about me
+%
+%\noindent 
+%
+%\noindent $\mathrm{\lozenge}$ This is a belief that I once had about someone else
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent THE ``ARGUMENT'' FOR THIS BELIEF:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent WHY THAT REASONING IS FALLACIOUS:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+
+%\chapter{A CHALLENGE}
+%\chapterauthor{Allyson Mount}
+%
+%\noindent \textbf{Autobiographical subject matter:  }This section will focus on a challenge you have faced, and your response to that challenge.
+%
+%\noindent 
+%
+%\noindent \textbf{Logical skills involved:}
+%
+%\noindent 
+%
+%\noindent  Creating a valid argument
+%
+%\noindent 
+%
+%\noindent  Demonstrating validity using appropriate logical methods
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent \textbf{Worksheet instructions: }Identify a challenge you have faced at some point in your life. It can be a major challenge or a relatively minor one, although it's best not to pick something too trivial because it will be less interesting. It can be recent, or from childhood. On the top of the worksheet, express the challenge itself in a single sentence, in English.
+%
+%\noindent 
+%
+%\noindent Think of a valid argument that expresses some aspect of what your \textit{response }was to that challenge. Your argument should have two or three premises, plus a conclusion. It can be a propositional logic argument or a categorical argument. Write out the argument. If it's in propositional logic, be sure to include a key stating what atomic sentence each letter stands for. If it's a categorical argument, make sure the premises and conclusion are all phrased as categorical propositions having A, E, I, or O form. Aim to make your argument sound too -- or at least reasonably plausible.
+%
+%\noindent 
+%
+%\noindent In the bottom box, demonstrate that the argument is valid. Select a method that makes sense given the content of your argument! Recall that you have learned at least three methods of demonstrating validity: truth tables, formal proofs, and Venn diagrams. Select a method that will work for the type of argument you wrote.
+%
+%\noindent \textbf{Advice and things to keep in mind}
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent Thinking of a valid argument (about content you write yourself) can be difficult. For ideas of a valid structure, look back at the many examples we've seen throughout the term in the texts and in class. While the \textit{content }of your argument will need to be your own, validity is a matter of form. That's useful to know! Each of the proof rules has a valid form. There are many exercises in the texts that give valid forms for two-premise arguments. It is perfectly fine if you use a form that was already shown to be valid.
+%
+%\noindent In choosing whether to use propositional or categorical logic, it is entirely a matter of preference. Use whichever you feel more comfortable with, or whichever seems to provide a more natural phrasing for your argument.
+%
+%\noindent Please do stick to short arguments, with just two or three premises (no more, no less). If giving a categorical argument, it is okay to have three premises if you wish, even though we've focused on 2-premise syllogisms in class.\textit{A Challenge Worksheet}
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent THE CHALLENGE:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent ARGUMENT ABOUT YOUR RESPONSE TO THE CHALLENGE:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent DEMONSTRATION THAT THE ARGUMENT IS VALID:
+%
+%\noindent 
+%
+%\noindent 
+%
+%\noindent 
+
+
+%\chapter{Title}
+%\chapterauthor{Author}
+%\noindent\textbf{Autobiographical subject matter:}
+%
+%\chapter{Biographical Information}
+%\chapterauthor{Allyson Mount}
+%\noindent\textbf{Logical skills involved:}
+%
+%\begin{itemize}
+%\item 
+%\item
+%\end{itemize}
+%
+%\noindent\textbf{Worksheet instructions: }
+%
+%\noindent\textbf{Example:}
 
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent You may find it easier to draft your chain of three conditionals in English first, then put them in symbolic form and fill out the key. Just the key, symbolic forms, and proof are on the worksheet, but be sure your chain of conditionals makes conceptual sense before formalizing it!
-
-\noindent Of course, in life there are often many different steps one could take while aiming to accomplish a certain goal. There is no need to capture all the possibilities; just use the sequence of conditionals that seems most realistic, sensible, or promising to you.\textit{Goal or Aspiration Worksheet}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent GOAL:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent INITIAL ACTIVITY:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent KEY:
-
-\noindent 
-
-\noindent \underbar{      } = \underbar{ }
-
-\noindent 
-
-\noindent \underbar{      } = \underbar{ }
-
-\noindent 
-
-\noindent \underbar{      } = \underbar{ }
-
-\noindent 
-
-\noindent \underbar{      } = \underbar{ }
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent CONDITIONAL FORMS:
-
-\noindent 
-
-\begin{tabular}{|p{0.3in}|p{1.1in}|} \hline 
-1. & \underbar{ } \\ \hline 
-2. & \underbar{ } \\ \hline 
-3. & \underbar{ } \\ \hline 
-\end{tabular}
-
-
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent PROOF:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\chapter{Fallacy}
-\chapterauthor{Allyson Mount}
-
-
-\noindent \textbf{Autobiographical subject matter: }This section will focus on a fallacy or mistaken belief that has impacted your life in some way.
-
-\noindent 
-
-\noindent \textbf{Logical skills involved:}
-
-\noindent 
-
-\noindent  Identifying and analyzing fallacies
-
-\noindent 
-
-\noindent  Writing a clear and compelling argument
-
-\noindent 
-
-\noindent 
-
-\noindent \textbf{Worksheet instructions: }You can either focus on a mistaken belief that someone else had about you \underbar{or} a mistaken belief that you had about someone else. On the worksheet, state the belief \textit{as a single sentence}. It should be a sentence that you think is false, since that's what makes it a mistaken belief! Then check the appropriate box below.
-
-\noindent 
-
-\noindent Write a paragraph explaining the reasoning behind the mistaken belief, from the perspective of someone who believes it. In other words, try to express how someone who has that belief might attempt to justify it. This paragraph should contain one of the formal or informal fallacies covered in assigned readings for this class, but the error in reasoning should not be so blatant that the argument sounds ridiculous. Remember, someone actually did believe it!
-
-\noindent 
-
-\noindent Then write a paragraph identifying what the error in reasoning is, and how it most likely came about. Your paragraph should make it clear what fallacy is involved, and exactly where the reasoning in the prior paragraph goes wrong. Make sure to explain \textit{the specific problem with that particular argument, }rather than simply naming the fallacy and explaining the type of fallacy in general.
-
-\noindent \textbf{Advice and things to keep in mind}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent Whichever option you choose, please avoid including personal information \textit{about anyone else }in a way that would make them uncomfortable. For instance, if a friend or teacher made an offensive assumption about you, or if you did so about them, please do not identify the particular person involved. The aim is to identify the fallacy and respond effectively to the mistake in reasoning, not to expose sensitive or potentially embarrassing information.
-
-\noindent Likewise, keep in mind that your worksheet should be PG-rated and suitable for a public audience. If the mistaken belief arose based on assumptions that are sexist, racist, homophobic, or otherwise hateful, you can convey the serious nature of the issue without expressing it using obscene or degrading language yourself. Recall that responding effectively to fallacies requires articulating the source of the error in a way that may change people's minds, rather than simply making them defensive.\textit{Fallacy Worksheet}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent MISTAKEN BELIEF:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent Check one:
-
-\noindent 
-
-\noindent $\mathrm{\lozenge}$ This is a belief that someone once had about me
-
-\noindent 
-
-\noindent $\mathrm{\lozenge}$ This is a belief that I once had about someone else
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent THE ``ARGUMENT'' FOR THIS BELIEF:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent WHY THAT REASONING IS FALLACIOUS:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\chapter{A CHALLENGE}
-\chapterauthor{Allyson Mount}
-
-\noindent \textbf{Autobiographical subject matter:  }This section will focus on a challenge you have faced, and your response to that challenge.
-
-\noindent 
-
-\noindent \textbf{Logical skills involved:}
-
-\noindent 
-
-\noindent  Creating a valid argument
-
-\noindent 
-
-\noindent  Demonstrating validity using appropriate logical methods
-
-\noindent 
-
-\noindent 
-
-\noindent \textbf{Worksheet instructions: }Identify a challenge you have faced at some point in your life. It can be a major challenge or a relatively minor one, although it's best not to pick something too trivial because it will be less interesting. It can be recent, or from childhood. On the top of the worksheet, express the challenge itself in a single sentence, in English.
-
-\noindent 
-
-\noindent Think of a valid argument that expresses some aspect of what your \textit{response }was to that challenge. Your argument should have two or three premises, plus a conclusion. It can be a propositional logic argument or a categorical argument. Write out the argument. If it's in propositional logic, be sure to include a key stating what atomic sentence each letter stands for. If it's a categorical argument, make sure the premises and conclusion are all phrased as categorical propositions having A, E, I, or O form. Aim to make your argument sound too -- or at least reasonably plausible.
-
-\noindent 
-
-\noindent In the bottom box, demonstrate that the argument is valid. Select a method that makes sense given the content of your argument! Recall that you have learned at least three methods of demonstrating validity: truth tables, formal proofs, and Venn diagrams. Select a method that will work for the type of argument you wrote.
-
-\noindent \textbf{Advice and things to keep in mind}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent Thinking of a valid argument (about content you write yourself) can be difficult. For ideas of a valid structure, look back at the many examples we've seen throughout the term in the texts and in class. While the \textit{content }of your argument will need to be your own, validity is a matter of form. That's useful to know! Each of the proof rules has a valid form. There are many exercises in the texts that give valid forms for two-premise arguments. It is perfectly fine if you use a form that was already shown to be valid.
-
-\noindent In choosing whether to use propositional or categorical logic, it is entirely a matter of preference. Use whichever you feel more comfortable with, or whichever seems to provide a more natural phrasing for your argument.
-
-\noindent Please do stick to short arguments, with just two or three premises (no more, no less). If giving a categorical argument, it is okay to have three premises if you wish, even though we've focused on 2-premise syllogisms in class.\textit{A Challenge Worksheet}
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent THE CHALLENGE:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent ARGUMENT ABOUT YOUR RESPONSE TO THE CHALLENGE:
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent 
-
-\noindent DEMONSTRATION THAT THE ARGUMENT IS VALID:
-
-\noindent 
-
-\noindent 
-
-\noindent 
 
 %\noindent CHAPTER 6 .
 %
