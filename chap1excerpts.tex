@@ -1,0 +1,146 @@
+\documentclass{article}
+%\documentclass[twoside, openright]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                                                                                                                                 %
+%		This is a standalone reading covering the basic ideas in argument for classes that aren't logic or CT                                %
+%                                                                                                                                                                                                 %
+%		It is based on the January 2019 version of For All X LC Remix                                                                                        % 
+%                                                                                                                                                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%glossary and indexing stuff
+\usepackage[toc, nopostdot, numberedsection]{glossaries}
+\usepackage{datatool}
+%\newglossary*{catstatements}{Chapter \ref{chap:catstatements} Key Terms}
+%\newglossary*{catsyllogisms}{Key Terms}
+\renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+\makeglossaries
+
+%General packages
+\usepackage{answers}
+\usepackage{textcomp}
+\usepackage{anyfontsize}	
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{changepage}
+\usepackage{syntonly}
+\usepackage{enumitem}
+\usepackage{turnstile}
+\usepackage[normalem]{ulem}
+\usepackage{fixltx2e}	
+\usepackage{wasysym}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{fancyref}
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+%\usepackage{amsthm} for some reason, this conflicts with the fitch.sty part of openlogic.sty. 
+
+%%% Bibstuff
+\usepackage[authordate,autocite=inline,backend=biber, natbib]{biblatex-chicago}
+\bibliography{tex/z-openlogic}
+% To typeset the bibliography, you need to run "biber --output-safechars chap1excerpts" from the command line. You can't use the function within TeXworks, because it doen't have the --output-safechars flag. Without that flag, biber is unable to handle many characters used for Sanskrit words, like the n with a dot under it.
+
+
+
+
+%%%  graphics packages %%%
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds,matrix,arrows,decorations,positioning}
+\usepgflibrary{arrows.new}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+%%%    Table and figure packages %%%
+\usepackage{float}
+\usepackage[singlelinecheck=false, skip=0pt]{caption} %left aligns captions for tables, moves them closer to table. 
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage[framemethod=1]{mdframed} 
+\usepackage{wrapfig} %I used this to put a frame around tables.
+\tabulinesep=.75ex
+\usepackage{colortbl}
+\floatstyle{plain} 
+\restylefloat{figure}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{booktabs}
+	
+
+%linking and bookmarks in the pdf.
+\usepackage{hyperref}
+\hypersetup{pdftex,colorlinks=true,allcolors=blue}
+\usepackage{hypcap}	
+	
+
+\usepackage{openintroduction-exp}
+	
+\pdfinfo{
+  /Title (An Open Introduction to Logic)
+  /Author (J. Robert Loftis, Cathal Woods, and P.D. Magnus)
+  /Subject (An open access introductory textbook in logic and critical thinking)
+  )
+}
+
+\begin{document}
+
+%\label{showanswers} %uncomment this tag and typeset twice to show answers
+%\label{blank_prob_set} %uncomment this tag and typeset twice to create a blank problem set sheet. Don't use with \label{showanswers} uncommented
+
+\raggedright
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}	
+
+
+
+{
+\setlength{\parskip}{0em}
+\cftpagenumbersoff{part}
+%\cftpagenumbersoff{chapter}
+
+\renewcommand{\cftpartpresnum}{\sf\Large\partname\ }
+}
+
+
+
+
+
+\setlength{\parindent}{1em}
+\pagestyle{headings} % puts the running heads back.
+\label{full_version} %Include this label to make cross references work right when typesetting full text
+
+\include{excerpts-tex/ch01-excerpts}	
+
+%Bibstuff
+%If the {part:CT} label is found, LaTeX will typeset separate bibliographies for sample passages and logical sources.
+
+\iflabelexists{part:CT}{%text for CT version}
+
+\defbibnote{sample}{\textit{ \large  This bibliography includes all sources except for those that were used as examples for logical analysis, either in the main text or problem sets}}
+
+\printbibliography [keyword=samplepassage, title=Bibliography of Sample Passages, prenote=sample, heading=bibnumbered] %for separate bibs sample passages and general citations
+
+\printbibliography [notkeyword=samplepassage, title=General Bibliography, heading=bibnumbered] %for separate bibs sample passages and general citations
+
+}% End CT version
+{\printbibliography[heading=bibnumbered]} %single bib for non-CT version
+
+
+%%The way I’ve set this up now is that there is one bib for sample passages and one bib for everything else. This means that it would not be possible to put one entry in both bibliographies. (This might be needed for Aristotle.) To do that, you will need to define a separate logicsource category
+
+
+\setglossarysection{chapter}
+\printglossaries
+
+
+
+
+
+
+
+
+\end{document}
