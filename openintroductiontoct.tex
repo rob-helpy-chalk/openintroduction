@@ -31,8 +31,7 @@
 %%% Bibstuff
 \usepackage[authordate,autocite=inline,backend=biber, natbib]{biblatex-chicago}
 \bibliography{tex/z-openlogic}
-% To typeset the bibliography, you need to run "biber --output-safechars openintroduction" from the command line. You can't use the function within TeXworks, because it doen't have the --output-safechars flag. Without that flag, biber is unable to handle many characters used for Sanskrit words, like the n with a dot under it.
-% you also want to run ``makeglossaries openintroduction'' from the command line to make the glossaries
+% To typeset the bibliography, you need to run "biber --output-safechars openintroductiontoct" from the command line. You can't use the function within TeXworks, because it doen't have the --output-safechars flag. Without that flag, biber is unable to handle many characters used for Sanskrit words, like the n with a dot under it.
 
 
 
@@ -91,9 +90,11 @@
 \tikzset{myarrowhead/.style={decoration={markings,mark=at position 1 with %
     {\arrow[scale=2,>=stealth]{>}}},postaction={decorate}}}
 
+
+
 \frontmatter
 \pagestyle{plain} %Says there are no running heads, only page numbers centered at the bottom. 
-\include{tex/01-cover}
+\include{tex/01-cover-ct}
 \include{tex/02-frontmatter}	
 
 
@@ -106,8 +107,8 @@
 \tableofcontents
 }
 
-%\include{tex/03-aboutthisbook}	
-%\include{tex/04-acknowledgements}
+\include{tex/03-aboutthisbook}	
+\include{tex/04-acknowledgements}
 
 
 
@@ -115,37 +116,26 @@
 \setlength{\parindent}{1em}
 \pagestyle{headings} % puts the running heads back.
 \label{full_version} %Include this label to make cross references work right when typesetting full text
+\label{CTVersion}
 
-
-\part{Basic Concepts} \label{part:basic_concepts}
+%\part{Basic Concepts} \label{part:basic_concepts}
 %\include{tex/ch01-whatislogic}	%label in text to remove explanation section
 %\include{tex/ch02-basicevaluation}
-%
-%\part{Formal Logic} 
-%\include{tex/ch03-whatisformallogic} \label{part:formal_logic}
-%\part{Categorical Logic}
-%\label{part:cat_logic}
-%\include{tex/ch04-categoricalstatements}
-%\include{tex/ch05-categoricalsyllogisms} %Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
-%\part{Sentential Logic} \label{part:sent_logic}
-%\include{tex/ch06-sentential}	
-%\include{tex/ch07-truthtables}
-%\include{tex/ch08-proofsinsl}%Label for typesetting full chapter is at the start of the file. Uncomment to get the whole thing. 
-%\part{Quantificational Logic} \label{part:quant_logic}
-%\include{tex/ch09-predicate}
-%\include{tex/ch10-semanticsforql}
-%\include{tex/ch11-proofsinql}
+\include{tex/ch19-maps}
+%\include{tex/ch15-emotions}
+%\include{tex/ch18-sources}
+%\include{tex/ch17-analogy}
 
+\label{part:CT}	
 %
-%\part{Critical Thinking} \label{part:CT}	
+%\part{Critical Thinking} 
 %\include{tex/ch12-whatiscriticalthinking}
 %\include{tex/ch13-substitutes}
 %\include{tex/ch14-incompletearguments}
-%\include{tex/ch15-emotions}
+%
 %\include{tex/ch16-generalizations}
-%\include{tex/ch17-analogy}
-%\include{tex/ch18-sources}
-%\include{tex/ch19-maps}
+%
+%
 %\include{tex/ch20-practicalarguments}
 
 %\part{Inductive and Scientific Reasoning}  \label{part:inductive_scientific}
@@ -177,7 +167,7 @@
 }% End CT version
 {\printbibliography[heading=bibnumbered]} %single bib for non-CT version
 
-%
+
 %%The way I’ve set this up now is that there is one bib for sample passages and one bib for everything else. This means that it would not be possible to put one entry in both bibliographies. (This might be needed for Aristotle.) To do that, you will need to define a separate logicsource category
 
 

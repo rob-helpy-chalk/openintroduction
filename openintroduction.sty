@@ -191,8 +191,15 @@
 \draw[blue, line width=2pt] (-1,0) -- (2, 0);
 \draw[blue, line width=2pt] (0,-1) -- (0, 2);}
 \newcommand{\drawsubsyl}{\draw \subjectcircle node[outer sep=.5cm, below left] {$S$};} 
+\newcommand{\drawsubsylred}{\draw[red] \subjectcircle node[outer sep=.5cm, below left] {$S$};} 
+ 
 \newcommand{\drawmidsyl}{\draw \middlecircle node [outer sep=.75cm, above] {$M$};}
+\newcommand{\drawmidsylred}{\draw[red] \middlecircle node [outer sep=.75cm, above] {$M$};}
+
 \newcommand{\drawpredsyl}{\draw \predicatecircle node [outer sep=.5cm, below right] {$P$};}
+\newcommand{\drawpredsylred}{\draw[red] \predicatecircle node [outer sep=.5cm, below right] {$P$};}
+
+
 \newcommand{\drawsubsent}{\draw \subjectcircle node[outer sep=.5cm, above left] {$S$};} 
 \newcommand{\drawpredsent}{\draw \predicatecircle node [outer sep=.5cm, above right] {$P$};}
 
@@ -225,10 +232,14 @@
 \newcommand{\someexistonesent}{\node[left of=S, node distance=.3cm](1){X};}
 \newcommand{\someexisttwo}{\node[above of=M, node distance=.4cm](2){X};}
 \newcommand{\someexistthree}{\node[below right of=P, node distance=.4cm](3){X};}
+\newcommand{\someexistthreered}{\node[red, below right of=P, node distance=.4cm](3){X};}
 \newcommand{\someexistfour}{\path (S) -- (P) node[midway, below, yshift=-.1cm](4){X};}
+\newcommand{\someexistfourred}{\path (S) -- (P) node[red, midway, below, yshift=-.1cm](4){X};}
 \newcommand{\someexistfoursent}{\path (S) -- (P) node[midway](4){X};}
 \newcommand{\someexistfive}{\path (S) -- (M) node[midway, above left, yshift=-.05cm, xshift=-.05cm](5){X};}
-\newcommand{\someexistsix}{\path (M) -- (P) node[midway, above right, yshift=-.05cm, xshift=.05cm](6){X};}
+\newcommand{\someexistfivered}{\path (S) -- (M) node[red, midway, above left, yshift=-.05cm, xshift=-.05cm](5){X};}\newcommand{\someexistsix}{\path (M) -- (P) node[midway, above right, yshift=-.05cm, xshift=.05cm](6){X};}
+\newcommand{\someexistsixred}{\path (M) -- (P) node[red, midway, above right, yshift=-.05cm, xshift=.05cm](6){X};}
+
 \newcommand{\someexistseven}{\path (S) -- (P) node[midway, above](7){X};}
 \newcommand{\someexistonefour}{\path(S) -- (P) node[midway, below,  xshift=-.3cm, yshift=-.1cm, fill=white](1-4){X};} 
 \newcommand{\someexisttwofive}{\path(S) -- (M) node[midway, above, xshift=-.22cm, yshift=.16cm, fill=white, inner sep=1mm](2-5){X};} 
@@ -272,6 +283,34 @@
 
 }
 {%End Environment
+\end{tikzpicture}}
+
+%    ****************************************
+%    *          Arrow diaragrams   					              *
+%    ****************************************
+
+\tikzset{myarrowhead/.style={decoration={markings,mark=at position 1 with %
+    {\arrow[scale=2,>=stealth]{>}}},postaction={decorate}}}
+
+\newenvironment{arrowdiagrams}%[1]
+{%Begin Environment
+\begin{tikzpicture}
+\newcommand{\statementnode}[3]{
+\node (##1) at (##2,##3) {\large ##1};
+\draw (##2,##3) circle (6 pt);
+}
+\newcommand{\plusnode}[3]{
+\node (+##1) at (##2,##3) {\large +};
+}
+
+\newcommand{\statementnodered}[3]{
+\node[red] (##1) at (##2,##3) {\large ##1};
+\draw[red] (##2,##3) circle (6 pt);
+}
+\newcommand{\plusnodered}[3]{
+\node[red] (+##1) at (##2,##3) {\large +};
+}
+}{%End Environment
 \end{tikzpicture}}
 
 

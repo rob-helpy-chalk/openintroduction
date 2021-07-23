@@ -6,7 +6,7 @@
 \newcounter{theorem}
 \setcounter{theorem}{1}
 
-%\label{whole_slproof_chap} %uncomment and typeset twice to print the whole chapter.
+\label{whole_slproof_chap} %uncomment and typeset twice to print the whole chapter.
 
 
 %rob: This chapter is based on the original Chapter 6. I took all the material on proof in SL and moved it earlier in the book so the students would have a chance to start doing derivations earlier. I have also expanded the opening material that wasn't in a Chapter section into its own Chapter section explaining the basic idea of a proof. 
@@ -1382,7 +1382,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \hypo{2}{\enot C} \by{Want: A \eor A}{}
 \have{3}{B \eand A} \oe{1, 2}
 \have{4}{A} \ae{3}
-\have{5}{A \eor A} \oe{4}
+\have{5}{A \eor A} \oi{4}
 \end{proof}
 }
 
@@ -1464,7 +1464,7 @@ The single turnstile will work the same way the double turnstile did. So, in add
 \have{5}{D} \by{\eand E 3}{}
 \have{6}{Q} \by{\eor E}{1, 4}
 \have{7}{E	} \by{\eif E}{2, 5}
-\have{8}{E \eand Q} \by{\eand E}{6, 7}
+\have{8}{E \eand Q} \by{\eand I}{6, 7}
 \end{proof}
 }
 
@@ -1945,7 +1945,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \have{4}{Q} \oe{1, 3}
 \have{5}{P} \ce{2, 4}
 \close
-\have{6}{\enot S \eif P} \by{\eif E}{3-5}
+\have{6}{\enot S \eif P} \by{\eif I}{3-5}
 \end{proof}
 }
 
@@ -1983,7 +1983,7 @@ We will call any proof that uses subproofs and either \eif I or \eiff I \define{
 \hypo{4}{L} \by{Want: K}{}
 \have{5}{K} \ae{1}
 \close
-\have{6}{K \eiff L} \by{\eiff E}{4-5, 6-7}
+\have{6}{K \eiff L} \by{\eiff E}{2-3, 4-5}
 \end{proof}
 }
 
@@ -2906,169 +2906,175 @@ Prove each of the following equivalences
 \begin{enumerate}[label=(\arabic*)]
 
 \item $J \nsststile{}{} \hspace{.5em} \sststile{}{} J\eor (L\eand\enot L)$
-%\vspace{5pt}
-%$ \sststile{}{}$
-%\vspace{5pt}
-%\begin{proof}
-%		\hypo{1}{J} \by{Want: J \eor(L \eand \enot L)}{}
-%		\have{2}{J \eor (L \eand \enot L)} \oi{1}
-%\end{proof}
-%\vspace{5pt}
-%$\nsststile{}{}$
-%\vspace{5pt}
-%\begin{proof}	
-%		\hypo{1}{J \eor (L \eand \enot L)} \by{Want: J}{}
-%			\open
-%			\hypo{2}{L \eand \enot L} \by{for reductio}{}
-%			\have{3}{L} \ae{4}
-%			\have{4}{\enot L} \ae{4}
-%			\close
-%		\have{5}{\enot(L \eand \enot L)} \ni{4-6}
-%		\have{6}{J} \oe{3, 7}
-%\end{proof}
-
+\answer{ 
+\vspace{5pt}
+$ \sststile{}{}$
+\vspace{5pt}
+\begin{proof}
+		\hypo{1}{J} \by{Want: J \eor(L \eand \enot L)}{}
+		\have{2}{J \eor (L \eand \enot L)} \oi{1}
+\end{proof}
+\vspace{5pt}
+$\nsststile{}{}$
+\vspace{5pt}
+\begin{proof}	
+		\hypo{1}{J \eor (L \eand \enot L)} \by{Want: J}{}
+			\open
+			\hypo{2}{L \eand \enot L} \by{for reductio}{}
+			\have{3}{L} \ae{2}
+			\have{4}{\enot L} \ae{2}
+			\close
+		\have{5}{\enot(L \eand \enot L)} \ni{2-4}
+		\have{6}{J} \oe{1, 5}
+\end{proof}
+}
 
 \item $P \eif (Q \eif R) \nsststile{}{} \hspace{.5em} \sststile{}{} Q \eif (P \eif R)$
 
 %Modified from KMM T107 p. 82.
 
-%\vspace{5pt}
-%$ \sststile{}{}$
-%\vspace{5pt}
-%
-%\begin{proof}
-%\hypo{1.}{P \eif (Q \eif R)} \by{Want: Q \eif (P \eif R)}{}
-%\open
-%\hypo{2.}{Q} \by{Want: P \eif R}{}
-%\open
-%\hypo{3.}{P} \by{Want: R}{}
-%\have{4}{Q \eif R } \by{\eif E}{1,3}
-%\have{5.}{R} \by{ \eif E }{2, 4}
-%\close
-%\have{6}{P \eif R } \by{\eif I}{3-5}
-%\close
-%\have{7.}{Q \eif (P \eif R)} \by{\eif I}{2-6}
-%\end{proof}
-%
-%\vspace{5pt}
-%$\nsststile{}{}$
-%\vspace{5pt}
-%
-%
-%\begin{proof}
-%\hypo{1.}{Q \eif (P \eif R)} \by{Want: P \eif (Q \eif R)}{}
-%\open
-%\hypo{2.}{P} \by{Want: Q \eif R}{}
-%\open
-%\hypo{3.}{Q} \by{Want: R}{}
-%\have{4}{P \eif R } \by{\eif E}{1,3}
-%\have{5.}{R} \by{ \eif E }{2, 4}
-%\close
-%\have{6}{Q \eif R } \by{\eif I}{3-5}
-%\close
-%\have{7.}{P \eif (Q \eif R)} \by{\eif I}{2-6}
-%\end{proof}
+\answer{ 
+
+\vspace{5pt}
+$ \sststile{}{}$
+\vspace{5pt}
+
+\begin{proof}
+\hypo{1.}{P \eif (Q \eif R)} \by{Want: Q \eif (P \eif R)}{}
+\open
+\hypo{2.}{Q} \by{Want: P \eif R}{}
+\open
+\hypo{3.}{P} \by{Want: R}{}
+\have{4}{Q \eif R } \by{\eif E}{1,3}
+\have{5.}{R} \by{ \eif E }{2, 4}
+\close
+\have{6}{P \eif R } \by{\eif I}{3-5}
+\close
+\have{7.}{Q \eif (P \eif R)} \by{\eif I}{2-6}
+\end{proof}
+
+\vspace{5pt}
+$\nsststile{}{}$
+\vspace{5pt}
+
+
+\begin{proof}
+\hypo{1.}{Q \eif (P \eif R)} \by{Want: P \eif (Q \eif R)}{}
+\open
+\hypo{2.}{P} \by{Want: Q \eif R}{}
+\open
+\hypo{3.}{Q} \by{Want: R}{}
+\have{4}{P \eif R } \by{\eif E}{1,3}
+\have{5.}{R} \by{ \eif E }{2, 4}
+\close
+\have{6}{Q \eif R } \by{\eif I}{3-5}
+\close
+\have{7.}{P \eif (Q \eif R)} \by{\eif I}{2-6}
+\end{proof}
+
+}
 
 \item $P \eif \enot P \nsststile{}{} \hspace{.5em} \sststile{}{}  \enot P $ %(KMM T115, p. 111)
+\answer{ 
+\vspace{5pt}
+$ \sststile{}{}$
+\vspace{5pt}
 
-%\vspace{5pt}
-%$ \sststile{}{}$
-%\vspace{5pt}
-%
-%
-%\begin{proof}
-%\hypo{1}{P \eif \enot P} \by{Want:  \enot P}{}
-%	\open
-%	\hypo{2}{P} \by{Want: A contradiction}{}
-%	\have{3}{\enot P} \by{\eif E}{1, 2}
-%	\have{4}{P} \by{R}{2}
-%	\close
-%\have{5}{P} \by{\enot E}{2-4}
-%\end{proof}
-%
-%\vspace{5pt}
-%$\nsststile{}{}$
-%\vspace{5pt}
-%
-%\begin{proof}
-%\hypo{1}{ \enot P } \by{Want: P \eif \enot P}{}
-%	\open
-%	\hypo{2}{P} \by{Want: \enot P}{}
-%	\have{3}{\enot P} \by{R}{1}
-%	\close
-%\have{4}{P \eif \enot P} \by{\eif I}{2-3}
-%\end{proof}
-%
 
+\begin{proof}
+\hypo{1}{P \eif \enot P} \by{Want:  \enot P}{}
+	\open
+	\hypo{2}{P} \by{Want: A contradiction}{}
+	\have{3}{\enot P} \by{\eif E}{1, 2}
+	\have{4}{P} \by{R}{2}
+	\close
+\have{5}{P} \by{\enot E}{2-4}
+\end{proof}
+
+\vspace{5pt}
+$\nsststile{}{}$
+\vspace{5pt}
+
+\begin{proof}
+\hypo{1}{ \enot P } \by{Want: P \eif \enot P}{}
+	\open
+	\hypo{2}{P} \by{Want: \enot P}{}
+	\have{3}{\enot P} \by{R}{1}
+	\close
+\have{4}{P \eif \enot P} \by{\eif I}{2-3}
+\end{proof}
+}
 \item $\enot (P \eiff Q) \nsststile{}{} \hspace{.5em} \sststile{}{} (P \eiff \enot Q) $ %(KMM T90 p. 110)
 
-%\vspace{5pt}
-%$ \sststile{}{}$
-%\vspace{5pt}
-%
-%\begin{proof}
-%\hypo{1.}{\enot (P \eiff Q)} \by{Want: $P \eiff \enot Q$}{}
-%	\open
-%	\hypo{2.}{P} \by{Want: $\enot Q$}{}
-%		\open
-%		\hypo{3.}{Q}	\by{Want: A contradiction}{}
-%			\open
-%			\hypo{4.}{P} \by{Want: Q}{}
-%			\have{5.}{Q} \by{R}{3}
-%			\close
-%			\open
-%			\hypo{6.}{Q} \by{Want: P}{}
-%			\have{7.}{P} \by{R}{2}
-%			\close
-%		\have{8.}{P \eiff Q} \by{\eiff I}{4-5, 6-7}
-%		\have{9.}{\enot(P \eiff Q)} \by{R}{1}
-%		\close
-%	\have{10.}{\enot Q} \by{\enot I}{2-9}
-%	\close
-%	\open
-%	\hypo{a}{\enot Q} \by{Want: P}{}
-%		\open
-%		\hypo{b}{\enot P} \by{Want: A contradiction}{}
-%			\open
-%			\hypo{c}{P} \by{Want: Q}{}
-%			\have{d}{P \eor Q} \by{\eor I}{13}
-%			\have{e}{Q} \by{\eor E}{12, 14}
-%			\close
-%			\open
-%			\hypo{f}{Q} \by{Want: P}{}
-%			\have{g}{Q \eor P} \by{\eor I}{f}
-%			\have{h}{P} \by{\eor E}{f, g}
-%			\close
-%		\have{i}{P \eiff Q} \by{\eiff I}{c-e, f-h}
-%		\have{j}{\enot (P \eiff Q)} \by{R}{b}
-%		\close
-%	\have{21.}{P} \by{\enot I}{a-j}
-%	\close
-%\have{22.}{P \eiff \enot Q} \by{\eiff I}{}
-%\end{proof}
-%
-%\vspace{5pt}
-%$\nsststile{}{}$
-%\vspace{5pt}
-%
-%\begin{proof}
-%\hypo{1}{P \eiff \enot Q} \by {Want: \enot (P \eiff Q)}{}
-%	\open
-%	\hypo{2}{P \eiff Q} \by{Want: A contradiction}{}
-%		\open
-%		\hypo{3}{Q} \by{Want: A contradiction}{}
-%		\have{4}{P} \by{\eiff E}{2, 3}
-%		\have{5}{\enot Q} \by{\eiff E}{1, 4}
-%		\have{6}{Q} \by{R}{3}
-%		\close
-%	\have{7}{\enot Q} \by{\enot I}{3-6}
-%	\have{8}{P} \by{\eiff}{1, 7}
-%	\have{9}{Q}\by{\eiff}{2, 8}
-%	\have{10}{\enot Q} \by{R}{7}
-%	\close
-%\have{11}{\enot (P \eiff Q)} \by{\enot I}{2-10}
-%\end{proof}
-%\vspace{15pt}
+\answer{ 
+\vspace{5pt}
+$ \sststile{}{}$
+\vspace{5pt}
+
+\begin{proof}
+\hypo{1}{\enot (P \eiff Q)} \by{Want: $P \eiff \enot Q$}{}
+	\open
+	\hypo{2}{P} \by{Want: $\enot Q$}{}
+		\open
+		\hypo{3}{Q}	\by{Want: A contradiction}{}
+			\open
+			\hypo{4}{P} \by{Want: Q}{}
+			\have{5}{Q} \by{R}{3}
+			\close
+			\open
+			\hypo{6}{Q} \by{Want: P}{}
+			\have{7}{P} \by{R}{2}
+			\close
+		\have{8}{P \eiff Q} \by{\eiff I}{4-5, 6-7}
+		\have{9}{\enot(P \eiff Q)} \by{R}{1}
+		\close
+	\have{10}{\enot Q} \by{\enot I}{2-9}
+	\close
+	\open
+	\hypo{11}{\enot Q} \by{Want: P}{}
+		\open
+		\hypo{12}{\enot P} \by{Want: A contradiction}{}
+			\open
+			\hypo{13}{P} \by{Want: Q}{}
+			\have{14}{P \eor Q} \by{\eor I}{13}
+			\have{15}{Q} \by{\eor E}{12, 14}
+			\close
+			\open
+			\hypo{f}{Q} \by{Want: P}{}
+			\have{g}{Q \eor P} \by{\eor I}{f}
+			\have{h}{P} \by{\eor E}{f, g}
+			\close
+		\have{i}{P \eiff Q} \by{\eiff I}{13-15, f-h}
+		\have{j}{\enot (P \eiff Q)} \by{R}{12}
+		\close
+	\have{21}{P} \by{\enot I}{11-j}
+	\close
+\have{22}{P \eiff \enot Q} \by{\eiff I}{}
+\end{proof}
+
+\vspace{5pt}
+$\nsststile{}{}$
+\vspace{5pt}
+
+\begin{proof}
+\hypo{1}{P \eiff \enot Q} \by {Want: \enot (P \eiff Q)}{}
+	\open
+	\hypo{2}{P \eiff Q} \by{Want: A contradiction}{}
+		\open
+		\hypo{3}{Q} \by{Want: A contradiction}{}
+		\have{4}{P} \by{\eiff E}{2, 3}
+		\have{5}{\enot Q} \by{\eiff E}{1, 4}
+		\have{6}{Q} \by{R}{3}
+		\close
+	\have{7}{\enot Q} \by{\enot I}{3-6}
+	\have{8}{P} \by{\eiff}{1, 7}
+	\have{9}{Q}\by{\eiff}{2, 8}
+	\have{10}{\enot Q} \by{R}{7}
+	\close
+\have{11}{\enot (P \eiff Q)} \by{\enot I}{2-10}
+\end{proof}
+\vspace{15pt}
+}
 
 
 
@@ -3092,74 +3098,90 @@ Prove each of the following tautologies
 \begin{enumerate}[label=(\arabic*)]
 
 \item $\sststile{}{} O \eif O$		%KMM T1, p.41
-%
-%	\begin{proof}
-%
-%	\open
-%	\hypo{1}{O}\by{Want: O}{}
-%	\have{2}{O}\by{R}{1}
-%	\close
-%	\have{3}{O \eif O} \ci{1-2}
-%
-%	\end{proof}
+
+\answer{
+	\begin{proof}
+
+	\open
+	\hypo{1}{O}\by{Want: O}{}
+	\have{2}{O}\by{R}{1}
+	\close
+	\have{3}{O \eif O} \ci{1-2}
+
+	\end{proof}
+}
 
 \item $\sststile{}{} N \eor \enot N$ \label{theorem_ExcludedMiddle}
 
-%	\begin{proof}
-%
-%	\open
-%	\hypo{1}{\enot (N \eor \enot N)} \by{for reductio}{}
-%	\open
-%	\hypo{2}{N} \by{for reductio}{}
-%	\have{3}{N \eor \enot N} \oi{2}
-%	\have{4}{\enot (N \eor \enot N)} \by{R}{1}
-%	\close
-%	\have{5}{\enot N} \ni{2-4}
-%	\have{6}{N \eor \enot N} \oi{5}
-%	\have{7}{\enot (N \eor \enot N)} \by{R}{1}
-%	\close
-%	\have{8}{N \eor \enot N} \ne{2-7}
-%
-%	\end{proof}
+\answer{
+	\begin{proof}
+
+	\open
+	\hypo{1}{\enot (N \eor \enot N)} \by{for reductio}{}
+	\open
+	\hypo{2}{N} \by{for reductio}{}
+	\have{3}{N \eor \enot N} \oi{2}
+	\have{4}{\enot (N \eor \enot N)} \by{R}{1}
+	\close
+	\have{5}{\enot N} \ni{2-4}
+	\have{6}{N \eor \enot N} \oi{5}
+	\have{7}{\enot (N \eor \enot N)} \by{R}{1}
+	\close
+	\have{8}{N \eor \enot N} \ne{2-7}
+
+	\end{proof}
+}
 
 \item $\sststile{}{} \enot(A \eif \enot C) \eif (A \eif C)$
 
-%	\begin{proof}
-%	
-%		\open
-%		\hypo{1}{\enot(A \eif \enot C)} \by{Want: A \eif C}{}
-%			\open
-%			\hypo{2}{A} \by{Want: C}{}
-%				\open
-%				\hypo{3}{\enot C} \by{for reductio}{}
-%					\open
-%					\hypo{4}{A} \by{Want: \enot C}{}
-%					\have{5}{\enot C} \by{R}{3}
-%					\close
-%				\have{6}{A \eif \enot C} \ci{4-5}
-%				\have{7}{\enot (A \eif \enot C)} \by{R}{1}
-%				\close
-%			\have{8}{C} \ne{3-7}
-%			\close
-%		\have{9}{A \eif C} \ci{2-9}
-%		\close
-%	\have{10}{\enot(A \eif \enot C) \eif (A \eif C)} \ci{1-9}
-%	
-%	\end{proof}
+\answer{
+	\begin{proof}
+	
+		\open
+		\hypo{1}{\enot(A \eif \enot C)} \by{Want: A \eif C}{}
+			\open
+			\hypo{2}{A} \by{Want: C}{}
+				\open
+				\hypo{3}{\enot C} \by{for reductio}{}
+					\open
+					\hypo{4}{A} \by{Want: \enot C}{}
+					\have{5}{\enot C} \by{R}{3}
+					\close
+				\have{6}{A \eif \enot C} \ci{4-5}
+				\have{7}{\enot (A \eif \enot C)} \by{R}{1}
+				\close
+			\have{8}{C} \ne{3-7}
+			\close
+		\have{9}{A \eif C} \ci{2-9}
+		\close
+	\have{10}{\enot(A \eif \enot C) \eif (A \eif C)} \ci{1-9}
+	
+	\end{proof}
+}
 
 \item $\sststile{}{} P \eiff (P \eor (Q \eand P))$ 
 
-%
-%1.		P				Want: P  (Q & P)
-%2.		P  	(Q & P)		I 1
-%3.		P  (Q & P)		Want P
-%4			~P			For reductio
-%5.			Q & P		E 3, 4
-%6.			P			&E 5
-%8.			~P			R 4
-%9.		P				~E 4
-%10.	P ↔ (P  (Q & P)	I 1¬–2, 3–9
-%
+\answer{
+	\begin{proof}
+	
+		\open
+		\hypo{1}{P} \by{Want: P \eor (Q \eand P)}{}
+		\have{2}{P \eor (Q \eand P)} \by{\eor I}{1}
+		\close
+		\open
+		\hypo{3}{P \eor (Q \eand P)} \by{Want: P}{}
+			\open
+			\hypo{4}{\enot P} \by{For reductio. Want: a contradiction}{}
+			\have{5}{Q \eand P}		\by{\eor E}{3, 4}
+			\have{6}{P} \by{\eand E}{5}
+			\have{7}{~P}			\by{R}{4}
+			\close
+		\have{8}{P	} \by{\enot E}{4-8}			
+		\close
+	\have{9}{P \eiff (P \eor (Q \eand P))} \by{\eiff I 1-2, 3-8}{}
+
+	\end{proof}
+}
 %Appears in Hurley 10, 404 replace ASAP
 
 \end{enumerate}
@@ -3247,10 +3269,10 @@ Proof:
 			\have{8}{\enot C} \by{R}{4}
 			\close
 		\have{9}{A}\ne{5-8}
-		\have{11}{C} \ce{2, 10}
-		\have{12}{\enot C} \by{R}{4}
+		\have{10}{C} \ce{2, 9}
+		\have{11}{\enot C} \by{R}{4}
 		\close
-	\have{13}{C} \ne{4-13}		
+	\have{12}{C} \ne{4-11}		
 \end{proof} 
 
 
@@ -3306,32 +3328,59 @@ Prove the following theorems
 \item $T_\arabic{theorem}$ (Hypothetical Syllogism, HS): $ \{ \script{A} \eif \script{B}, \script{B} \eif \script{C} \} \sststile{}{} \hspace{.25em} \script{A} \eif \script{C}$
 \addtocounter{theorem}{1}
 
-
-%\begin{proof}
-%\hypo{1}{A \eif B}
-%\hypo{2}{B \eif C} \by{Want: A \eif C}{}
-%	\open
-%	\hypo{3}{A} \by{Want: C}{}
-%	\have{4}{B} \ce{1, 3}
-%	\have{5}{C} \ce{2, 4}
-%	\close
-%\have{6}{A \eif C} \ci{3-5}
-%\end{proof}
+\answer{
+\begin{proof}
+\hypo{1}{A \eif B}
+\hypo{2}{B \eif C} \by{Want: A \eif C}{}
+	\open
+	\hypo{3}{A} \by{Want: C}{}
+	\have{4}{B} \ce{1, 3}
+	\have{5}{C} \ce{2, 4}
+	\close
+\have{6}{A \eif C} \ci{3-5}
+\end{proof}
+}
 
 \item $T_\arabic{theorem}$ (Idempotence of \eor, Idem\eor): $  \script{A} \eor \script{A}  \sststile{}{} \script{A} $
 \addtocounter{theorem}{1}
 
+
+\answer{
+\begin{proof}
+\hypo{1}{A \eor A} \by{Want: A}{}
+	\open
+	\hypo{2}{\enot A} \by{Want: A contradiction}{}
+	\have{3}{A} \by{\eor E}{1, 2}
+	\have{4}{\enot A} \by{R}{2}
+	\close
+\have{5}{A} \by{\enot E}{2-4}
+\end{proof}
+}
+
+
 \item $T_\arabic{theorem}$ (Idempotence of \eand, Idem\eand): $  \script{A} \sststile{}{} \script{A} \eand \script{A} $
 \addtocounter{theorem}{1}
 
-%\begin{proof}
-%\hypo{1}{A} \by{Want A \eand A}{}
-%\have{2}{A} \by{R}{1}
-%\have{3}{A \eand A} \ai{1, 2}
-%\end{proof}
 
+\answer{
+\begin{proof}
+\hypo{1}{A} \by{Want A \eand A}{}
+\have{2}{A} \by{R}{1}
+\have{3}{A \eand A} \ai{1, 2}
+\end{proof}
+}
 \item $ T_\arabic{theorem}$ (Weakening, WK): \rm $\script{A} \sststile{}{} \script{B} \eif \script{A}$ \\
 \addtocounter{theorem}{1}
+\answer{
+\begin{proof}
+\hypo{1}{A} \by{Want B \eif A}{}
+\open
+\hypo{2}{B} \by{Want A}{}
+\have{3}{A} \by{R}{1}
+\close
+\have{4}{B \eif A} \by{\eif I}{2-3}
+\end{proof}
+}
 
 \end{enumerate}
 
@@ -3398,13 +3447,17 @@ Provide proofs using both axioms and derived rules to show each of the following
 
 \item If you know that $\script{A}\sststile{}{}\script{B}$, what can you say about $(\script{A}\eand\script{C})\sststile{}{}\script{B}$? Explain your answer.
 
-%1) It is valid. If you know that \script{A} on its own implies \script{B}, then a proof of $(\script{A}\eand\script{C})\sststile{}{}\script{B}$ would only require \eand E and then the proof that $\script{A}\sststile{}{}\script{B}$
-
+\answer{
+It is valid. If you know that \script{A} on its own implies \script{B}, then a proof of $(\script{A}\eand\script{C})\sststile{}{}\script{B}$ would only require \eand E and then the proof that $\script{A}\sststile{}{}\script{B}$
+}
 
 \item If you know that $\script{A}\sststile{}{}\script{B}$, what can you say about $(\script{A}\eor\script{C})\sststile{}{}\script{B}$? Explain your answer.
 \end{enumerate}
 
 
+\answer{
+You do not know whether it is valid or now, because you no longer can assume that \script{A} is true.
+}
 
 
 
@@ -3749,16 +3802,95 @@ Validity		 				& Derive the conclusion form the premises & Find a line in the tr
 \noindent\problempart Use either a derivation or a truth table for each of the following. 
 \begin{enumerate}[label=(\arabic*)]
 \item Show that $A \eif [((B \eand C) \eor D) \eif A]$ is a tautology.
+\answer{We aren't going to want to use a 32 line truth table, so let's do a proof from no premises. Fortunately, it turns out that this problem is just a special case of the weakening theorem
+
+\begin{quote}
+\begin{proof}
+	\open
+	\hypo{1}{A}	\by{Want: $((B \eand C) \eor D) \eif A$}{}
+	\have{2}{((B \eand C) \eor D) \eif A} \by{WK 1}{}
+	\close
+\have{3}{A \eif [((B \eand C) \eor D) \eif A]} \ci{1-2}
+\end{proof}
+\end{quote}
+}
+
 \item Show that $A \eif (A \eif B)$ is not a tautology
 \item Show that the sentence $A \eif \enot{A}$ is not a contradiction.
+
+\answer{
+\begin{longtabu}{cccc}
+A & \eif & \enot & A \\ \hline
+T &	F	&		F	&T\\
+F&	T	&		T	&F\\
+\end{longtabu}
+}
+
+
+
 \item Show that the sentence $A \eiff \enot A$ is a contradiction. 
 \item Show that the sentence $ \enot (W \eif (J \eor J)) $ is contingent
+
+\answer{
+\begin{longtabu}{cccccc}
+\enot & (W& \eif & (J	& \eor	&	J) \\ \hline
+F		&	T	&	T	&	T	&	T		&	T	\\
+T		&	T	&	T	&	F	&	F		&	F	\\
+F		&	F	&	T	&	T	&	T		&	T	\\
+T		&	F	&	T	&	F	&	F		&	F	\\
+\end{longtabu}
+}
+
+
+
 \item Show that the sentence $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ is not contingent
  \item Show that the sentence $B \eif \enot S$ is equivalent to the sentence $\enot \enot B \eif \enot S$
+ 
+ 
+\answer{
+\begin{longtabu}{cccc|cccccc}
+B & \eif & \enot & S	&  \enot	&	\enot	&  B & \eif & \enot & S 	\\ \hline
+T	&	F	&	F		&	T	&		T	&		F	&	T	&	F	&	F		&	T	\\
+T	&	T	&	T		&	F	&		T	&		F	&	T	&	T	&	T		&	F	\\
+F	&	T	&	F		&	T	&		F	&		T	&	F	&	T	&	F		&	T	\\
+F	&	T	&	T		&	F	&		F	&		T	&	F	&	T	&	T		&	F	\\
+\end{longtabu}
+}
+ 
+
+ 
 \item Show that the sentence $ \enot (X \eor O) $ is not equivalent to the sentence $X \eand O$
 \item Show that the set $\{\enot(A \eor B), C, C \eif A\}$ is inconsistent.
+
+\answer{An 8 line truth table is doable, but it would still be easier and more fun to do this as a derivation
+
+\begin{proof}
+\hypo{1}{\enot(A \eor B)}
+\hypo{2}{C} 
+\hypo{3}{C \eif A}  	\by{Want: A contradiction}{}
+\have{4}{A} \ci{2, 3}
+\have{5}{A \eor B} \oi{4}
+\have{6}{\enot(A \eor B)} \by{R 1}{}
+\end{proof}
+}
+
+
+
 \item Show that the set \{\enot(A \eor B), \enot{B}, B \eif A\} is consistent
 \item Show that $\enot(A \eor (B \eor C)) $ \therefore $ \enot{C}$ is valid.
+\item Show that $\enot(A \eor (B \eor C)) \sststile{}{}  \enot{C}$ is valid.
+
+\answer{
+\begin{proof}
+\hypo{1}{\enot(A \eor (B \eor C))} \by{Want: $\enot C$}{}
+\have{2}{\enot A \eand \enot (B \eor C)} \by{DeM 1}{}
+\have{3}{\enot A \eand (\enot B \eand \enot C)} \by{DeM 2}{}
+\have{4}{\enot B \eand \enot C} \ae{3}
+\have{5}{\enot C} \ae{3}
+\end{proof}
+}
+
+
 \item Show that $\enot(A \eand (B \eor C))$ \therefore $ \enot{C}$ is invalid. 
 \end{enumerate}
 
